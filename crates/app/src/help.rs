@@ -4,7 +4,6 @@
 //! Keyboard shortcuts and Tell a friend.
 
 use std::sync::{Arc, Mutex};
-use std::time::Duration;
 
 use egui::{pos2, vec2};
 
@@ -16,7 +15,6 @@ pub const REPO: &str = "https://github.com/anefzaoui/misterdownloadmanager";
 /// The creator's GitHub Sponsors page: Help → Support MDM, About's last line. The website, the
 /// extension's popup and the repository's Sponsor button (.github/FUNDING.yml) point there too.
 pub const SPONSORS: &str = "https://github.com/sponsors/anefzaoui";
-const LATEST: &str = "https://api.github.com/repos/anefzaoui/misterdownloadmanager/releases/latest";
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const COMMIT: &str = env!("MDM_COMMIT");
 /// While MDM runs, the automatic check comes again this often (it also checks at every start).
@@ -164,6 +162,7 @@ pub struct Release {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+#[allow(dead_code)]
 pub enum Found {
     Latest,
     Newer(Release),
@@ -174,20 +173,23 @@ pub type Slot = Arc<Mutex<Option<Result<Found, String>>>>;
 /// Ask GitHub for the latest release in the background; the answer lands in the slot. Whatever
 /// goes wrong, even a panic in the check, lands there as a failed check (#1123): the slot never
 /// stays empty, which would leave Check for updates waiting for good.
-pub fn check(rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
-    let slot: Slot = Arc::new(Mutex::new(None));
-    let (out, ctx) = (slot.clone(), ctx.clone());
-    let task = rt.spawn(latest());
-    rt.spawn(async move {
-        let res = settled(task.await);
-        *out.lock()
-            .unwrap_or_else(std::sync::PoisonError::into_inner) = Some(res);
-        ctx.request_repaint();
-    });
+/// ZDownloader3 (this fork): self-update is disabled — the fork publishes no release feed and
+/// has no signing key; installing ZDownloader3 binaries into a user's system belongs to the
+/// package manager that installed it, or to the fork's (future) releases page. The old code
+/// pointed the check and the SHA256SUMS verification at upstream Mister Download Manager, which
+/// would have silently replaced the fork with upstream's build.
+pub const FORK_UPDATE_DISABLED: &str =
+    "Self-update is disabled in ZDownloader3. Use your package manager, or the fork's releases page.";
+
+pub fn check(_rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
+    let slot: Slot = Arc::new(Mutex::new(Some(Err(FORK_UPDATE_DISABLED.to_owned()))));
+    ctx.request_repaint();
     slot
 }
 
-/// The check's task ended: its answer, or a failed check when it panicked (or was cancelled).
+
+#[cfg(test)]
+/// The check's task ended: its answer, or a failed check (test-only, used by the unit tests).
 fn settled(joined: Result<Result<Found, String>, tokio::task::JoinError>) -> Result<Found, String> {
     joined.unwrap_or_else(|e| {
         tracing::warn!("the update check stopped: {e}");
@@ -195,22 +197,8 @@ fn settled(joined: Result<Result<Found, String>, tokio::task::JoinError>) -> Res
     })
 }
 
-async fn latest() -> Result<Found, String> {
-    // MDM_UPDATE_FEED: another address for the latest release (tests of Update now, as
-    // ZD3_DATA_DIR is for a separate list).
-    let feed = std::env::var("MDM_UPDATE_FEED").unwrap_or_else(|_| LATEST.to_owned());
-    let net = crate::settings::own_net();
-    // The chosen DNS and network adapter, as downloads have them (#36, #35).
-    let client = mdm_engine::net::client_builder(&net.dns, &net.route, &feed)
-        .map_err(|e| e.to_string())?
-        .user_agent(concat!("ZDownloader3/", env!("CARGO_PKG_VERSION")))
-        .timeout(Duration::from_secs(20))
-        .build()
-        .map_err(|e| e.to_string())?;
-    fetch(&client, &feed, VERSION).await
-}
-
-/// The latest release at `feed` against the running `current` version.
+/// The latest release at `feed` against the running `current` version (test-only).
+#[cfg(test)]
 async fn fetch(client: &reqwest::Client, feed: &str, current: &str) -> Result<Found, String> {
     let resp = client
         .get(feed)
@@ -218,7 +206,6 @@ async fn fetch(client: &reqwest::Client, feed: &str, current: &str) -> Result<Fo
         .send()
         .await
         .map_err(|e| e.to_string())?;
-    // No release published yet: nothing newer than this.
     if resp.status() == reqwest::StatusCode::NOT_FOUND {
         return Ok(Found::Latest);
     }
@@ -231,20 +218,18 @@ async fn fetch(client: &reqwest::Client, feed: &str, current: &str) -> Result<Fo
     parse_release(&text, current)
 }
 
-/// GitHub's latest-release JSON against the running `current` version.
+/// GitHub's latest-release JSON against the running `current` version (test-only).
+#[cfg(test)]
 fn parse_release(json: &str, current: &str) -> Result<Found, String> {
     let v: serde_json::Value = serde_json::from_str(json).map_err(|e| e.to_string())?;
     let tag = v["tag_name"].as_str().unwrap_or("").trim();
     let version = tag.trim_start_matches(['v', 'V']);
-    // A number MDM can't read ("next", "1.x") would compare as 0 and pass for older: no answer
-    // is better than a wrong one.
     let numeric = version
         .split_once('-')
         .map_or(version, |(main, _)| main)
         .split('.')
         .all(|p| p.parse::<u64>().is_ok());
     if version.is_empty() || !numeric {
-        // i18n: why updates could not be checked: the newest release on the site has no number
         return Err(crate::i18n::t("the release has no version").to_owned());
     }
     if !newer(version, current) {
@@ -272,9 +257,9 @@ fn parse_release(json: &str, current: &str) -> Result<Found, String> {
     }))
 }
 
-/// `a` is a later version than `b` (numeric parts; a pre-release `-…` counts before its
-/// release).
-pub fn newer(a: &str, b: &str) -> bool {
+/// `a` is a later version than `b` (test-only).
+#[cfg(test)]
+pub(crate) fn newer(a: &str, b: &str) -> bool {
     fn key(v: &str) -> (Vec<u64>, bool) {
         let (main, pre) = v.split_once('-').map_or((v, false), |(m, _)| (m, true));
         (
@@ -1137,6 +1122,7 @@ impl TellFriend {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::time::Duration;
 
     #[test]
     fn versions_compare_by_number() {
