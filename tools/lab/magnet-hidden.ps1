@@ -2,12 +2,12 @@
 # hidden (closed to the notification area) crashed 0.2.4 ("egui backend is implemented incorrectly
 # - the user callback was never called"). This script plays it on a test copy, off the screens:
 #
-#   powershell -File tools/lab/magnet-hidden.ps1 -Exe <dir>\misterdownloadmanager.exe [-State hidden] [-Send magnet]
+#   powershell -File tools/lab/magnet-hidden.ps1 -Exe <dir>\zdownloader3.exe [-State hidden] [-Send magnet]
 #
 # -Send: what the browser hands over.
 #   magnet    the browser gives a magnet link to Windows, which starts the program with it (the file
 #             association); that second launch passes it to the running copy, which opens Add torrent.
-#   download  the extension gives a download to the native host (misterdownloadmanager-nmhost.exe,
+#   download  the extension gives a download to the native host (zdownloader3-nmhost.exe,
 #             beside -Exe), started as Firefox starts it (the manifest's path, then the add-on's
 #             ID) with one native message; the host passes it on and the copy opens Download File
 #             Info. The address is on 127.0.0.1 port 9, where nothing answers.
@@ -17,7 +17,7 @@
 #   plain second launch, which shows the window again, right before), all (each in turn).
 # -Renderer: glow or direct3d (MDM_RENDERER; after 0.2.4).
 #
-# Each run has its own data folder (MDM_DATA_DIR, deleted after unless -Keep), so nothing touches
+# Each run has its own data folder (ZD3_DATA_DIR, deleted after unless -Keep), so nothing touches
 # an installed MDM, its registrations or the browsers. Nothing goes to the internet: the magnet
 # names no tracker, the update check is off, and the torrent engine's DHT, local discovery, UPnP
 # and incoming connections are off. A release that can't turn them off (0.2.4 and older) needs
@@ -44,7 +44,7 @@ param(
 )
 $ErrorActionPreference = "Stop"
 $Exe = (Resolve-Path $Exe).Path
-$Host_ = Join-Path (Split-Path $Exe) "misterdownloadmanager-nmhost.exe"
+$Host_ = Join-Path (Split-Path $Exe) "zdownloader3-nmhost.exe"
 if ($Send -eq "download" -and -not (Test-Path $Host_)) { throw "no native host beside -Exe: $Host_" }
 Add-Type @"
 using System; using System.Text; using System.Collections.Generic; using System.Runtime.InteropServices;
@@ -143,14 +143,14 @@ function Run-State([string]$St) {
   if ($NoTorrentEngine) {
     Set-Content -Encoding Ascii (Join-Path $data "torrents") "not a folder (tools/lab/magnet-hidden.ps1)"
   }
-  $env:MDM_DATA_DIR = $data
+  $env:ZD3_DATA_DIR = $data
   $env:MDM_OFFSCREEN = "1"
   if ($Renderer) { $env:MDM_RENDERER = $Renderer } else { Remove-Item Env:MDM_RENDERER -ErrorAction SilentlyContinue }
   $app = Start-Process -FilePath $Exe -PassThru
   $reply = ""
   try {
     # The main window: the copy's first (its title has the version, Options' starts the same).
-    $main = Wait-Window $app.Id "Mister Download Manager*"
+    $main = Wait-Window $app.Id "ZDownloader3*"
     Start-Sleep -Milliseconds 800
     switch ($St) {
       "visible" { }
@@ -214,7 +214,7 @@ function Run-State([string]$St) {
       }
     }
     if (-not $Keep) { Remove-Item -Recurse -Force $data -ErrorAction SilentlyContinue }
-    Remove-Item Env:MDM_DATA_DIR, Env:MDM_OFFSCREEN, Env:MDM_RENDERER -ErrorAction SilentlyContinue
+    Remove-Item Env:ZD3_DATA_DIR, Env:MDM_OFFSCREEN, Env:MDM_RENDERER -ErrorAction SilentlyContinue
   }
 }
 

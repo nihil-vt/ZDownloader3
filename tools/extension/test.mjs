@@ -212,7 +212,7 @@ function fakeApi({
       onClicked: event("menu"),
     },
     // The browser's language: German here.
-    i18n: { getMessage: (key) => ({ menu: "Mit Mister Download Manager herunterladen" })[key] ?? "" },
+    i18n: { getMessage: (key) => ({ menu: "Mit ZDownloader3 herunterladen" })[key] ?? "" },
   };
   if (safari) delete api.downloads;
   if (!firefox && !safari) api.declarativeNetRequest = { getSessionRules: async () => [], updateSessionRules: async (r) => calls.push(["dnr", r]) };
@@ -314,7 +314,7 @@ const ok = (what) => {
   const cookies = calls.find((c) => c[0] === "cookies");
   assert.deepEqual(cookies[1], { url: "https://x/a.zip", storeId: "firefox-container-2" });
   const native = calls.find((c) => c[0] === "native");
-  assert.equal(native[1], "com.misterdownloadmanager.host");
+  assert.equal(native[1], "com.zdownloader3.host");
   const m = native[2];
   assert.deepEqual(
     [m.url, m.referrer, m.cookies, m.filename, m.size, m.mime, m.userAgent, m.v],
@@ -478,7 +478,7 @@ const ok = (what) => {
   ok("the app's file types decide, asked once");
 }
 
-// Mister Download Manager not installed (no host): everything stays with the browser, and the
+// ZDownloader3 not installed (no host): everything stays with the browser, and the
 // toolbar button says something is wrong.
 {
   const { api, calls, listeners, store } = fakeApi({ firefox: false, host: false });
@@ -757,7 +757,7 @@ const ok = (what) => {
   ok("#948 Chromium: a name only the address gave is sent as a guess; the rule keeps attachments");
 }
 
-// Right-click → Download with Mister Download Manager: handed over as an explicit request, so
+// Right-click → Download with ZDownloader3: handed over as an explicit request, so
 // the host takes any link (an .html page here); a failure opens the help page's section.
 {
   const { api, calls, listeners } = fakeApi({ firefox: false });
@@ -2804,7 +2804,7 @@ function videoButton({ stored = {} } = {}) {
   load(api, false);
   await listeners.installed({ reason: "update" });
   const item = calls.find((c) => c[0] === "menu-item")[1];
-  assert.equal(item.title, "Mit Mister Download Manager herunterladen");
+  assert.equal(item.title, "Mit ZDownloader3 herunterladen");
   const dir = new URL("../../extension/_locales/", import.meta.url);
   const english = JSON.parse(readFileSync(new URL("en/messages.json", dir), "utf8"));
   for (const locale of readdirSync(dir)) {

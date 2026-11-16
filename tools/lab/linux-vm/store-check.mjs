@@ -184,8 +184,8 @@ if (browser === "firefox") {
   // there is one (with the .deb or .rpm installed there is none, #266, and everyone's is read).
   const hosts = path.join(profile, "NativeMessagingHosts");
   fs.mkdirSync(hosts, { recursive: true });
-  const mine = path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.misterdownloadmanager.host.json");
-  if (fs.existsSync(mine)) fs.copyFileSync(mine, path.join(hosts, "com.misterdownloadmanager.host.json"));
+  const mine = path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.zdownloader3.host.json");
+  if (fs.existsSync(mine)) fs.copyFileSync(mine, path.join(hosts, "com.zdownloader3.host.json"));
   say(`host manifest: ${fs.existsSync(mine) ? mine : "/etc/opt/chrome/native-messaging-hosts (none in the home folder)"}`);
   const proc = spawn(
     "/usr/bin/google-chrome",

@@ -9,6 +9,6 @@
   <!-- MDM's data folder: the channel to the app and Options' rules (the helper reads and writes
        them; outside the Mac App Store this exception is allowed). -->
   <key>com.apple.security.temporary-exception.files.home-relative-path.read-write</key>
-  <array><string>/Library/Application Support/misterdownloadmanager/</string></array>
+  <array><string>/Library/Application Support/zdownloader3/</string></array>
 </dict>
 </plist>

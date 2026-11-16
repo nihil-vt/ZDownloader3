@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping with Mister Download Manager. Bug reports, ideas, translation fixes and pull
+Thanks for helping with ZDownloader3. Bug reports, ideas, translation fixes and pull
 requests are all welcome.
 
 ## Getting set up
@@ -17,7 +17,7 @@ cargo run -p mdm-app
 To try changes without touching your own downloads, give the app a separate data folder:
 
 ```
-set MDM_DATA_DIR=C:\some\empty\folder
+set ZD3_DATA_DIR=C:\some\empty\folder
 cargo run -p mdm-app
 ```
 

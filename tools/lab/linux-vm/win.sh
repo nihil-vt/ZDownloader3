@@ -20,7 +20,7 @@
 # object (e.g. '{"net_adapter":"none0"}'). MDM_NATIVE_ACCENT and
 # MDM_NATIVE_CONTRAST pass through to MDM (the Native theme's stand-ins for the system's).
 . ~/lab/env.sh
-data=$HOME/.local/share/misterdownloadmanager
+data=$HOME/.local/share/zdownloader3
 state=/tmp/mdm-win.state
 cmd=$1; shift
 
@@ -35,7 +35,7 @@ mine() { wmctrl -lp | awk -v p="$PID" '$3 == p {print $1}'; }
 case "$cmd" in
   start)
     label=$1; lang=$2; mode=$3; theme=${4:-classic}
-    app=$HOME/lab/bin/$label/misterdownloadmanager
+    app=$HOME/lab/bin/$label/zdownloader3
     # The last MDM gone for good first: a new one started while it still ends hands its command
     # line to it and leaves, and nothing is left running.
     pkill -x misterdownloadm

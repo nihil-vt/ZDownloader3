@@ -1,10 +1,10 @@
-# Mister Download Manager on a server, without a window (#157): docs/server.md.
+# ZDownloader3 on a server, without a window (#157): docs/server.md.
 #
-#   docker build -t misterdownloadmanager .
+#   docker build -t zdownloader3 .
 #   docker run -d --name mdm -p 8463:8463 -v mdm-config:/config -v /srv/downloads:/downloads \
-#     misterdownloadmanager
+#     zdownloader3
 #   docker logs mdm                                  # the address and a pairing code
-#   docker exec mdm misterdownloadmanager-cli pair   # another code
+#   docker exec mdm zdownloader3-cli pair   # another code
 #
 # PROFILE=release (the default) is what ships: slow to build (whole-program optimisation);
 # `--build-arg PROFILE=dev` builds quicker, for a try.
@@ -28,7 +28,7 @@ ENV CARGO_PROFILE_RELEASE_DEBUG=false
 RUN set -e; \
     cargo build --locked --profile "$PROFILE" -p mdm-app -p mdm-cli; \
     out="target/$PROFILE"; if [ "$PROFILE" = dev ]; then out=target/debug; fi; \
-    mkdir -p /out; cp "$out/misterdownloadmanager" "$out/misterdownloadmanager-cli" /out/; \
+    mkdir -p /out; cp "$out/zdownloader3" "$out/zdownloader3-cli" /out/; \
     strip /out/*; \
     rm -rf target /usr/local/cargo/registry /usr/local/cargo/git
 
@@ -40,11 +40,11 @@ RUN apt-get update \
  && mkdir -p /config /downloads && chown 1000:1000 /config /downloads
 COPY --from=build /out/ /usr/local/bin/
 # The list, settings, certificate and paired devices in /config; the files in /downloads.
-ENV MDM_DATA_DIR=/config MDM_DOWNLOADS=/downloads
+ENV ZD3_DATA_DIR=/config MDM_DOWNLOADS=/downloads
 VOLUME ["/config", "/downloads"]
 # The remote control (HTTPS); torrents use a port of their own (Torrent settings).
 EXPOSE 8463
 # Any user works (`--user 99:100` on Unraid): it needs only to write /config and /downloads.
 USER 1000:1000
 # MDM handles docker stop's SIGTERM itself (it saves the list), so it runs as PID 1.
-ENTRYPOINT ["misterdownloadmanager", "--headless"]
+ENTRYPOINT ["zdownloader3", "--headless"]

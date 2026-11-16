@@ -88,7 +88,7 @@ Everything below ships together, in version 0.5.0.
   reliably, even while a browser still runs the old one, and put back at each start if it went
   missing; Test browser integration says when it is missing, or why setting it up failed
   ([#253](https://github.com/anefzaoui/misterdownloadmanager/issues/253))
-- ✅ The extension's popup shows **Open Mister Download Manager** whole: it was cut to "Open Mister
+- ✅ The extension's popup shows **Open ZDownloader3** whole: it was cut to "Open Mister
   Do…" on Linux and in longer languages; Options moves below it when both don't fit on one line
   (part of [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164))
 - ✅ The crash report window's status line (such as "The symbols couldn't be fetched: …") stays
@@ -205,7 +205,7 @@ Everything below ships together, in version 0.5.0.
   the button over the video, the right-click menu and the media list, read only when asked
   ([#171](https://github.com/anefzaoui/misterdownloadmanager/issues/171))
 - ✅ The extension in the [Chrome Web Store](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp): **Add to Chrome** beside **Add to Firefox**
-  on the website, in the help, the FAQ and the README; MDM's **Add Mister Download Manager to
+  on the website, in the help, the FAQ and the README; MDM's **Add ZDownloader3 to
   your browser** window opens the store in Chrome, Edge, Brave, Opera and Vivaldi, with the
   manual install as the fallback
 - ✅ Themes, the groundwork: every colour and size the controls are drawn with comes from one
@@ -259,7 +259,7 @@ Everything below ships together, in version 0.5.0.
   [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164))
 - ✅ Firefox's add-on offered from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/mister-download-manager/)
   first: **Add to Firefox** on the website, in the help, the FAQ and the README, and in MDM's
-  **Add Mister Download Manager to your browser** window (for Zen and LibreWolf too)
+  **Add ZDownloader3 to your browser** window (for Zen and LibreWolf too)
 - ✅ Support MDM: a way to support its creator on [GitHub Sponsors](https://github.com/sponsors/anefzaoui),
   asked for only (**Help → Support MDM**, a line in About, the website, the README, the
   extension's popup and GitHub's Sponsor button); MDM stays free, nothing changes or unlocks
@@ -665,7 +665,7 @@ These ship in the next version.
   ([#1110](https://github.com/anefzaoui/misterdownloadmanager/issues/1110))
 - ✅ A malformed stream playlist no longer stops the video downloader: that download fails and
   says why ([#1141](https://github.com/anefzaoui/misterdownloadmanager/issues/1141))
-- ✅ A queue (or a download) set to **Exit Mister Download Manager when done** quits MDM, as File →
+- ✅ A queue (or a download) set to **Exit ZDownloader3 when done** quits MDM, as File →
   Exit does, with **Keep running when closing the window** on; it only hid MDM in the notification
   area
 - ✅ Windows and macOS: names in any script a font on the computer has show their letters, whatever
@@ -768,7 +768,7 @@ These ship in the next version.
   settings' switch says when another app chosen there still opens them, and opens that page
   ([#1091](https://github.com/anefzaoui/misterdownloadmanager/issues/1091))
 - ✅ A .torrent downloaded in the browser stays with the browser (and your own torrent program)
-  while Torrent settings' **Open magnet links and .torrent files with Mister Download Manager**
+  while Torrent settings' **Open magnet links and .torrent files with ZDownloader3**
   is off ([#1058](https://github.com/anefzaoui/misterdownloadmanager/issues/1058))
 - ✅ A video in a player embedded from another site (Vimeo's on a film site) is named after the
   page's title, without the site's name, instead of the player's own title
@@ -1039,7 +1039,7 @@ These ship in the next version.
   30 minutes, 1 hour, 8 hours or until MDM restarts, and Options → Downloads says until when, with
   Resume now ([#741](https://github.com/anefzaoui/misterdownloadmanager/issues/741))
 - ✅ WinGet in the install steps: the README, the help and the website's download page give
-  `winget install AhmedNefzaoui.MisterDownloadManager` and `winget upgrade`
+  `winget install AhmedNefzaoui.ZDownloader3` and `winget upgrade`
   ([#798](https://github.com/anefzaoui/misterdownloadmanager/issues/798))
 - ✅ The Download video button, redesigned ([#703](https://github.com/anefzaoui/misterdownloadmanager/issues/703)): MDM looks the video up as the
   button appears and the button names the best quality, which one click downloads; a plain file
@@ -1144,7 +1144,7 @@ These ship in the next version.
   switch to MDM's copy ([#452](https://github.com/anefzaoui/misterdownloadmanager/issues/452))
 - ✅ The Download video button lists the video's qualities, with their sizes, in a menu on the page,
   video and audio in their own tabs: the one picked downloads at once with only its progress window,
-  MDM's main window staying where it is; "Open in Mister Download Manager…" keeps the Download video
+  MDM's main window staying where it is; "Open in ZDownloader3…" keeps the Download video
   window. A stream the page plays (HLS) is listed at once, the same video asked again within 10
   minutes opens at once, and the pick starts without looking the video up a second time
   ([#449](https://github.com/anefzaoui/misterdownloadmanager/pull/449))

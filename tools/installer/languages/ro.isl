@@ -1,4 +1,4 @@
-﻿; Mister Download Manager's installer in Romanian: tools/installer/languages.py
+﻿; ZDownloader3's installer in Romanian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Se dezinstalează %1.
 
 [CustomMessages]
 TaskBrowser=Configurați integrarea cu &browserul (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Deschideți fișierele .&torrent și linkurile magnet cu Mister Download Manager
-TaskStartup=Porniți Mister Download Manager la pornirea &Windows
+TaskTorrents=Deschideți fișierele .&torrent și linkurile magnet cu ZDownloader3
+TaskStartup=Porniți ZDownloader3 la pornirea &Windows
 TaskGroupOther=Altele:
-Launch=Porniți Mister Download Manager
+Launch=Porniți ZDownloader3
 KeepData=Ștergeți și lista de descărcări și setările?%n%nFișierele descărcate nu sunt afectate în niciun fel.

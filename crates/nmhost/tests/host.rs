@@ -1,5 +1,5 @@
 //! The native host as the browser runs it: the real program, its standard streams framed as
-//! native messages, its own data folder (MDM_DATA_DIR) with a fake Mister Download Manager
+//! native messages, its own data folder (ZD3_DATA_DIR) with a fake ZDownloader3
 //! listening where `ipc.json` says, answering as the test wants.
 
 use std::io::{BufRead, BufReader, Read, Write};
@@ -9,7 +9,7 @@ use std::process::{Command, Stdio};
 use std::sync::mpsc;
 use std::time::Duration;
 
-const HOST: &str = env!("CARGO_BIN_EXE_misterdownloadmanager-nmhost");
+const HOST: &str = env!("CARGO_BIN_EXE_zdownloader3-nmhost");
 const CALLER: &str = "chrome-extension://oogbclbbninliongijffeeggalppliok/";
 const UA: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/141.0.0.0 Safari/537.36";
 
@@ -54,7 +54,7 @@ fn run(
 ) -> (Vec<serde_json::Value>, bool) {
     let mut child = Command::new(HOST)
         .arg(caller)
-        .env("MDM_DATA_DIR", dir)
+        .env("ZD3_DATA_DIR", dir)
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .stderr(Stdio::null())
@@ -293,14 +293,14 @@ fn zen_and_helium_alone_are_registered() {
             .arg(arg)
             .env("HOME", &home)
             .env_remove("XDG_CONFIG_HOME")
-            .env("MDM_DATA_DIR", &home)
+            .env("ZD3_DATA_DIR", &home)
             .output()
             .unwrap();
         assert!(out.status.success(), "{arg}: {out:?}");
     };
     host("--register");
     let manifest = |dir: &std::path::Path| -> serde_json::Value {
-        let file = dir.join("com.misterdownloadmanager.host.json");
+        let file = dir.join("com.zdownloader3.host.json");
         serde_json::from_str(&std::fs::read_to_string(&file).unwrap()).unwrap()
     };
     assert!(manifest(&mozilla_hosts)["allowed_extensions"].is_array());
@@ -324,7 +324,7 @@ fn zen_and_helium_alone_are_registered() {
     );
     host("--unregister");
     for dir in [&mozilla_hosts, &helium_hosts] {
-        assert!(!dir.join("com.misterdownloadmanager.host.json").exists());
+        assert!(!dir.join("com.zdownloader3.host.json").exists());
     }
     assert!(!offer.exists());
     let _ = std::fs::remove_dir_all(&home);
@@ -355,11 +355,11 @@ fn brave_origin_alone_is_registered() {
         .env("HOME", &home)
         .env_remove("XDG_CONFIG_HOME")
         .env_remove("APPDIR")
-        .env("MDM_DATA_DIR", &home)
+        .env("ZD3_DATA_DIR", &home)
         .output()
         .unwrap();
     assert!(out.status.success(), "{out:?}");
-    let file = hosts.join("com.misterdownloadmanager.host.json");
+    let file = hosts.join("com.zdownloader3.host.json");
     let manifest: serde_json::Value =
         serde_json::from_str(&std::fs::read_to_string(&file).unwrap()).unwrap();
     assert_eq!(
@@ -382,14 +382,14 @@ fn a_host_inside_an_appimage_mount_is_not_registered() {
         .env("HOME", &home)
         .env_remove("XDG_CONFIG_HOME")
         .env("APPDIR", &mount)
-        .env("MDM_DATA_DIR", &home)
+        .env("ZD3_DATA_DIR", &home)
         .output()
         .unwrap();
     assert!(!out.status.success());
     assert!(String::from_utf8_lossy(&out.stderr).contains("AppImage"));
     assert!(
         !home
-            .join(".config/google-chrome/NativeMessagingHosts/com.misterdownloadmanager.host.json")
+            .join(".config/google-chrome/NativeMessagingHosts/com.zdownloader3.host.json")
             .exists()
     );
     let _ = std::fs::remove_dir_all(&home);
@@ -417,9 +417,9 @@ fn a_host_in_a_temporary_folder_is_not_registered() {
     let home = data_dir("temporary", serde_json::json!({}));
     let (chrome, hosts) = chrome_dirs(&home);
     std::fs::create_dir_all(&chrome).unwrap();
-    let extracted = home.join("Rar$EXa34720.17029.rartemp/MisterDownloadManager");
+    let extracted = home.join("Rar$EXa34720.17029.rartemp/ZDownloader3");
     std::fs::create_dir_all(&extracted).unwrap();
-    let copy = extracted.join("misterdownloadmanager-nmhost");
+    let copy = extracted.join("zdownloader3-nmhost");
     std::fs::copy(HOST, &copy).unwrap();
     std::fs::set_permissions(&copy, std::fs::Permissions::from_mode(0o755)).unwrap();
     for arg in ["--register", "--repair"] {
@@ -432,7 +432,7 @@ fn a_host_in_a_temporary_folder_is_not_registered() {
                 .env("HOME", &home)
                 .env_remove("XDG_CONFIG_HOME")
                 .env_remove("APPDIR")
-                .env("MDM_DATA_DIR", &home)
+                .env("ZD3_DATA_DIR", &home)
                 .output();
             match run {
                 Err(e) if e.kind() == std::io::ErrorKind::ExecutableFileBusy && tries < 50 => {
@@ -462,13 +462,13 @@ fn a_start_takes_only_a_registration_that_leads_nowhere() {
     let home = data_dir("repair", serde_json::json!({}));
     let (_, hosts) = chrome_dirs(&home);
     std::fs::create_dir_all(&hosts).unwrap();
-    let file = hosts.join("com.misterdownloadmanager.host.json");
-    let other = home.join("other-copy/misterdownloadmanager-nmhost");
+    let file = hosts.join("com.zdownloader3.host.json");
+    let other = home.join("other-copy/zdownloader3-nmhost");
     std::fs::create_dir_all(other.parent().unwrap()).unwrap();
     std::fs::write(&other, b"#!/bin/sh\n").unwrap();
     std::fs::set_permissions(&other, std::fs::Permissions::from_mode(0o755)).unwrap();
     let theirs = serde_json::json!({
-        "name": "com.misterdownloadmanager.host",
+        "name": "com.zdownloader3.host",
         "path": other,
         "type": "stdio",
         "allowed_origins": [],
@@ -480,7 +480,7 @@ fn a_start_takes_only_a_registration_that_leads_nowhere() {
             .env("HOME", &home)
             .env_remove("XDG_CONFIG_HOME")
             .env_remove("APPDIR")
-            .env("MDM_DATA_DIR", &home)
+            .env("ZD3_DATA_DIR", &home)
             .output()
             .unwrap();
         assert!(out.status.success(), "{arg}: {out:?}");

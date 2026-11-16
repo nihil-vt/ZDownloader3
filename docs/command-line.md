@@ -5,17 +5,17 @@
 MDM can be driven without its window in three ways:
 
 - **The app's own command line**, the same switches as IDM's: hand a download to the running app from a script, a batch file or another program.
-- **`misterdownloadmanager-cli`**, a separate command-line tool: download files, videos and torrents in a terminal, with progress, without the app.
+- **`zdownloader3-cli`**, a separate command-line tool: download files, videos and torrents in a terminal, with progress, without the app.
 - **The automation API**: other programs list the running app's downloads (as JSON) and pause, start, remove or delete them, over a local, token-protected channel. AI assistants use it through MDM's MCP server: see [AI assistants](ai-assistants.md).
 
-To run the whole app without a window, on a home server or a NAS, see [Run MDM on a server](server.md) (`misterdownloadmanager --headless`); to control it from a phone, [Control MDM from your phone](remote-control.md).
+To run the whole app without a window, on a home server or a NAS, see [Run MDM on a server](server.md) (`zdownloader3 --headless`); to control it from a phone, [Control MDM from your phone](remote-control.md).
 
 The examples use Windows' paths; on macOS and Linux the programs have the same names without `.exe`.
 
 ## The app's command line
 
 ```
-misterdownloadmanager.exe /d URL [/p folder] [/f name] [/a] [/n] [/s]
+zdownloader3.exe /d URL [/p folder] [/f name] [/a] [/n] [/s]
 ```
 
 | Switch | What it does |
@@ -27,18 +27,18 @@ misterdownloadmanager.exe /d URL [/p folder] [/f name] [/a] [/n] [/s]
 | `/n` | Silent: no **Download File Info** window, the download starts (or is queued, with `/a`) at once. |
 | `/s` | Start the main download queue. |
 | `/exit` | Save and close the running app (the installer uses it before an upgrade). |
-| `/startup` | Start in the notification area, the window hidden: what **Launch Mister Download Manager on startup** starts MDM with when you sign in. Where no notification area shows MDM's icon (some Linux desktops), MDM starts minimized. A running MDM stays as it is. |
+| `/startup` | Start in the notification area, the window hidden: what **Launch ZDownloader3 on startup** starts MDM with when you sign in. Where no notification area shows MDM's icon (some Linux desktops), MDM starts minimized. A running MDM stays as it is. |
 | *a `.torrent` file or `magnet:` link* | Open it in **Add torrent** (what Windows passes when MDM opens torrents). |
 
 Switches can start with `/` or `-`, in any case. If MDM is running, the command goes to it; if not, MDM starts and carries it out. For example:
 
 ```
-misterdownloadmanager.exe /d https://example.com/files/report.pdf /p D:\Reports /n
-misterdownloadmanager.exe /d https://example.com/big.iso /a
-misterdownloadmanager.exe /s
+zdownloader3.exe /d https://example.com/files/report.pdf /p D:\Reports /n
+zdownloader3.exe /d https://example.com/big.iso /a
+zdownloader3.exe /s
 ```
 
-## misterdownloadmanager-cli
+## zdownloader3-cli
 
 It comes with every download of MDM, next to the app (the installer puts it in MDM's folder). It works on its own: the app needn't run, except for `status` and `api`.
 
@@ -61,12 +61,12 @@ It comes with every download of MDM, next to the app (the installer puts it in M
 | `remove ID...`, `delete ID...` | Take downloads off the running app's list: `remove` keeps their files, `delete` deletes them too. A running download is paused first (`pause`). |
 | `api on`, `api off` | Turn the running app's automation API on or off. |
 
-`misterdownloadmanager-cli help <command>` shows every option. A command that fails (the app isn't running, it answers with an error, a download breaks) exits with code 1. For example:
+`zdownloader3-cli help <command>` shows every option. A command that fails (the app isn't running, it answers with an error, a download breaks) exits with code 1. For example:
 
 ```
-misterdownloadmanager-cli get https://example.com/big.iso -o D:\Downloads -c 16 --checksum sha256:9f86d0…
-misterdownloadmanager-cli video-get "https://www.youtube.com/watch?v=aqz-KE-bpKQ" -q 720
-misterdownloadmanager-cli torrent-get "magnet:?xt=urn:btih:…" --files 0
+zdownloader3-cli get https://example.com/big.iso -o D:\Downloads -c 16 --checksum sha256:9f86d0…
+zdownloader3-cli video-get "https://www.youtube.com/watch?v=aqz-KE-bpKQ" -q 720
+zdownloader3-cli torrent-get "magnet:?xt=urn:btih:…" --files 0
 ```
 
 ### JSON for scripts and programs
@@ -87,7 +87,7 @@ With `--json` (before or after the command), every command prints JSON instead o
 Sizes are in bytes (`null` while unknown), speeds in bytes per second. A failure prints `{"error": "…"}` and exits with code 1; when `video-get` finds no format of the page to download, the error comes with `"choices"` (as `video-info`'s) and `"formats"` (yt-dlp's own: `{"id", "ext", "height", "video", "audio"}`). For example:
 
 ```
-misterdownloadmanager-cli --json get https://example.com/big.iso -o D:\Downloads
+zdownloader3-cli --json get https://example.com/big.iso -o D:\Downloads
 {"event":"progress","downloaded":4194304,"size":1073741824,"speed":52428800,"connections":8,"segments":8}
 …
 {"event":"done","path":"D:\\Downloads\\big.iso","size":1073741824,"seconds":20.4}
@@ -95,14 +95,14 @@ misterdownloadmanager-cli --json get https://example.com/big.iso -o D:\Downloads
 
 ## The automation API
 
-Other programs can ask the running app what it is downloading, and pause, start, remove or delete downloads. The API is **off by default**; turn it on with `misterdownloadmanager-cli api on` (and off with `api off`).
+Other programs can ask the running app what it is downloading, and pause, start, remove or delete downloads. The API is **off by default**; turn it on with `zdownloader3-cli api on` (and off with `api off`).
 
 ### How a program talks to MDM
 
 1. While it runs, MDM listens on a port of `127.0.0.1` (this computer only) and writes the port and a secret token to `ipc.json` in its data folder:
-   - Windows: `%APPDATA%\misterdownloadmanager\ipc.json`
-   - macOS: `~/Library/Application Support/misterdownloadmanager/ipc.json`
-   - Linux: `~/.local/share/misterdownloadmanager/ipc.json`
+   - Windows: `%APPDATA%\zdownloader3\ipc.json`
+   - macOS: `~/Library/Application Support/zdownloader3/ipc.json`
+   - Linux: `~/.local/share/zdownloader3/ipc.json`
    - A [portable copy](portable.md): `data\ipc.json` next to the program.
 
    The token changes at every start; only programs that can read your data folder (yours) can use it.
@@ -129,7 +129,7 @@ Every request and answer is described, field by field, in a JSON Schema: [automa
 PowerShell (Windows):
 
 ```powershell
-$ep = Get-Content "$env:APPDATA\misterdownloadmanager\ipc.json" | ConvertFrom-Json
+$ep = Get-Content "$env:APPDATA\zdownloader3\ipc.json" | ConvertFrom-Json
 $client = New-Object Net.Sockets.TcpClient("127.0.0.1", $ep.port)
 $stream = $client.GetStream()
 $writer = New-Object IO.StreamWriter($stream); $reader = New-Object IO.StreamReader($stream)
@@ -144,7 +144,7 @@ Python:
 ```python
 import json, os, socket
 
-ipc = os.path.join(os.environ["APPDATA"], "misterdownloadmanager", "ipc.json")  # see above elsewhere
+ipc = os.path.join(os.environ["APPDATA"], "zdownloader3", "ipc.json")  # see above elsewhere
 ep = json.load(open(ipc))
 with socket.create_connection(("127.0.0.1", ep["port"])) as s:
     s.sendall((json.dumps({"token": ep["token"], "query": "list"}) + "\n").encode())

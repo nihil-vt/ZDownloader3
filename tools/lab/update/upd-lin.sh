@@ -5,7 +5,7 @@
 # served by the lab server on 127.0.0.1. Needs a release-mode build with the `test-update`
 # feature (vmtest or release profile: debug builds are "built from source" and never update).
 #
-#   tools/lab/update/upd-lin.sh <folder with misterdownloadmanager and labserver> [scenario ...]
+#   tools/lab/update/upd-lin.sh <folder with zdownloader3 and labserver> [scenario ...]
 #   e.g. upd-lin.sh ~/src/mdm/target/vmtest     (every scenario)
 #
 # Scenarios and what each must show (the run fails otherwise, exit status 1):
@@ -57,11 +57,11 @@ keys=$work/keys
 release() { # release <name> <kind targz|file> <asset> [mkrel args]
   local name=$1 kind=$2 asset=$3; shift 3
   python3 "$here/mkrel.py" --keys "$keys" --out "$work/rel-$name" --base "$base" --asset "$asset" \
-    --kind "$kind" --program "$bin/misterdownloadmanager" --program-name misterdownloadmanager "$@" |
+    --kind "$kind" --program "$bin/zdownloader3" --program-name zdownloader3 "$@" |
     sed 's/^/  /' | tee -a "$work/log.txt"
 }
-TGZ=MisterDownloadManager-9.9.9-linux-x86_64.tar.gz
-APP=MisterDownloadManager-9.9.9-linux-x86_64.AppImage
+TGZ=ZDownloader3-9.9.9-linux-x86_64.tar.gz
+APP=ZDownloader3-9.9.9-linux-x86_64.AppImage
 log "making the fake releases (throwaway keys in $keys)"
 release targz-good targz $TGZ
 release targz-bad-hash targz $TGZ --sums bad
@@ -74,8 +74,8 @@ run() { # run <name> <targz|appimage> <release> <hold> <close: -|download|instal
   local name=$1 kind=$2 rel=$3 hold=$4 close=$5
   local w=$work/run-$1 prog srv slow="" pid upd before new
   mkdir -p "$w/copy" "$w/data" "$w/Downloads"
-  if [ "$kind" = appimage ]; then prog=$w/copy/MisterDownloadManager.AppImage; else prog=$w/copy/misterdownloadmanager; fi
-  cp "$bin/misterdownloadmanager" "$prog"
+  if [ "$kind" = appimage ]; then prog=$w/copy/ZDownloader3.AppImage; else prog=$w/copy/zdownloader3; fi
+  cp "$bin/zdownloader3" "$prog"
   local start_hash; start_hash=$(sha256sum "$prog" | cut -c1-16)
   python3 - "$w/data/downloads.json" "$w/Downloads" <<'PY'
 import json, sys
@@ -88,7 +88,7 @@ PY
   "$bin/labserver" --bind "127.0.0.1:$port" --files "$work/rel-$rel" >"$w/labserver.log" 2>&1 & srv=$!
   [ "$close" = download ] && { python3 "$here/slowserve.py" "$work/rel-$rel" $slowport 1000000 2>"$w/slow.log" & slow=$!; }
   (
-    export MDM_DATA_DIR=$w/data MDM_OFFSCREEN=1 MDM_UPDATE_FEED=$base/latest.json MDM_TEST_UPDATE_KEY=$keys/test-key.asc
+    export ZD3_DATA_DIR=$w/data MDM_OFFSCREEN=1 MDM_UPDATE_FEED=$base/latest.json MDM_TEST_UPDATE_KEY=$keys/test-key.asc
     [ "$hold" != 0 ] && export MDM_TEST_UPDATE_HOLD=$hold
     if [ "$kind" = appimage ]; then export APPIMAGE=$prog; else unset APPIMAGE; fi
     cd "$w" && setsid -f "$prog" >"$w/stdout.log" 2>&1 </dev/null
@@ -99,11 +99,11 @@ PY
   if [ -z "$pid" ]; then log "  MDM showed no window (see $w/stdout.log)"; kill $srv $slow 2>/dev/null; return; fi
   sleep 2
   before=$(mine "$pid")
-  ( export MDM_DATA_DIR=$w/data; [ "$kind" = appimage ] && export APPIMAGE=$prog; "$prog" /show updates >/dev/null 2>&1 )
+  ( export ZD3_DATA_DIR=$w/data; [ "$kind" = appimage ] && export APPIMAGE=$prog; "$prog" /show updates >/dev/null 2>&1 )
   upd=""
   for _ in $(seq 100); do upd=$(mine "$pid" | grep -vxF -f <(echo "$before") | head -1); [ -n "$upd" ] && break; sleep 0.1; done
   sleep 2
-  ( export MDM_DATA_DIR=$w/data; [ "$kind" = appimage ] && export APPIMAGE=$prog; "$prog" /show update-now >/dev/null 2>&1 )
+  ( export ZD3_DATA_DIR=$w/data; [ "$kind" = appimage ] && export APPIMAGE=$prog; "$prog" /show update-now >/dev/null 2>&1 )
   log "  Update now pressed (window $upd)"
   [ "$close" = download ] && { sleep 1.5; wmctrl -i -c "$upd"; log "  the update window closed while it downloads"; }
   [ "$close" = install ] && { sleep 3; wmctrl -i -c "$upd"; log "  the update window closed during 'Installing the update...'"; }

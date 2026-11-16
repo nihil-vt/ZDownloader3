@@ -6,8 +6,8 @@
 #   shots.sh <label> <main|fileinfo|show name> <lang> <light|dark>   e.g. shots.sh base extension de dark
 . ~/lab/env.sh
 label=$1; show=$2; lang=$3; mode=$4
-app=$HOME/lab/bin/$label/misterdownloadmanager
-data=$HOME/.local/share/misterdownloadmanager
+app=$HOME/lab/bin/$label/zdownloader3
+data=$HOME/.local/share/zdownloader3
 pkill -x misterdownloadm; sleep 2
 # MDM_STATE: a saved list and settings put back first, so builds compared see the same list.
 [ -n "${MDM_STATE:-}" ] && cp "$MDM_STATE" "$data/downloads.json"

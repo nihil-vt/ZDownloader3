@@ -191,19 +191,19 @@ pub fn check(rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
 fn settled(joined: Result<Result<Found, String>, tokio::task::JoinError>) -> Result<Found, String> {
     joined.unwrap_or_else(|e| {
         tracing::warn!("the update check stopped: {e}");
-        Err(crate::i18n::t("Mister Download Manager hit an internal error").to_owned())
+        Err(crate::i18n::t("ZDownloader3 hit an internal error").to_owned())
     })
 }
 
 async fn latest() -> Result<Found, String> {
     // MDM_UPDATE_FEED: another address for the latest release (tests of Update now, as
-    // MDM_DATA_DIR is for a separate list).
+    // ZD3_DATA_DIR is for a separate list).
     let feed = std::env::var("MDM_UPDATE_FEED").unwrap_or_else(|_| LATEST.to_owned());
     let net = crate::settings::own_net();
     // The chosen DNS and network adapter, as downloads have them (#36, #35).
     let client = mdm_engine::net::client_builder(&net.dns, &net.route, &feed)
         .map_err(|e| e.to_string())?
-        .user_agent(concat!("MisterDownloadManager/", env!("CARGO_PKG_VERSION")))
+        .user_agent(concat!("ZDownloader3/", env!("CARGO_PKG_VERSION")))
         .timeout(Duration::from_secs(20))
         .build()
         .map_err(|e| e.to_string())?;
@@ -395,7 +395,7 @@ impl Updates {
                     Some(Ok(Found::Latest)) => {
                         let line = crate::i18n::fmt(
                             crate::i18n::t(
-                                "You have the latest version of Mister Download Manager ({version}).",
+                                "You have the latest version of ZDownloader3 ({version}).",
                             ),
                             &[("version", VERSION)],
                         );
@@ -415,7 +415,7 @@ impl Updates {
                     Some(Ok(Found::Newer(rel))) => {
                         let line = crate::i18n::fmt(
                             crate::i18n::t(
-                                "Mister Download Manager {version} is available (released {date}).",
+                                "ZDownloader3 {version} is available (released {date}).",
                             ),
                             &[("version", &rel.version), ("date", &rel.date)],
                         );
@@ -737,7 +737,7 @@ impl About {
         window(
             ctx,
             "about",
-            "About Mister Download Manager",
+            "About ZDownloader3",
             [420.0, 236.0 + extra],
             false,
             winui::BG(),
@@ -753,7 +753,7 @@ impl About {
                     &p,
                     o.x + 80.0,
                     o.y + 28.0,
-                    crate::i18n::t("Mister Download Manager"),
+                    crate::i18n::t("ZDownloader3"),
                     ink,
                 );
                 let version = crate::i18n::fmt(
@@ -983,7 +983,7 @@ impl TellFriend {
     fn message() -> String {
         crate::i18n::fmt(
             crate::i18n::t(
-                "I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}",
+                "I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}",
             ),
             &[("link", SITE)],
         )
@@ -1102,7 +1102,7 @@ impl TellFriend {
                             .collect::<String>()
                             .replace('+', "%20")
                     };
-                    let subject = crate::i18n::t("Mister Download Manager");
+                    let subject = crate::i18n::t("ZDownloader3");
                     let opened = open::that_detached(format!(
                         "mailto:?subject={}&body={}",
                         enc(subject),
@@ -1429,7 +1429,7 @@ mod tests {
         }
         let calls = regex::Regex::new(r#"(?:open_page|HelpPage)\(\s*"([^"]+)""#).unwrap();
         let site =
-            regex::Regex::new(r"https://misterdownloadmanager\.com/help/([\w.-]*)(#[\w-]+)?")
+            regex::Regex::new(r"https://zdownloader3\.com/help/([\w.-]*)(#[\w-]+)?")
                 .unwrap();
         let mut files = vec![];
         let mut dirs = vec![root().join("crates"), root().join("extension")];

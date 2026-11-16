@@ -1,8 +1,8 @@
-> **Fork context (2026-11-16):** This tree is now ZDownloader3, a GPL-3.0 fork of upstream Mister Download Manager (see NOTICE.md). Upstream docs/CLAUDE.md apply with renamed identity (ZDownloader3, Linux-native first). Pre-fork scaffold: attic/. Analysis: docs/jd2-internals.md, docs/mdm-borrow.md.
+> **Fork context (2026-11-16):** This tree is now ZDownloader3, a GPL-3.0 fork of upstream ZDownloader3 (see NOTICE.md). Upstream docs/CLAUDE.md apply with renamed identity (ZDownloader3, Linux-native first). Pre-fork scaffold: attic/. Analysis: docs/jd2-internals.md, docs/mdm-borrow.md.
 
-# Mister Download Manager (MDM) — agent guide
+# ZDownloader3 (MDM) — agent guide
 
-Mister Download Manager (MDM) is a download manager for Windows in Rust (egui + storytold
+ZDownloader3 (MDM) is a download manager for Windows in Rust (egui + storytold
 craft-libs), laid out the way Internet Download Manager users expect. Start by reading
 [README.md](README.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
@@ -38,7 +38,7 @@ craft-libs), laid out the way Internet Download Manager users expect. Start by r
   script); `node tools/extension/e2e.mjs` — the extension in real headless browsers.
 - `cargo run -p mdm-labserver -- --faults "rate=2M"` — test server (GET / lists the faults).
 - `cargo run -p mdm-app -- --cli get <url> -o <dir>` — headless download with progress (the
-  app's program runs the command line; `misterdownloadmanager-cli` is only its launcher).
+  app's program runs the command line; `zdownloader3-cli` is only its launcher).
 - `tools/extension/pack.ps1` — build the extension for Chromium and Firefox into
   `target/extension/`; `node tools/extension/test.mjs` — its logic against fake browser APIs.
 - `tools/installer/build.ps1` — the Windows installer and portable zip into `target/dist/`.

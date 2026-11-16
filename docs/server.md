@@ -1,6 +1,6 @@
 # Run MDM on a server
 
-Run Mister Download Manager on a home server or a NAS (Docker, Unraid, any Linux machine) without
+Run ZDownloader3 on a home server or a NAS (Docker, Unraid, any Linux machine) without
 a window, and send it downloads from your phone or your browser: the server downloads them into
 its own folders, such as a network share.
 
@@ -17,8 +17,8 @@ Build the image from MDM's source (a published image comes later):
 
 ```sh
 git clone https://github.com/anefzaoui/misterdownloadmanager
-cd misterdownloadmanager
-docker build -t misterdownloadmanager .
+cd zdownloader3
+docker build -t zdownloader3 .
 ```
 
 The first build is long (up to an hour on a small server: the whole program is optimised as
@@ -36,7 +36,7 @@ docker run -d --name mdm --restart unless-stopped \
   -v /srv/mdm-config:/config \
   -v /srv/downloads:/downloads \
   --user "$(id -u):$(id -g)" \
-  misterdownloadmanager
+  zdownloader3
 ```
 
 - `/config` keeps the list, the settings, the certificate and the paired devices.
@@ -64,7 +64,7 @@ and the log and the QR code show that one. Then pair as
 time:
 
 ```sh
-docker exec mdm misterdownloadmanager-cli pair
+docker exec mdm zdownloader3-cli pair
 ```
 
 To open the page by the server's name (`https://nas.local:8463/`), give MDM that name:
@@ -75,23 +75,23 @@ no web page can reach MDM through a name of its own.
 
 [docker/unraid.xml](../docker/unraid.xml) is a template: copy it to
 `/boot/config/plugins/dockerMan/templates-user/` on the flash drive, then **Docker → Add
-Container** and pick **misterdownloadmanager**. It maps `/config` to `appdata`, `/downloads` to a
+Container** and pick **zdownloader3**. It maps `/config` to `appdata`, `/downloads` to a
 share, the port 8463, and runs as `nobody:users` (99:100), as Unraid's shares expect. The image
 must be built first (above), on the server or pushed to a registry you use. If the container's
 log says a folder belongs to another user, give it to `nobody:users` once:
-`chown -R 99:100 /mnt/user/appdata/misterdownloadmanager`.
+`chown -R 99:100 /mnt/user/appdata/zdownloader3`.
 
 ## Without Docker
 
 On any Linux machine with MDM installed (the `.deb`, `.rpm`, AppImage or `tar.gz`):
 
 ```sh
-misterdownloadmanager --headless --data ~/mdm-server --downloads /srv/downloads
+zdownloader3 --headless --data ~/mdm-server --downloads /srv/downloads
 ```
 
 | Flag | Or the variable | What it sets |
 |---|---|---|
-| `--data <folder>` | `MDM_DATA_DIR` | the list, settings, certificate and paired devices |
+| `--data <folder>` | `ZD3_DATA_DIR` | the list, settings, certificate and paired devices |
 | `--downloads <folder>` | `MDM_DOWNLOADS` | where downloads go (each category's folder inside) |
 | `--port <number>` | `MDM_REMOTE_PORT` | the remote control's port (8463) |
 | `--listen <address>` | `MDM_REMOTE_LISTEN` | where it listens: every local network address unless given |
@@ -103,14 +103,14 @@ its list, when the system stops it (`docker stop`, systemd, Ctrl+C). It works on
 macOS too, the same way.
 
 The command line talks to it as to a desktop MDM, with the same data folder:
-`MDM_DATA_DIR=~/mdm-server misterdownloadmanager-cli status` (once `api on`), `pair`, and adding
-an address: `misterdownloadmanager /d https://example.com/file.zip`.
+`ZD3_DATA_DIR=~/mdm-server zdownloader3-cli status` (once `api on`), `pair`, and adding
+an address: `zdownloader3 /d https://example.com/file.zip`.
 
 ## Send downloads from your browser
 
-In the browser extension's menu, **Send downloads to → Another Mister Download Manager (a server)**: type the server's address,
+In the browser extension's menu, **Send downloads to → Another ZDownloader3 (a server)**: type the server's address,
 open it once in that browser to accept its certificate, then enter a pairing code (`pair`
-above). Downloads the extension catches, and **Download with Mister Download Manager** on a link,
+above). Downloads the extension catches, and **Download with ZDownloader3** on a link,
 then go to the server instead of this computer. The browser's cookies are not sent to the server:
 a download that needs you to be signed in to a site stays with this computer.
 

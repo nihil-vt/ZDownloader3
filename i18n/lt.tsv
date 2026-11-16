@@ -1,4 +1,4 @@
-# Mister Download Manager in Lithuanian (Lietuvių): tools/i18n/translate.py
+# ZDownloader3 in Lithuanian (Lietuvių): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Lietuvių
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Ar tikrai norite ištrinti {n} atsisiuntimą iš „Mister Download Manager“ atsisiuntimų sąrašo?|Ar tikrai norite ištrinti šiuos {n} atsisiuntimus iš „Mister Download Manager“ atsisiuntimų sąrašo?|Ar tikrai norite ištrinti šiuos {n} atsisiuntimus iš „Mister Download Manager“ atsisiuntimų sąrašo?
+@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	Ar tikrai norite ištrinti {n} atsisiuntimą iš „ZDownloader3“ atsisiuntimų sąrašo?|Ar tikrai norite ištrinti šiuos {n} atsisiuntimus iš „ZDownloader3“ atsisiuntimų sąrašo?|Ar tikrai norite ištrinti šiuos {n} atsisiuntimus iš „ZDownloader3“ atsisiuntimų sąrašo?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	trūksta jo tomo
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	Apie „Mister Download Manager“
+	About ZDownloader3	Apie „ZDownloader3“
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	Pridėti „Mister Download Manager“ prie naršyklės
+	Add ZDownloader3 to your browser	Pridėti „ZDownloader3“ prie naršyklės
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	Visada į aplanką, pavadintą jo vardu
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	Visada įjungti greičio ribotuvą paleidus „Mister Download Manager“
+	Always turn on Speed Limiter on ZDownloader3 startup	Visada įjungti greičio ribotuvą paleidus „ZDownloader3“
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Ar tikrai norite ištrinti „{name}“ iš „Mister Download Manager“ atsisiuntimų sąrašo?
+	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	Ar tikrai norite ištrinti „{name}“ iš „ZDownloader3“ atsisiuntimų sąrašo?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	Naršyti...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Naršyklės integracija šiame kompiuteryje nenustatyta, todėl jokia naršyklė dar negali pasiekti Mister Download Manager.
+	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	Naršyklės integracija šiame kompiuteryje nenustatyta, todėl jokia naršyklė dar negali pasiekti ZDownloader3.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Naršyklės / sistemos integravimas
@@ -944,7 +944,7 @@
 	Choose a language	Pasirinkite kalbą
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	Pasirinkite kalbą, kuria „Mister Download Manager“ rodys savo langus:
+	Choose the language ZDownloader3 shows its windows in:	Pasirinkite kalbą, kuria „ZDownloader3“ rodys savo langus:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	Išeiti
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	Baigus atsisiuntimą, išeiti iš „Mister Download Manager“
+	Exit ZDownloader3 when done	Baigus atsisiuntimą, išeiti iš „ZDownloader3“
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Numatoma kontrolinė suma (MD5, SHA-1, SHA-256, SHA-512 arba CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	Slėpti tinklalapius
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Laikykite nuspaudę Alt ir spustelėkite nuorodą, kad naršyklė ją atsisiųstų, o ne Mister Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	Laikykite nuspaudę Alt ir spustelėkite nuorodą, kad naršyklė ją atsisiųstų, o ne ZDownloader3.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Pagrindinis puslapis
@@ -2127,7 +2127,7 @@
 	Hungary	Vengrija
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Atsisiunčiu naudodamas „Mister Download Manager“: greita, nemokama ir atrodo kaip jau žinoma atsisiuntimų tvarkyklė. {link}
+	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	Atsisiunčiu naudodamas „ZDownloader3“: greita, nemokama ir atrodo kaip jau žinoma atsisiuntimų tvarkyklė. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	Latvija
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	Paleisti „Mister Download Manager“ paleidus sistemą
+	Launch ZDownloader3 on startup	Paleisti „ZDownloader3“ paleidus sistemą
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	Trūksta
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	„Mister Download Manager“
+	ZDownloader3	„ZDownloader3“
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager negali atidaryti savo lango: šioje sistemoje trūksta {libraries}.
+	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 negali atidaryti savo lango: šioje sistemoje trūksta {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager netikėtai užsidarė
+	ZDownloader3 closed unexpectedly	ZDownloader3 netikėtai užsidarė
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	„Mister Download Manager“ konfigūracija
+	ZDownloader3 Configuration	„ZDownloader3“ konfigūracija
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Mister Download Manager avarijos ataskaita
+	ZDownloader3 crash report	ZDownloader3 avarijos ataskaita
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager įvyko vidinė klaida
+	ZDownloader3 hit an internal error	ZDownloader3 įvyko vidinė klaida
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	Mister Download Manager is downloading	Mister Download Manager atsisiunčia
+	ZDownloader3 is downloading	ZDownloader3 atsisiunčia
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager vykdo eilę „{queue}“
+	ZDownloader3 is running the queue "{queue}"	ZDownloader3 vykdo eilę „{queue}“
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager nustojo reaguoti
+	ZDownloader3 stopped responding	ZDownloader3 nustojo reaguoti
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager kurį laiką nustojo reaguoti
+	ZDownloader3 stopped responding for a while	ZDownloader3 kurį laiką nustojo reaguoti
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	„Mister Download Manager“ kiekvieną jungtį rašo tiesiai į galutinį\nfailą (šalia jo esantį retą dalies failą), todėl nereikia jokio laikinojo katalogo ir\njokio surinkimo veiksmo.
+	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	„ZDownloader3“ kiekvieną jungtį rašo tiesiai į galutinį\nfailą (šalia jo esantį retą dalies failą), todėl nereikia jokio laikinojo katalogo ir\njokio surinkimo veiksmo.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Yra „Mister Download Manager“ {version} (išleista {date}).
+	ZDownloader3 {version} is available (released {date}).	Yra „ZDownloader3“ {version} (išleista {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Mister Download Manager kopija, versija {version}
+	ZDownloader3's own copy, version {version}	ZDownloader3 kopija, versija {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager X11 langui reikia {libraries}, kurių šioje sistemoje trūksta: jis atidaromas „Wayland“ sistemoje, kur jo meniu gali atsidaryti toliau nuo pavadinimų.
+	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ZDownloader3 X11 langui reikia {libraries}, kurių šioje sistemoje trūksta: jis atidaromas „Wayland“ sistemoje, kur jo meniu gali atsidaryti toliau nuo pavadinimų.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	Atidaryti naršyklėje
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	Atidaryti magnetinius saitus ir .torrent failus naudojant „Mister Download Manager“
+	Open magnet links and .torrent files with ZDownloader3	Atidaryti magnetinius saitus ir .torrent failus naudojant „ZDownloader3“
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	Atidaryti „Mister Download Manager“
+	Open ZDownloader3	Atidaryti „ZDownloader3“
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	Susieti su „Mister Download Manager“
+	Pair with ZDownloader3	Susieti su „ZDownloader3“
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	Pasirinkti arba atžymėti atsisiuntimą, pažymėtą punktyriniu kontūru
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	Pasirinkti garsus „Mister Download Manager“ įvykiams
+	Select sounds for ZDownloader3 events	Pasirinkti garsus „ZDownloader3“ įvykiams
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Pasirinkti atsisiuntimus laukelyje
@@ -4230,7 +4230,7 @@
 	Start download at	Pradėti atsisiuntimą
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	Pradėti atsisiuntimą paleidus „Mister Download Manager“
+	Start download on ZDownloader3 startup	Pradėti atsisiuntimą paleidus „ZDownloader3“
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Pradėti atsisiuntimą iškart rodant dialogo langą „Atsisiųsti failo informaciją“
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Paleidus su kompiuteriu, jis paleidžiamas sumažintas: čia nerodoma jo piktograma pranešimų srityje
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Paleidus su kompiuteriu, jis laukia pranešimų srityje
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find Mister Download Manager	Naršyklės gali rasti Mister Download Manager
+	The browsers can find ZDownloader3	Naršyklės gali rasti ZDownloader3
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Kompiuteris pažadinamas minutę prieš pradžios laiką ir laikomas aktyvus, kol veikia eilė. Mister Download Manager turi veikti (gali laukti pranešimų srityje).
+	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	Kompiuteris pažadinamas minutę prieš pradžios laiką ir laikomas aktyvus, kol veikia eilė. ZDownloader3 turi veikti (gali laukti pranešimų srityje).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4652,7 +4652,7 @@
 #, machine
 	the FTP server answered {code} {reply}	FTP serveris atsakė {code} {reply}
 #. text in extension.rs
-#. a check of Test browser integration: the browsers are set up, but the small helper program they start (misterdownloadmanager-nmhost) is gone
+#. a check of Test browser integration: the browsers are set up, but the small helper program they start (zdownloader3-nmhost) is gone
 #, machine
 	The helper program the browsers start is missing	Trūksta pagalbinės programos, kurią paleidžia naršyklės
 #. message or event log entry in the main window; text in the Options window
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	Pasirinktas atsisiuntimas nebaigtas. Ar tikrai norite jį ištrinti\niš „Mister Download Manager“ atsisiuntimų sąrašo?
+	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	Pasirinktas atsisiuntimas nebaigtas. Ar tikrai norite jį ištrinti\niš „ZDownloader3“ atsisiuntimų sąrašo?
 #. text in errors.rs
 #, machine
 	the server answered {status}	serveris atsakė {status}
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	Įjunkite „Mister Download Manager“ ir leiskite jį visose svetainėse.
+	Turn on "ZDownloader3" and allow it on all websites.	Įjunkite „ZDownloader3“ ir leiskite jį visose svetainėse.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	Turite naujausią „Mister Download Manager“ versiją ({version}).
+	You have the latest version of ZDownloader3 ({version}).	Turite naujausią „ZDownloader3“ versiją ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	Perdavimo sparta
 #, machine
 column	Upload speed	Siuntimo sparta
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
 #, machine
-extension	A list of videos: choose them in Mister Download Manager	Vaizdo įrašų sąrašas: pasirinkite juos programoje Mister Download Manager
+extension	A list of videos: choose them in ZDownloader3	Vaizdo įrašų sąrašas: pasirinkite juos programoje ZDownloader3
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	Pridėta į eilę
 #, machine
 extension	All qualities and subtitles...	Visos kokybės ir subtitrai...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
 #, machine
-extension	Another Mister Download Manager (a server)	Kitas „Mister Download Manager“ (serveris)
+extension	Another ZDownloader3 (a server)	Kitas „ZDownloader3“ (serveris)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	geriausia
 #, machine
 extension	Browser extension	Naršyklės plėtinys
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in ZDownloader3
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Mygtuko parametrai...
@@ -6108,14 +6108,14 @@ extension	can't be saved	negali būti išsaugotas
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Neaišku, kuris tai vaizdo įrašas: atidarykite jo paties puslapį ir bandykite ten
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
 #, machine
-extension	Connected to Mister Download Manager	Prijungta prie Mister Download Manager
+extension	Connected to ZDownloader3	Prijungta prie ZDownloader3
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	Prijungta prie Mister Download Manager {version}
+extension	Connected to ZDownloader3 {version}	Prijungta prie ZDownloader3 {version}
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	Nepavyko surasti
 #, machine
 extension	Download	Atsisiųsti
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
 #, machine
-extension	Download all links with Mister Download Manager	Atsisiųsti visas nuorodas su Mister Download Manager
+extension	Download all links with ZDownloader3	Atsisiųsti visas nuorodas su ZDownloader3
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	Atsisiųsti geriausią
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
 #, machine
-extension	Download selected links with Mister Download Manager	Atsisiųsti pasirinktas nuorodas su Mister Download Manager
+extension	Download selected links with ZDownloader3	Atsisiųsti pasirinktas nuorodas su ZDownloader3
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	Atsisiųsti geriausią kokybę
 #, machine
 extension	Download video	Atsisiųsti vaizdo įrašą
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
 #, machine
-extension	Download with Mister Download Manager	Atsisiųsti naudojant „Mister Download Manager“
+extension	Download with ZDownloader3	Atsisiųsti naudojant „ZDownloader3“
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	Įveskite jo https:// adresą.
 #, machine
 extension	Get MDM	Gauti MDM
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	Perduoda atsisiuntimus iš naršyklės į „Mister Download Manager“.
+extension	Hands downloads from the browser to ZDownloader3.	Perduoda atsisiuntimus iš naršyklės į „ZDownloader3“.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	Nepavyko. Bandykite dar kartą.
 #, machine
 extension	It shows no code now: click Pair a device there first.	Dabar nerodo kodo: pirmiausia spustelėkite „Susieti įrenginį“.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with Mister Download Manager, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with Mister Download Manager is off in Torrent settings.	Tai torrentas, o „Atidaryti magnetines nuorodas ir .torrent failus su Mister Download Manager“ yra išjungta torrentų nustatymuose.
+extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	Tai torrentas, o „Atidaryti magnetines nuorodas ir .torrent failus su ZDownloader3“ yra išjungta torrentų nustatymuose.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM neatsakė
 #, machine
 extension	Media on this page	Medija šiame puslapyje
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	ZDownloader3	ZDownloader3
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager nepasileido laiku
+extension	ZDownloader3 didn't start in time	ZDownloader3 nepasileido laiku
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager nepriima šios plėtinio kopijos
+extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 nepriima šios plėtinio kopijos
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager is busy with other videos	Mister Download Manager užsiėmusi kitais vaizdo įrašais
+extension	ZDownloader3 is busy with other videos	ZDownloader3 užsiėmusi kitais vaizdo įrašais
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager neįdiegta arba nepasileido
+extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 neįdiegta arba nepasileido
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager neįdiegta arba jos naršyklės integracija nenustatyta
+extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 neįdiegta arba jos naršyklės integracija nenustatyta
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager needs yt-dlp for this video	Mister Download Manager šiam vaizdo įrašui reikia yt-dlp
+extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3 šiam vaizdo įrašui reikia yt-dlp
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Tada „Mister Download Manager“ atsisiunčia per tą patį tarpinį serverį, kurį naudoja ši naršyklė. Naršyklė vieną kartą paprašys jūsų tai leisti; išjungus šią parinktį, leidimas atšaukiamas.
+extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Tada „ZDownloader3“ atsisiunčia per tą patį tarpinį serverį, kurį naudoja ši naršyklė. Naršyklė vieną kartą paprašys jūsų tai leisti; išjungus šią parinktį, leidimas atšaukiamas.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Tada Mister Download Manager atsisiunčia naudodama tą patį tarpinį serverį kaip ir ši naršyklė. Kai ši funkcija išjungta, plėtinys neskaito naršyklės tarpinio serverio.
+extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Tada ZDownloader3 atsisiunčia naudodama tą patį tarpinį serverį kaip ir ši naršyklė. Kai ši funkcija išjungta, plėtinys neskaito naršyklės tarpinio serverio.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6321,13 +6321,13 @@ extension	Off on this site	Išjungta šioje svetainėje
 #, machine
 extension	Open it	Atidaryti
 #. text in the browser extension
-#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is
+#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is
 #, machine
-extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Atidarykite jo adresą vieną kartą ir priimkite jo sertifikatą, tada įveskite kodą iš „Parinktys“, „Nuotolinis“, „Susieti įrenginį“ (arba „misterdownloadmanager-cli pair“).
+extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	Atidarykite jo adresą vieną kartą ir priimkite jo sertifikatą, tada įveskite kodą iš „Parinktys“, „Nuotolinis“, „Susieti įrenginį“ (arba „zdownloader3-cli pair“).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
 #, machine
-extension	Open Mister Download Manager	Atidaryti Mister Download Manager
+extension	Open ZDownloader3	Atidaryti ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	Siųsti a
 #, machine
 extension	Send downloads to	Siųsti atsisiuntimus į
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is Mister Download Manager's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	Siunčiama į MDM...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
 #, machine
-extension	Sent to Mister Download Manager	Išsiųsta į Mister Download Manager
+extension	Sent to ZDownloader3	Išsiųsta į ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	Perimti atsisiuntimus iš šios narš
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	„Chrome“ internetinės parduotuvės taisyklės laiko šią priedo kopiją atokiau nuo šios svetainės vaizdo įrašų. Žinyne parašyta, ką galite padaryti.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
 #, machine
-extension	The connection to Mister Download Manager failed	Ryšys su Mister Download Manager nepavyko
+extension	The connection to ZDownloader3 failed	Ryšys su ZDownloader3 nepavyko
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	Paskutinis atsisiuntimas bu
 #, machine
 extension	This browser isn't ticked in Options → General.	Ši naršyklė nepažymėta parinktyse „Bendra“.
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the ZDownloader3 on this computer
 #, machine
 extension	This computer	Šis kompiuteris
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	Įjungti
 #, machine
 extension	Undo	Atšaukti
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	Atnaujinkite Mister Download Manager, kad galėtumėte naudotis visomis šio plėtinio funkcijomis
+extension	Update ZDownloader3 to use everything this extension offers	Atnaujinkite ZDownloader3, kad galėtumėte naudotis visomis šio plėtinio funkcijomis
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	Aukštyn / Žemyn
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	&Apie „Mister Download Manager“
+menu	&About ZDownloader3	&Apie „ZDownloader3“
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6989,7 +6989,7 @@ menu	Metro	Metro
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Mister Download Manager &pagrindinis puslapis
+menu	ZDownloader3 &Home Page	ZDownloader3 &pagrindinis puslapis
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Perkelti / pervardyti (Ctrl+M)
@@ -7122,7 +7122,7 @@ menu	Select &all	Žymėti &viską
 menu	Show &drop target	Rodyti &vilkimo sritį
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	Rodyti „Mister Download Manager“
+menu	Show ZDownloader3	Rodyti „ZDownloader3“
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

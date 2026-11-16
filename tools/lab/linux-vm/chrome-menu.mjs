@@ -75,7 +75,7 @@ const profile = path.join(process.env.HOME, "lab/chrome-menu");
 fs.rmSync(profile, { recursive: true, force: true });
 const hosts = path.join(profile, "NativeMessagingHosts");
 fs.mkdirSync(hosts, { recursive: true });
-fs.copyFileSync(path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.misterdownloadmanager.host.json"), path.join(hosts, "com.misterdownloadmanager.host.json"));
+fs.copyFileSync(path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.zdownloader3.host.json"), path.join(hosts, "com.zdownloader3.host.json"));
 const proc = spawn(
   "/usr/bin/google-chrome",
   ["--remote-debugging-pipe", "--enable-unsafe-extension-debugging", "--password-store=basic", `--user-data-dir=${profile}`, "--no-first-run", "--no-default-browser-check", "--window-position=40,60", "--window-size=1100,800", "about:blank"],

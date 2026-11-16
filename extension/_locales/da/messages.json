@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Overfører downloads fra browseren til Mister Download Manager."
+    "message": "Overfører downloads fra browseren til ZDownloader3."
   },
   "menu": {
-    "message": "Download med Mister Download Manager"
+    "message": "Download med ZDownloader3"
   },
   "video_download": {
     "message": "Download video"
@@ -30,19 +30,19 @@
     "message": "Knapindstillinger..."
   },
   "video_sent": {
-    "message": "Sendt til Mister Download Manager"
+    "message": "Sendt til ZDownloader3"
   },
   "menu_selected": {
-    "message": "Download valgte links med Mister Download Manager"
+    "message": "Download valgte links med ZDownloader3"
   },
   "menu_all": {
-    "message": "Download alle links med Mister Download Manager"
+    "message": "Download alle links med ZDownloader3"
   },
   "status_connected": {
-    "message": "Forbundet til Mister Download Manager"
+    "message": "Forbundet til ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Forbundet til Mister Download Manager $version$",
+    "message": "Forbundet til ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Sat på pause: downloads forbliver i browseren"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager er ikke installeret, eller dens browserintegration er ikke konfigureret"
+    "message": "ZDownloader3 er ikke installeret, eller dens browserintegration er ikke konfigureret"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager accepterer ikke denne kopi af udvidelsen"
+    "message": "ZDownloader3 accepterer ikke denne kopi af udvidelsen"
   },
   "status_not_running": {
-    "message": "Mister Download Manager startede ikke til tiden"
+    "message": "ZDownloader3 startede ikke til tiden"
   },
   "status_host_failed": {
-    "message": "Forbindelsen til Mister Download Manager mislykkedes"
+    "message": "Forbindelsen til ZDownloader3 mislykkedes"
   },
   "status_too_large": {
     "message": "Oplysningerne om denne download var for store til at overføre"
   },
   "status_update_app": {
-    "message": "Opdater Mister Download Manager for at bruge alt, hvad denne udvidelse tilbyder"
+    "message": "Opdater ZDownloader3 for at bruge alt, hvad denne udvidelse tilbyder"
   },
   "popup_take": {
     "message": "Overfør downloads fra denne browser"
@@ -78,10 +78,10 @@
     "message": "Send downloads gennem denne browsers proxy- eller VPN-udvidelse"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager downloader derefter gennem den samme proxy som denne browser. Browseren spørger dig én gang, om du vil tillade det; hvis du slår dette fra, trækkes tilladelsen tilbage."
+    "message": "ZDownloader3 downloader derefter gennem den samme proxy som denne browser. Browseren spørger dig én gang, om du vil tillade det; hvis du slår dette fra, trækkes tilladelsen tilbage."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager downloader derefter via den samme proxy som denne browser. Når dette er slået fra, læser udvidelsen ikke browserens proxy."
+    "message": "ZDownloader3 downloader derefter via den samme proxy som denne browser. Når dette er slået fra, læser udvidelsen ikke browserens proxy."
   },
   "popup_exclude_site": {
     "message": "Overfør aldrig downloads fra $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Åbn Mister Download Manager"
+    "message": "Åbn ZDownloader3"
   },
   "popup_options": {
     "message": "Indstillinger..."
@@ -150,7 +150,7 @@
     "message": "Brug avanceret browserintegration er slået fra i Indstillinger → Generelt."
   },
   "declined_torrents": {
-    "message": "Det er en torrent, og Åbn magnetlinks og .torrent-filer med Mister Download Manager er slået fra i Torrent-indstillinger."
+    "message": "Det er en torrent, og Åbn magnetlinks og .torrent-filer med ZDownloader3 er slået fra i Torrent-indstillinger."
   },
   "declined_site_access": {
     "message": "Udvidelsen har ikke tilladelse til at læse dette websted (browserens webstedsadgang)."
@@ -195,16 +195,16 @@
     "message": "Ingen video at downloade her"
   },
   "video_playlist": {
-    "message": "En liste med videoer: vælg dem i Mister Download Manager"
+    "message": "En liste med videoer: vælg dem i ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager skal bruge yt-dlp til denne video"
+    "message": "ZDownloader3 skal bruge yt-dlp til denne video"
   },
   "video_too_long": {
     "message": "Opslaget tog for lang tid"
   },
   "video_busy": {
-    "message": "Mister Download Manager er optaget af andre videoer"
+    "message": "ZDownloader3 er optaget af andre videoer"
   },
   "video_queued": {
     "message": "Føjet til køen"
@@ -228,7 +228,7 @@
     "message": "Denne computer"
   },
   "popup_send_remote": {
-    "message": "En anden Mister Download Manager (en server)"
+    "message": "En anden ZDownloader3 (en server)"
   },
   "popup_remote_code": {
     "message": "Parringskode"
@@ -240,7 +240,7 @@
     "message": "Par"
   },
   "popup_remote_help": {
-    "message": "Åbn dens adresse én gang, og acceptér dens certifikat, og angiv derefter en kode fra dens Indstillinger, Fjernbetjening, Par en enhed (eller misterdownloadmanager-cli pair)."
+    "message": "Åbn dens adresse én gang, og acceptér dens certifikat, og angiv derefter en kode fra dens Indstillinger, Fjernbetjening, Par en enhed (eller zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Downloads sendes til $address$",
@@ -324,7 +324,7 @@
     "message": "Alle kvaliteter og undertekster..."
   },
   "video_failed": {
-    "message": "Mister Download Manager er ikke installeret eller blev ikke startet"
+    "message": "ZDownloader3 er ikke installeret eller blev ikke startet"
   },
   "video_download_best": {
     "message": "Hent bedste kvalitet"

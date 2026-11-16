@@ -1,6 +1,6 @@
 #!/bin/bash
 # MDM uses the system's yt-dlp, ffmpeg and gallery-dl as the person's own copies (Helpers' programs.json).
-d=~/.local/share/misterdownloadmanager/tools; mkdir -p $d
+d=~/.local/share/zdownloader3/tools; mkdir -p $d
 python3 - "$d/programs.json" <<'PY'
 import json, subprocess, shutil, sys
 def v(cmd, args):

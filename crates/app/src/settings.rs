@@ -274,7 +274,7 @@ pub struct Settings {
     /// Sounds: download complete, download failed, queue started, queue stopped/finished.
     pub sounds: [(bool, String); 4],
     /// The local automation API (beyond IDM): status queries over the command channel. Off by
-    /// default; `misterdownloadmanager-cli api on` turns it on.
+    /// default; `zdownloader3-cli api on` turns it on.
     pub automation_api: bool,
     /// Options → Remote (#141, beyond IDM): paired phones and computers on the local network
     /// add and control downloads (crates/remote). Off by default.
@@ -287,7 +287,7 @@ pub struct Settings {
     /// Torrents keep sharing after they finish (D-018: off; a finished torrent stops, like any
     /// download).
     pub torrent_keep_sharing: bool,
-    /// Torrent settings' "Open magnet links and .torrent files with Mister Download Manager":
+    /// Torrent settings' "Open magnet links and .torrent files with ZDownloader3":
     /// the system opens them with MDM (D-018: opt-in, current user), and the browser hands a
     /// .torrent download over (#1058: off, it stays with the browser for the user's own torrent
     /// client). None: never decided, settled once at the first start (`settle_torrent_handler`)
@@ -428,7 +428,9 @@ impl Default for Settings {
             view: None,
             dark_mode_support: true,
             always_dark: false,
-            theme: "classic".into(),
+            // ZDownloader3 fork default: the Adwaita style on Linux (GTK-adjacent);
+            // classic stays the default elsewhere, matching upstream's look there.
+            theme: if cfg!(target_os = "linux") { "adwaita".into() } else { "classic".into() },
             renderer: None,
             window_system: None,
             interface_size: 100,
@@ -586,7 +588,7 @@ impl Settings {
             "proxy".into(),
             &|| {
                 format!(
-                    "Mister Download Manager: {} {}:{}",
+                    "ZDownloader3: {} {}:{}",
                     // i18n: the proxy's password in the system's keychain (Credential Manager, the keyring): its name there, followed by the proxy's address
                     crate::i18n::t("proxy server"),
                     self.proxy_host,
@@ -598,7 +600,7 @@ impl Settings {
         for (a, d) in self.debrid_accounts.iter().zip(&mut disk.debrid_accounts) {
             d.secret = kept(
                 format!("debrid/{}", a.id),
-                &|| format!("Mister Download Manager: {} ({})", a.service.name(), a.user),
+                &|| format!("ZDownloader3: {} ({})", a.service.name(), a.user),
                 &a.secret,
             );
         }
@@ -611,7 +613,7 @@ impl Settings {
 {user}"
                     ))
                 ),
-                &|| format!("Mister Download Manager: {site} ({user})"),
+                &|| format!("ZDownloader3: {site} ({user})"),
                 pw,
             );
         }

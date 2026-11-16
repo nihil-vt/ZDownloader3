@@ -1,4 +1,4 @@
-//! misterdownloadmanager-cli's `--json`, end to end: a download's progress and result as JSON lines, and failures as
+//! zdownloader3-cli's `--json`, end to end: a download's progress and result as JSON lines, and failures as
 //! `{"error"}` with a failing exit code.
 
 use std::process::Command;
@@ -6,9 +6,9 @@ use std::process::Command;
 use mdm_labserver::{Config, Faults, LabServer};
 use serde_json::Value;
 
-/// The app's program, which runs misterdownloadmanager-cli's commands when its launcher
+/// The app's program, which runs zdownloader3-cli's commands when its launcher
 /// (crates/cli) starts it with `--cli`.
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 
 fn lines(out: &[u8]) -> Vec<Value> {
     String::from_utf8_lossy(out)
@@ -58,7 +58,7 @@ fn failures_are_json_with_a_failing_exit_code() {
     let out = Command::new(APP)
         .arg(mdm_cli::FLAG)
         .args(["--json", "status"])
-        .env("MDM_DATA_DIR", dir.path())
+        .env("ZD3_DATA_DIR", dir.path())
         .output()
         .unwrap();
     assert!(!out.status.success());

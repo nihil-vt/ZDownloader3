@@ -3118,7 +3118,7 @@ impl FirstAsk<'_> {
                 // #372: the rest of the download goes as MDM too.
                 opts.user_agent = opts.agent_fallback.take().unwrap_or_default();
                 shared.event(
-                    "The server refused the browser's User-Agent; asking as Mister Download Manager",
+                    "The server refused the browser's User-Agent; asking as ZDownloader3",
                 );
                 let client1 = client(opts, url, self.as_get, self.seen)?;
                 let first = first_get(&client1, url, headers, opts, expects, shared, cancel).await;

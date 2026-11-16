@@ -4,7 +4,7 @@
 # warm: the profile the fresh run left (language chosen: no picker... unless never chosen).
 . ~/lab/env.sh
 prog=$1; label=$2; runs=${3:-5}
-d=~/.local/share/misterdownloadmanager
+d=~/.local/share/zdownloader3
 # The app and its crash monitor (a process name is cut to 15 characters).
 stop() { pkill -x misterdownloadm; sleep 2; }
 ms() { date -d "$1" +%s%3N; }

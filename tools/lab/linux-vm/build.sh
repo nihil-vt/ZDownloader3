@@ -34,7 +34,7 @@ status=${PIPESTATUS[0]}
 if [ "$status" = 0 ]; then
   out=target/$profile; [ "$profile" = dev ] && out=target/debug
   mkdir -p "$HOME/lab/bin/$label"
-  cp "$out"/misterdownloadmanager{,-nmhost,-cli} "$out"/labserver "$HOME/lab/bin/$label/"
+  cp "$out"/zdownloader3{,-nmhost,-cli} "$out"/labserver "$HOME/lab/bin/$label/"
 fi
 echo "== exit $status after $(( $(date +%s) - start )) s" | tee -a "$log"
 exit "$status"

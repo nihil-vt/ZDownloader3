@@ -3,7 +3,7 @@
 # Installed with are text fields, not dropdowns: GitHub's page showed a dropdown's value from the
 # address for a moment, then put it back to none.
 name: Bug report
-description: Something in Mister Download Manager doesn't work as it should.
+description: Something in ZDownloader3 doesn't work as it should.
 labels: [bug]
 body:
   - type: markdown
@@ -97,7 +97,7 @@ body:
     attributes:
       label: Log or screenshots
       description: |
-        A download's recent events: hover over its **Status** in the list. A crash: crash.log in MDM's data folder (Windows: %APPDATA%\misterdownloadmanager). Drag screenshots in here.
+        A download's recent events: hover over its **Status** in the list. A crash: crash.log in MDM's data folder (Windows: %APPDATA%\zdownloader3). Drag screenshots in here.
   - type: checkboxes
     id: searched
     attributes:

@@ -29,7 +29,7 @@ use crate::win32 as os;
 
 /// The keychain's name for MDM's entries (Credential Manager's targets start with it; Secret
 /// Service's `service` attribute; the macOS keychain's service).
-pub const SERVICE: &str = "Mister Download Manager";
+pub const SERVICE: &str = "ZDownloader3";
 /// What the settings hold in a secret's place.
 pub const REF: &str = "keychain:";
 
@@ -520,7 +520,7 @@ fn global() -> &'static Arc<Vault> {
         #[cfg(not(test))]
         let store: Box<dyn Store> = Box::new(System);
         let portable =
-            std::env::var_os("MDM_DATA_DIR").is_none() && mdm_ipc::portable_dir().is_some();
+            std::env::var_os("ZD3_DATA_DIR").is_none() && mdm_ipc::portable_dir().is_some();
         Arc::new(Vault::new(
             store,
             &service(),

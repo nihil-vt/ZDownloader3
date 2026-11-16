@@ -14,9 +14,9 @@ use std::path::Path;
 use std::process::{Child, Command};
 use std::time::{Duration, Instant};
 
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 /// The main window's title (main.rs MAIN_TITLE).
-const MAIN: &str = concat!("Mister Download Manager ", env!("CARGO_PKG_VERSION"));
+const MAIN: &str = concat!("ZDownloader3 ", env!("CARGO_PKG_VERSION"));
 
 /// The app's log so far (every file of `logs/`).
 fn log(data: &Path) -> String {
@@ -52,7 +52,7 @@ fn wait_for(app: &mut Child, data: &Path, line: &str, wait: Duration) {
 /// The app's environment: off the screens, its own data folder, its tray icon, and (Windows) a
 /// Run value or (Linux) an autostart folder of the test's own.
 fn env<'a>(cmd: &'a mut Command, data: &Path, startup: &Startup) -> &'a mut Command {
-    cmd.env("MDM_DATA_DIR", data)
+    cmd.env("ZD3_DATA_DIR", data)
         .env("MDM_OFFSCREEN", "1")
         .env("MDM_TEST_TRAY", "1")
         // A test's shell isn't asked where the icon is: say it is shown (app.rs tray_icon).
@@ -80,7 +80,7 @@ impl Startup {
     fn old(_dir: &Path) -> Startup {
         #[cfg(windows)]
         {
-            let name = format!("MisterDownloadManagerTest{}", std::process::id());
+            let name = format!("ZDownloader3Test{}", std::process::id());
             let status = Command::new("reg")
                 .args(["add", RUN, "/v", &name, "/t", "REG_SZ", "/f", "/d"])
                 .arg(format!("\"{APP}\""))
@@ -95,10 +95,10 @@ impl Startup {
             let auto = config.join("autostart");
             std::fs::create_dir_all(&auto).unwrap();
             std::fs::write(
-                auto.join("misterdownloadmanager.desktop"),
+                auto.join("zdownloader3.desktop"),
                 format!(
-                    "[Desktop Entry]\nType=Application\nName=Mister Download Manager\n\
-                     Exec=\"{APP}\"\nIcon=misterdownloadmanager\nTerminal=false\n\
+                    "[Desktop Entry]\nType=Application\nName=ZDownloader3\n\
+                     Exec=\"{APP}\"\nIcon=zdownloader3\nTerminal=false\n\
                      X-GNOME-Autostart-enabled=true\n"
                 ),
             )
@@ -121,7 +121,7 @@ impl Startup {
                 .unwrap_or_default()
         }
         #[cfg(unix)]
-        std::fs::read_to_string(self.config.join("autostart/misterdownloadmanager.desktop"))
+        std::fs::read_to_string(self.config.join("autostart/zdownloader3.desktop"))
             .unwrap_or_default()
     }
 }

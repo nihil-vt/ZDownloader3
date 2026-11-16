@@ -3,14 +3,14 @@
 # GitHub's Windows runner (.github/workflows/docs-shots.yml), a stock Windows whose file icons are
 # Windows' own; a run here shows this PC's. At 1x: MDM_ZOOM=2 draws the content
 # twice as large but Windows keeps the title bar at the display's scale, out of proportion. Runs its
-# own Mister Download Manager instance (its own data folder, MDM_DATA_DIR) and its own labserver,
+# own ZDownloader3 instance (its own data folder, ZD3_DATA_DIR) and its own labserver,
 # both addressed by process id: the user's own instance and anything else running are never
 # touched. Nothing shows on the screen: with MDM_OFFSCREEN=1 the app opens every window far off
 # the screens, without focus, taskbar button, tray icon or sound, and PrintWindow captures them
 # there (cap-own.ps1). Dialogs open through the app's
 # own command line (/show <window>), so nothing is clicked or typed on the screen.
 #
-#   tools\lab\docs-shots.ps1 -Exe target\release\misterdownloadmanager.exe -Server target\release\labserver.exe
+#   tools\lab\docs-shots.ps1 -Exe target\release\zdownloader3.exe -Server target\release\labserver.exe
 #   tools\lab\docs-shots.ps1 ... -Lang ar -Only arabic-main
 param(
   [Parameter(Mandatory)][string]$Exe,
@@ -148,7 +148,7 @@ function Follow {
   Write-Warning "MDM started again (pid $($n.ProcessId)); the shots go on there"
   $script:app = Get-Process -Id $n.ProcessId
   Start-Sleep 4
-  $script:main = @(Titles $script:app.Id | Where-Object { $_ -like "Mister Download Manager*" })[0]
+  $script:main = @(Titles $script:app.Id | Where-Object { $_ -like "ZDownloader3*" })[0]
 }
 $srv = $null; $app = $null
 try {
@@ -176,14 +176,14 @@ try {
   $base = if ($Port -eq 80) { "http://$UrlHost" } else { "http://${UrlHost}:$Port" }
   # /show crash-test:freeze for the crash report window's shot.
   $env:MDM_CRASH_TEST = "1"
-  $env:MDM_DATA_DIR = "$work\data"
+  $env:ZD3_DATA_DIR = "$work\data"
   # Only when asked: MDM_ZOOM overrides View → Interface size (-Settings '"interface_size":150').
   if ($Zoom -ne 1) { $env:MDM_ZOOM = "$Zoom" } else { Remove-Item Env:MDM_ZOOM -ErrorAction SilentlyContinue }
   $env:MDM_OFFSCREEN = "1"
   if ($At) { $env:MDM_OFFSCREEN_AT = $At }
   $app = Start-Process -PassThru $Exe
   Start-Sleep 3
-  $main = @(Titles $app.Id | Where-Object { $_ -like "Mister Download Manager*" })[0]
+  $main = @(Titles $app.Id | Where-Object { $_ -like "ZDownloader3*" })[0]
 
   # A list that looks used: finished files, one still coming in (rate-limited: the rate is per
   # connection, so 256K over its 8 connections is about 2 MB/sec).
@@ -201,11 +201,11 @@ try {
   # the main window.
   for ($i = 0; $i -lt 25; $i++) {
     Start-Sleep 1
-    [DS]::Of([uint32]$app.Id) | Where-Object { $_.Value -notlike "Mister Download Manager*" } |
+    [DS]::Of([uint32]$app.Id) | Where-Object { $_.Value -notlike "ZDownloader3*" } |
       ForEach-Object { [DS]::PostMessage($_.Key, 0x10, [IntPtr]::Zero, [IntPtr]::Zero) | Out-Null }
   }
   Start-Sleep 2
-  $main = @(Titles $app.Id | Where-Object { $_ -like "Mister Download Manager*" })[0]
+  $main = @(Titles $app.Id | Where-Object { $_ -like "ZDownloader3*" })[0]
 
   # Each window opened by name through the app's own command line (/show, mdm_ipc), so no
   # click or key ever goes to the screen. name = /show argument. These are the README's and the
@@ -270,11 +270,11 @@ try {
     }
     if ($what -like "@menu:*") {
       & $Exe /show $what.Substring(6)
-      for ($i = 0; $i -lt 50 -and -not (@(Titles $app.Id) -like "misterdownloadmanager menu*"); $i++) { Start-Sleep -Milliseconds 200 }
+      for ($i = 0; $i -lt 50 -and -not (@(Titles $app.Id) -like "zdownloader3 menu*"); $i++) { Start-Sleep -Milliseconds 200 }
       Start-Sleep -Milliseconds 1200
       Shot $app.Id "" $name -All
       # The menu's windows are ours: closed like any other.
-      Close-Ours $app.Id "misterdownloadmanager menu*"
+      Close-Ours $app.Id "zdownloader3 menu*"
       Start-Sleep -Milliseconds 800
       continue
     }
@@ -335,7 +335,7 @@ try {
   $crashShot = if ($dark) { "crash-report-dark" } else { "crash-report" }
   if (Want $crashShot) {
     & $Exe /show "crash-test:freeze" | Out-Null
-    $title = "Mister Download Manager crash report"
+    $title = "ZDownloader3 crash report"
     $mon = 0
     for ($i = 0; $i -lt 60 -and -not $mon; $i++) {
       Start-Sleep -Milliseconds 500
@@ -355,7 +355,7 @@ try {
   # A copy started again by itself, and its crash monitor: ours as well.
   Ours | ForEach-Object { Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue }
   if ($srv) { Stop-Process -Id $srv.Id -ErrorAction SilentlyContinue }
-  Remove-Item Env:MDM_DATA_DIR, Env:MDM_ZOOM, Env:MDM_OFFSCREEN, Env:MDM_OFFSCREEN_AT, Env:MDM_CRASH_TEST -ErrorAction SilentlyContinue
+  Remove-Item Env:ZD3_DATA_DIR, Env:MDM_ZOOM, Env:MDM_OFFSCREEN, Env:MDM_OFFSCREEN_AT, Env:MDM_CRASH_TEST -ErrorAction SilentlyContinue
   # The downloads (a 6 GB file partly fetched) don't stay behind.
   Start-Sleep 1
   Remove-Item $work -Recurse -Force -ErrorAction SilentlyContinue

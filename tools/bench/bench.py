@@ -1,4 +1,4 @@
-"""IDM vs Mister Download Manager: the same downloads from the same local lab server, timed.
+"""IDM vs ZDownloader3: the same downloads from the same local lab server, timed.
 
     python tools/bench/bench.py [--runs N] [--only scenario,...] [--out DIR]
 
@@ -31,7 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 IDM_EXE = Path(r"C:\Program Files (x86)\Internet Download Manager\IDMan.exe")
-MDM_EXE = ROOT / "target" / "release" / "misterdownloadmanager.exe"
+MDM_EXE = ROOT / "target" / "release" / "zdownloader3.exe"
 LAB_EXE = ROOT / "target" / "release" / "labserver.exe"
 PORT = 8097
 
@@ -260,7 +260,7 @@ def main():
     lab = subprocess.Popen([str(LAB_EXE), "--bind", f"127.0.0.1:{PORT}", "--log-file", str(log)],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     # MDM: its own instance, own data folder (the user's copy is untouched).
-    mdm_env = dict(os.environ, MDM_DATA_DIR=str(out / "mdm-data"))
+    mdm_env = dict(os.environ, ZD3_DATA_DIR=str(out / "mdm-data"))
     mdm = subprocess.Popen([str(MDM_EXE)], env=mdm_env)
     time.sleep(3)
     # (MDM is restarted for every scenario, below: what it learns about a server in one scenario

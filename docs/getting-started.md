@@ -12,9 +12,9 @@ Every version is on the [Releases](https://github.com/anefzaoui/misterdownloadma
 
 | File | What it is |
 |---|---|
-| `MisterDownloadManager-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
-| `MisterDownloadManager-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
-| `MisterDownloadManager-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\misterdownloadmanager`, like an installed copy. |
+| `ZDownloader3-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
+| `ZDownloader3-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
+| `ZDownloader3-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\zdownloader3`, like an installed copy. |
 
 These three are for 64-bit Windows on an Intel or AMD processor (x64), the usual PC. From the
 version after 0.5.2, each comes for two more kinds of PC too, with the processor in its name:
@@ -31,8 +31,8 @@ version after 0.5.2, each comes for two more kinds of PC too, with the processor
 MDM is also in [WinGet](https://learn.microsoft.com/windows/package-manager/winget/), Windows' package manager. In a terminal, the first line installs MDM and the second updates it to the latest version:
 
 ```
-winget install AhmedNefzaoui.MisterDownloadManager
-winget upgrade AhmedNefzaoui.MisterDownloadManager
+winget install AhmedNefzaoui.ZDownloader3
+winget upgrade AhmedNefzaoui.ZDownloader3
 ```
 
 WinGet downloads the setup and installs MDM without the setup's questions.
@@ -98,28 +98,28 @@ And on the other desktops it was checked on:
 
 #### Uninstall on Linux {#uninstall-linux}
 
-`sudo apt remove misterdownloadmanager` (or `sudo dnf remove misterdownloadmanager`) removes the
+`sudo apt remove zdownloader3` (or `sudo dnf remove zdownloader3`) removes the
 programs, and the small files that tell your browsers where MDM's helper is: the .deb and .rpm
 install those for everyone (in `/etc` and `/usr/lib`), for Chrome, Chromium, Edge, Brave, Vivaldi,
 Helium and Firefox (the Snap too), so MDM doesn't write them in your home folder. For the AppImage
 or the tar.gz, delete the file or the folder.
 
 What MDM keeps in your home folder stays, as with any package: your list and settings
-(`~/.local/share/misterdownloadmanager`), the AppImage's and the tar.gz's browser files, and
+(`~/.local/share/zdownloader3`), the AppImage's and the tar.gz's browser files, and
 those of the browsers that read them only there (Opera, Helium, Thorium, and Firefox's forks:
 Zen, LibreWolf, Floorp, Waterfox). A package can't remove those: it never touches
 home folders. Without MDM they lead nowhere, so the extension says it can't reach MDM. To remove
 them as well, run this as each user who used MDM, **before** uninstalling:
 
 ```sh
-misterdownloadmanager-nmhost --unregister
+zdownloader3-nmhost --unregister
 ```
 
-(From the AppImage: `~/.local/share/misterdownloadmanager/browser-host/misterdownloadmanager-nmhost --unregister`.)
+(From the AppImage: `~/.local/share/zdownloader3/browser-host/zdownloader3-nmhost --unregister`.)
 Already uninstalled? This removes the same files:
 
 ```sh
-find ~/.mozilla ~/.librewolf ~/.config -name com.misterdownloadmanager.host.json -delete 2>/dev/null
+find ~/.mozilla ~/.librewolf ~/.config -name com.zdownloader3.host.json -delete 2>/dev/null
 ```
 
 ### On a Mac
@@ -130,20 +130,20 @@ so you'd be among the first. Please
 
 | File | What it is |
 |---|---|
-| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag Mister Download Manager to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
+| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag ZDownloader3 to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
 | `...-macos-x86_64-experimental.dmg` | The same, for a Mac with an Intel processor (About This Mac shows a *Processor*). |
 
 Browser integration is set up by MDM itself at each start (the browsers installed then are found); add the extension as in [Browser integration](browser-integration.md).
 
 ## Install with the setup
 
-1. Run `MisterDownloadManager-<version>-setup.exe`.
+1. Run `ZDownloader3-<version>-setup.exe`.
 2. Choose the language. Windows' display language is already selected. The setup offers every language MDM has, and MDM starts in the one you pick.
-3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\Mister Download Manager`. For everyone goes to `Program Files`.
+3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\ZDownloader3`. For everyone goes to `Program Files`.
 4. Pick what the setup should do:
    - **Set up browser integration (Chrome, Edge, Brave, Firefox)**
-   - **Open .torrent files and magnet links with Mister Download Manager**
-   - **Start Mister Download Manager when Windows starts**
+   - **Open .torrent files and magnet links with ZDownloader3**
+   - **Start ZDownloader3 when Windows starts**
    - **Create a desktop shortcut** (off unless you tick it)
 5. Click **Install**, then **Finish** to start MDM.
 
@@ -158,9 +158,9 @@ Uninstall MDM from Windows **Settings → Apps**. The uninstaller asks whether t
 ## Use a zip copy
 
 1. Unzip the file to a folder you can write to (not straight into `Program Files`).
-2. Run `misterdownloadmanager.exe`.
+2. Run `zdownloader3.exe`.
 
-The zips hold the same programs as the setup: the app, `misterdownloadmanager-cli.exe` (downloads from the command line; see [Command line and automation](command-line.md)) and the `extension` folder.
+The zips hold the same programs as the setup: the app, `zdownloader3-cli.exe` (downloads from the command line; see [Command line and automation](command-line.md)) and the `extension` folder.
 
 ## First start and the language
 
@@ -262,11 +262,11 @@ used, and how to make and share one.
 
 ## The tray icon
 
-Closing the main window doesn't quit MDM. It hides in the notification area, and downloads, queues and schedules carry on. To make closing quit (a portable copy's folder can then be deleted), untick **Options → General → Keep running when closing the window**. If there is no icon for MDM at all — not in the notification area, nor behind the ^ hidden icons — the window minimizes to the taskbar instead, so downloads continue and there is a way back. An icon behind ^ can be clicked to bring the window back, and starting MDM again always does. On macOS the window closes into the Dock, as Mac apps' windows do: click MDM's icon in the Dock (or in the menu bar) to bring it back, and quit with **Cmd+Q** or **Mister Download Manager → Quit**.
+Closing the main window doesn't quit MDM. It hides in the notification area, and downloads, queues and schedules carry on. To make closing quit (a portable copy's folder can then be deleted), untick **Options → General → Keep running when closing the window**. If there is no icon for MDM at all — not in the notification area, nor behind the ^ hidden icons — the window minimizes to the taskbar instead, so downloads continue and there is a way back. An icon behind ^ can be clicked to bring the window back, and starting MDM again always does. On macOS the window closes into the Dock, as Mac apps' windows do: click MDM's icon in the Dock (or in the menu bar) to bring it back, and quit with **Cmd+Q** or **ZDownloader3 → Quit**.
 
 On Linux this needs a tray, which most desktops have (KDE Plasma, Xfce, Cinnamon, Ubuntu's GNOME or GNOME with the AppIndicator extension, waybar's tray). On a desktop without one (some tiling window managers), closing the window quits MDM, since there would be nowhere to bring it back from.
 
-![MDM's icon in the top bar of Ubuntu's GNOME, its menu open: Open Mister Download Manager, Add new download, Add batch download, Downloads in progress, Speed Limiter, Scheduler, the main queue, Options and Exit](images/tray-linux.webp)
+![MDM's icon in the top bar of Ubuntu's GNOME, its menu open: Open ZDownloader3, Add new download, Add batch download, Downloads in progress, Speed Limiter, Scheduler, the main queue, Options and Exit](images/tray-linux.webp)
 *The tray icon's menu on Ubuntu's GNOME.*
 
 - Click the tray icon to bring the window back.
@@ -285,7 +285,7 @@ To quit, choose **Tasks → Exit** or **Exit** in the tray menu.
 
 ## Where MDM keeps its data
 
-The download list and settings are in `%APPDATA%\misterdownloadmanager` (`downloads.json`); on Linux in `~/.local/share/misterdownloadmanager`, on a Mac in `~/Library/Application Support/misterdownloadmanager`. A portable copy keeps them in its `data` folder instead. Downloaded files go to your **Downloads** folder, sorted into a folder per category; you can change that in **Options → Save to**.
+The download list and settings are in `%APPDATA%\zdownloader3` (`downloads.json`); on Linux in `~/.local/share/zdownloader3`, on a Mac in `~/Library/Application Support/zdownloader3`. A portable copy keeps them in its `data` folder instead. Downloaded files go to your **Downloads** folder, sorted into a folder per category; you can change that in **Options → Save to**.
 
 ## Next steps
 

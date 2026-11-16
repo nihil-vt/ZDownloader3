@@ -35,9 +35,9 @@ Every download keeps a log of its recent events: retries, redirects, the server'
 ## The browser doesn't send downloads to MDM
 
 1. Was MDM installed with the setup, with **Set up browser integration** ticked? A portable copy can't take browser downloads. Run the setup again to add it.
-2. Is the extension loaded and turned on? Look for **Mister Download Manager** on the browser's extensions page. In Firefox, install it from addons.mozilla.org: a temporary add-on is gone after a restart. See [Browser integration](browser-integration.md).
+2. Is the extension loaded and turned on? Look for **ZDownloader3** on the browser's extensions page. In Firefox, install it from addons.mozilla.org: a temporary add-on is gone after a restart. See [Browser integration](browser-integration.md).
 3. Is **Options → General → Use advanced browser integration** on, and your browser ticked under **Capture downloads from the following browsers**?
-4. Is the file's type in **Options → File types**? Only listed types are taken automatically. **Download with Mister Download Manager** on the right-click menu takes any link.
+4. Is the file's type in **Options → File types**? Only listed types are taken automatically. **Download with ZDownloader3** on the right-click menu takes any link.
 5. Is the site in **Don't start downloading automatically from the following sites**?
 
 When none of this helps, the browser keeps the download, so nothing is lost. The extension's toolbar button says why it couldn't reach MDM; see [The browser and MDM aren't connected](browser-help.md).
@@ -105,7 +105,7 @@ A few antivirus programs flag new installers just because they have rarely seen 
 To check that your copy is the real one:
 
 1. Download MDM only from [the website](https://misterdownloadmanager.com) or [GitHub Releases](https://github.com/anefzaoui/misterdownloadmanager/releases).
-2. Get your file's SHA-256. On Windows, run `certutil -hashfile "MisterDownloadManager-0.5.0-setup.exe" SHA256`; on Linux, `sha256sum` and the file's name.
+2. Get your file's SHA-256. On Windows, run `certutil -hashfile "ZDownloader3-0.5.0-setup.exe" SHA256`; on Linux, `sha256sum` and the file's name.
 3. Compare it with the same file's line in that release's `SHA256SUMS.txt`.
 
 If they match, it is the file we published. Every release is built on GitHub from the [public source code](https://github.com/anefzaoui/misterdownloadmanager), so anyone can read what went into it.
@@ -118,9 +118,9 @@ A minimal Linux system (often with the AppImage, the tar.gz or a build from sour
 
 ## Where your data is
 
-- Installed or the plain zip: `%APPDATA%\misterdownloadmanager`. The list and settings are in `downloads.json`.
-- Portable: the `data` folder next to `misterdownloadmanager.exe`.
-- Linux: `~/.local/share/misterdownloadmanager`; a Mac: `~/Library/Application Support/misterdownloadmanager`.
+- Installed or the plain zip: `%APPDATA%\zdownloader3`. The list and settings are in `downloads.json`.
+- Portable: the `data` folder next to `zdownloader3.exe`.
+- Linux: `~/.local/share/zdownloader3`; a Mac: `~/Library/Application Support/zdownloader3`.
 - Passwords (Sites Logins, the proxy, debrid accounts) are in the system's keychain, not in `downloads.json`; see [Options → Sites Logins](options.md#sites-logins).
 
 To back up your list, quit MDM (**Tasks → Exit**) and copy `downloads.json`.
@@ -144,9 +144,9 @@ MDM installs an update only when the release's list of checksums is signed by MD
 
 The AppImage can also be updated by AppImage tools (AppImageLauncher, Gear Lever, AppImageUpdate): it carries the address of its updates, and each release has its `.AppImage.zsync` file, so those tools download only the parts that changed. This starts with the AppImage of the version after 0.2.4.
 
-**Help → About Mister Download Manager** shows the version you have.
+**Help → About ZDownloader3** shows the version you have.
 
-![About Mister Download Manager: its version, licence and links](images/help/about-updates.webp)
+![About ZDownloader3: its version, licence and links](images/help/about-updates.webp)
 *Help → About: the version you have.*
 
 ## Reporting a problem

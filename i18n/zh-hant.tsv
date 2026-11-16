@@ -1,4 +1,4 @@
-# Mister Download Manager in Chinese (Traditional) (繁體中文): tools/i18n/translate.py
+# ZDownloader3 in Chinese (Traditional) (繁體中文): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	繁體中文
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	您確定要從 Mister Download Manager 的下載清單中刪除這 {n} 個下載項目嗎？
+@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	您確定要從 ZDownloader3 的下載清單中刪除這 {n} 個下載項目嗎？
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	缺少其中一個磁碟區
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	關於 Mister Download Manager
+	About ZDownloader3	關於 ZDownloader3
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	將 Mister Download Manager 新增至您的瀏覽器
+	Add ZDownloader3 to your browser	將 ZDownloader3 新增至您的瀏覽器
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	一律放入以其命名的資料夾
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	在 Mister Download Manager 啟動時一律開啟速度限制器
+	Always turn on Speed Limiter on ZDownloader3 startup	在 ZDownloader3 啟動時一律開啟速度限制器
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	您確定要從 Mister Download Manager 下載清單中刪除「{name}」嗎？
+	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	您確定要從 ZDownloader3 下載清單中刪除「{name}」嗎？
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	瀏覽...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	此電腦上未設定瀏覽器整合，因此沒有瀏覽器可以連線到 Mister Download Manager。
+	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	此電腦上未設定瀏覽器整合，因此沒有瀏覽器可以連線到 ZDownloader3。
 #. page title in the Options window
 #, machine
 	Browser/System Integration	瀏覽器/系統整合
@@ -944,7 +944,7 @@
 	Choose a language	選擇語言
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	選擇 Mister Download Manager 顯示視窗的語言：
+	Choose the language ZDownloader3 shows its windows in:	選擇 ZDownloader3 顯示視窗的語言：
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	結束
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	完成後結束 Mister Download Manager
+	Exit ZDownloader3 when done	完成後結束 ZDownloader3
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	預期檢查碼 (MD5、SHA-1、SHA-256、SHA-512 或 CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	隱藏網頁
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	按住 Alt 鍵並點擊連結，讓瀏覽器下載，而不是 Mister Download Manager。
+	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	按住 Alt 鍵並點擊連結，讓瀏覽器下載，而不是 ZDownloader3。
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	首頁
@@ -2127,7 +2127,7 @@
 	Hungary	匈牙利
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	我使用 Mister Download Manager 下載：快速、免費，而且它看起來就像您已經知道的下載管理員。{link}
+	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	我使用 ZDownloader3 下載：快速、免費，而且它看起來就像您已經知道的下載管理員。{link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	拉脫維亞
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	啟動時執行 Mister Download Manager
+	Launch ZDownloader3 on startup	啟動時執行 ZDownloader3
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	未下載
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	Mister Download Manager
+	ZDownloader3	ZDownloader3
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager 無法開啟視窗：此系統缺少 {libraries}。
+	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 無法開啟視窗：此系統缺少 {libraries}。
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager 意外關閉
+	ZDownloader3 closed unexpectedly	ZDownloader3 意外關閉
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	Mister Download Manager 設定
+	ZDownloader3 Configuration	ZDownloader3 設定
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Mister Download Manager 當機報告
+	ZDownloader3 crash report	ZDownloader3 當機報告
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager 發生內部錯誤
+	ZDownloader3 hit an internal error	ZDownloader3 發生內部錯誤
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	Mister Download Manager is downloading	Mister Download Manager 正在下載
+	ZDownloader3 is downloading	ZDownloader3 正在下載
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager 正在執行佇列「{queue}」
+	ZDownloader3 is running the queue "{queue}"	ZDownloader3 正在執行佇列「{queue}」
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager 停止回應
+	ZDownloader3 stopped responding	ZDownloader3 停止回應
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager 停止回應了一段時間
+	ZDownloader3 stopped responding for a while	ZDownloader3 停止回應了一段時間
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager 會將每個連線直接寫入最終檔案\n(旁邊的疏鬆部分檔案)，因此不需要暫存目錄和組裝步驟。
+	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 會將每個連線直接寫入最終檔案\n(旁邊的疏鬆部分檔案)，因此不需要暫存目錄和組裝步驟。
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} 可用 (發行於 {date})。
+	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} 可用 (發行於 {date})。
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Mister Download Manager 的自有副本，版本 {version}
+	ZDownloader3's own copy, version {version}	ZDownloader3 的自有副本，版本 {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager 的 X11 視窗需要此系統缺少的 {libraries}：它改為在 Wayland 上開啟，其功能表可能會在標題以外的位置開啟。
+	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ZDownloader3 的 X11 視窗需要此系統缺少的 {libraries}：它改為在 Wayland 上開啟，其功能表可能會在標題以外的位置開啟。
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	在瀏覽器中開啟
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	使用 Mister Download Manager 開啟磁力連結和 .torrent 檔案
+	Open magnet links and .torrent files with ZDownloader3	使用 ZDownloader3 開啟磁力連結和 .torrent 檔案
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	開啟 Mister Download Manager
+	Open ZDownloader3	開啟 ZDownloader3
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	與 Mister Download Manager 配對
+	Pair with ZDownloader3	與 ZDownloader3 配對
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	選取或取消選取虛線框的下載
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	選取 Mister Download Manager 事件的音效
+	Select sounds for ZDownloader3 events	選取 ZDownloader3 事件的音效
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	選取方塊中的下載
@@ -4230,7 +4230,7 @@
 	Start download at	在以下時間開始下載
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	在 Mister Download Manager 啟動時開始下載
+	Start download on ZDownloader3 startup	在 ZDownloader3 啟動時開始下載
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	顯示「下載檔案資訊」對話方塊時立即開始下載
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	隨電腦啟動時，它會最小化啟動：此處沒有通知區域會顯示其圖示
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	隨電腦啟動時，它會在通知區域中等候
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find Mister Download Manager	瀏覽器可以找到 Mister Download Manager
+	The browsers can find ZDownloader3	瀏覽器可以找到 ZDownloader3
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	電腦會在開始時間前一分鐘喚醒，並在佇列執行時保持喚醒狀態。Mister Download Manager 必須正在執行 (它可以在通知區域中等待)。
+	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	電腦會在開始時間前一分鐘喚醒，並在佇列執行時保持喚醒狀態。ZDownloader3 必須正在執行 (它可以在通知區域中等待)。
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4652,7 +4652,7 @@
 #, machine
 	the FTP server answered {code} {reply}	FTP 伺服器回應 {code} {reply}
 #. text in extension.rs
-#. a check of Test browser integration: the browsers are set up, but the small helper program they start (misterdownloadmanager-nmhost) is gone
+#. a check of Test browser integration: the browsers are set up, but the small helper program they start (zdownloader3-nmhost) is gone
 #, machine
 	The helper program the browsers start is missing	瀏覽器啟動的輔助程式遺失
 #. message or event log entry in the main window; text in the Options window
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	選取的下載尚未完成。您確定要從 Mister Download Manager 下載清單中刪除它嗎？
+	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	選取的下載尚未完成。您確定要從 ZDownloader3 下載清單中刪除它嗎？
 #. text in errors.rs
 #, machine
 	the server answered {status}	伺服器回應 {status}
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	開啟「Mister Download Manager」，並允許它在所有網站上使用。
+	Turn on "ZDownloader3" and allow it on all websites.	開啟「ZDownloader3」，並允許它在所有網站上使用。
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	您已擁有最新版 Mister Download Manager ({version})。
+	You have the latest version of ZDownloader3 ({version}).	您已擁有最新版 ZDownloader3 ({version})。
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	傳輸速率
 #, machine
 column	Upload speed	上傳速度
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
 #, machine
-extension	A list of videos: choose them in Mister Download Manager	影片清單：請在 Mister Download Manager 中選擇
+extension	A list of videos: choose them in ZDownloader3	影片清單：請在 ZDownloader3 中選擇
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	已新增至佇列
 #, machine
 extension	All qualities and subtitles...	所有畫質和字幕...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
 #, machine
-extension	Another Mister Download Manager (a server)	另一個 Mister Download Manager (伺服器)
+extension	Another ZDownloader3 (a server)	另一個 ZDownloader3 (伺服器)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	最佳
 #, machine
 extension	Browser extension	瀏覽器擴充功能
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in ZDownloader3
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	按鈕設定...
@@ -6108,14 +6108,14 @@ extension	can't be saved	無法儲存
 #, machine
 extension	Can't tell which video this is: open its own page and try there	無法判斷這是哪部影片：請開啟該影片本身的頁面再試一次
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
 #, machine
-extension	Connected to Mister Download Manager	已連線到 Mister Download Manager
+extension	Connected to ZDownloader3	已連線到 ZDownloader3
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	已連線到 Mister Download Manager {version}
+extension	Connected to ZDownloader3 {version}	已連線到 ZDownloader3 {version}
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	無法尋找
 #, machine
 extension	Download	下載
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
 #, machine
-extension	Download all links with Mister Download Manager	使用 Mister Download Manager 下載所有連結
+extension	Download all links with ZDownloader3	使用 ZDownloader3 下載所有連結
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	下載最佳品質
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
 #, machine
-extension	Download selected links with Mister Download Manager	使用 Mister Download Manager 下載選取的連結
+extension	Download selected links with ZDownloader3	使用 ZDownloader3 下載選取的連結
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	下載最佳品質
 #, machine
 extension	Download video	下載影片
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
 #, machine
-extension	Download with Mister Download Manager	使用 Mister Download Manager 下載
+extension	Download with ZDownloader3	使用 ZDownloader3 下載
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	輸入其 https:// 位址。
 #, machine
 extension	Get MDM	取得 MDM
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	將瀏覽器中的下載交給 Mister Download Manager。
+extension	Hands downloads from the browser to ZDownloader3.	將瀏覽器中的下載交給 ZDownloader3。
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	失敗。請再試一次。
 #, machine
 extension	It shows no code now: click Pair a device there first.	它現在沒有顯示代碼：請先按一下「配對裝置」。
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with Mister Download Manager, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with Mister Download Manager is off in Torrent settings.	這是 torrent 檔案，且「在 Torrent 設定中以 Mister Download Manager 開啟磁力連結和 .torrent 檔案」已關閉。
+extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	這是 torrent 檔案，且「在 Torrent 設定中以 ZDownloader3 開啟磁力連結和 .torrent 檔案」已關閉。
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM 沒有回應
 #, machine
 extension	Media on this page	此頁面上的媒體
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	ZDownloader3	ZDownloader3
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager 未及時啟動
+extension	ZDownloader3 didn't start in time	ZDownloader3 未及時啟動
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager 不接受此擴充功能副本
+extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 不接受此擴充功能副本
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager is busy with other videos	Mister Download Manager 正忙於處理其他影片
+extension	ZDownloader3 is busy with other videos	ZDownloader3 正忙於處理其他影片
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager 未安裝或未啟動
+extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 未安裝或未啟動
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager 未安裝，或其瀏覽器整合未設定
+extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 未安裝，或其瀏覽器整合未設定
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager needs yt-dlp for this video	Mister Download Manager 需要 yt-dlp 才能處理此影片
+extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3 需要 yt-dlp 才能處理此影片
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager 會透過此瀏覽器使用的相同 Proxy 進行下載。瀏覽器會要求您允許一次；關閉此選項會撤銷該權限。
+extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 會透過此瀏覽器使用的相同 Proxy 進行下載。瀏覽器會要求您允許一次；關閉此選項會撤銷該權限。
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager 會透過與此瀏覽器相同的 Proxy 進行下載。關閉此選項時，擴充功能不會讀取瀏覽器的 Proxy。
+extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 會透過與此瀏覽器相同的 Proxy 進行下載。關閉此選項時，擴充功能不會讀取瀏覽器的 Proxy。
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6321,13 +6321,13 @@ extension	Off on this site	此網站已關閉
 #, machine
 extension	Open it	開啟它
 #. text in the browser extension
-#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is
+#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is
 #, machine
-extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	開啟其位址一次並接受其憑證，然後從其「選項」、「遠端」、「配對裝置」(或 misterdownloadmanager-cli pair) 輸入代碼。
+extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	開啟其位址一次並接受其憑證，然後從其「選項」、「遠端」、「配對裝置」(或 zdownloader3-cli pair) 輸入代碼。
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
 #, machine
-extension	Open Mister Download Manager	開啟 Mister Download Manager
+extension	Open ZDownloader3	開啟 ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	透過此
 #, machine
 extension	Send downloads to	傳送下載項目至
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is Mister Download Manager's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	正在傳送至 MDM...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
 #, machine
-extension	Sent to Mister Download Manager	已傳送至 Mister Download Manager
+extension	Sent to ZDownloader3	已傳送至 ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	從此瀏覽器接管下載
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome 線上應用程式商店的規則使此擴充功能副本無法用於此網站的影片。請參閱「說明」以了解您可以怎麼做。
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
 #, machine
-extension	The connection to Mister Download Manager failed	與 Mister Download Manager 的連線失敗
+extension	The connection to ZDownloader3 failed	與 ZDownloader3 的連線失敗
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	上次下載已留給瀏覽
 #, machine
 extension	This browser isn't ticked in Options → General.	此瀏覽器未在「選項 → 一般」中勾選。
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the ZDownloader3 on this computer
 #, machine
 extension	This computer	這部電腦
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	開啟
 #, machine
 extension	Undo	復原
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	更新 Mister Download Manager 以使用此擴充功能提供的所有功能
+extension	Update ZDownloader3 to use everything this extension offers	更新 ZDownloader3 以使用此擴充功能提供的所有功能
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	向上鍵 / 向下鍵
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	關於 Mister Download Manager(&A)
+menu	&About ZDownloader3	關於 ZDownloader3(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6979,7 +6979,7 @@ menu	Metro	都會
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Mister Download Manager 首頁(&H)
+menu	ZDownloader3 &Home Page	ZDownloader3 首頁(&H)
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	移動/重新命名 (Ctrl-M)
@@ -7112,7 +7112,7 @@ menu	Select &all	全選(&A)
 menu	Show &drop target	顯示拖放目標(&D)
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	顯示 Mister Download Manager
+menu	Show ZDownloader3	顯示 ZDownloader3
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

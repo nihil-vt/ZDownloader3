@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Chuyển các bản tải xuống từ trình duyệt sang Mister Download Manager."
+    "message": "Chuyển các bản tải xuống từ trình duyệt sang ZDownloader3."
   },
   "menu": {
-    "message": "Tải xuống bằng Mister Download Manager"
+    "message": "Tải xuống bằng ZDownloader3"
   },
   "video_download": {
     "message": "Tải xuống video"
@@ -30,19 +30,19 @@
     "message": "Cài đặt nút..."
   },
   "video_sent": {
-    "message": "Đã gửi đến Mister Download Manager"
+    "message": "Đã gửi đến ZDownloader3"
   },
   "menu_selected": {
-    "message": "Tải xuống các liên kết đã chọn bằng Mister Download Manager"
+    "message": "Tải xuống các liên kết đã chọn bằng ZDownloader3"
   },
   "menu_all": {
-    "message": "Tải xuống tất cả liên kết bằng Mister Download Manager"
+    "message": "Tải xuống tất cả liên kết bằng ZDownloader3"
   },
   "status_connected": {
-    "message": "Đã kết nối với Mister Download Manager"
+    "message": "Đã kết nối với ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Đã kết nối với Mister Download Manager $version$",
+    "message": "Đã kết nối với ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Đã tạm dừng: các bản tải xuống vẫn ở trong trình duyệt"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager chưa được cài đặt hoặc tích hợp trình duyệt chưa được thiết lập"
+    "message": "ZDownloader3 chưa được cài đặt hoặc tích hợp trình duyệt chưa được thiết lập"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager không chấp nhận bản sao tiện ích mở rộng này"
+    "message": "ZDownloader3 không chấp nhận bản sao tiện ích mở rộng này"
   },
   "status_not_running": {
-    "message": "Mister Download Manager chưa khởi động kịp"
+    "message": "ZDownloader3 chưa khởi động kịp"
   },
   "status_host_failed": {
-    "message": "Kết nối với Mister Download Manager không thành công"
+    "message": "Kết nối với ZDownloader3 không thành công"
   },
   "status_too_large": {
     "message": "Thông tin của lượt tải xuống này quá lớn để chuyển giao"
   },
   "status_update_app": {
-    "message": "Cập nhật Mister Download Manager để sử dụng mọi tính năng mà tiện ích mở rộng này cung cấp"
+    "message": "Cập nhật ZDownloader3 để sử dụng mọi tính năng mà tiện ích mở rộng này cung cấp"
   },
   "popup_take": {
     "message": "Nhận tải xuống từ trình duyệt này"
@@ -78,10 +78,10 @@
     "message": "Gửi các bản tải xuống qua proxy hoặc tiện ích VPN của trình duyệt này"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager sau đó tải xuống thông qua cùng một proxy với trình duyệt này. Trình duyệt sẽ hỏi bạn một lần để cho phép; tắt tùy chọn này sẽ thu hồi quyền đó."
+    "message": "ZDownloader3 sau đó tải xuống thông qua cùng một proxy với trình duyệt này. Trình duyệt sẽ hỏi bạn một lần để cho phép; tắt tùy chọn này sẽ thu hồi quyền đó."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager sau đó tải xuống qua cùng một proxy với trình duyệt này. Khi tắt tùy chọn này, tiện ích sẽ không đọc proxy của trình duyệt."
+    "message": "ZDownloader3 sau đó tải xuống qua cùng một proxy với trình duyệt này. Khi tắt tùy chọn này, tiện ích sẽ không đọc proxy của trình duyệt."
   },
   "popup_exclude_site": {
     "message": "Không nhận tải xuống từ $site$ nữa",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Mở Mister Download Manager"
+    "message": "Mở ZDownloader3"
   },
   "popup_options": {
     "message": "Tùy chọn..."
@@ -150,7 +150,7 @@
     "message": "Tích hợp trình duyệt nâng cao đang tắt trong Tùy chọn → Chung."
   },
   "declined_torrents": {
-    "message": "Đây là torrent, và tùy chọn Mở liên kết magnet và tệp .torrent bằng Mister Download Manager đang tắt trong cài đặt Torrent."
+    "message": "Đây là torrent, và tùy chọn Mở liên kết magnet và tệp .torrent bằng ZDownloader3 đang tắt trong cài đặt Torrent."
   },
   "declined_site_access": {
     "message": "Tiện ích không được phép đọc trang web này (quyền truy cập trang web của trình duyệt)."
@@ -195,16 +195,16 @@
     "message": "Không có video nào để tải xuống ở đây"
   },
   "video_playlist": {
-    "message": "Danh sách video: hãy chọn chúng trong Mister Download Manager"
+    "message": "Danh sách video: hãy chọn chúng trong ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager cần yt-dlp cho video này"
+    "message": "ZDownloader3 cần yt-dlp cho video này"
   },
   "video_too_long": {
     "message": "Việc tìm kiếm mất quá nhiều thời gian"
   },
   "video_busy": {
-    "message": "Mister Download Manager đang bận với các video khác"
+    "message": "ZDownloader3 đang bận với các video khác"
   },
   "video_queued": {
     "message": "Đã thêm vào hàng đợi"
@@ -228,7 +228,7 @@
     "message": "Máy tính này"
   },
   "popup_send_remote": {
-    "message": "Một Mister Download Manager khác (máy chủ)"
+    "message": "Một ZDownloader3 khác (máy chủ)"
   },
   "popup_remote_code": {
     "message": "Mã ghép nối"
@@ -240,7 +240,7 @@
     "message": "Ghép nối"
   },
   "popup_remote_help": {
-    "message": "Mở địa chỉ của nó một lần và chấp nhận chứng chỉ của nó, sau đó nhập mã từ Tùy chọn, Từ xa, Ghép nối thiết bị (hoặc misterdownloadmanager-cli pair)."
+    "message": "Mở địa chỉ của nó một lần và chấp nhận chứng chỉ của nó, sau đó nhập mã từ Tùy chọn, Từ xa, Ghép nối thiết bị (hoặc zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Tải xuống chuyển đến $address$",
@@ -324,7 +324,7 @@
     "message": "Tất cả chất lượng và phụ đề..."
   },
   "video_failed": {
-    "message": "Mister Download Manager chưa được cài đặt hoặc chưa khởi động"
+    "message": "ZDownloader3 chưa được cài đặt hoặc chưa khởi động"
   },
   "video_download_best": {
     "message": "Tải xuống chất lượng tốt nhất"

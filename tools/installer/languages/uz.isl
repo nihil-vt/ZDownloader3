@@ -1,4 +1,4 @@
-﻿; Mister Download Manager's installer in Uzbek: tools/installer/languages.py
+﻿; ZDownloader3's installer in Uzbek: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 oʻchirilmoqda.
 
 [CustomMessages]
 TaskBrowser=Brauzer integratsiyasini sozlash (&Chrome, Edge, Brave, Firefox)
-TaskTorrents=.&torrent fayllarini va magnit havolalarni Mister Download Manager bilan ochish
-TaskStartup=&Windows ishga tushganda Mister Download Managerni ishga tushirish
+TaskTorrents=.&torrent fayllarini va magnit havolalarni ZDownloader3 bilan ochish
+TaskStartup=&Windows ishga tushganda ZDownloader3ni ishga tushirish
 TaskGroupOther=Boshqa:
-Launch=Mister Download Managerni ishga tushirish
+Launch=ZDownloader3ni ishga tushirish
 KeepData=Yuklab olish roʻyxati va sozlamalaringizni ham oʻchirib tashlaysizmi?%n%nYuklab olingan fayllaringizga hech qanday holatda tegmaydi.

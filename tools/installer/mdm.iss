@@ -1,4 +1,4 @@
-; Mister Download Manager's Windows installer (Inno Setup 6). Built by tools/installer/build.ps1,
+; ZDownloader3's Windows installer (Inno Setup 6). Built by tools/installer/build.ps1,
 ; which passes /DAppVersion=..., /DArch=... and /DBin=... and, when a certificate is set up,
 ; /DSign with /Smdmsign=...
 ;
@@ -7,14 +7,14 @@
 ; for Chrome, Edge, Brave and Firefox), .torrent files and magnet links, start with Windows, a
 ; desktop shortcut. A running MDM is asked to save and quit first (/exit). Uninstalling asks
 ; whether to keep the download list and settings; removing them also removes MDM's sign-ins from
-; Windows Credential Manager (misterdownloadmanager --forget-sign-ins).
+; Windows Credential Manager (zdownloader3 --forget-sign-ins).
 
 #ifndef AppVersion
   #define AppVersion "0.5.2"
 #endif
-#define AppName "Mister Download Manager"
-#define AppExe "misterdownloadmanager.exe"
-#define HostExe "misterdownloadmanager-nmhost.exe"
+#define AppName "ZDownloader3"
+#define AppExe "zdownloader3.exe"
+#define HostExe "zdownloader3-nmhost.exe"
 #define Root "..\.."
 ; The processor (build.ps1 -Arch): x64, arm64 or x86, an installer each; and the folder its
 ; programs were built in (target\<Rust's target>\release).
@@ -65,16 +65,16 @@ UninstallDisplayName={#AppName}
 OutputDir={#Root}\target\dist
 ; x64's keeps the name it had before there were others: MDM's Update now looks for it by name.
 #if Arch == "x64"
-OutputBaseFilename=MisterDownloadManager-{#AppVersion}-setup
+OutputBaseFilename=ZDownloader3-{#AppVersion}-setup
 #else
-OutputBaseFilename=MisterDownloadManager-{#AppVersion}-setup-{#Arch}
+OutputBaseFilename=ZDownloader3-{#AppVersion}-setup-{#Arch}
 #endif
 ; A 64 MB dictionary (#25): an 8 MB one (lzma2/max) only finds what repeats close by in the
 ; solid archive. A few MB smaller; building needs about 750 MB of memory, installing 64 MB.
 Compression=lzma2/ultra64
 SolidCompression=yes
 ChangesAssociations=yes
-; A running MDM is asked to quit by [Code] (it holds the mutex MisterDownloadManager.Running);
+; A running MDM is asked to quit by [Code] (it holds the mutex ZDownloader3.Running);
 ; AppMutex isn't used because it would refuse to start before that. Restart Manager is the
 ; fallback for anything else holding the files (a browser running the host).
 CloseApplications=yes
@@ -106,7 +106,7 @@ lang_en.KeepData=Also delete your download list and settings?%n%nYour downloaded
 ; languages show Setup's own message, that this Windows isn't supported.
 #if Arch == "x86"
 [Messages]
-lang_en.WindowsVersionNotSupported=This is the setup for 32-bit Windows, and this computer runs 64-bit Windows. Download MisterDownloadManager-{#AppVersion}-setup.exe instead (or MisterDownloadManager-{#AppVersion}-setup-arm64.exe on a Windows on ARM PC).
+lang_en.WindowsVersionNotSupported=This is the setup for 32-bit Windows, and this computer runs 64-bit Windows. Download ZDownloader3-{#AppVersion}-setup.exe instead (or ZDownloader3-{#AppVersion}-setup-arm64.exe on a Windows on ARM PC).
 #endif
 
 [Tasks]
@@ -118,8 +118,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "{#Bin}\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion {#SignFlag}
 Source: "{#Bin}\{#HostExe}"; DestDir: "{app}"; Flags: ignoreversion {#SignFlag}
-Source: "{#Bin}\misterdownloadmanager-cli.exe"; DestDir: "{app}"; Flags: ignoreversion {#SignFlag}
-Source: "{#Bin}\misterdownloadmanager-mcp.exe"; DestDir: "{app}"; Flags: ignoreversion {#SignFlag}
+Source: "{#Bin}\zdownloader3-cli.exe"; DestDir: "{app}"; Flags: ignoreversion {#SignFlag}
+Source: "{#Bin}\zdownloader3-mcp.exe"; DestDir: "{app}"; Flags: ignoreversion {#SignFlag}
 ; The extension, for "Load unpacked" (Chromium) and about:debugging (Firefox) until it is in
 ; the stores.
 Source: "{#Root}\target\extension\chromium\*"; DestDir: "{app}\extension\chromium"; Flags: ignoreversion recursesubdirs
@@ -135,21 +135,21 @@ Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopico
 ; The language chosen in the wizard ({language}: "lang_" + a languages.tsv code with "_" for "-",
 ; see languages.py inno_name). The app
 ; takes it on its first start, when it has no language setting yet (settings.rs), then deletes it.
-Root: HKCU; Subkey: "Software\MisterDownloadManager"; ValueType: string; ValueName: "InstallLanguage"; ValueData: "{language}"; Flags: uninsdeletevalue uninsdeletekeyifempty
+Root: HKCU; Subkey: "Software\ZDownloader3"; ValueType: string; ValueName: "InstallLanguage"; ValueData: "{language}"; Flags: uninsdeletevalue uninsdeletekeyifempty
 ; Start with Windows: the same value Options -> "Launch on startup" writes and reads, with the
 ; argument that starts MDM in the notification area (#226; win32.rs startup_command).
-Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "MisterDownloadManager"; ValueData: """{app}\{#AppExe}"" /startup"; Flags: uninsdeletevalue; Tasks: startup
+Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "ZDownloader3"; ValueData: """{app}\{#AppExe}"" /startup"; Flags: uninsdeletevalue; Tasks: startup
 ; The "torrents" task, ticked or not: Torrent settings' switch on the app's first start that hasn't
 ; decided it (#1058: it then also decides whether the browser hands .torrent downloads over;
 ; settings.rs settle_torrent_handler). Only read, once.
-Root: HKCU; Subkey: "Software\MisterDownloadManager"; ValueType: string; ValueName: "InstallTorrents"; ValueData: "1"; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: torrents
-Root: HKCU; Subkey: "Software\MisterDownloadManager"; ValueType: string; ValueName: "InstallTorrents"; ValueData: "0"; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: not torrents
+Root: HKCU; Subkey: "Software\ZDownloader3"; ValueType: string; ValueName: "InstallTorrents"; ValueData: "1"; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: torrents
+Root: HKCU; Subkey: "Software\ZDownloader3"; ValueType: string; ValueName: "InstallTorrents"; ValueData: "0"; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: not torrents
 ; .torrent files and magnet links (HKA: the user's or everyone's classes, as installed).
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.torrent"; ValueType: string; ValueName: ""; ValueData: "Torrent file"; Flags: uninsdeletekey; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.torrent\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#AppExe},0"; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.torrent\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"" ""%1"""; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\.torrent"; ValueType: string; ValueName: ""; ValueData: "MisterDownloadManager.torrent"; Flags: uninsdeletekeyifempty; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\.torrent\OpenWithProgids"; ValueType: string; ValueName: "MisterDownloadManager.torrent"; ValueData: ""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.torrent"; ValueType: string; ValueName: ""; ValueData: "Torrent file"; Flags: uninsdeletekey; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.torrent\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#AppExe},0"; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.torrent\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"" ""%1"""; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\.torrent"; ValueType: string; ValueName: ""; ValueData: "ZDownloader3.torrent"; Flags: uninsdeletekeyifempty; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\.torrent\OpenWithProgids"; ValueType: string; ValueName: "ZDownloader3.torrent"; ValueData: ""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: torrents
 Root: HKA; Subkey: "Software\Classes\magnet"; ValueType: string; ValueName: ""; ValueData: "URL:Magnet link"; Tasks: torrents
 Root: HKA; Subkey: "Software\Classes\magnet"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Tasks: torrents
 Root: HKA; Subkey: "Software\Classes\magnet\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#AppExe},0"; Tasks: torrents
@@ -159,16 +159,16 @@ Root: HKA; Subkey: "Software\Classes\magnet\shell\open\command"; ValueType: stri
 ; same keys and names as win32.rs set_torrent_handlers; ApplicationName matches the
 ; RegisteredApplications value's name, and each association has an MDM-only ProgID. The app
 ; writes its description in the interface language for the user's own registration.
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.Magnet"; ValueType: string; ValueName: ""; ValueData: "URL:Magnet link"; Flags: uninsdeletekey; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.Magnet"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.Magnet\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"",0"; Tasks: torrents
-Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.Magnet\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"" ""%1"""; Tasks: torrents
-Root: HKA; Subkey: "Software\MisterDownloadManager\Capabilities"; ValueType: string; ValueName: "ApplicationName"; ValueData: "{#AppName}"; Flags: uninsdeletekey; Tasks: torrents
-Root: HKA; Subkey: "Software\MisterDownloadManager\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "Downloads files, videos and torrents"; Tasks: torrents
-Root: HKA; Subkey: "Software\MisterDownloadManager\Capabilities"; ValueType: string; ValueName: "ApplicationIcon"; ValueData: """{app}\{#AppExe}"",0"; Tasks: torrents
-Root: HKA; Subkey: "Software\MisterDownloadManager\Capabilities\FileAssociations"; ValueType: string; ValueName: ".torrent"; ValueData: "MisterDownloadManager.Torrent"; Tasks: torrents
-Root: HKA; Subkey: "Software\MisterDownloadManager\Capabilities\UrlAssociations"; ValueType: string; ValueName: "magnet"; ValueData: "MisterDownloadManager.Magnet"; Tasks: torrents
-Root: HKA; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "{#AppName}"; ValueData: "Software\MisterDownloadManager\Capabilities"; Flags: uninsdeletevalue; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.Magnet"; ValueType: string; ValueName: ""; ValueData: "URL:Magnet link"; Flags: uninsdeletekey; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.Magnet"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.Magnet\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"",0"; Tasks: torrents
+Root: HKA; Subkey: "Software\Classes\ZDownloader3.Magnet\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppExe}"" ""%1"""; Tasks: torrents
+Root: HKA; Subkey: "Software\ZDownloader3\Capabilities"; ValueType: string; ValueName: "ApplicationName"; ValueData: "{#AppName}"; Flags: uninsdeletekey; Tasks: torrents
+Root: HKA; Subkey: "Software\ZDownloader3\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "Downloads files, videos and torrents"; Tasks: torrents
+Root: HKA; Subkey: "Software\ZDownloader3\Capabilities"; ValueType: string; ValueName: "ApplicationIcon"; ValueData: """{app}\{#AppExe}"",0"; Tasks: torrents
+Root: HKA; Subkey: "Software\ZDownloader3\Capabilities\FileAssociations"; ValueType: string; ValueName: ".torrent"; ValueData: "ZDownloader3.Torrent"; Tasks: torrents
+Root: HKA; Subkey: "Software\ZDownloader3\Capabilities\UrlAssociations"; ValueType: string; ValueName: "magnet"; ValueData: "ZDownloader3.Magnet"; Tasks: torrents
+Root: HKA; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "{#AppName}"; ValueData: "Software\ZDownloader3\Capabilities"; Flags: uninsdeletevalue; Tasks: torrents
 
 [Run]
 Filename: "{app}\{#HostExe}"; Parameters: "--register"; Flags: runhidden; Tasks: browser; Check: not IsAdminInstallMode
@@ -183,11 +183,11 @@ Filename: "{app}\{#HostExe}"; Parameters: "--unregister"; Flags: runhidden; RunO
 Filename: "{app}\{#HostExe}"; Parameters: "--unregister --all-users"; Flags: runhidden; RunOnceId: "UnregisterAll"; Check: IsAdminInstallMode
 
 [UninstallDelete]
-Type: files; Name: "{app}\com.misterdownloadmanager.host*.json"
+Type: files; Name: "{app}\com.zdownloader3.host*.json"
 
 [Code]
 const
-  RunningMutex = 'MisterDownloadManager.Running';
+  RunningMutex = 'ZDownloader3.Running';
 
 { /relaunch=1 on the command line (MDM's Update now): start MDM again after installing. }
 function Relaunch: Boolean;
@@ -244,19 +244,19 @@ var
   Value, Data: String;
   Code: Integer;
 begin
-  Data := ExpandConstant('{userappdata}\misterdownloadmanager');
+  Data := ExpandConstant('{userappdata}\zdownloader3');
   if CurUninstallStep = usUninstall then
   begin
     ForgetIfOurs('Software\Classes\magnet', ExpandConstant('{app}\{#AppExe}'));
-    if RegQueryStringValue(HKA, 'Software\Classes\.torrent', '', Value) and (Value = 'MisterDownloadManager.torrent') then
+    if RegQueryStringValue(HKA, 'Software\Classes\.torrent', '', Value) and (Value = 'ZDownloader3.torrent') then
       RegDeleteValue(HKA, 'Software\Classes\.torrent', '');
     { Default apps (#1091): what the app registered for this user (Torrent settings' switch),
       also when this install was everyone's. }
-    if RegQueryStringValue(HKCU, 'Software\RegisteredApplications', '{#AppName}', Value) and (CompareText(Value, 'Software\MisterDownloadManager\Capabilities') = 0) then
+    if RegQueryStringValue(HKCU, 'Software\RegisteredApplications', '{#AppName}', Value) and (CompareText(Value, 'Software\ZDownloader3\Capabilities') = 0) then
       RegDeleteValue(HKCU, 'Software\RegisteredApplications', '{#AppName}');
-    RegDeleteKeyIncludingSubkeys(HKCU, 'Software\MisterDownloadManager\Capabilities');
-    if RegQueryStringValue(HKCU, 'Software\Classes\MisterDownloadManager.Magnet\shell\open\command', '', Value) and (Pos(Lowercase(ExpandConstant('{app}\{#AppExe}')), Lowercase(Value)) > 0) then
-      RegDeleteKeyIncludingSubkeys(HKCU, 'Software\Classes\MisterDownloadManager.Magnet');
+    RegDeleteKeyIncludingSubkeys(HKCU, 'Software\ZDownloader3\Capabilities');
+    if RegQueryStringValue(HKCU, 'Software\Classes\ZDownloader3.Magnet\shell\open\command', '', Value) and (Pos(Lowercase(ExpandConstant('{app}\{#AppExe}')), Lowercase(Value)) > 0) then
+      RegDeleteKeyIncludingSubkeys(HKCU, 'Software\Classes\ZDownloader3.Magnet');
     RemoveData := False;
     if DirExists(Data) and not UninstallSilent() then
       RemoveData := MsgBox(CustomMessage('KeepData'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES;

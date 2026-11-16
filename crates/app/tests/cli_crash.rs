@@ -7,9 +7,9 @@ use std::time::{Duration, Instant};
 use mdm_engine::state::{ResumeState, state_path};
 use mdm_labserver::{Config, Faults, LabServer, content};
 
-/// The app's program, which runs misterdownloadmanager-cli's commands when its launcher
+/// The app's program, which runs zdownloader3-cli's commands when its launcher
 /// (crates/cli) starts it with `--cli`.
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 
 #[tokio::test(flavor = "multi_thread")]
 async fn killed_download_resumes_correctly() {

@@ -447,7 +447,7 @@ impl Native {
         };
         add(
             &menu,
-            crate::i18n::mark("Open Mister Download Manager"),
+            crate::i18n::mark("Open ZDownloader3"),
             TrayCmd::Show,
         );
         menu.append(&PredefinedMenuItem::separator()).ok();

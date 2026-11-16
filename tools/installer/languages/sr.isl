@@ -1,4 +1,4 @@
-﻿; Mister Download Manager's installer in Serbian (Cyrillic): tools/installer/languages.py
+﻿; ZDownloader3's installer in Serbian (Cyrillic): tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Деинсталирање %1.
 
 [CustomMessages]
 TaskBrowser=Подесите интеграцију &прегледача (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Отвори .&torrent датотеке и магнетне везе помоћу програма Mister Download Manager
-TaskStartup=Покрени Mister Download Manager када се покрене &Windows
+TaskTorrents=Отвори .&torrent датотеке и магнетне везе помоћу програма ZDownloader3
+TaskStartup=Покрени ZDownloader3 када се покрене &Windows
 TaskGroupOther=Остало:
-Launch=Покрени Mister Download Manager
+Launch=Покрени ZDownloader3
 KeepData=Желите ли да избришете и листу преузимања и подешавања?%n%nПреузете датотеке се не дирају ни у једном случају.

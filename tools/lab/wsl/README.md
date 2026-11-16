@@ -14,7 +14,7 @@ From PowerShell on the Windows host, once:
 
 ```powershell
 wsl --install -d Ubuntu-24.04 --name mdm-lab --location C:\mdm-wsl --no-launch
-wsl -d mdm-lab -u root -- bash /mnt/d/Projects/misterdownloadmanager/tools/lab/wsl/setup.sh
+wsl -d mdm-lab -u root -- bash /mnt/d/Projects/zdownloader3/tools/lab/wsl/setup.sh
 wsl --terminate mdm-lab     # its wsl.conf applies at the next start
 ```
 
@@ -48,7 +48,7 @@ wsl -d mdm-lab -- bash ~/lab/tools/build.sh --release main       # fat LTO, what
 
 A branch, `pr/<number>` or a commit is fetched and checked out (detached), built with the
 `vmtest` profile (release without LTO, incremental) on every core, and its four programs
-(`misterdownloadmanager`, `-nmhost`, `-cli`, `labserver`) copied to `~/lab/bin/<label>/` with a
+(`zdownloader3`, `-nmhost`, `-cli`, `labserver`) copied to `~/lab/bin/<label>/` with a
 `COMMIT` file. The target folder stays, so the next build recompiles only what changed. The log
 is `~/lab/build.log`. Builds take turns (a lock): every caller shares the one checkout. From Windows the builds are at `\\wsl$\mdm-lab\home\lab\lab\bin\`.
 
@@ -68,7 +68,7 @@ dialogs of `tools/lab/docs-shots.ps1` (`<file name>=<show argument>` when they d
 take commas: `wsl.exe` hands its command line to a shell again, which splits quoted spaces. A
 `menu:...` show is shot with the main window, grown by `MDM_GROW` pixels (default 300).
 
-Each run has its own data folder (`MDM_DATA_DIR`), download folder and lab server (port 8197),
+Each run has its own data folder (`ZD3_DATA_DIR`), download folder and lab server (port 8197),
 under `~/lab/run/<label>`; the list is downloaded once, for the first language, and given to the
 others. `--finished-only` leaves out the download still running (shots that must not change
 between runs); `--keep-list` reuses the label's last list (the same names and dates: two runs
@@ -86,7 +86,7 @@ compositor) for title bars and borders. For anything else on that screen:
 
 ```bash
 . ~/lab/tools/env.sh && bash ~/lab/tools/screen.sh start
-~/lab/bin/main/misterdownloadmanager &        # on :99, never on Windows
+~/lab/bin/main/zdownloader3 &        # on :99, never on Windows
 import -window root /tmp/screen.png        # or capture.py <window id> <out.png>
 bash ~/lab/tools/screen.sh stop               # MDM, the lab server and the screen ended
 ```

@@ -13,7 +13,7 @@ use std::path::{Path, PathBuf};
 use std::process::{Child, Command};
 use std::time::{Duration, Instant};
 
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 
 /// The app's and its monitor's logs so far (every file of `logs/`).
 fn log(data: &Path) -> String {
@@ -58,7 +58,7 @@ fn wait_until(app: &mut Child, data: &Path, what: &str, wait: Duration, done: im
 fn second_launch(data: &Path, args: &[&str]) {
     let status = Command::new(APP)
         .args(args)
-        .env("MDM_DATA_DIR", data)
+        .env("ZD3_DATA_DIR", data)
         .env("MDM_OFFSCREEN", "1")
         .env("MDM_CRASH_TEST", "1")
         .status()
@@ -104,7 +104,7 @@ fn freeze_while(state: &str, what: &str, kind: &str, recovers: bool) {
     )
     .unwrap();
     let mut app = Command::new(APP)
-        .env("MDM_DATA_DIR", data)
+        .env("ZD3_DATA_DIR", data)
         .env("MDM_OFFSCREEN", "1")
         .env("MDM_CRASH_TEST", "1")
         .spawn()

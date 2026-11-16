@@ -1,4 +1,4 @@
-//! Mister Download Manager download engine. See notes/ENGINE.md.
+//! ZDownloader3 download engine. See notes/ENGINE.md.
 
 pub mod agent;
 mod browserlike;

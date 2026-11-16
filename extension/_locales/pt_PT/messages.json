@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Entrega as transferências do browser ao Mister Download Manager."
+    "message": "Entrega as transferências do browser ao ZDownloader3."
   },
   "menu": {
-    "message": "Transferir com o Mister Download Manager"
+    "message": "Transferir com o ZDownloader3"
   },
   "video_download": {
     "message": "Transferir vídeo"
@@ -30,19 +30,19 @@
     "message": "Definições do botão..."
   },
   "video_sent": {
-    "message": "Enviado para Mister Download Manager"
+    "message": "Enviado para ZDownloader3"
   },
   "menu_selected": {
-    "message": "Descarregar links selecionados com Mister Download Manager"
+    "message": "Descarregar links selecionados com ZDownloader3"
   },
   "menu_all": {
-    "message": "Descarregar todos os links com Mister Download Manager"
+    "message": "Descarregar todos os links com ZDownloader3"
   },
   "status_connected": {
-    "message": "Ligado a Mister Download Manager"
+    "message": "Ligado a ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Ligado a Mister Download Manager $version$",
+    "message": "Ligado a ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Em pausa: os downloads permanecem no navegador"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager não está instalado ou a sua integração com o navegador não está configurada"
+    "message": "ZDownloader3 não está instalado ou a sua integração com o navegador não está configurada"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager não aceita esta cópia da extensão"
+    "message": "ZDownloader3 não aceita esta cópia da extensão"
   },
   "status_not_running": {
-    "message": "Mister Download Manager não iniciou a tempo"
+    "message": "ZDownloader3 não iniciou a tempo"
   },
   "status_host_failed": {
-    "message": "A ligação ao Mister Download Manager falhou"
+    "message": "A ligação ao ZDownloader3 falhou"
   },
   "status_too_large": {
     "message": "Os detalhes deste download eram demasiado grandes para serem entregues"
   },
   "status_update_app": {
-    "message": "Atualize o Mister Download Manager para usar tudo o que esta extensão oferece"
+    "message": "Atualize o ZDownloader3 para usar tudo o que esta extensão oferece"
   },
   "popup_take": {
     "message": "Obter downloads deste navegador"
@@ -78,10 +78,10 @@
     "message": "Enviar transferências através do proxy ou extensão VPN deste browser"
   },
   "popup_proxy_title": {
-    "message": "O Mister Download Manager transfere através do mesmo proxy que este browser. O browser pede-lhe uma vez para permitir; desativar isto anula essa permissão."
+    "message": "O ZDownloader3 transfere através do mesmo proxy que este browser. O browser pede-lhe uma vez para permitir; desativar isto anula essa permissão."
   },
   "popup_proxy_title_chromium": {
-    "message": "O Mister Download Manager transfere, então, através do mesmo proxy que este navegador. Enquanto esta opção estiver desativada, a extensão não lê o proxy do navegador."
+    "message": "O ZDownloader3 transfere, então, através do mesmo proxy que este navegador. Enquanto esta opção estiver desativada, a extensão não lê o proxy do navegador."
   },
   "popup_exclude_site": {
     "message": "Nunca descarregar de $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Abrir Mister Download Manager"
+    "message": "Abrir ZDownloader3"
   },
   "popup_options": {
     "message": "Opções..."
@@ -150,7 +150,7 @@
     "message": "A opção \"Utilizar integração avançada do navegador\" está desativada em Opções → Geral."
   },
   "declined_torrents": {
-    "message": "É um torrent, e a opção «Abrir ligações magnet e ficheiros .torrent com Mister Download Manager» está desativada nas definições de Torrent."
+    "message": "É um torrent, e a opção «Abrir ligações magnet e ficheiros .torrent com ZDownloader3» está desativada nas definições de Torrent."
   },
   "declined_site_access": {
     "message": "A extensão não tem permissão para ler este site (acesso ao site do navegador)."
@@ -195,16 +195,16 @@
     "message": "Não há nenhum vídeo para transferir aqui"
   },
   "video_playlist": {
-    "message": "Uma lista de vídeos: escolha-os no Mister Download Manager"
+    "message": "Uma lista de vídeos: escolha-os no ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "O Mister Download Manager precisa do yt-dlp para este vídeo"
+    "message": "O ZDownloader3 precisa do yt-dlp para este vídeo"
   },
   "video_too_long": {
     "message": "A pesquisa demorou demasiado"
   },
   "video_busy": {
-    "message": "O Mister Download Manager está ocupado com outros vídeos"
+    "message": "O ZDownloader3 está ocupado com outros vídeos"
   },
   "video_queued": {
     "message": "Adicionado à fila"
@@ -228,7 +228,7 @@
     "message": "Este computador"
   },
   "popup_send_remote": {
-    "message": "Outro Mister Download Manager (um servidor)"
+    "message": "Outro ZDownloader3 (um servidor)"
   },
   "popup_remote_code": {
     "message": "Código de emparelhamento"
@@ -240,7 +240,7 @@
     "message": "Emparelhar"
   },
   "popup_remote_help": {
-    "message": "Abra o endereço uma vez e aceite o certificado, depois introduza um código das Opções, Remoto, Emparelhar um dispositivo (ou misterdownloadmanager-cli pair)."
+    "message": "Abra o endereço uma vez e aceite o certificado, depois introduza um código das Opções, Remoto, Emparelhar um dispositivo (ou zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Os downloads vão para $address$",
@@ -324,7 +324,7 @@
     "message": "Todas as qualidades e legendas..."
   },
   "video_failed": {
-    "message": "Mister Download Manager não está instalado ou não iniciou"
+    "message": "ZDownloader3 não está instalado ou não iniciou"
   },
   "video_download_best": {
     "message": "Transferir melhor"

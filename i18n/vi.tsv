@@ -1,4 +1,4 @@
-# Mister Download Manager in Vietnamese (Tiếng Việt): tools/i18n/translate.py
+# ZDownloader3 in Vietnamese (Tiếng Việt): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Tiếng Việt
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Bạn có chắc muốn xóa {n} mục tải xuống này khỏi danh sách tải xuống của Mister Download Manager không?
+@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	Bạn có chắc muốn xóa {n} mục tải xuống này khỏi danh sách tải xuống của ZDownloader3 không?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	một tập của nó bị thiếu
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	Giới thiệu về Mister Download Manager
+	About ZDownloader3	Giới thiệu về ZDownloader3
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	Thêm Mister Download Manager vào trình duyệt của bạn
+	Add ZDownloader3 to your browser	Thêm ZDownloader3 vào trình duyệt của bạn
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	Luôn vào một thư mục được đặt tên theo nó
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	Luôn bật Bộ giới hạn tốc độ khi khởi động Mister Download Manager
+	Always turn on Speed Limiter on ZDownloader3 startup	Luôn bật Bộ giới hạn tốc độ khi khởi động ZDownloader3
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Bạn có chắc chắn muốn xóa "{name}" khỏi danh sách tải xuống của Mister Download Manager không?
+	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	Bạn có chắc chắn muốn xóa "{name}" khỏi danh sách tải xuống của ZDownloader3 không?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	Duyệt...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Tích hợp trình duyệt chưa được thiết lập trên máy tính này, vì vậy chưa có trình duyệt nào có thể truy cập Mister Download Manager.
+	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	Tích hợp trình duyệt chưa được thiết lập trên máy tính này, vì vậy chưa có trình duyệt nào có thể truy cập ZDownloader3.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Tích hợp Trình duyệt/Hệ thống
@@ -939,7 +939,7 @@
 	Choose a language	Chọn ngôn ngữ
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	Chọn ngôn ngữ Mister Download Manager hiển thị cửa sổ:
+	Choose the language ZDownloader3 shows its windows in:	Chọn ngôn ngữ ZDownloader3 hiển thị cửa sổ:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1616,7 +1616,7 @@
 	Exit	Thoát
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	Thoát Mister Download Manager khi hoàn tất
+	Exit ZDownloader3 when done	Thoát ZDownloader3 khi hoàn tất
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Tổng kiểm tra dự kiến (MD5, SHA-1, SHA-256, SHA-512 hoặc CRC32):
@@ -2081,7 +2081,7 @@
 	Hide web pages	Ẩn các trang web
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Giữ phím Alt trong khi nhấp vào liên kết để trình duyệt tải xuống thay vì Mister Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	Giữ phím Alt trong khi nhấp vào liên kết để trình duyệt tải xuống thay vì ZDownloader3.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Trang chủ
@@ -2122,7 +2122,7 @@
 	Hungary	Hungary
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Tôi tải xuống bằng Mister Download Manager: nhanh, miễn phí và trông giống như trình quản lý tải xuống mà bạn đã biết. {link}
+	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	Tôi tải xuống bằng ZDownloader3: nhanh, miễn phí và trông giống như trình quản lý tải xuống mà bạn đã biết. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2416,7 +2416,7 @@
 	Latvia	Latvia
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	Khởi chạy Mister Download Manager khi khởi động
+	Launch ZDownloader3 on startup	Khởi chạy ZDownloader3 khi khởi động
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2731,58 +2731,58 @@
 	Missing	Thiếu
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	Mister Download Manager
+	ZDownloader3	ZDownloader3
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager không thể mở cửa sổ: hệ thống này thiếu {libraries}.
+	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 không thể mở cửa sổ: hệ thống này thiếu {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager đã đóng đột ngột
+	ZDownloader3 closed unexpectedly	ZDownloader3 đã đóng đột ngột
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	Cấu hình Mister Download Manager
+	ZDownloader3 Configuration	Cấu hình ZDownloader3
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Báo cáo sự cố Mister Download Manager
+	ZDownloader3 crash report	Báo cáo sự cố ZDownloader3
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager gặp lỗi nội bộ
+	ZDownloader3 hit an internal error	ZDownloader3 gặp lỗi nội bộ
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	Mister Download Manager is downloading	Mister Download Manager đang tải xuống
+	ZDownloader3 is downloading	ZDownloader3 đang tải xuống
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager đang chạy hàng đợi "{queue}"
+	ZDownloader3 is running the queue "{queue}"	ZDownloader3 đang chạy hàng đợi "{queue}"
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager đã ngừng phản hồi
+	ZDownloader3 stopped responding	ZDownloader3 đã ngừng phản hồi
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager đã ngừng phản hồi một lúc
+	ZDownloader3 stopped responding for a while	ZDownloader3 đã ngừng phản hồi một lúc
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager ghi mọi kết nối trực tiếp vào tệp cuối cùng\n(một tệp thưa bên cạnh), vì vậy không cần thư mục tạm thời và không\ncần bước ghép nối.
+	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 ghi mọi kết nối trực tiếp vào tệp cuối cùng\n(một tệp thưa bên cạnh), vì vậy không cần thư mục tạm thời và không\ncần bước ghép nối.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} đã có sẵn (phát hành ngày {date}).
+	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} đã có sẵn (phát hành ngày {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Bản sao riêng của Mister Download Manager, phiên bản {version}
+	ZDownloader3's own copy, version {version}	Bản sao riêng của ZDownloader3, phiên bản {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Cửa sổ X11 của Mister Download Manager cần {libraries}, nhưng hệ thống này không có các thư viện đó nên cửa sổ sẽ mở trên Wayland, nơi các menu có thể mở lệch khỏi tiêu đề của chúng.
+	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Cửa sổ X11 của ZDownloader3 cần {libraries}, nhưng hệ thống này không có các thư viện đó nên cửa sổ sẽ mở trên Wayland, nơi các menu có thể mở lệch khỏi tiêu đề của chúng.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3300,10 +3300,10 @@
 	Open in browser	Mở trong trình duyệt
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	Mở liên kết magnet và tệp .torrent bằng Mister Download Manager
+	Open magnet links and .torrent files with ZDownloader3	Mở liên kết magnet và tệp .torrent bằng ZDownloader3
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	Mở Mister Download Manager
+	Open ZDownloader3	Mở ZDownloader3
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3374,7 +3374,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	Ghép nối với Mister Download Manager
+	Pair with ZDownloader3	Ghép nối với ZDownloader3
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3878,7 +3878,7 @@
 	Select or unselect the download with the dotted outline	Chọn hoặc bỏ chọn bản tải xuống có đường viền chấm chấm
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	Chọn âm thanh cho các sự kiện của Mister Download Manager
+	Select sounds for ZDownloader3 events	Chọn âm thanh cho các sự kiện của ZDownloader3
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Chọn các bản tải xuống trong hộp
@@ -4225,7 +4225,7 @@
 	Start download at	Bắt đầu tải xuống lúc
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	Bắt đầu tải xuống khi khởi động Mister Download Manager
+	Start download on ZDownloader3 startup	Bắt đầu tải xuống khi khởi động ZDownloader3
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Bắt đầu tải xuống ngay lập tức trong khi hiển thị hộp thoại "Thông tin tệp tải xuống"
@@ -4260,7 +4260,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Khởi động cùng máy tính, ứng dụng sẽ khởi động ở chế độ thu nhỏ: vùng thông báo không hiển thị biểu tượng ở đây
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Khởi động cùng máy tính, nó sẽ đợi trong vùng thông báo
 #. message or event log entry in the main window
@@ -4489,7 +4489,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find Mister Download Manager	Các trình duyệt có thể tìm thấy Mister Download Manager
+	The browsers can find ZDownloader3	Các trình duyệt có thể tìm thấy ZDownloader3
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4516,7 +4516,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Máy tính được đánh thức một phút trước thời gian bắt đầu và được giữ ở trạng thái hoạt động trong khi hàng đợi chạy. Mister Download Manager phải đang chạy (nó có thể đợi trong vùng thông báo).
+	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	Máy tính được đánh thức một phút trước thời gian bắt đầu và được giữ ở trạng thái hoạt động trong khi hàng đợi chạy. ZDownloader3 phải đang chạy (nó có thể đợi trong vùng thông báo).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4647,7 +4647,7 @@
 #, machine
 	the FTP server answered {code} {reply}	máy chủ FTP đã trả lời {code} {reply}
 #. text in extension.rs
-#. a check of Test browser integration: the browsers are set up, but the small helper program they start (misterdownloadmanager-nmhost) is gone
+#. a check of Test browser integration: the browsers are set up, but the small helper program they start (zdownloader3-nmhost) is gone
 #, machine
 	The helper program the browsers start is missing	Chương trình trợ giúp mà trình duyệt khởi động bị thiếu
 #. message or event log entry in the main window; text in the Options window
@@ -4706,7 +4706,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	Bản tải xuống đã chọn chưa hoàn tất. Bạn có chắc chắn muốn xóa\nbản tải xuống này khỏi danh sách tải xuống của Mister Download Manager không?
+	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	Bản tải xuống đã chọn chưa hoàn tất. Bạn có chắc chắn muốn xóa\nbản tải xuống này khỏi danh sách tải xuống của ZDownloader3 không?
 #. text in errors.rs
 #, machine
 	the server answered {status}	máy chủ đã trả lời {status}
@@ -5149,7 +5149,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	Bật “Mister Download Manager” và cho phép trên tất cả trang web.
+	Turn on "ZDownloader3" and allow it on all websites.	Bật “ZDownloader3” và cho phép trên tất cả trang web.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5579,7 +5579,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	Bạn đang dùng phiên bản mới nhất của Mister Download Manager ({version}).
+	You have the latest version of ZDownloader3 ({version}).	Bạn đang dùng phiên bản mới nhất của ZDownloader3 ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6057,9 +6057,9 @@ column	Transfer rate	Tốc độ truyền
 #, machine
 column	Upload speed	Tốc độ tải lên
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
 #, machine
-extension	A list of videos: choose them in Mister Download Manager	Danh sách video: hãy chọn chúng trong Mister Download Manager
+extension	A list of videos: choose them in ZDownloader3	Danh sách video: hãy chọn chúng trong ZDownloader3
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6074,9 +6074,9 @@ extension	Added to the queue	Đã thêm vào hàng đợi
 #, machine
 extension	All qualities and subtitles...	Tất cả chất lượng và phụ đề...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
 #, machine
-extension	Another Mister Download Manager (a server)	Một Mister Download Manager khác (máy chủ)
+extension	Another ZDownloader3 (a server)	Một ZDownloader3 khác (máy chủ)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6090,7 +6090,7 @@ extension	best	tốt nhất
 #, machine
 extension	Browser extension	Tiện ích mở rộng trình duyệt
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in ZDownloader3
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Cài đặt nút...
@@ -6103,14 +6103,14 @@ extension	can't be saved	không thể lưu
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Không xác định được đây là video nào: hãy mở trang riêng của video và thử ở đó
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
 #, machine
-extension	Connected to Mister Download Manager	Đã kết nối với Mister Download Manager
+extension	Connected to ZDownloader3	Đã kết nối với ZDownloader3
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	Đã kết nối với Mister Download Manager {version}
+extension	Connected to ZDownloader3 {version}	Đã kết nối với ZDownloader3 {version}
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6120,17 +6120,17 @@ extension	Could not look it up	Không thể tìm kiếm
 #, machine
 extension	Download	Tải xuống
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
 #, machine
-extension	Download all links with Mister Download Manager	Tải xuống tất cả liên kết bằng Mister Download Manager
+extension	Download all links with ZDownloader3	Tải xuống tất cả liên kết bằng ZDownloader3
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	Tải xuống chất lượng tốt nhất
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
 #, machine
-extension	Download selected links with Mister Download Manager	Tải xuống các liên kết đã chọn bằng Mister Download Manager
+extension	Download selected links with ZDownloader3	Tải xuống các liên kết đã chọn bằng ZDownloader3
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6140,9 +6140,9 @@ extension	Download the best quality	Tải xuống chất lượng tốt nhất
 #, machine
 extension	Download video	Tải xuống video
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
 #, machine
-extension	Download with Mister Download Manager	Tải xuống bằng Mister Download Manager
+extension	Download with ZDownloader3	Tải xuống bằng ZDownloader3
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6169,9 +6169,9 @@ extension	Enter its https:// address.	Nhập địa chỉ https:// của nó.
 #, machine
 extension	Get MDM	Tải MDM
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	Chuyển các bản tải xuống từ trình duyệt sang Mister Download Manager.
+extension	Hands downloads from the browser to ZDownloader3.	Chuyển các bản tải xuống từ trình duyệt sang ZDownloader3.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6201,9 +6201,9 @@ extension	It didn't work. Try again.	Không thành công. Thử lại.
 #, machine
 extension	It shows no code now: click Pair a device there first.	Hiện không có mã: trước tiên hãy nhấp vào Ghép nối thiết bị ở đó.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with Mister Download Manager, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with Mister Download Manager is off in Torrent settings.	Đây là torrent, và tùy chọn Mở liên kết magnet và tệp .torrent bằng Mister Download Manager đang tắt trong cài đặt Torrent.
+extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	Đây là torrent, và tùy chọn Mở liên kết magnet và tệp .torrent bằng ZDownloader3 đang tắt trong cài đặt Torrent.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6246,41 +6246,41 @@ extension	MDM didn't answer	MDM không phản hồi
 #, machine
 extension	Media on this page	Nội dung đa phương tiện trên trang này
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	ZDownloader3	ZDownloader3
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager chưa khởi động kịp
+extension	ZDownloader3 didn't start in time	ZDownloader3 chưa khởi động kịp
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager không chấp nhận bản sao tiện ích mở rộng này
+extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 không chấp nhận bản sao tiện ích mở rộng này
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager is busy with other videos	Mister Download Manager đang bận với các video khác
+extension	ZDownloader3 is busy with other videos	ZDownloader3 đang bận với các video khác
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager chưa được cài đặt hoặc chưa khởi động
+extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 chưa được cài đặt hoặc chưa khởi động
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager chưa được cài đặt hoặc tích hợp trình duyệt chưa được thiết lập
+extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 chưa được cài đặt hoặc tích hợp trình duyệt chưa được thiết lập
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager needs yt-dlp for this video	Mister Download Manager cần yt-dlp cho video này
+extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3 cần yt-dlp cho video này
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager sau đó tải xuống thông qua cùng một proxy với trình duyệt này. Trình duyệt sẽ hỏi bạn một lần để cho phép; tắt tùy chọn này sẽ thu hồi quyền đó.
+extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 sau đó tải xuống thông qua cùng một proxy với trình duyệt này. Trình duyệt sẽ hỏi bạn một lần để cho phép; tắt tùy chọn này sẽ thu hồi quyền đó.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager sau đó tải xuống qua cùng một proxy với trình duyệt này. Khi tắt tùy chọn này, tiện ích sẽ không đọc proxy của trình duyệt.
+extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 sau đó tải xuống qua cùng một proxy với trình duyệt này. Khi tắt tùy chọn này, tiện ích sẽ không đọc proxy của trình duyệt.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6316,13 +6316,13 @@ extension	Off on this site	Tắt trên trang này
 #, machine
 extension	Open it	Mở
 #. text in the browser extension
-#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is
+#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is
 #, machine
-extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Mở địa chỉ của nó một lần và chấp nhận chứng chỉ của nó, sau đó nhập mã từ Tùy chọn, Từ xa, Ghép nối thiết bị (hoặc misterdownloadmanager-cli pair).
+extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	Mở địa chỉ của nó một lần và chấp nhận chứng chỉ của nó, sau đó nhập mã từ Tùy chọn, Từ xa, Ghép nối thiết bị (hoặc zdownloader3-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
 #, machine
-extension	Open Mister Download Manager	Mở Mister Download Manager
+extension	Open ZDownloader3	Mở ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6377,14 +6377,14 @@ extension	Send downloads through this browser's proxy or VPN extension	Gửi cá
 #, machine
 extension	Send downloads to	Gửi tải xuống đến
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is Mister Download Manager's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	Đang gửi đến MDM...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
 #, machine
-extension	Sent to Mister Download Manager	Đã gửi đến Mister Download Manager
+extension	Sent to ZDownloader3	Đã gửi đến ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6402,9 +6402,9 @@ extension	Take downloads from this browser	Nhận tải xuống từ trình duy�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Quy tắc của Cửa hàng Chrome trực tuyến giữ bản sao tiện ích này tránh xa video của trang web này. Mục Trợ giúp cho biết bạn có thể làm gì.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
 #, machine
-extension	The connection to Mister Download Manager failed	Kết nối với Mister Download Manager không thành công
+extension	The connection to ZDownloader3 failed	Kết nối với ZDownloader3 không thành công
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6418,7 +6418,7 @@ extension	The last download was left to the browser.	Bản tải xuống cuối 
 #, machine
 extension	This browser isn't ticked in Options → General.	Trình duyệt này không được chọn trong Tùy chọn → Chung.
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the ZDownloader3 on this computer
 #, machine
 extension	This computer	Máy tính này
 #. text in the browser extension
@@ -6438,9 +6438,9 @@ extension	Turn on	Bật
 #, machine
 extension	Undo	Hoàn tác
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	Cập nhật Mister Download Manager để sử dụng mọi tính năng mà tiện ích mở rộng này cung cấp
+extension	Update ZDownloader3 to use everything this extension offers	Cập nhật ZDownloader3 để sử dụng mọi tính năng mà tiện ích mở rộng này cung cấp
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6568,7 +6568,7 @@ key	Up / Down	Mũi tên lên / Mũi tên xuống
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	&Giới thiệu Mister Download Manager
+menu	&About ZDownloader3	&Giới thiệu ZDownloader3
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6984,7 +6984,7 @@ menu	Metro	Metro
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Trang chủ Mister Download Manager (&H)
+menu	ZDownloader3 &Home Page	Trang chủ ZDownloader3 (&H)
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Di chuyển/Đổi tên (Ctrl-M)
@@ -7117,7 +7117,7 @@ menu	Select &all	Chọn &tất cả
 menu	Show &drop target	Hiển thị mục tiêu &kéo thả
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	Hiển thị Mister Download Manager
+menu	Show ZDownloader3	Hiển thị ZDownloader3
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

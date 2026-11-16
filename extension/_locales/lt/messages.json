@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Perduoda atsisiuntimus iš naršyklės į „Mister Download Manager“."
+    "message": "Perduoda atsisiuntimus iš naršyklės į „ZDownloader3“."
   },
   "menu": {
-    "message": "Atsisiųsti naudojant „Mister Download Manager“"
+    "message": "Atsisiųsti naudojant „ZDownloader3“"
   },
   "video_download": {
     "message": "Atsisiųsti vaizdo įrašą"
@@ -30,19 +30,19 @@
     "message": "Mygtuko parametrai..."
   },
   "video_sent": {
-    "message": "Išsiųsta į Mister Download Manager"
+    "message": "Išsiųsta į ZDownloader3"
   },
   "menu_selected": {
-    "message": "Atsisiųsti pasirinktas nuorodas su Mister Download Manager"
+    "message": "Atsisiųsti pasirinktas nuorodas su ZDownloader3"
   },
   "menu_all": {
-    "message": "Atsisiųsti visas nuorodas su Mister Download Manager"
+    "message": "Atsisiųsti visas nuorodas su ZDownloader3"
   },
   "status_connected": {
-    "message": "Prijungta prie Mister Download Manager"
+    "message": "Prijungta prie ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Prijungta prie Mister Download Manager $version$",
+    "message": "Prijungta prie ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Pristabdyta: atsisiuntimai lieka naršyklėje"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager neįdiegta arba jos naršyklės integracija nenustatyta"
+    "message": "ZDownloader3 neįdiegta arba jos naršyklės integracija nenustatyta"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager nepriima šios plėtinio kopijos"
+    "message": "ZDownloader3 nepriima šios plėtinio kopijos"
   },
   "status_not_running": {
-    "message": "Mister Download Manager nepasileido laiku"
+    "message": "ZDownloader3 nepasileido laiku"
   },
   "status_host_failed": {
-    "message": "Ryšys su Mister Download Manager nepavyko"
+    "message": "Ryšys su ZDownloader3 nepavyko"
   },
   "status_too_large": {
     "message": "Šio atsisiuntimo duomenys buvo per dideli, kad juos būtų galima perduoti"
   },
   "status_update_app": {
-    "message": "Atnaujinkite Mister Download Manager, kad galėtumėte naudotis visomis šio plėtinio funkcijomis"
+    "message": "Atnaujinkite ZDownloader3, kad galėtumėte naudotis visomis šio plėtinio funkcijomis"
   },
   "popup_take": {
     "message": "Perimti atsisiuntimus iš šios naršyklės"
@@ -78,10 +78,10 @@
     "message": "Siųsti atsisiuntimus per šios naršyklės tarpinio serverio arba VPN plėtinį"
   },
   "popup_proxy_title": {
-    "message": "Tada „Mister Download Manager“ atsisiunčia per tą patį tarpinį serverį, kurį naudoja ši naršyklė. Naršyklė vieną kartą paprašys jūsų tai leisti; išjungus šią parinktį, leidimas atšaukiamas."
+    "message": "Tada „ZDownloader3“ atsisiunčia per tą patį tarpinį serverį, kurį naudoja ši naršyklė. Naršyklė vieną kartą paprašys jūsų tai leisti; išjungus šią parinktį, leidimas atšaukiamas."
   },
   "popup_proxy_title_chromium": {
-    "message": "Tada Mister Download Manager atsisiunčia naudodama tą patį tarpinį serverį kaip ir ši naršyklė. Kai ši funkcija išjungta, plėtinys neskaito naršyklės tarpinio serverio."
+    "message": "Tada ZDownloader3 atsisiunčia naudodama tą patį tarpinį serverį kaip ir ši naršyklė. Kai ši funkcija išjungta, plėtinys neskaito naršyklės tarpinio serverio."
   },
   "popup_exclude_site": {
     "message": "Niekada nepaimti atsisiuntimų iš $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Atidaryti Mister Download Manager"
+    "message": "Atidaryti ZDownloader3"
   },
   "popup_options": {
     "message": "Parinktys..."
@@ -150,7 +150,7 @@
     "message": "Parinktyse „Bendra“ išjungta „Naudoti išplėstinę naršyklės integraciją“."
   },
   "declined_torrents": {
-    "message": "Tai torrentas, o „Atidaryti magnetines nuorodas ir .torrent failus su Mister Download Manager“ yra išjungta torrentų nustatymuose."
+    "message": "Tai torrentas, o „Atidaryti magnetines nuorodas ir .torrent failus su ZDownloader3“ yra išjungta torrentų nustatymuose."
   },
   "declined_site_access": {
     "message": "Plėtiniui neleidžiama skaityti šios svetainės (naršyklės prieiga prie svetainės)."
@@ -195,16 +195,16 @@
     "message": "Čia nėra vaizdo įrašo, kurį būtų galima atsisiųsti"
   },
   "video_playlist": {
-    "message": "Vaizdo įrašų sąrašas: pasirinkite juos programoje Mister Download Manager"
+    "message": "Vaizdo įrašų sąrašas: pasirinkite juos programoje ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager šiam vaizdo įrašui reikia yt-dlp"
+    "message": "ZDownloader3 šiam vaizdo įrašui reikia yt-dlp"
   },
   "video_too_long": {
     "message": "Paieška užtruko per ilgai"
   },
   "video_busy": {
-    "message": "Mister Download Manager užsiėmusi kitais vaizdo įrašais"
+    "message": "ZDownloader3 užsiėmusi kitais vaizdo įrašais"
   },
   "video_queued": {
     "message": "Pridėta į eilę"
@@ -228,7 +228,7 @@
     "message": "Šis kompiuteris"
   },
   "popup_send_remote": {
-    "message": "Kitas „Mister Download Manager“ (serveris)"
+    "message": "Kitas „ZDownloader3“ (serveris)"
   },
   "popup_remote_code": {
     "message": "Susiejimo kodas"
@@ -240,7 +240,7 @@
     "message": "Susieti"
   },
   "popup_remote_help": {
-    "message": "Atidarykite jo adresą vieną kartą ir priimkite jo sertifikatą, tada įveskite kodą iš „Parinktys“, „Nuotolinis“, „Susieti įrenginį“ (arba „misterdownloadmanager-cli pair“)."
+    "message": "Atidarykite jo adresą vieną kartą ir priimkite jo sertifikatą, tada įveskite kodą iš „Parinktys“, „Nuotolinis“, „Susieti įrenginį“ (arba „zdownloader3-cli pair“)."
   },
   "status_remote": {
     "message": "Atsisiuntimai siunčiami į $address$",
@@ -324,7 +324,7 @@
     "message": "Visos kokybės ir subtitrai..."
   },
   "video_failed": {
-    "message": "Mister Download Manager neįdiegta arba nepasileido"
+    "message": "ZDownloader3 neįdiegta arba nepasileido"
   },
   "video_download_best": {
     "message": "Atsisiųsti geriausią"

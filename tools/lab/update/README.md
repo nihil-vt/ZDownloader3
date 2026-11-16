@@ -38,7 +38,7 @@ cargo build --profile vmtest -p mdm-app --features test-update -p mdm-labserver
 ## Windows: the portable zip
 
 ```powershell
-tools\lab\update\upd-win.ps1 -Exe target\release\misterdownloadmanager.exe -Server target\release\labserver.exe
+tools\lab\update\upd-win.ps1 -Exe target\release\zdownloader3.exe -Server target\release\labserver.exe
 tools\lab\update\upd-win.ps1 ... -Only good,bad-hash        # some scenarios
 tools\lab\update\upd-win.ps1 ... -Shots -ShotDir <folder>   # plus screenshots, below
 ```

@@ -7,7 +7,7 @@
 //! the code as a module of its own, based where the code starts instead of where the program
 //! starts. Every address in the code was then read 0xd96000 too low: the release's symbols named
 //! the wrong functions, unwinding found no unwind tables, and the report's own offsets
-//! (`misterdownloadmanager + 0x…`) couldn't be looked up either.
+//! (`zdownloader3 + 0x…`) couldn't be looked up either.
 //!
 //! The dump also holds the process's `/proc/self/maps`, which says which part of the file each
 //! mapping holds. A module whose mapping doesn't start the file is joined here to the mapping of
@@ -212,7 +212,7 @@ mod tests {
             .collect()
     }
 
-    const EXE: &str = "/usr/bin/misterdownloadmanager";
+    const EXE: &str = "/usr/bin/zdownloader3";
     const LIBC: &str = "/usr/lib64/libc.so.6";
 
     /// MDM 0.5.0's layout (#661): the header's mapping, a page unmapped, then the code with the

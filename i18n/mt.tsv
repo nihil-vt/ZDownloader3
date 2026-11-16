@@ -1,4 +1,4 @@
-# Mister Download Manager in Maltese (Malti): tools/i18n/translate.py
+# ZDownloader3 in Maltese (Malti): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Malti
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Żgur li trid tħassar {n} tniżżil mil-lista tat-tniżżil ta’ Mister Download Manager?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ Mister Download Manager?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ Mister Download Manager?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ Mister Download Manager?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ Mister Download Manager?
+@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	Żgur li trid tħassar {n} tniżżil mil-lista tat-tniżżil ta’ ZDownloader3?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ ZDownloader3?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ ZDownloader3?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ ZDownloader3?|Żgur li trid tħassar dawn {n} tniżżiliet mil-lista tat-tniżżil ta’ ZDownloader3?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	volum minnu huwa nieqes
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	Dwar Mister Download Manager
+	About ZDownloader3	Dwar ZDownloader3
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	Żid Mister Download Manager mal-brawżer tiegħek
+	Add ZDownloader3 to your browser	Żid ZDownloader3 mal-brawżer tiegħek
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	Dejjem f'folder imsemmi għalih
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	Il-Limiter tal-Veloċità jinxtegħel dejjem mal-istartjar ta' Mister Download Manager
+	Always turn on Speed Limiter on ZDownloader3 startup	Il-Limiter tal-Veloċità jinxtegħel dejjem mal-istartjar ta' ZDownloader3
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Int żgur li trid tħassar "{name}" mil-lista ta' downloads ta' Mister Download Manager?
+	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	Int żgur li trid tħassar "{name}" mil-lista ta' downloads ta' ZDownloader3?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	Agħżel...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	L-integrazzjoni tal-brawżer mhijiex imwaqqfa fuq dan il-kompjuter, għalhekk l-ebda brawżer ma jista’ jilħaq Mister Download Manager s’issa.
+	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	L-integrazzjoni tal-brawżer mhijiex imwaqqfa fuq dan il-kompjuter, għalhekk l-ebda brawżer ma jista’ jilħaq ZDownloader3 s’issa.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Integrazzjoni tal-Brawżer/Sistema
@@ -944,7 +944,7 @@
 	Choose a language	Agħżel lingwa
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	Agħżel il-lingwa li Mister Download Manager juri t-twieqi tiegħu fiha:
+	Choose the language ZDownloader3 shows its windows in:	Agħżel il-lingwa li ZDownloader3 juri t-twieqi tiegħu fiha:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	Agħlaq
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	Agħlaq Mister Download Manager meta jitlesta t-tniżżil
+	Exit ZDownloader3 when done	Agħlaq ZDownloader3 meta jitlesta t-tniżżil
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Checksum mistenni (MD5, SHA-1, SHA-256, SHA-512 jew CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	Aħbi l-paġni tal-web
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Żomm Alt waqt li tikklikkja link biex tħalli lill-brawżer iniżżilha minflok Mister Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	Żomm Alt waqt li tikklikkja link biex tħalli lill-brawżer iniżżilha minflok ZDownloader3.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Paġna ewlenija
@@ -2127,7 +2127,7 @@
 	Hungary	Ungerija
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Niżżel b'Mister Download Manager: veloċi, b'xejn, u jidher bħall-maniġer tat-tniżżil li diġà taf. {link}
+	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	Niżżel b'ZDownloader3: veloċi, b'xejn, u jidher bħall-maniġer tat-tniżżil li diġà taf. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	Latvja
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	Ibda Mister Download Manager mal-istartjar
+	Launch ZDownloader3 on startup	Ibda ZDownloader3 mal-istartjar
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	Nieqes
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	Mister Download Manager
+	ZDownloader3	ZDownloader3
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Il-Mister Download Manager ma jistax jiftaħ it-tieqa tiegħu: din is-sistema m'għandhiex {libraries}.
+	ZDownloader3 can't open its window: this system lacks {libraries}.	Il-ZDownloader3 ma jistax jiftaħ it-tieqa tiegħu: din is-sistema m'għandhiex {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager ingħalaq bla mistenni
+	ZDownloader3 closed unexpectedly	ZDownloader3 ingħalaq bla mistenni
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	Konfigurazzjoni ta' Mister Download Manager
+	ZDownloader3 Configuration	Konfigurazzjoni ta' ZDownloader3
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Rapport tal-ħabta ta' Mister Download Manager
+	ZDownloader3 crash report	Rapport tal-ħabta ta' ZDownloader3
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager sab żball intern
+	ZDownloader3 hit an internal error	ZDownloader3 sab żball intern
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	Mister Download Manager is downloading	Mister Download Manager qed iniżżel
+	ZDownloader3 is downloading	ZDownloader3 qed iniżżel
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager qed imexxi l-kju "{queue}"
+	ZDownloader3 is running the queue "{queue}"	ZDownloader3 qed imexxi l-kju "{queue}"
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager waqaf jirrispondi
+	ZDownloader3 stopped responding	ZDownloader3 waqaf jirrispondi
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager waqaf jirrispondi għal ftit
+	ZDownloader3 stopped responding for a while	ZDownloader3 waqaf jirrispondi għal ftit
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager jikteb kull konnessjoni direttament fil-fajl\nfinali (fajl ta' parti sparse ħdejh), għalhekk m'hemmx bżonn ta' direttorju\ntemporanju u l-ebda pass ta' assemblaġġ.
+	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 jikteb kull konnessjoni direttament fil-fajl\nfinali (fajl ta' parti sparse ħdejh), għalhekk m'hemmx bżonn ta' direttorju\ntemporanju u l-ebda pass ta' assemblaġġ.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} huwa disponibbli (rilaxxat {date}).
+	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} huwa disponibbli (rilaxxat {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Il-kopja ta' Mister Download Manager, verżjoni {version}
+	ZDownloader3's own copy, version {version}	Il-kopja ta' ZDownloader3, verżjoni {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	It-tieqa X11 ta' Mister Download Manager teħtieġ {libraries}, li din is-sistema m'għandhiex: tiftaħ fuq Wayland minflok, fejn il-menus tagħha jistgħu jinfetħu 'l bogħod mit-titli tagħhom.
+	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	It-tieqa X11 ta' ZDownloader3 teħtieġ {libraries}, li din is-sistema m'għandhiex: tiftaħ fuq Wayland minflok, fejn il-menus tagħha jistgħu jinfetħu 'l bogħod mit-titli tagħhom.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	Iftaħ fil-browser
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	Iftaħ links manjetiċi u fajls .torrent b'Mister Download Manager
+	Open magnet links and .torrent files with ZDownloader3	Iftaħ links manjetiċi u fajls .torrent b'ZDownloader3
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	Iftaħ Mister Download Manager
+	Open ZDownloader3	Iftaħ ZDownloader3
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	Għaqqad ma' Mister Download Manager
+	Pair with ZDownloader3	Għaqqad ma' ZDownloader3
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	Agħżel jew neħħi l-għażla tat-tniżżil bil-kontorn bit-tikek
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	Agħżel ħsejjes għall-avvenimenti ta' Mister Download Manager
+	Select sounds for ZDownloader3 events	Agħżel ħsejjes għall-avvenimenti ta' ZDownloader3
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Agħżel it-tniżżil fil-kaxxa
@@ -4230,7 +4230,7 @@
 	Start download at	Ibda tniżżil fi
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	Ibda tniżżil mal-istartjar ta' Mister Download Manager
+	Start download on ZDownloader3 startup	Ibda tniżżil mal-istartjar ta' ZDownloader3
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Ibda tniżżil immedjatament waqt li jintwera d-djalogu "Informazzjoni tal-Fajl tat-Tniżżil"
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Meta jibda mal-kompjuter, jibda minimizzat: l-ebda żona ta' notifika ma turi l-ikona tiegħu hawn
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Meta jibda mal-kompjuter, jistenna fiż-żona tan-notifika
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find Mister Download Manager	Il-brawżers jistgħu jsibu Mister Download Manager
+	The browsers can find ZDownloader3	Il-brawżers jistgħu jsibu ZDownloader3
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Il-kompjuter jitqajjem minuta qabel il-ħin tal-bidu u jinżamm imqajjem waqt li l-kju jaħdem. Mister Download Manager irid ikun qed jaħdem (jista' jistenna fiż-żona tan-notifiki).
+	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	Il-kompjuter jitqajjem minuta qabel il-ħin tal-bidu u jinżamm imqajjem waqt li l-kju jaħdem. ZDownloader3 irid ikun qed jaħdem (jista' jistenna fiż-żona tan-notifiki).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4652,7 +4652,7 @@
 #, machine
 	the FTP server answered {code} {reply}	is-server FTP wieġeb {code} {reply}
 #. text in extension.rs
-#. a check of Test browser integration: the browsers are set up, but the small helper program they start (misterdownloadmanager-nmhost) is gone
+#. a check of Test browser integration: the browsers are set up, but the small helper program they start (zdownloader3-nmhost) is gone
 #, machine
 	The helper program the browsers start is missing	Il-programm awżiljarju li jibdew il-browsers huwa nieqes
 #. message or event log entry in the main window; text in the Options window
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	It-tniżżil magħżul mhuwiex komplut. Inti żgur li trid tħassarha\nmill-lista ta' tniżżil ta' Mister Download Manager?
+	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	It-tniżżil magħżul mhuwiex komplut. Inti żgur li trid tħassarha\nmill-lista ta' tniżżil ta' ZDownloader3?
 #. text in errors.rs
 #, machine
 	the server answered {status}	is-server wieġeb {status}
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	Ixgħel “Mister Download Manager” u ippermettiha fuq is-siti web kollha.
+	Turn on "ZDownloader3" and allow it on all websites.	Ixgħel “ZDownloader3” u ippermettiha fuq is-siti web kollha.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	Għandek l-aħħar verżjoni ta' Mister Download Manager ({version}).
+	You have the latest version of ZDownloader3 ({version}).	Għandek l-aħħar verżjoni ta' ZDownloader3 ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	Rata ta' trasferiment
 #, machine
 column	Upload speed	Veloċità tat-tlugħ
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
 #, machine
-extension	A list of videos: choose them in Mister Download Manager	Lista ta' vidjows: agħżilhom f'Mister Download Manager
+extension	A list of videos: choose them in ZDownloader3	Lista ta' vidjows: agħżilhom f'ZDownloader3
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	Miżjud mal-kju
 #, machine
 extension	All qualities and subtitles...	Il-kwalitajiet kollha u s-sottotitli kollha...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
 #, machine
-extension	Another Mister Download Manager (a server)	Mister Download Manager ieħor (server)
+extension	Another ZDownloader3 (a server)	ZDownloader3 ieħor (server)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	l-aħjar
 #, machine
 extension	Browser extension	Estensjoni tal-brawżer
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in ZDownloader3
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Settings tal-buttuna...
@@ -6108,14 +6108,14 @@ extension	can't be saved	ma jistax jiġi ssejvjat
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Ma jistax jingħad liema vidjo huwa dan: iftaħ il-paġna tiegħu stess u pprova hemm
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
 #, machine
-extension	Connected to Mister Download Manager	Konness ma' Mister Download Manager
+extension	Connected to ZDownloader3	Konness ma' ZDownloader3
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	Konness ma' Mister Download Manager {version}
+extension	Connected to ZDownloader3 {version}	Konness ma' ZDownloader3 {version}
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	Ma setax ifittex il-vidjow
 #, machine
 extension	Download	Niżżel
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
 #, machine
-extension	Download all links with Mister Download Manager	Niżżel il-links kollha b'Mister Download Manager
+extension	Download all links with ZDownloader3	Niżżel il-links kollha b'ZDownloader3
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	Niżżel bl-aħjar kwalità
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
 #, machine
-extension	Download selected links with Mister Download Manager	Niżżel il-links magħżula b'Mister Download Manager
+extension	Download selected links with ZDownloader3	Niżżel il-links magħżula b'ZDownloader3
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	Niżżel l-aħjar kwalità
 #, machine
 extension	Download video	Niżżel il-vidjo
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
 #, machine
-extension	Download with Mister Download Manager	Niżżel b'Mister Download Manager
+extension	Download with ZDownloader3	Niżżel b'ZDownloader3
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	Daħħal l-indirizz https:// tiegħu.
 #, machine
 extension	Get MDM	Ikseb MDM
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	Jgħaddi t-tniżżil mill-brawżer lil Mister Download Manager.
+extension	Hands downloads from the browser to ZDownloader3.	Jgħaddi t-tniżżil mill-brawżer lil ZDownloader3.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	Ma ħadimx. Erġa' pprova.
 #, machine
 extension	It shows no code now: click Pair a device there first.	Ma jurix kodiċi issa: ikklikkja Parra apparat hemm l-ewwel.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with Mister Download Manager, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with Mister Download Manager is off in Torrent settings.	Huwa torrent, u l-għażla Iftaħ ħoloq manjetiċi u fajls .torrent b'Mister Download Manager hija mitfija fis-settings tat-Torrent.
+extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	Huwa torrent, u l-għażla Iftaħ ħoloq manjetiċi u fajls .torrent b'ZDownloader3 hija mitfija fis-settings tat-Torrent.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM ma weġibx
 #, machine
 extension	Media on this page	Midja f’din il-paġna
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	ZDownloader3	ZDownloader3
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager ma bediex fil-ħin
+extension	ZDownloader3 didn't start in time	ZDownloader3 ma bediex fil-ħin
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager ma jaċċettax din il-kopja tal-estensjoni
+extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 ma jaċċettax din il-kopja tal-estensjoni
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager is busy with other videos	Mister Download Manager huwa okkupat b'vidjows oħra
+extension	ZDownloader3 is busy with other videos	ZDownloader3 huwa okkupat b'vidjows oħra
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager mhux installat jew ma bediex
+extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 mhux installat jew ma bediex
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager mhux installat, jew l-integrazzjoni tal-brawżer tiegħu mhix imwaqqfa
+extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 mhux installat, jew l-integrazzjoni tal-brawżer tiegħu mhix imwaqqfa
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager needs yt-dlp for this video	Mister Download Manager jeħtieġ yt-dlp għal dan il-vidjow
+extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3 jeħtieġ yt-dlp għal dan il-vidjow
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Imbagħad Mister Download Manager iniżżel permezz tal-istess prokura bħal dan il-brawżer. Il-brawżer jistaqsik darba biex tippermetti dan; jekk titfi dan, dan jitneħħa.
+extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Imbagħad ZDownloader3 iniżżel permezz tal-istess prokura bħal dan il-brawżer. Il-brawżer jistaqsik darba biex tippermetti dan; jekk titfi dan, dan jitneħħa.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager imbagħad iniżżel permezz tal-istess proxy bħal dan il-browser. Waqt li din tkun mitfija, l-estensjoni ma taqrax il-proxy tal-browser.
+extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 imbagħad iniżżel permezz tal-istess proxy bħal dan il-browser. Waqt li din tkun mitfija, l-estensjoni ma taqrax il-proxy tal-browser.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6321,13 +6321,13 @@ extension	Off on this site	Mitfi fuq dan is-sit
 #, machine
 extension	Open it	Iftaħha
 #. text in the browser extension
-#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is
+#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is
 #, machine
-extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Iftaħ l-indirizz tiegħu darba u aċċetta ċ-ċertifikat tiegħu, imbagħad daħħal kodiċi mill-Għażliet, Remote, Parra apparat (jew misterdownloadmanager-cli pair).
+extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	Iftaħ l-indirizz tiegħu darba u aċċetta ċ-ċertifikat tiegħu, imbagħad daħħal kodiċi mill-Għażliet, Remote, Parra apparat (jew zdownloader3-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
 #, machine
-extension	Open Mister Download Manager	Iftaħ Mister Download Manager
+extension	Open ZDownloader3	Iftaħ ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	Ibgħat i
 #, machine
 extension	Send downloads to	Ibgħat it-tniżżil lil
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is Mister Download Manager's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	Qed tibgħat lil MDM...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
 #, machine
-extension	Sent to Mister Download Manager	Mibgħut lil Mister Download Manager
+extension	Sent to ZDownloader3	Mibgħut lil ZDownloader3
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	Ħu t-tniżżil minn dan il-brawżer
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Ir-regoli tal-Chrome Web Store iżommu din il-kopja tal-estensjoni 'l bogħod mill-vidjows ta’ dan is-sit. L-Għajnuna tgħidlek x’tista’ tagħmel.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
 #, machine
-extension	The connection to Mister Download Manager failed	Il-konnessjoni ma’ Mister Download Manager falliet
+extension	The connection to ZDownloader3 failed	Il-konnessjoni ma’ ZDownloader3 falliet
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	L-aħħar tniżżil tħalla
 #, machine
 extension	This browser isn't ticked in Options → General.	Dan il-brawżer mhuwiex immarkat f'Għażliet → Ġenerali.
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the ZDownloader3 on this computer
 #, machine
 extension	This computer	Dan il-kompjuter
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	Ixgħel
 #, machine
 extension	Undo	Ħoll
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	Aġġorna Mister Download Manager biex tuża dak kollu li toffri din l-estensjoni
+extension	Update ZDownloader3 to use everything this extension offers	Aġġorna ZDownloader3 biex tuża dak kollu li toffri din l-estensjoni
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	Up / Down
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	&Dwar Mister Download Manager
+menu	&About ZDownloader3	&Dwar ZDownloader3
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6989,7 +6989,7 @@ menu	Metro	Metro
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Mister Download Manager Paġna &Ewlenija
+menu	ZDownloader3 &Home Page	ZDownloader3 Paġna &Ewlenija
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Mexxi/Semmi mill-ġdid (Ctrl-M)
@@ -7122,7 +7122,7 @@ menu	Select &all	Agħżel &kollox
 menu	Show &drop target	Uri l-mira tal-&waqgħa
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	Uri Mister Download Manager
+menu	Show ZDownloader3	Uri ZDownloader3
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

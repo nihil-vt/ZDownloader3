@@ -8,7 +8,7 @@
 
 ## Where links come from
 
-- **The browser.** Right-click a page for **Download all links with Mister Download Manager**, or select part of it for **Download selected links with Mister Download Manager**. The page's referrer and cookies go with each link.
+- **The browser.** Right-click a page for **Download all links with ZDownloader3**, or select part of it for **Download selected links with ZDownloader3**. The page's referrer and cookies go with each link.
 - **Tasks → Import → From text file** and **From IDM export file**. An `.ef2` file brings each download's referrer and cookies.
 - Several links, or a `.txt` or `.ef2` list, dropped on the download list.
 - **The clipboard.** **Tasks → Add batch download from clipboard** (**Ctrl+B**, also in the tray icon's menu) reads the copied text when you choose it and lists every download link in it: `http`, `https`, `ftp` and magnet links, in a list, a forum post, Markdown or HTML, each once.

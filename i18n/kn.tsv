@@ -1,4 +1,4 @@
-# Mister Download Manager in Kannada (ಕನ್ನಡ): tools/i18n/translate.py
+# ZDownloader3 in Kannada (ಕನ್ನಡ): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	ಕನ್ನಡ
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Mister Download Manager ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ {n} ಡೌನ್‌ಲೋಡ್ ಅನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?|Mister Download Manager ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ ಈ {n} ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?
+@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	ZDownloader3 ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ {n} ಡೌನ್‌ಲೋಡ್ ಅನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?|ZDownloader3 ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ ಈ {n} ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	ಅದರ ಒಂದು ಸಂಪುಟ ಕಾಣೆಯಾಗಿದೆ
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	Mister Download Manager ಬಗ್ಗೆ
+	About ZDownloader3	ZDownloader3 ಬಗ್ಗೆ
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	Mister Download Manager ಅನ್ನು ನಿಮ್ಮ ಬ್ರೌಸರ್‌ಗೆ ಸೇರಿಸಿ
+	Add ZDownloader3 to your browser	ZDownloader3 ಅನ್ನು ನಿಮ್ಮ ಬ್ರೌಸರ್‌ಗೆ ಸೇರಿಸಿ
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	ಯಾವಾಗಲೂ ಅದರ ಹೆಸರಿನ ಫೋಲ್ಡರ್‌ಗೆ
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	Mister Download Manager ಪ್ರಾರಂಭದಲ್ಲಿ ಯಾವಾಗಲೂ ಸ್ಪೀಡ್ ಲಿಮಿಟರ್ ಅನ್ನು ಆನ್ ಮಾಡಿ
+	Always turn on Speed Limiter on ZDownloader3 startup	ZDownloader3 ಪ್ರಾರಂಭದಲ್ಲಿ ಯಾವಾಗಲೂ ಸ್ಪೀಡ್ ಲಿಮಿಟರ್ ಅನ್ನು ಆನ್ ಮಾಡಿ
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Mister Download Manager ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ "{name}" ಅನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?
+	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	ZDownloader3 ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ "{name}" ಅನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	ಬ್ರೌಸ್ ಮಾಡಿ...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	ಈ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಬ್ರೌಸರ್ ಏಕೀಕರಣವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ, ಆದ್ದರಿಂದ ಯಾವುದೇ ಬ್ರೌಸರ್ ಇನ್ನೂ Mister Download Manager ಅನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಿಲ್ಲ.
+	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	ಈ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಬ್ರೌಸರ್ ಏಕೀಕರಣವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ, ಆದ್ದರಿಂದ ಯಾವುದೇ ಬ್ರೌಸರ್ ಇನ್ನೂ ZDownloader3 ಅನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಿಲ್ಲ.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	ಬ್ರೌಸರ್/ಸಿಸ್ಟಂ ಇಂಟಿಗ್ರೇಷನ್
@@ -944,7 +944,7 @@
 	Choose a language	ಭಾಷೆಯನ್ನು ಆರಿಸಿ
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	Mister Download Manager ತನ್ನ ವಿಂಡೋಗಳನ್ನು ತೋರಿಸುವ ಭಾಷೆಯನ್ನು ಆರಿಸಿ:
+	Choose the language ZDownloader3 shows its windows in:	ZDownloader3 ತನ್ನ ವಿಂಡೋಗಳನ್ನು ತೋರಿಸುವ ಭಾಷೆಯನ್ನು ಆರಿಸಿ:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	ನಿರ್ಗಮಿಸು
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	ಮುಗಿದ ನಂತರ Mister Download Manager ನಿಂದ ನಿರ್ಗಮಿಸಿ
+	Exit ZDownloader3 when done	ಮುಗಿದ ನಂತರ ZDownloader3 ನಿಂದ ನಿರ್ಗಮಿಸಿ
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	ನಿರೀಕ್ಷಿತ ಚೆಕ್‌ಸಮ್ (MD5, SHA-1, SHA-256, SHA-512 ಅಥವಾ CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	ವೆಬ್ ಪುಟಗಳನ್ನು ಮರೆಮಾಡಿ
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Mister Download Manager ಬದಲಿಗೆ ಬ್ರೌಸರ್ ಅದನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡುವಾಗ Alt ಅನ್ನು ಹಿಡಿದುಕೊಳ್ಳಿ.
+	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	ZDownloader3 ಬದಲಿಗೆ ಬ್ರೌಸರ್ ಅದನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡುವಾಗ Alt ಅನ್ನು ಹಿಡಿದುಕೊಳ್ಳಿ.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	ಮುಖಪುಟ
@@ -2127,7 +2127,7 @@
 	Hungary	ಹಂಗೇರಿ
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	ನಾನು Mister Download Manager ನೊಂದಿಗೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತೇನೆ: ವೇಗವಾಗಿ, ಉಚಿತವಾಗಿ, ಮತ್ತು ಇದು ನಿಮಗೆ ಈಗಾಗಲೇ ತಿಳಿದಿರುವ ಡೌನ್‌ಲೋಡ್ ಮ್ಯಾನೇಜರ್‌ನಂತೆ ಕಾಣುತ್ತದೆ. {link}
+	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	ನಾನು ZDownloader3 ನೊಂದಿಗೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತೇನೆ: ವೇಗವಾಗಿ, ಉಚಿತವಾಗಿ, ಮತ್ತು ಇದು ನಿಮಗೆ ಈಗಾಗಲೇ ತಿಳಿದಿರುವ ಡೌನ್‌ಲೋಡ್ ಮ್ಯಾನೇಜರ್‌ನಂತೆ ಕಾಣುತ್ತದೆ. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	ಲಾಟ್ವಿಯಾ
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	ಪ್ರಾರಂಭದಲ್ಲಿ Mister Download Manager ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ
+	Launch ZDownloader3 on startup	ಪ್ರಾರಂಭದಲ್ಲಿ ZDownloader3 ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	ಡೌನ್‌ಲೋಡ್ ಆಗದವು
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	Mister Download Manager
+	ZDownloader3	ZDownloader3
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager ತನ್ನ ವಿಂಡೋವನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ: ಈ ಸಿಸ್ಟಂನಲ್ಲಿ {libraries} ಇಲ್ಲ.
+	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 ತನ್ನ ವಿಂಡೋವನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ: ಈ ಸಿಸ್ಟಂನಲ್ಲಿ {libraries} ಇಲ್ಲ.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager ಅನಿರೀಕ್ಷಿತವಾಗಿ ಮುಚ್ಚಿದೆ
+	ZDownloader3 closed unexpectedly	ZDownloader3 ಅನಿರೀಕ್ಷಿತವಾಗಿ ಮುಚ್ಚಿದೆ
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	Mister Download Manager ಸಂರಚನೆ
+	ZDownloader3 Configuration	ZDownloader3 ಸಂರಚನೆ
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Mister Download Manager ಕ್ರ್ಯಾಶ್ ವರದಿ
+	ZDownloader3 crash report	ZDownloader3 ಕ್ರ್ಯಾಶ್ ವರದಿ
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager ಆಂತರಿಕ ದೋಷವನ್ನು ಎದುರಿಸಿದೆ
+	ZDownloader3 hit an internal error	ZDownloader3 ಆಂತರಿಕ ದೋಷವನ್ನು ಎದುರಿಸಿದೆ
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	Mister Download Manager is downloading	Mister Download Manager ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ
+	ZDownloader3 is downloading	ZDownloader3 ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager "{queue}" ಕ್ಯೂ ಅನ್ನು ಚಾಲನೆ ಮಾಡುತ್ತಿದೆ
+	ZDownloader3 is running the queue "{queue}"	ZDownloader3 "{queue}" ಕ್ಯೂ ಅನ್ನು ಚಾಲನೆ ಮಾಡುತ್ತಿದೆ
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager ಪ್ರತಿಕ್ರಿಯಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿದೆ
+	ZDownloader3 stopped responding	ZDownloader3 ಪ್ರತಿಕ್ರಿಯಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿದೆ
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager ಸ್ವಲ್ಪ ಸಮಯದವರೆಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿದೆ
+	ZDownloader3 stopped responding for a while	ZDownloader3 ಸ್ವಲ್ಪ ಸಮಯದವರೆಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿದೆ
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager ಪ್ರತಿ ಸಂಪರ್ಕವನ್ನು ನೇರವಾಗಿ ಅಂತಿಮ ಫೈಲ್‌ಗೆ ಬರೆಯುತ್ತದೆ\n(ಅದರ ಪಕ್ಕದಲ್ಲಿ ವಿರಳ ಭಾಗದ ಫೈಲ್), ಆದ್ದರಿಂದ ಯಾವುದೇ ತಾತ್ಕಾಲಿಕ ಡೈರೆಕ್ಟರಿ ಮತ್ತು\nಯಾವುದೇ ಜೋಡಿಸುವ ಹಂತದ ಅಗತ್ಯವಿಲ್ಲ.
+	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 ಪ್ರತಿ ಸಂಪರ್ಕವನ್ನು ನೇರವಾಗಿ ಅಂತಿಮ ಫೈಲ್‌ಗೆ ಬರೆಯುತ್ತದೆ\n(ಅದರ ಪಕ್ಕದಲ್ಲಿ ವಿರಳ ಭಾಗದ ಫೈಲ್), ಆದ್ದರಿಂದ ಯಾವುದೇ ತಾತ್ಕಾಲಿಕ ಡೈರೆಕ್ಟರಿ ಮತ್ತು\nಯಾವುದೇ ಜೋಡಿಸುವ ಹಂತದ ಅಗತ್ಯವಿಲ್ಲ.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} ಲಭ್ಯವಿದೆ ({date} ರಂದು ಬಿಡುಗಡೆಯಾಗಿದೆ).
+	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} ಲಭ್ಯವಿದೆ ({date} ರಂದು ಬಿಡುಗಡೆಯಾಗಿದೆ).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Mister Download Manager ನ ಸ್ವಂತ ನಕಲು, ಆವೃತ್ತಿ {version}
+	ZDownloader3's own copy, version {version}	ZDownloader3 ನ ಸ್ವಂತ ನಕಲು, ಆವೃತ್ತಿ {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ಈ ಸಿಸ್ಟಂನಲ್ಲಿ {libraries} ಇಲ್ಲದ ಕಾರಣ, Mister Download Manager ನ X11 ವಿಂಡೋ ಬದಲಿಗೆ ವೇಲ್ಯಾಂಡ್‌ನಲ್ಲಿ ತೆರೆಯುತ್ತದೆ: ಅಲ್ಲಿ ಅದರ ಮೆನುಗಳು ಅವುಗಳ ಶೀರ್ಷಿಕೆಗಳಿಂದ ದೂರ ತೆರೆಯಬಹುದು.
+	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ಈ ಸಿಸ್ಟಂನಲ್ಲಿ {libraries} ಇಲ್ಲದ ಕಾರಣ, ZDownloader3 ನ X11 ವಿಂಡೋ ಬದಲಿಗೆ ವೇಲ್ಯಾಂಡ್‌ನಲ್ಲಿ ತೆರೆಯುತ್ತದೆ: ಅಲ್ಲಿ ಅದರ ಮೆನುಗಳು ಅವುಗಳ ಶೀರ್ಷಿಕೆಗಳಿಂದ ದೂರ ತೆರೆಯಬಹುದು.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	ಬ್ರೌಸರ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	Mister Download Manager ನೊಂದಿಗೆ ಮ್ಯಾಗ್ನೆಟ್ ಲಿಂಕ್‌ಗಳು ಮತ್ತು .torrent ಫೈಲ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ
+	Open magnet links and .torrent files with ZDownloader3	ZDownloader3 ನೊಂದಿಗೆ ಮ್ಯಾಗ್ನೆಟ್ ಲಿಂಕ್‌ಗಳು ಮತ್ತು .torrent ಫೈಲ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	Mister Download Manager ತೆರೆಯಿರಿ
+	Open ZDownloader3	ZDownloader3 ತೆರೆಯಿರಿ
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	Mister Download Manager ನೊಂದಿಗೆ ಜೋಡಿಸಿ
+	Pair with ZDownloader3	ZDownloader3 ನೊಂದಿಗೆ ಜೋಡಿಸಿ
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	ಚುಕ್ಕೆಗಳಿರುವ ಬಾಹ್ಯರೇಖೆಯೊಂದಿಗೆ ಡೌನ್‌ಲೋಡ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಆಯ್ಕೆ ರದ್ದುಮಾಡಿ
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	Mister Download Manager ಈವೆಂಟ್‌ಗಳಿಗಾಗಿ ಧ್ವನಿಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ
+	Select sounds for ZDownloader3 events	ZDownloader3 ಈವೆಂಟ್‌ಗಳಿಗಾಗಿ ಧ್ವನಿಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	ಬಾಕ್ಸ್‌ನಲ್ಲಿರುವ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ
@@ -4230,7 +4230,7 @@
 	Start download at	ಈ ಸಮಯಕ್ಕೆ ಡೌನ್‌ಲೋಡ್ ಪ್ರಾರಂಭಿಸಿ
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	Mister Download Manager ಪ್ರಾರಂಭವಾದಾಗ ಡೌನ್‌ಲೋಡ್ ಪ್ರಾರಂಭವಾಗಲಿ
+	Start download on ZDownloader3 startup	ZDownloader3 ಪ್ರಾರಂಭವಾದಾಗ ಡೌನ್‌ಲೋಡ್ ಪ್ರಾರಂಭವಾಗಲಿ
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	"ಡೌನ್‌ಲೋಡ್ ಫೈಲ್ ಮಾಹಿತಿ" ಸಂವಾದವನ್ನು ಪ್ರದರ್ಶಿಸುವಾಗ ತಕ್ಷಣವೇ ಡೌನ್‌ಲೋಡ್ ಮಾಡುವುದನ್ನು ಪ್ರಾರಂಭಿಸಿ
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	ಕಂಪ್ಯೂಟರ್ ಪ್ರಾರಂಭವಾದಾಗ ಇದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ; ಚಿಕ್ಕದಾಗಿ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ: ಇಲ್ಲಿ ಅಧಿಸೂಚನೆ ಪ್ರದೇಶದಲ್ಲಿ ಇದರ ಐಕಾನ್ ಕಾಣಿಸುವುದಿಲ್ಲ
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	ಕಂಪ್ಯೂಟರ್ ಪ್ರಾರಂಭವಾದಾಗ ಪ್ರಾರಂಭಗೊಂಡು ಅಧಿಸೂಚನೆ ಪ್ರದೇಶದಲ್ಲಿ ಕಾಯುತ್ತದೆ
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find Mister Download Manager	ಬ್ರೌಸರ್‌ಗಳು Mister Download Manager ಅನ್ನು ಹುಡುಕಬಹುದು
+	The browsers can find ZDownloader3	ಬ್ರೌಸರ್‌ಗಳು ZDownloader3 ಅನ್ನು ಹುಡುಕಬಹುದು
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	ಪ್ರಾರಂಭದ ಸಮಯಕ್ಕಿಂತ ಒಂದು ನಿಮಿಷ ಮೊದಲು ಕಂಪ್ಯೂಟರ್ ಅನ್ನು ವೇಕ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ಕ್ಯೂ ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಅದನ್ನು ವೇಕ್ ಆಗಿ ಇರಿಸಲಾಗುತ್ತದೆ. Mister Download Manager ಚಾಲನೆಯಲ್ಲಿರಬೇಕು (ಅದು ಅಧಿಸೂಚನೆ ಪ್ರದೇಶದಲ್ಲಿ ಕಾಯಬಹುದು).
+	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	ಪ್ರಾರಂಭದ ಸಮಯಕ್ಕಿಂತ ಒಂದು ನಿಮಿಷ ಮೊದಲು ಕಂಪ್ಯೂಟರ್ ಅನ್ನು ವೇಕ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ಕ್ಯೂ ಚಾಲನೆಯಲ್ಲಿರುವಾಗ ಅದನ್ನು ವೇಕ್ ಆಗಿ ಇರಿಸಲಾಗುತ್ತದೆ. ZDownloader3 ಚಾಲನೆಯಲ್ಲಿರಬೇಕು (ಅದು ಅಧಿಸೂಚನೆ ಪ್ರದೇಶದಲ್ಲಿ ಕಾಯಬಹುದು).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4652,7 +4652,7 @@
 #, machine
 	the FTP server answered {code} {reply}	FTP ಸರ್ವರ್ {code} {reply} ಎಂದು ಉತ್ತರಿಸಿದೆ
 #. text in extension.rs
-#. a check of Test browser integration: the browsers are set up, but the small helper program they start (misterdownloadmanager-nmhost) is gone
+#. a check of Test browser integration: the browsers are set up, but the small helper program they start (zdownloader3-nmhost) is gone
 #, machine
 	The helper program the browsers start is missing	ಬ್ರೌಸರ್‌ಗಳು ಪ್ರಾರಂಭಿಸುವ ಸಹಾಯಕ ಪ್ರೋಗ್ರಾಂ ಕಾಣೆಯಾಗಿದೆ
 #. message or event log entry in the main window; text in the Options window
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	ಆಯ್ಕೆಮಾಡಿದ ಡೌನ್‌ಲೋಡ್ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ಅದನ್ನು Mister Download Manager ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ\nಅಳಿಸಬೇಕೇ?
+	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	ಆಯ್ಕೆಮಾಡಿದ ಡೌನ್‌ಲೋಡ್ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ಅದನ್ನು ZDownloader3 ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ\nಅಳಿಸಬೇಕೇ?
 #. text in errors.rs
 #, machine
 	the server answered {status}	ಸರ್ವರ್ {status} ಎಂದು ಉತ್ತರಿಸಿದೆ
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	“Mister Download Manager” ಆನ್ ಮಾಡಿ ಮತ್ತು ಎಲ್ಲ ವೆಬ್‌ಸೈಟ್‌ಗಳಲ್ಲಿ ಅದನ್ನು ಅನುಮತಿಸಿ.
+	Turn on "ZDownloader3" and allow it on all websites.	“ZDownloader3” ಆನ್ ಮಾಡಿ ಮತ್ತು ಎಲ್ಲ ವೆಬ್‌ಸೈಟ್‌ಗಳಲ್ಲಿ ಅದನ್ನು ಅನುಮತಿಸಿ.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	ನೀವು Mister Download Manager ನ ಇತ್ತೀಚಿನ ಆವೃತ್ತಿಯನ್ನು ({version}) ಹೊಂದಿದ್ದೀರಿ.
+	You have the latest version of ZDownloader3 ({version}).	ನೀವು ZDownloader3 ನ ಇತ್ತೀಚಿನ ಆವೃತ್ತಿಯನ್ನು ({version}) ಹೊಂದಿದ್ದೀರಿ.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	ವರ್ಗಾವಣೆ ದರ
 #, machine
 column	Upload speed	ಅಪ್‌ಲೋಡ್ ವೇಗ
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
 #, machine
-extension	A list of videos: choose them in Mister Download Manager	ವೀಡಿಯೊಗಳ ಪಟ್ಟಿ: ಅವುಗಳನ್ನು Mister Download Manager ನಲ್ಲಿ ಆಯ್ಕೆಮಾಡಿ
+extension	A list of videos: choose them in ZDownloader3	ವೀಡಿಯೊಗಳ ಪಟ್ಟಿ: ಅವುಗಳನ್ನು ZDownloader3 ನಲ್ಲಿ ಆಯ್ಕೆಮಾಡಿ
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	ಕ್ಯೂಗೆ ಸೇರಿಸಲಾಗಿದ�
 #, machine
 extension	All qualities and subtitles...	ಎಲ್ಲಾ ಗುಣಮಟ್ಟಗಳು ಮತ್ತು ಉಪಶೀರ್ಷಿಕೆಗಳು...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
 #, machine
-extension	Another Mister Download Manager (a server)	ಇನ್ನೊಂದು Mister Download Manager (ಸರ್ವರ್)
+extension	Another ZDownloader3 (a server)	ಇನ್ನೊಂದು ZDownloader3 (ಸರ್ವರ್)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	ಉತ್ತಮ
 #, machine
 extension	Browser extension	ಬ್ರೌಸರ್ ವಿಸ್ತರಣೆ
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in ZDownloader3
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	ಬಟನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು...
@@ -6108,14 +6108,14 @@ extension	can't be saved	ಉಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ
 #, machine
 extension	Can't tell which video this is: open its own page and try there	ಇದು ಯಾವ ವೀಡಿಯೊ ಎಂದು ತಿಳಿಯುತ್ತಿಲ್ಲ: ಅದರ ಸ್ವಂತ ಪುಟವನ್ನು ತೆರೆದು ಅಲ್ಲಿ ಪ್ರಯತ್ನಿಸಿ
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
 #, machine
-extension	Connected to Mister Download Manager	Mister Download Manager ಗೆ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ
+extension	Connected to ZDownloader3	ZDownloader3 ಗೆ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	Mister Download Manager {version} ಗೆ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ
+extension	Connected to ZDownloader3 {version}	ZDownloader3 {version} ಗೆ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	ಹುಡುಕಲು ಸಾಧ್ಯವಾಗಲ
 #, machine
 extension	Download	ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
 #, machine
-extension	Download all links with Mister Download Manager	Mister Download Manager ನೊಂದಿಗೆ ಎಲ್ಲಾ ಲಿಂಕ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
+extension	Download all links with ZDownloader3	ZDownloader3 ನೊಂದಿಗೆ ಎಲ್ಲಾ ಲಿಂಕ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	ಉತ್ತಮ ಗುಣಮಟ್ಟವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
 #, machine
-extension	Download selected links with Mister Download Manager	Mister Download Manager ನೊಂದಿಗೆ ಆಯ್ದ ಲಿಂಕ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
+extension	Download selected links with ZDownloader3	ZDownloader3 ನೊಂದಿಗೆ ಆಯ್ದ ಲಿಂಕ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	ಉತ್ತಮ ಗುಣಮಟ್ಟವನ�
 #, machine
 extension	Download video	ವೀಡಿಯೊ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
 #, machine
-extension	Download with Mister Download Manager	Mister Download Manager ನೊಂದಿಗೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
+extension	Download with ZDownloader3	ZDownloader3 ನೊಂದಿಗೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	ಅದರ https:// ವಿಳಾಸವನ�
 #, machine
 extension	Get MDM	MDM ಪಡೆಯಿರಿ
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	ಬ್ರೌಸರ್‌ನಿಂದ Mister Download Manager ಗೆ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಹಸ್ತಾಂತರಿಸುತ್ತದೆ.
+extension	Hands downloads from the browser to ZDownloader3.	ಬ್ರೌಸರ್‌ನಿಂದ ZDownloader3 ಗೆ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಹಸ್ತಾಂತರಿಸುತ್ತದೆ.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	ಇದು ಕಾರ್ಯನಿರ್ವಹ
 #, machine
 extension	It shows no code now: click Pair a device there first.	ಇದು ಈಗ ಯಾವುದೇ ಕೋಡ್ ಅನ್ನು ತೋರಿಸುವುದಿಲ್ಲ: ಮೊದಲು ಅಲ್ಲಿ ಸಾಧನವನ್ನು ಜೋಡಿಸಿ ಕ್ಲಿಕ್ ಮಾಡಿ.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with Mister Download Manager, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with Mister Download Manager is off in Torrent settings.	ಇದು ಟೊರೆಂಟ್ ಆಗಿದೆ, ಮತ್ತು ಟೊರೆಂಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ Mister Download Manager ನೊಂದಿಗೆ ಮ್ಯಾಗ್ನೆಟ್ ಲಿಂಕ್‌ಗಳು ಮತ್ತು .torrent ಫೈಲ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ ಆಫ್ ಆಗಿದೆ.
+extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	ಇದು ಟೊರೆಂಟ್ ಆಗಿದೆ, ಮತ್ತು ಟೊರೆಂಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ZDownloader3 ನೊಂದಿಗೆ ಮ್ಯಾಗ್ನೆಟ್ ಲಿಂಕ್‌ಗಳು ಮತ್ತು .torrent ಫೈಲ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ ಆಫ್ ಆಗಿದೆ.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM ಪ್ರತಿಕ್ರಿಯಿಸಲಿಲ್
 #, machine
 extension	Media on this page	ಈ ಪುಟದಲ್ಲಿರುವ ಮಾಧ್ಯಮ
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	ZDownloader3	ZDownloader3
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager ಸಮಯಕ್ಕೆ ಪ್ರಾರಂಭವಾಗಲಿಲ್ಲ
+extension	ZDownloader3 didn't start in time	ZDownloader3 ಸಮಯಕ್ಕೆ ಪ್ರಾರಂಭವಾಗಲಿಲ್ಲ
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager ವಿಸ್ತರಣೆಯ ಈ ನಕಲನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ
+extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 ವಿಸ್ತರಣೆಯ ಈ ನಕಲನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager is busy with other videos	Mister Download Manager ಇತರ ವೀಡಿಯೊಗಳಲ್ಲಿ ನಿರತವಾಗಿದೆ
+extension	ZDownloader3 is busy with other videos	ZDownloader3 ಇತರ ವೀಡಿಯೊಗಳಲ್ಲಿ ನಿರತವಾಗಿದೆ
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ ಅಥವಾ ಪ್ರಾರಂಭವಾಗಲಿಲ್ಲ
+extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ ಅಥವಾ ಪ್ರಾರಂಭವಾಗಲಿಲ್ಲ
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ, ಅಥವಾ ಅದರ ಬ್ರೌಸರ್ ಏಕೀಕರಣವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ
+extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ, ಅಥವಾ ಅದರ ಬ್ರೌಸರ್ ಏಕೀಕರಣವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name Mister Download Manager as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager needs yt-dlp for this video	ಈ ವೀಡಿಯೊಗೆ Mister Download Manager ಗೆ yt-dlp ಬೇಕು
+extension	ZDownloader3 needs yt-dlp for this video	ಈ ವೀಡಿಯೊಗೆ ZDownloader3 ಗೆ yt-dlp ಬೇಕು
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager ನಂತರ ಈ ಬ್ರೌಸರ್‌ನಂತೆಯೇ ಅದೇ ಪ್ರಾಕ್ಸಿ ಮೂಲಕ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತದೆ. ಅದನ್ನು ಅನುಮತಿಸಲು ಬ್ರೌಸರ್ ಒಮ್ಮೆ ನಿಮ್ಮನ್ನು ಕೇಳುತ್ತದೆ; ಇದನ್ನು ಆಫ್ ಮಾಡುವುದರಿಂದ ಅದನ್ನು ಹಿಂಪಡೆಯುತ್ತದೆ.
+extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 ನಂತರ ಈ ಬ್ರೌಸರ್‌ನಂತೆಯೇ ಅದೇ ಪ್ರಾಕ್ಸಿ ಮೂಲಕ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತದೆ. ಅದನ್ನು ಅನುಮತಿಸಲು ಬ್ರೌಸರ್ ಒಮ್ಮೆ ನಿಮ್ಮನ್ನು ಕೇಳುತ್ತದೆ; ಇದನ್ನು ಆಫ್ ಮಾಡುವುದರಿಂದ ಅದನ್ನು ಹಿಂಪಡೆಯುತ್ತದೆ.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager ನಂತರ ಈ ಬ್ರೌಸರ್‌ನಂತೆಯೇ ಅದೇ ಪ್ರಾಕ್ಸಿ ಮೂಲಕ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತದೆ. ಇದು ಆಫ್ ಆಗಿರುವಾಗ, ವಿಸ್ತರಣೆಯು ಬ್ರೌಸರ್‌ನ ಪ್ರಾಕ್ಸಿಯನ್ನು ಓದುವುದಿಲ್ಲ.
+extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 ನಂತರ ಈ ಬ್ರೌಸರ್‌ನಂತೆಯೇ ಅದೇ ಪ್ರಾಕ್ಸಿ ಮೂಲಕ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತದೆ. ಇದು ಆಫ್ ಆಗಿರುವಾಗ, ವಿಸ್ತರಣೆಯು ಬ್ರೌಸರ್‌ನ ಪ್ರಾಕ್ಸಿಯನ್ನು ಓದುವುದಿಲ್ಲ.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6321,13 +6321,13 @@ extension	Off on this site	ಈ ಸೈಟ್‌ನಲ್ಲಿ ಆಫ್ ಆಗ�
 #, machine
 extension	Open it	ಅದನ್ನು ತೆರೆಯಿರಿ
 #. text in the browser extension
-#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is
+#. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is
 #, machine
-extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	ಅದರ ವಿಳಾಸವನ್ನು ಒಮ್ಮೆ ತೆರೆಯಿರಿ ಮತ್ತು ಅದರ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಸ್ವೀಕರಿಸಿ, ನಂತರ ಅದರ ಆಯ್ಕೆಗಳು, ರಿಮೋಟ್, ಸಾಧನವನ್ನು ಜೋಡಿಸಿ (ಅಥವಾ misterdownloadmanager-cli pair) ನಿಂದ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ.
+extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	ಅದರ ವಿಳಾಸವನ್ನು ಒಮ್ಮೆ ತೆರೆಯಿರಿ ಮತ್ತು ಅದರ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಸ್ವೀಕರಿಸಿ, ನಂತರ ಅದರ ಆಯ್ಕೆಗಳು, ರಿಮೋಟ್, ಸಾಧನವನ್ನು ಜೋಡಿಸಿ (ಅಥವಾ zdownloader3-cli pair) ನಿಂದ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
 #, machine
-extension	Open Mister Download Manager	Mister Download Manager ತೆರೆಯಿರಿ
+extension	Open ZDownloader3	ZDownloader3 ತೆರೆಯಿರಿ
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	ಈ ಬ�
 #, machine
 extension	Send downloads to	ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿ
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is Mister Download Manager's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	MDM ಗೆ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
 #, machine
-extension	Sent to Mister Download Manager	Mister Download Manager ಗೆ ಕಳುಹಿಸಲಾಗಿದೆ
+extension	Sent to ZDownloader3	ZDownloader3 ಗೆ ಕಳುಹಿಸಲಾಗಿದೆ
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	ಈ ಬ್ರೌಸರ್‌ನಿಂ
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store ನಿಯಮಗಳು ಆಡ್-ಆನ್‌ನ ಈ ಪ್ರತಿಯನ್ನು ಈ ಸೈಟ್‌ನ ವೀಡಿಯೊಗಳಿಂದ ದೂರ ಇಡುತ್ತವೆ. ನೀವು ಏನು ಮಾಡಬಹುದು ಎಂಬುದನ್ನು «ಸಹಾಯ» ತಿಳಿಸುತ್ತದೆ.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
 #, machine
-extension	The connection to Mister Download Manager failed	Mister Download Manager ಗೆ ಸಂಪರ್ಕ ವಿಫಲವಾಗಿದೆ
+extension	The connection to ZDownloader3 failed	ZDownloader3 ಗೆ ಸಂಪರ್ಕ ವಿಫಲವಾಗಿದೆ
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	ಕೊನೆಯ ಡೌನ�
 #, machine
 extension	This browser isn't ticked in Options → General.	ಈ ಬ್ರೌಸರ್ ಅನ್ನು ಆಯ್ಕೆಗಳು → ಸಾಮಾನ್ಯದಲ್ಲಿ ಗುರುತಿಸಲಾಗಿಲ್ಲ.
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the ZDownloader3 on this computer
 #, machine
 extension	This computer	ಈ ಕಂಪ್ಯೂಟರ್
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	ಆನ್ ಮಾಡಿ
 #, machine
 extension	Undo	ಮತ್ತೆ ಸೇರಿಸಿ
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name ZDownloader3 as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	ಈ ವಿಸ್ತರಣೆಯು ನೀಡುವ ಎಲ್ಲವನ್ನೂ ಬಳಸಲು Mister Download Manager ಅನ್ನು ನವೀಕರಿಸಿ
+extension	Update ZDownloader3 to use everything this extension offers	ಈ ವಿಸ್ತರಣೆಯು ನೀಡುವ ಎಲ್ಲವನ್ನೂ ಬಳಸಲು ZDownloader3 ಅನ್ನು ನವೀಕರಿಸಿ
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	ಮೇಲೆ / ಕೆಳಗೆ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	Mister Download Manager ಬಗ್ಗೆ(&A)
+menu	&About ZDownloader3	ZDownloader3 ಬಗ್ಗೆ(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6984,7 +6984,7 @@ menu	Metro	ಮೆಟ್ರೋ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Mister Download Manager &ಮುಖಪುಟ
+menu	ZDownloader3 &Home Page	ZDownloader3 &ಮುಖಪುಟ
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	ಸರಿಸಿ/ಮರುಹೆಸರಿಸಿ (Ctrl-M)
@@ -7117,7 +7117,7 @@ menu	Select &all	ಎಲ್ಲವನ್ನೂ ಆ&ಯ್ಕೆಮಾಡಿ
 menu	Show &drop target	ಡ್ರಾಪ್ ಟಾರ್ಗೆಟ್ ತೋರಿಸಿ(&d)
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	Mister Download Manager ತೋರಿಸಿ
+menu	Show ZDownloader3	ZDownloader3 ತೋರಿಸಿ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

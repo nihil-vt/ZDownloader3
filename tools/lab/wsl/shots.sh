@@ -17,7 +17,7 @@
 # README's 21 windows). `main` is the main window; a `menu:...` show is captured with the main
 # window, grown by MDM_GROW pixels (default 300) for menus past its edge.
 #
-# Each run has its own data folder (MDM_DATA_DIR) and download folder under ~/lab/run/<label>,
+# Each run has its own data folder (ZD3_DATA_DIR) and download folder under ~/lab/run/<label>,
 # and its own lab server (port 8197): the list looks used (the README's files), downloaded once
 # for the first language and given to the others. --finished-only: no download still running (shots
 # that must not change between runs: progress and the main window's speeds otherwise do);
@@ -50,7 +50,7 @@ while [ $# -gt 0 ]; do
   shift
 done
 bin=$HOME/lab/bin/$label
-app=$bin/misterdownloadmanager
+app=$bin/zdownloader3
 [ -x "$app" ] || { echo "no build $label in ~/lab/bin (build.sh)"; exit 1; }
 out=${out:-$HOME/lab/shots/$label}
 work=$HOME/lab/run/$label
@@ -152,7 +152,7 @@ for lang in $langs; do
     DATA=$work/data-$lang-$mode
     rm -rf "$DATA"; mkdir -p "$DATA"
     write_state "$DATA" "$lang" "$mode"
-    export MDM_DATA_DIR=$DATA
+    export ZD3_DATA_DIR=$DATA
     dir="$out/$lang-$mode"; rm -rf "$dir"; mkdir -p "$dir"
     xdotool mousemove $((SW - 2)) $((SH / 2))
     (cd "$work" && setsid -f "$app" >"$DATA/stdout.log" 2>&1 </dev/null 9>&-)

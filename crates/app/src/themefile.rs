@@ -44,7 +44,7 @@ pub struct Loaded {
 }
 
 /// Where theme files are: the data folder's `themes` (portable copies' next to the program,
-/// `MDM_DATA_DIR`'s in tests). None when there is no data folder (built-ins only).
+/// `ZD3_DATA_DIR`'s in tests). None when there is no data folder (built-ins only).
 pub fn dir() -> Option<PathBuf> {
     mdm_ipc::data_dir().map(|d| d.join("themes"))
 }

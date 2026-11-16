@@ -76,8 +76,8 @@ fs.mkdirSync(path.join(profile, "Default"), { recursive: true });
 // (not ~/.config/google-chrome/): the one MDM registered, copied there.
 const hosts = path.join(profile, "NativeMessagingHosts");
 fs.mkdirSync(hosts, { recursive: true });
-const registered = path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.misterdownloadmanager.host.json");
-fs.copyFileSync(registered, path.join(hosts, "com.misterdownloadmanager.host.json"));
+const registered = path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.zdownloader3.host.json");
+fs.copyFileSync(registered, path.join(hosts, "com.zdownloader3.host.json"));
 const proc = spawn(
   "/usr/bin/google-chrome",
   ["--headless", "--remote-debugging-pipe", "--enable-unsafe-extension-debugging", "--password-store=basic", `--user-data-dir=${profile}`, "--no-first-run", "--no-default-browser-check", "--window-size=1280,900", "about:blank"],

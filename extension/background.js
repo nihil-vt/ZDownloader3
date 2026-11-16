@@ -1,8 +1,8 @@
-// Mister Download Manager's browser extension: the background part (Chrome, Edge, Brave, Opera
+// ZDownloader3's browser extension: the background part (Chrome, Edge, Brave, Opera
 // and Vivaldi run it as a service worker, Firefox as a background script; one file for both, see
 // manifest.json and manifest.firefox.json).
 //
-// Downloads of the file types Mister Download Manager takes are handed to it: the browser's own
+// Downloads of the file types ZDownloader3 takes are handed to it: the browser's own
 // download is cancelled, and the address, referrer, cookies, User-Agent, file name, size, type
 // and (for a form) the posted body go to the app through the native messaging host
 // (crates/nmhost). When it can't be reached the download stays with the browser, so nothing is
@@ -11,7 +11,7 @@
 // (the rules, the status, the pause) is kept in storage, not in memory.
 
 const ext = globalThis.browser ?? globalThis.chrome;
-const HOST = "com.misterdownloadmanager.host";
+const HOST = "com.zdownloader3.host";
 const VERSION = ext.runtime.getManifest().version;
 const HELP = "https://misterdownloadmanager.com/help/browser-help.html";
 const action = ext.action ?? ext.browserAction;
@@ -32,7 +32,7 @@ const t = (key, ...subs) => ext.i18n.getMessage(key, subs) || key;
 
 // ---- the native host ---------------------------------------------------------------------
 
-// How long an answer may take: the host starts Mister Download Manager when it isn't running
+// How long an answer may take: the host starts ZDownloader3 when it isn't running
 // and waits for it (crates/nmhost START_WAIT); the browser's download waits meanwhile.
 const HOST_WAIT = 30000;
 

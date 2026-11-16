@@ -1,4 +1,4 @@
-﻿; Mister Download Manager's installer in Norwegian Nynorsk: tools/installer/languages.py
+﻿; ZDownloader3's installer in Norwegian Nynorsk: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Avinstallerer %1.
 
 [CustomMessages]
 TaskBrowser=Set opp nettlesar&integrering (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Opne .&torrent-filer og magnetlenkjer med Mister Download Manager
-TaskStartup=Start Mister Download Manager når &Windows startar
+TaskTorrents=Opne .&torrent-filer og magnetlenkjer med ZDownloader3
+TaskStartup=Start ZDownloader3 når &Windows startar
 TaskGroupOther=Anna:
-Launch=Start Mister Download Manager
+Launch=Start ZDownloader3
 KeepData=Vil du òg slette nedlastingslista og innstillingane dine?%n%nDei nedlasta filene dine blir ikkje rørt uansett.

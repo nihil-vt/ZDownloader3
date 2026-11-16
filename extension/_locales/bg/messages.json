@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Прехвърля изтеглянията от браузъра към Mister Download Manager."
+    "message": "Прехвърля изтеглянията от браузъра към ZDownloader3."
   },
   "menu": {
-    "message": "Изтеглете с Mister Download Manager"
+    "message": "Изтеглете с ZDownloader3"
   },
   "video_download": {
     "message": "Изтеглете видео"
@@ -30,19 +30,19 @@
     "message": "Настройки на бутона..."
   },
   "video_sent": {
-    "message": "Изпратено до Mister Download Manager"
+    "message": "Изпратено до ZDownloader3"
   },
   "menu_selected": {
-    "message": "Изтеглете избрани връзки с Mister Download Manager"
+    "message": "Изтеглете избрани връзки с ZDownloader3"
   },
   "menu_all": {
-    "message": "Изтеглете всички връзки с Mister Download Manager"
+    "message": "Изтеглете всички връзки с ZDownloader3"
   },
   "status_connected": {
-    "message": "Свързан с Mister Download Manager"
+    "message": "Свързан с ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Свързан с Mister Download Manager $version$",
+    "message": "Свързан с ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "На пауза: изтеглянията остават в браузъра"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager не е инсталиран или интеграцията му с браузъра не е настроена"
+    "message": "ZDownloader3 не е инсталиран или интеграцията му с браузъра не е настроена"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager не приема това копие на разширението"
+    "message": "ZDownloader3 не приема това копие на разширението"
   },
   "status_not_running": {
-    "message": "Mister Download Manager не стартира навреме"
+    "message": "ZDownloader3 не стартира навреме"
   },
   "status_host_failed": {
-    "message": "Връзката с Mister Download Manager прекъсна"
+    "message": "Връзката с ZDownloader3 прекъсна"
   },
   "status_too_large": {
     "message": "Данните за това изтегляне бяха твърде големи, за да бъдат предадени"
   },
   "status_update_app": {
-    "message": "Актуализирайте Mister Download Manager, за да използвате всичко, което предлага това разширение"
+    "message": "Актуализирайте ZDownloader3, за да използвате всичко, което предлага това разширение"
   },
   "popup_take": {
     "message": "Приемайте изтегляния от този браузър"
@@ -78,10 +78,10 @@
     "message": "Изпращайте изтеглянията през прокси или VPN разширението на този браузър"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager след това изтегля през същия прокси сървър като този браузър. Браузърът ще ви попита веднъж дали да го разрешите; изключването на тази опция отменя това."
+    "message": "ZDownloader3 след това изтегля през същия прокси сървър като този браузър. Браузърът ще ви попита веднъж дали да го разрешите; изключването на тази опция отменя това."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager изтегля през същия прокси сървър като този браузър. Докато тази опция е изключена, разширението не чете прокси сървъра на браузъра."
+    "message": "ZDownloader3 изтегля през същия прокси сървър като този браузър. Докато тази опция е изключена, разширението не чете прокси сървъра на браузъра."
   },
   "popup_exclude_site": {
     "message": "Никога не вземайте изтегляния от $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Отворете Mister Download Manager"
+    "message": "Отворете ZDownloader3"
   },
   "popup_options": {
     "message": "Опции..."
@@ -150,7 +150,7 @@
     "message": "„Използване на разширена интеграция с браузъра“ е изключено в Опции → Общи."
   },
   "declined_torrents": {
-    "message": "Това е торент и „Отваряне на магнитни връзки и .torrent файлове с Mister Download Manager“ е изключено в настройките за торенти."
+    "message": "Това е торент и „Отваряне на магнитни връзки и .torrent файлове с ZDownloader3“ е изключено в настройките за торенти."
   },
   "declined_site_access": {
     "message": "Разширението няма разрешение да чете този сайт (достъпът на браузъра до сайта)."
@@ -195,16 +195,16 @@
     "message": "Тук няма видео за изтегляне"
   },
   "video_playlist": {
-    "message": "Списък с видеоклипове: изберете ги в Mister Download Manager"
+    "message": "Списък с видеоклипове: изберете ги в ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager се нуждае от yt-dlp за това видео"
+    "message": "ZDownloader3 се нуждае от yt-dlp за това видео"
   },
   "video_too_long": {
     "message": "Търсенето отне твърде много време"
   },
   "video_busy": {
-    "message": "Mister Download Manager е зает с други видеоклипове"
+    "message": "ZDownloader3 е зает с други видеоклипове"
   },
   "video_queued": {
     "message": "Добавено към опашката"
@@ -228,7 +228,7 @@
     "message": "Този компютър"
   },
   "popup_send_remote": {
-    "message": "Друг Mister Download Manager (сървър)"
+    "message": "Друг ZDownloader3 (сървър)"
   },
   "popup_remote_code": {
     "message": "Код за сдвояване"
@@ -240,7 +240,7 @@
     "message": "Сдвояване"
   },
   "popup_remote_help": {
-    "message": "Отворете адреса му веднъж и приемете сертификата му, след което въведете код от неговите Опции, Отдалечен, Сдвояване на устройство (или misterdownloadmanager-cli pair)."
+    "message": "Отворете адреса му веднъж и приемете сертификата му, след което въведете код от неговите Опции, Отдалечен, Сдвояване на устройство (или zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Изтеглянията отиват на $address$",
@@ -324,7 +324,7 @@
     "message": "Всички качества и субтитри..."
   },
   "video_failed": {
-    "message": "Mister Download Manager не е инсталиран или не е стартиран"
+    "message": "ZDownloader3 не е инсталиран или не е стартиран"
   },
   "video_download_best": {
     "message": "Изтегляне на най-доброто"

@@ -5677,9 +5677,9 @@ impl App {
         self.notice = Some((
             crate::i18n::mark("Torrent settings"),
             crate::i18n::fmt(
-                // i18n: after ticking "Open magnet links and .torrent files with Mister Download Manager", when Windows' Default apps keeps another app; {apps}: their names. "MAGNET" as Windows' Default apps lists it
+                // i18n: after ticking "Open magnet links and .torrent files with ZDownloader3", when Windows' Default apps keeps another app; {apps}: their names. "MAGNET" as Windows' Default apps lists it
                 crate::i18n::t(
-                    "Windows still opens magnet links or .torrent files with {apps}, chosen in Windows' Default apps, where only you can change it. Settings opens there now: pick Mister Download Manager for MAGNET and .torrent.",
+                    "Windows still opens magnet links or .torrent files with {apps}, chosen in Windows' Default apps, where only you can change it. Settings opens there now: pick ZDownloader3 for MAGNET and .torrent.",
                 ),
                 &[("apps", &crate::i18n::isolate(&others.join(", ")))],
             ),
@@ -6538,7 +6538,7 @@ impl App {
             return line(&ApiAnswer { api: on });
         } else if !self.settings.automation_api {
             return line(&ErrorAnswer {
-                error: "the automation API is off (misterdownloadmanager-cli api on)".into(),
+                error: "the automation API is off (zdownloader3-cli api on)".into(),
                 code: Some(ipc::api::API_OFF.into()),
             });
         }
@@ -6635,7 +6635,7 @@ impl App {
         }
     }
 
-    /// `{"pair": true}` (`misterdownloadmanager-cli pair`, #157): a new pairing code, the
+    /// `{"pair": true}` (`zdownloader3-cli pair`, #157): a new pairing code, the
     /// page's addresses and a QR code for a terminal; an error while the remote control is off
     /// or not listening.
     pub fn pair_answer(&mut self) -> String {
@@ -8081,7 +8081,7 @@ impl App {
                 Err(e) => {
                     if self.save_failed.as_ref() != Some(&e) {
                         self.notice = Some((
-                            crate::i18n::mark("Mister Download Manager"),
+                            crate::i18n::mark("ZDownloader3"),
                             crate::i18n::fmt(
                                 crate::i18n::t(
                                     "The download list could not be saved: {error}. Changes are kept while MDM runs.",
@@ -8296,7 +8296,7 @@ impl App {
                 I("&Keyboard shortcuts", Cmd::Shortcuts, true, false),
                 Sep,
                 I(
-                    "Mister Download Manager &Home Page",
+                    "ZDownloader3 &Home Page",
                     Cmd::HelpPage(""),
                     true,
                     false,
@@ -8305,7 +8305,7 @@ impl App {
                 Sep,
                 I("Check for &updates...", Cmd::CheckUpdates, true, false),
                 Sep,
-                I("&About Mister Download Manager", Cmd::About, true, false),
+                I("&About ZDownloader3", Cmd::About, true, false),
                 I("Tell a &friend", Cmd::TellFriend, true, false),
                 // MDM's, not IDM's: the creator's GitHub Sponsors page, asked for only.
                 I("Support &MDM", Cmd::Support, true, false),
@@ -8734,7 +8734,7 @@ impl App {
             Popup::Node(node) => (self.node_entries(node), None),
             Popup::DropTarget => (
                 vec![
-                    MenuEntry::Item("Show Mister Download Manager", Cmd::ShowMain, true, false),
+                    MenuEntry::Item("Show ZDownloader3", Cmd::ShowMain, true, false),
                     MenuEntry::Item("&Add new download", Cmd::AddUrl, true, false),
                     MenuEntry::Sep,
                     MenuEntry::Item("Hide drop target", Cmd::ToggleDropTarget, true, false),
@@ -10306,7 +10306,7 @@ impl App {
             } else {
                 // A file MDM can't download or import (a picture, a program).
                 self.notice = Some((
-                    crate::i18n::mark("Mister Download Manager"),
+                    crate::i18n::mark("ZDownloader3"),
                     crate::i18n::fmt(
                         crate::i18n::t(
                             "Nothing to download in {item}: drop links, a .torrent file, or a list of addresses (.txt, .ef2).",

@@ -1,6 +1,6 @@
-//! Mister Download Manager's command channel (shared by the app, its command line and the browser host).
+//! ZDownloader3's command channel (shared by the app, its command line and the browser host).
 //! Single-instance command channel. The running app listens on a localhost port and writes
-//! `{port, token}` to `%APPDATA%\misterdownloadmanager\ipc.json`; a second launch (IDM-style command line)
+//! `{port, token}` to `%APPDATA%\zdownloader3\ipc.json`; a second launch (IDM-style command line)
 //! or the browser's native messaging host sends one JSON line per command, carrying the token.
 //! Only connections from 127.0.0.1 with the right token are accepted.
 
@@ -94,7 +94,7 @@ pub struct Command {
     /// The remote control: an uploaded .torrent file's bytes (never read from a request line).
     #[serde(skip)]
     pub torrent_file: Option<Vec<u8>>,
-    /// The remote control (#157, `misterdownloadmanager-cli pair`): show a new pairing code;
+    /// The remote control (#157, `zdownloader3-cli pair`): show a new pairing code;
     /// answered with it, the page's addresses and a QR code to scan ([`api::PairAnswer`]).
     pub pair: bool,
     /// `/exit` (beyond IDM): the running app saves and quits (the installer, before an upgrade
@@ -317,7 +317,7 @@ struct Envelope {
 /// The data folder a headless run was given (`--data`, #157), before anything reads it.
 static DATA_DIR: std::sync::OnceLock<PathBuf> = std::sync::OnceLock::new();
 
-/// Use `dir` as the data folder from now on (over `MDM_DATA_DIR`): `--headless --data <dir>`.
+/// Use `dir` as the data folder from now on (over `ZD3_DATA_DIR`): `--headless --data <dir>`.
 pub fn set_data_dir(dir: PathBuf) {
     let _ = DATA_DIR.set(full(dir));
 }
@@ -328,10 +328,10 @@ fn full(dir: PathBuf) -> PathBuf {
     std::path::absolute(&dir).unwrap_or(dir)
 }
 
-/// The app's data folder, `%APPDATA%\misterdownloadmanager` (list, settings, channel, crash
+/// The app's data folder, `%APPDATA%\zdownloader3` (list, settings, channel, crash
 /// log). The folder of the app's former codename, `idmnext`, is moved here once.
 ///
-/// `MDM_DATA_DIR` overrides it (a separate instance with its own list and channel: tests,
+/// `ZD3_DATA_DIR` overrides it (a separate instance with its own list and channel: tests,
 /// screenshots). Portable mode: a writable `data` folder next to the program holds it all.
 ///
 /// Worked out once per run and kept (#565): the window asks for it on every tick (torrents'
@@ -343,17 +343,20 @@ pub fn data_dir() -> Option<PathBuf> {
     }
     static RESOLVED: std::sync::OnceLock<Option<PathBuf>> = std::sync::OnceLock::new();
     once(&RESOLVED, || {
-        if let Some(dir) = std::env::var_os("MDM_DATA_DIR") {
+        if let Some(dir) = std::env::var_os("ZD3_DATA_DIR") {
             return Some(full(PathBuf::from(dir)));
         }
         if let Some(dir) = portable_dir() {
             return Some(dir);
         }
         let base = dirs::data_dir()?;
-        let dir = base.join("misterdownloadmanager");
-        let legacy = base.join("idmnext");
-        if !dir.exists() && legacy.is_dir() {
-            let _ = std::fs::rename(&legacy, &dir);
+        let dir = base.join("zdownloader3");
+        // Fork migration: adopt pre-fork data folders rather than abandon a user's downloads.
+        for legacy in ["misterdownloadmanager", "idmnext"] {
+            let from = base.join(legacy);
+            if !dir.exists() && from.is_dir() {
+                let _ = std::fs::rename(&from, &dir);
+            }
         }
         Some(dir)
     })
@@ -474,7 +477,7 @@ impl std::fmt::Display for SendError {
     }
 }
 
-/// Send `cmd` to a running Mister Download Manager.
+/// Send `cmd` to a running ZDownloader3.
 pub fn send(cmd: &Command) -> Result<(), SendError> {
     let ack = exchange(cmd, ANSWER_WAIT)?;
     if ack.trim() == "ok" {

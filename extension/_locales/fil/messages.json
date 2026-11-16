@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Ibinibigay ang mga download mula sa browser sa Mister Download Manager."
+    "message": "Ibinibigay ang mga download mula sa browser sa ZDownloader3."
   },
   "menu": {
-    "message": "I-download gamit ang Mister Download Manager"
+    "message": "I-download gamit ang ZDownloader3"
   },
   "video_download": {
     "message": "I-download ang video"
@@ -30,19 +30,19 @@
     "message": "Mga setting ng button..."
   },
   "video_sent": {
-    "message": "Ipinadala sa Mister Download Manager"
+    "message": "Ipinadala sa ZDownloader3"
   },
   "menu_selected": {
-    "message": "I-download ang mga napiling link gamit ang Mister Download Manager"
+    "message": "I-download ang mga napiling link gamit ang ZDownloader3"
   },
   "menu_all": {
-    "message": "I-download ang lahat ng link gamit ang Mister Download Manager"
+    "message": "I-download ang lahat ng link gamit ang ZDownloader3"
   },
   "status_connected": {
-    "message": "Nakakonekta sa Mister Download Manager"
+    "message": "Nakakonekta sa ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Nakakonekta sa Mister Download Manager $version$",
+    "message": "Nakakonekta sa ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Naka-pause: mananatili ang mga download sa browser"
   },
   "status_not_installed": {
-    "message": "Hindi naka-install ang Mister Download Manager, o hindi naka-set up ang integrasyon nito sa browser"
+    "message": "Hindi naka-install ang ZDownloader3, o hindi naka-set up ang integrasyon nito sa browser"
   },
   "status_forbidden": {
-    "message": "Hindi tinatanggap ng Mister Download Manager ang kopyang ito ng extension"
+    "message": "Hindi tinatanggap ng ZDownloader3 ang kopyang ito ng extension"
   },
   "status_not_running": {
-    "message": "Hindi nagsimula sa oras ang Mister Download Manager"
+    "message": "Hindi nagsimula sa oras ang ZDownloader3"
   },
   "status_host_failed": {
-    "message": "Nabigo ang koneksyon sa Mister Download Manager"
+    "message": "Nabigo ang koneksyon sa ZDownloader3"
   },
   "status_too_large": {
     "message": "Masyadong malaki ang mga detalye ng download na ito para maibigay"
   },
   "status_update_app": {
-    "message": "I-update ang Mister Download Manager para magamit ang lahat ng iniaalok ng extension na ito"
+    "message": "I-update ang ZDownloader3 para magamit ang lahat ng iniaalok ng extension na ito"
   },
   "popup_take": {
     "message": "Kumuha ng mga download mula sa browser na ito"
@@ -78,10 +78,10 @@
     "message": "Ipadala ang mga download sa pamamagitan ng proxy o VPN extension ng browser na ito"
   },
   "popup_proxy_title": {
-    "message": "Pagkatapos ay magda-download ang Mister Download Manager sa pamamagitan ng parehong proxy gaya ng browser na ito. Isang beses kang tatanungin ng browser na payagan ito; ang pag-off nito ay babawiin iyon."
+    "message": "Pagkatapos ay magda-download ang ZDownloader3 sa pamamagitan ng parehong proxy gaya ng browser na ito. Isang beses kang tatanungin ng browser na payagan ito; ang pag-off nito ay babawiin iyon."
   },
   "popup_proxy_title_chromium": {
-    "message": "Pagkatapos ay magda-download ang Mister Download Manager sa pamamagitan ng parehong proxy gaya ng browser na ito. Habang naka-off ito, hindi binabasa ng extension ang proxy ng browser."
+    "message": "Pagkatapos ay magda-download ang ZDownloader3 sa pamamagitan ng parehong proxy gaya ng browser na ito. Habang naka-off ito, hindi binabasa ng extension ang proxy ng browser."
   },
   "popup_exclude_site": {
     "message": "Huwag kailanman kumuha ng mga download mula sa $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Buksan ang Mister Download Manager"
+    "message": "Buksan ang ZDownloader3"
   },
   "popup_options": {
     "message": "Mga Opsyon..."
@@ -150,7 +150,7 @@
     "message": "Naka-off ang Gumamit ng advanced na integrasyon ng browser sa Mga Opsyon → Pangkalahatan."
   },
   "declined_torrents": {
-    "message": "Ito ay isang torrent, at naka-off ang Buksan ang mga magnet link at .torrent file gamit ang Mister Download Manager sa mga setting ng Torrent."
+    "message": "Ito ay isang torrent, at naka-off ang Buksan ang mga magnet link at .torrent file gamit ang ZDownloader3 sa mga setting ng Torrent."
   },
   "declined_site_access": {
     "message": "Hindi pinapayagan ang extension na basahin ang site na ito (pag-access ng site ng browser)."
@@ -195,16 +195,16 @@
     "message": "Walang video na ida-download dito"
   },
   "video_playlist": {
-    "message": "Listahan ng mga video: piliin ang mga ito sa Mister Download Manager"
+    "message": "Listahan ng mga video: piliin ang mga ito sa ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Kailangan ng Mister Download Manager ng yt-dlp para sa video na ito"
+    "message": "Kailangan ng ZDownloader3 ng yt-dlp para sa video na ito"
   },
   "video_too_long": {
     "message": "Masyadong natagalan ang paghahanap"
   },
   "video_busy": {
-    "message": "Abala ang Mister Download Manager sa ibang mga video"
+    "message": "Abala ang ZDownloader3 sa ibang mga video"
   },
   "video_queued": {
     "message": "Naidagdag sa queue"
@@ -228,7 +228,7 @@
     "message": "Ang computer na ito"
   },
   "popup_send_remote": {
-    "message": "Isa pang Mister Download Manager (isang server)"
+    "message": "Isa pang ZDownloader3 (isang server)"
   },
   "popup_remote_code": {
     "message": "Code ng pagpapares"
@@ -240,7 +240,7 @@
     "message": "Ipares"
   },
   "popup_remote_help": {
-    "message": "Buksan ang address nito nang isang beses at tanggapin ang certificate nito, pagkatapos ay maglagay ng code mula sa Options, Remote, Ipares ang device nito (o misterdownloadmanager-cli pair)."
+    "message": "Buksan ang address nito nang isang beses at tanggapin ang certificate nito, pagkatapos ay maglagay ng code mula sa Options, Remote, Ipares ang device nito (o zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Napupunta ang mga download sa $address$",
@@ -324,7 +324,7 @@
     "message": "Lahat ng kalidad at subtitle..."
   },
   "video_failed": {
-    "message": "Hindi naka-install ang Mister Download Manager o hindi nagsimula"
+    "message": "Hindi naka-install ang ZDownloader3 o hindi nagsimula"
   },
   "video_download_best": {
     "message": "I-download ang pinakamahusay"

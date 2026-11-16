@@ -1,11 +1,11 @@
-> **ZDownloader3** is a fork of Mister Download Manager (see `NOTICE.md`). Goal: a JDownloader2-class download manager with native Linux experience. Pre-fork GTK4/aria2 scaffold archived in `attic/`. Upstream README below.
+> **ZDownloader3** is a fork of ZDownloader3 (see `NOTICE.md`). Goal: a JDownloader2-class download manager with native Linux experience. Pre-fork GTK4/aria2 scaffold archived in `attic/`. Upstream README below.
 
 ---
 
-# Mister Download Manager
+# ZDownloader3
 
 <p align="center">
-  <img src="docs/images/logo.png" alt="Mister Download Manager's logo" width="160">
+  <img src="docs/images/logo.png" alt="ZDownloader3's logo" width="160">
 </p>
 
 <h3 align="center">Downloads faster than IDM. Free, forever.</h3>
@@ -50,7 +50,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/images/main-dark.webp">
-    <img src="docs/images/main-light.webp" alt="Mister Download Manager's main window: categories, toolbar and a list of downloads" width="920">
+    <img src="docs/images/main-light.webp" alt="ZDownloader3's main window: categories, toolbar and a list of downloads" width="920">
   </picture>
 </p>
 
@@ -74,12 +74,12 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/images/races-dark.svg">
-    <img src="docs/images/races-light.svg" alt="Three races. A big 1 GB file: Mister Download Manager 1 second, IDM 5.5 seconds, 5 times faster. A small file: instantly versus 3.1 seconds, over 100 times faster. A shaky connection: 1.6 seconds versus 5.4 seconds, 3 times faster." width="880">
+    <img src="docs/images/races-light.svg" alt="Three races. A big 1 GB file: ZDownloader3 1 second, IDM 5.5 seconds, 5 times faster. A small file: instantly versus 3.1 seconds, over 100 times faster. A shaky connection: 1.6 seconds versus 5.4 seconds, 3 times faster." width="880">
   </picture>
 </p>
 
 <!-- compare:start -->
-| | Mister Download Manager | IDM 6.42 |
+| | ZDownloader3 | IDM 6.42 |
 | --- | --- | --- |
 | Download a big file (1 GB) | **1 second** | 5.5 seconds |
 | Download a small file | **instantly** | 3.1 seconds |
@@ -125,8 +125,8 @@ Or with [WinGet](https://learn.microsoft.com/windows/package-manager/winget/), W
 manager: in a terminal, the first line installs MDM and the second updates it.
 
 ```
-winget install AhmedNefzaoui.MisterDownloadManager
-winget upgrade AhmedNefzaoui.MisterDownloadManager
+winget install AhmedNefzaoui.ZDownloader3
+winget upgrade AhmedNefzaoui.ZDownloader3
 ```
 
 ### On Linux
@@ -148,7 +148,7 @@ Up to version 0.2.4, the files' names end in `-experimental`.
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/images/main-linux-dark.webp">
-    <img src="docs/images/main-linux.webp" alt="Mister Download Manager's main window on Ubuntu's GNOME desktop" width="620">
+    <img src="docs/images/main-linux.webp" alt="ZDownloader3's main window on Ubuntu's GNOME desktop" width="620">
   </picture>
 </p>
 
@@ -337,7 +337,7 @@ statistically significant (Mann-Whitney p < 0.001), and MDM used less CPU in eve
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/images/bench-time-dark.svg">
-    <img src="docs/images/bench-time-light.svg" alt="Time to finish a download in seconds, Mister Download Manager versus IDM, in seven scenarios" width="880">
+    <img src="docs/images/bench-time-light.svg" alt="Time to finish a download in seconds, ZDownloader3 versus IDM, in seven scenarios" width="880">
   </picture>
 </p>
 
@@ -385,9 +385,9 @@ cargo build --release
 cargo test
 ```
 
-This makes `misterdownloadmanager.exe` (the app), `misterdownloadmanager-cli.exe` (headless
-command line), `misterdownloadmanager-mcp.exe` (the MCP server for AI assistants) and
-`misterdownloadmanager-nmhost.exe` (the browser host) in `target\release\`.
+This makes `zdownloader3.exe` (the app), `zdownloader3-cli.exe` (headless
+command line), `zdownloader3-mcp.exe` (the MCP server for AI assistants) and
+`zdownloader3-nmhost.exe` (the browser host) in `target\release\`.
 `tools\installer\build.ps1` builds the installer and both zips into `target\dist\` (needs
 [Inno Setup 6.3](https://jrsoftware.org/isinfo.php) or later), for x64; `-Arch arm64` or
 `-Arch x86` for Windows on ARM or 32-bit Windows (after `rustup target add
@@ -396,7 +396,7 @@ Linux files for the machine's own processor (x86-64 or ARM64). A `vX.Y.Z` tag do
 on GitHub Actions and publishes the release.
 
 Browser integration from a build: register the native messaging host with
-`target\release\misterdownloadmanager-nmhost.exe --register` (undo with `--unregister`), then in
+`target\release\zdownloader3-nmhost.exe --register` (undo with `--unregister`), then in
 `chrome://extensions` or `edge://extensions` turn on Developer mode, **Load unpacked** and pick
 the `extension/` folder (its ID is always `oogbclbbninliongijffeeggalppliok`).
 
@@ -522,7 +522,7 @@ changes or unlocks, and there is no paid edition.
 
 ## Licence and credits
 
-Copyright (c) 2026 Ahmed Nefzaoui. Mister Download Manager is free software under the
+Copyright (c) 2026 Ahmed Nefzaoui. ZDownloader3 is free software under the
 [GNU General Public License, version 3](LICENSE) or (at your option) any later version.
 
 Built on [egui](https://github.com/emilk/egui) through

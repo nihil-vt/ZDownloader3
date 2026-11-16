@@ -4,9 +4,9 @@ and gets it whole.
 
     python tools/installer/smoke.py <folder with the programs> <x64|arm64|x86>
 
-The app's command line (`misterdownloadmanager --cli --json get`) downloads 3 MB from a server on
+The app's command line (`zdownloader3 --cli --json get`) downloads 3 MB from a server on
 this machine (byte ranges, so several connections) with a data folder and a download folder of its
-own, and the file must be the one served; misterdownloadmanager-mcp --version must name the
+own, and the file must be the one served; zdownloader3-mcp --version must name the
 version. Nothing is left behind.
 """
 import hashlib
@@ -25,8 +25,8 @@ import threading
 # Each processor as Windows (PE) and Linux (ELF) programs say it.
 PE = {"x64": 0x8664, "arm64": 0xAA64, "x86": 0x014C}
 ELF = {"x64": 62, "arm64": 183}
-PROGRAMS = ["misterdownloadmanager", "misterdownloadmanager-nmhost", "misterdownloadmanager-cli",
-            "misterdownloadmanager-mcp"]
+PROGRAMS = ["zdownloader3", "zdownloader3-nmhost", "zdownloader3-cli",
+            "zdownloader3-mcp"]
 SIZE = 3 << 20
 
 
@@ -102,10 +102,10 @@ def main():
     version = re.search(r'(?m)^version\s*=\s*"([^"]+)"',
                         open(os.path.join(os.path.dirname(__file__), "..", "..", "Cargo.toml"),
                              encoding="utf-8").read()).group(1)
-    out = subprocess.run([os.path.join(folder, "misterdownloadmanager-mcp" + exe), "--version"],
+    out = subprocess.run([os.path.join(folder, "zdownloader3-mcp" + exe), "--version"],
                          capture_output=True, text=True, timeout=60)
     if out.returncode or version not in out.stdout:
-        sys.exit(f"misterdownloadmanager-mcp --version: {out.returncode} {out.stdout!r} {out.stderr!r}")
+        sys.exit(f"zdownloader3-mcp --version: {out.returncode} {out.stdout!r} {out.stderr!r}")
     print(out.stdout.strip())
 
     body = random.Random(668).randbytes(SIZE)
@@ -115,9 +115,9 @@ def main():
         data, dest = os.path.join(work, "data"), os.path.join(work, "downloads", "smoke.bin")
         os.makedirs(data)
         os.makedirs(os.path.dirname(dest))
-        env = dict(os.environ, MDM_DATA_DIR=data, MDM_DOWNLOADS=os.path.dirname(dest))
+        env = dict(os.environ, ZD3_DATA_DIR=data, MDM_DOWNLOADS=os.path.dirname(dest))
         out = subprocess.run(
-            [os.path.join(folder, "misterdownloadmanager" + exe), "--cli", "--json", "get", url,
+            [os.path.join(folder, "zdownloader3" + exe), "--cli", "--json", "get", url,
              "-o", dest, "--checksum", "sha256:" + hashlib.sha256(body).hexdigest()],
             capture_output=True, text=True, timeout=300, env=env)
         events = [json.loads(line) for line in out.stdout.splitlines() if line.strip()]

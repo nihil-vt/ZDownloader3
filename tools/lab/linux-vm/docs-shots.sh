@@ -2,7 +2,7 @@
 # The README's, docs' and site's Linux screenshots, on a real desktop: GNOME, KDE Plasma,
 # Cinnamon or Xfce in a lab VM (docs-shots-host.ps1 runs this from the Windows host and makes the
 # WebP files). The Linux counterpart of tools/lab/docs-shots.ps1: an MDM of its own (its own data
-# folder, MDM_DATA_DIR, and download folders), its own lab server with neutral files, every window
+# folder, ZD3_DATA_DIR, and download folders), its own lab server with neutral files, every window
 # opened through MDM's own command line (`/show <window>`), at 1x.
 #
 #   docs-shots.sh <label> [out folder] [light,dark] [main,add-url,...]
@@ -28,7 +28,7 @@ out=${2:-$HOME/lab/shots/docs-$label}
 modes=${3:-light,dark}
 only=${4:-}
 bin=$HOME/lab/bin/$label
-app=$bin/misterdownloadmanager
+app=$bin/zdownloader3
 # The run's folder shows in some windows (Add torrent's): short and neutral, as docs-shots.ps1's
 # C:\Demo.
 run=$HOME/Demo
@@ -109,7 +109,7 @@ opened() {
   for _ in $(seq 40); do
     new=$(comm -13 <(echo "$before") <(mine | sort) | tail -1)
     # Not the main window under a new id (its title: the program's name and version).
-    [ -n "$new" ] && ! wmctrl -l | grep -i "^$new " | grep -q "Mister Download Manager [0-9]" && { echo "$new"; return 0; }
+    [ -n "$new" ] && ! wmctrl -l | grep -i "^$new " | grep -q "ZDownloader3 [0-9]" && { echo "$new"; return 0; }
     sleep 0.5
   done
   return 1
@@ -123,7 +123,7 @@ for mode in "${mode_list[@]}"; do
   pkill -f "^$app$" 2>/dev/null; sleep 1
   desktop_mode "$mode"
   rm -rf "$work"; mkdir -p "$work/data" "$work/Downloads"
-  export MDM_DATA_DIR=$work/data
+  export ZD3_DATA_DIR=$work/data
   # Its own list and settings: the language chosen, light or dark whatever the desktop's mode,
   # every category's folder under the run's own, nothing reaching out (no update check; the
   # torrent engine neither listens nor uses the DHT, UPnP or local discovery).

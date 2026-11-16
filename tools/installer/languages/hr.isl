@@ -1,4 +1,4 @@
-﻿; Mister Download Manager's installer in Croatian: tools/installer/languages.py
+﻿; ZDownloader3's installer in Croatian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Deinstaliranje programa %1.
 
 [CustomMessages]
 TaskBrowser=Postavi integraciju &preglednika (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Otvorite .&torrent datoteke i magnetne veze pomoću programa Mister Download Manager
-TaskStartup=Pokrenite Mister Download Manager kada se pokrene &Windows
+TaskTorrents=Otvorite .&torrent datoteke i magnetne veze pomoću programa ZDownloader3
+TaskStartup=Pokrenite ZDownloader3 kada se pokrene &Windows
 TaskGroupOther=Ostalo:
-Launch=Pokreni Mister Download Manager
+Launch=Pokreni ZDownloader3
 KeepData=Želite li izbrisati i popis preuzimanja i postavke?%n%nPreuzete datoteke neće biti dirane u svakom slučaju.

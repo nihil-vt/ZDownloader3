@@ -5,8 +5,8 @@
 # file's completion (order, time) and each "Download complete" window, and the main window's state.
 #   queue-minimized.sh <label>     (a build in ~/lab/bin/<label>; the lab server on :8097)
 . ~/lab/env.sh
-app=$HOME/lab/bin/$1/misterdownloadmanager
-data=$HOME/.local/share/misterdownloadmanager
+app=$HOME/lab/bin/$1/zdownloader3
+data=$HOME/.local/share/zdownloader3
 dir=$HOME/Downloads/Compressed
 tag=q$(date +%H%M%S)
 pkill -x misterdownloadm; sleep 2
@@ -29,7 +29,7 @@ cd ~; setsid -f "$app" >/dev/null 2>&1 </dev/null
 main=""
 for _ in $(seq 60); do
   pid=$(pgrep -f "^$app$" | head -1)
-  [ -n "$pid" ] && main=$(wmctrl -lp | awk -v p="$pid" '$3 == p && /Mister Download Manager 0\./ {print $1}' | head -1)
+  [ -n "$pid" ] && main=$(wmctrl -lp | awk -v p="$pid" '$3 == p && /ZDownloader3 0\./ {print $1}' | head -1)
   [ -n "$main" ] && break; sleep 1
 done
 sleep 4

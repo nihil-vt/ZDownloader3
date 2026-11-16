@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Предаје преузимања из прегледача програму Mister Download Manager."
+    "message": "Предаје преузимања из прегледача програму ZDownloader3."
   },
   "menu": {
-    "message": "Преузми помоћу Mister Download Manager"
+    "message": "Преузми помоћу ZDownloader3"
   },
   "video_download": {
     "message": "Преузми видео"
@@ -30,19 +30,19 @@
     "message": "Подешавања дугмета..."
   },
   "video_sent": {
-    "message": "Послато апликацији Mister Download Manager"
+    "message": "Послато апликацији ZDownloader3"
   },
   "menu_selected": {
-    "message": "Преузми изабране везе помоћу Mister Download Manager"
+    "message": "Преузми изабране везе помоћу ZDownloader3"
   },
   "menu_all": {
-    "message": "Преузми све везе помоћу Mister Download Manager"
+    "message": "Преузми све везе помоћу ZDownloader3"
   },
   "status_connected": {
-    "message": "Повезано са Mister Download Manager"
+    "message": "Повезано са ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Повезано са Mister Download Manager $version$",
+    "message": "Повезано са ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Паузирано: преузимања остају у прегледачу"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager није инсталиран, или његова интеграција прегледача није подешена"
+    "message": "ZDownloader3 није инсталиран, или његова интеграција прегледача није подешена"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager не прихвата ову копију проширења"
+    "message": "ZDownloader3 не прихвата ову копију проширења"
   },
   "status_not_running": {
-    "message": "Mister Download Manager није покренут на време"
+    "message": "ZDownloader3 није покренут на време"
   },
   "status_host_failed": {
-    "message": "Веза са апликацијом Mister Download Manager није успела"
+    "message": "Веза са апликацијом ZDownloader3 није успела"
   },
   "status_too_large": {
     "message": "Детаљи овог преузимања били су превелики за прослеђивање"
   },
   "status_update_app": {
-    "message": "Ажурирајте Mister Download Manager да бисте користили све што ова екстензија нуди"
+    "message": "Ажурирајте ZDownloader3 да бисте користили све што ова екстензија нуди"
   },
   "popup_take": {
     "message": "Преузимајте помоћу ове апликације"
@@ -78,10 +78,10 @@
     "message": "Шаљите преузимања преко проксија или VPN проширења овог прегледача"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager затим преузима датотеке преко истог проксија као и овај прегледач. Прегледач ће вас једном питати да ли то дозвољавате; искључивањем ове опције повлачите дозволу."
+    "message": "ZDownloader3 затим преузима датотеке преко истог проксија као и овај прегледач. Прегледач ће вас једном питати да ли то дозвољавате; искључивањем ове опције повлачите дозволу."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager тада преузима преко истог проксија као и овај прегледач. Док је ово искључено, проширење не чита прокси прегледача."
+    "message": "ZDownloader3 тада преузима преко истог проксија као и овај прегледач. Док је ово искључено, проширење не чита прокси прегледача."
   },
   "popup_exclude_site": {
     "message": "Никада не преузимај са $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Отвори Mister Download Manager"
+    "message": "Отвори ZDownloader3"
   },
   "popup_options": {
     "message": "Опције..."
@@ -150,7 +150,7 @@
     "message": "Користи напредну интеграцију прегледача је искључено у Опцијама → Опште."
   },
   "declined_torrents": {
-    "message": "То је торент, а опција „Отвори магнетне везе и .torrent датотеке помоћу Mister Download Manager“ је искључена у подешавањима торената."
+    "message": "То је торент, а опција „Отвори магнетне везе и .torrent датотеке помоћу ZDownloader3“ је искључена у подешавањима торената."
   },
   "declined_site_access": {
     "message": "Проширењу није дозвољено да чита овај сајт (приступ сајту прегледача)."
@@ -195,16 +195,16 @@
     "message": "Овде нема видео снимка за преузимање"
   },
   "video_playlist": {
-    "message": "Листа видео снимака: изаберите их у Mister Download Manager"
+    "message": "Листа видео снимака: изаберите их у ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager треба yt-dlp за овај видео снимак"
+    "message": "ZDownloader3 треба yt-dlp за овај видео снимак"
   },
   "video_too_long": {
     "message": "Тражење је трајало предуго"
   },
   "video_busy": {
-    "message": "Mister Download Manager је заузет другим видео снимцима"
+    "message": "ZDownloader3 је заузет другим видео снимцима"
   },
   "video_queued": {
     "message": "Додато у ред"
@@ -228,7 +228,7 @@
     "message": "Овај рачунар"
   },
   "popup_send_remote": {
-    "message": "Други Mister Download Manager (сервер)"
+    "message": "Други ZDownloader3 (сервер)"
   },
   "popup_remote_code": {
     "message": "Кôд за упаривање"
@@ -240,7 +240,7 @@
     "message": "Упари"
   },
   "popup_remote_help": {
-    "message": "Отворите његову адресу једном и прихватите његов сертификат, па унесите кôд из његових Опција, Удаљено, Упари уређај (или misterdownloadmanager-cli pair)."
+    "message": "Отворите његову адресу једном и прихватите његов сертификат, па унесите кôд из његових Опција, Удаљено, Упари уређај (или zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Преузимања иду на $address$",
@@ -324,7 +324,7 @@
     "message": "Сви квалитети и преводи..."
   },
   "video_failed": {
-    "message": "Mister Download Manager није инсталиран или није покренут"
+    "message": "ZDownloader3 није инсталиран или није покренут"
   },
   "video_download_best": {
     "message": "Преузми најбоље"

@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "બ્રાઉઝર પરથી Mister Download Manager પર ડાઉનલોડ્સ આપે છે."
+    "message": "બ્રાઉઝર પરથી ZDownloader3 પર ડાઉનલોડ્સ આપે છે."
   },
   "menu": {
-    "message": "Mister Download Manager વડે ડાઉનલોડ કરો"
+    "message": "ZDownloader3 વડે ડાઉનલોડ કરો"
   },
   "video_download": {
     "message": "વીડિયો ડાઉનલોડ કરો"
@@ -30,19 +30,19 @@
     "message": "બટન સેટિંગ્સ..."
   },
   "video_sent": {
-    "message": "Mister Download Manager પર મોકલવામાં આવ્યું"
+    "message": "ZDownloader3 પર મોકલવામાં આવ્યું"
   },
   "menu_selected": {
-    "message": "Mister Download Manager સાથે પસંદ કરેલી લિંક્સ ડાઉનલોડ કરો"
+    "message": "ZDownloader3 સાથે પસંદ કરેલી લિંક્સ ડાઉનલોડ કરો"
   },
   "menu_all": {
-    "message": "Mister Download Manager સાથે બધી લિંક્સ ડાઉનલોડ કરો"
+    "message": "ZDownloader3 સાથે બધી લિંક્સ ડાઉનલોડ કરો"
   },
   "status_connected": {
-    "message": "Mister Download Manager સાથે કનેક્ટેડ"
+    "message": "ZDownloader3 સાથે કનેક્ટેડ"
   },
   "status_connected_version": {
-    "message": "Mister Download Manager $version$ સાથે કનેક્ટેડ",
+    "message": "ZDownloader3 $version$ સાથે કનેક્ટેડ",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "થોભાવેલ: ડાઉનલોડ્સ બ્રાઉઝર સાથે રહે છે"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager ઇન્સ્ટોલ કરેલ નથી, અથવા તેનું બ્રાઉઝર ઇન્ટિગ્રેશન સેટ અપ કરેલું નથી"
+    "message": "ZDownloader3 ઇન્સ્ટોલ કરેલ નથી, અથવા તેનું બ્રાઉઝર ઇન્ટિગ્રેશન સેટ અપ કરેલું નથી"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager એક્સટેન્શનની આ કૉપિ સ્વીકારતું નથી"
+    "message": "ZDownloader3 એક્સટેન્શનની આ કૉપિ સ્વીકારતું નથી"
   },
   "status_not_running": {
-    "message": "Mister Download Manager સમયસર શરૂ થયું નથી"
+    "message": "ZDownloader3 સમયસર શરૂ થયું નથી"
   },
   "status_host_failed": {
-    "message": "Mister Download Manager સાથેનું કનેક્શન નિષ્ફળ થયું"
+    "message": "ZDownloader3 સાથેનું કનેક્શન નિષ્ફળ થયું"
   },
   "status_too_large": {
     "message": "આ ડાઉનલોડની વિગતો સોંપવા માટે ખૂબ મોટી હતી"
   },
   "status_update_app": {
-    "message": "આ એક્સ્ટેંશન જે કંઈ આપે છે તેનો ઉપયોગ કરવા માટે Mister Download Manager અપડેટ કરો"
+    "message": "આ એક્સ્ટેંશન જે કંઈ આપે છે તેનો ઉપયોગ કરવા માટે ZDownloader3 અપડેટ કરો"
   },
   "popup_take": {
     "message": "આ બ્રાઉઝરમાંથી ડાઉનલોડ્સ લો"
@@ -78,10 +78,10 @@
     "message": "આ બ્રાઉઝરના પ્રોક્સી અથવા VPN એક્સ્ટેંશન દ્વારા ડાઉનલોડ્સ મોકલો"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. બ્રાઉઝર તમને એક વાર તેને મંજૂરી આપવા માટે પૂછે છે; આ બંધ કરવાથી તે મંજૂરી પાછી ખેંચાઈ જાય છે."
+    "message": "ZDownloader3 પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. બ્રાઉઝર તમને એક વાર તેને મંજૂરી આપવા માટે પૂછે છે; આ બંધ કરવાથી તે મંજૂરી પાછી ખેંચાઈ જાય છે."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. જ્યારે આ બંધ હોય, ત્યારે એક્સ્ટેંશન બ્રાઉઝરના પ્રોક્સીને વાંચતું નથી."
+    "message": "ZDownloader3 પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. જ્યારે આ બંધ હોય, ત્યારે એક્સ્ટેંશન બ્રાઉઝરના પ્રોક્સીને વાંચતું નથી."
   },
   "popup_exclude_site": {
     "message": "હવેથી $site$ માંથી ડાઉનલોડ્સ ક્યારેય ન લો",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Mister Download Manager ખોલો"
+    "message": "ZDownloader3 ખોલો"
   },
   "popup_options": {
     "message": "વિકલ્પો..."
@@ -150,7 +150,7 @@
     "message": "વિકલ્પો → સામાન્યમાં અદ્યતન બ્રાઉઝર એકીકરણનો ઉપયોગ કરો બંધ છે."
   },
   "declined_torrents": {
-    "message": "તે એક ટોરેન્ટ છે, અને ટોરેન્ટ સેટિંગ્સમાં Mister Download Manager સાથે મેગ્નેટ લિંક્સ અને .torrent ફાઇલો ખોલો બંધ છે."
+    "message": "તે એક ટોરેન્ટ છે, અને ટોરેન્ટ સેટિંગ્સમાં ZDownloader3 સાથે મેગ્નેટ લિંક્સ અને .torrent ફાઇલો ખોલો બંધ છે."
   },
   "declined_site_access": {
     "message": "એક્સ્ટેંશનને આ સાઇટ વાંચવાની મંજૂરી નથી (બ્રાઉઝરની સાઇટ ઍક્સેસ)."
@@ -195,16 +195,16 @@
     "message": "અહીં ડાઉનલોડ કરવા માટે કોઈ વીડિયો નથી"
   },
   "video_playlist": {
-    "message": "વીડિયોની સૂચિ: તેમને Mister Download Managerમાં પસંદ કરો"
+    "message": "વીડિયોની સૂચિ: તેમને ZDownloader3માં પસંદ કરો"
   },
   "video_no_ytdlp": {
-    "message": "આ વીડિયો માટે Mister Download Managerને yt-dlp ની જરૂર છે"
+    "message": "આ વીડિયો માટે ZDownloader3ને yt-dlp ની જરૂર છે"
   },
   "video_too_long": {
     "message": "શોધવામાં ખૂબ સમય લાગ્યો"
   },
   "video_busy": {
-    "message": "Mister Download Manager અન્ય વીડિયોમાં વ્યસ્ત છે"
+    "message": "ZDownloader3 અન્ય વીડિયોમાં વ્યસ્ત છે"
   },
   "video_queued": {
     "message": "કતારમાં ઉમેર્યું"
@@ -228,7 +228,7 @@
     "message": "આ કમ્પ્યુટર"
   },
   "popup_send_remote": {
-    "message": "બીજું Mister Download Manager (એક સર્વર)"
+    "message": "બીજું ZDownloader3 (એક સર્વર)"
   },
   "popup_remote_code": {
     "message": "જોડી બનાવવાનો કોડ"
@@ -240,7 +240,7 @@
     "message": "જોડી બનાવો"
   },
   "popup_remote_help": {
-    "message": "તેનું સરનામું એકવાર ખોલો અને તેનું પ્રમાણપત્ર સ્વીકારો, પછી તેના Options, Remote, Pair a device (અથવા misterdownloadmanager-cli pair) માંથી કોડ દાખલ કરો."
+    "message": "તેનું સરનામું એકવાર ખોલો અને તેનું પ્રમાણપત્ર સ્વીકારો, પછી તેના Options, Remote, Pair a device (અથવા zdownloader3-cli pair) માંથી કોડ દાખલ કરો."
   },
   "status_remote": {
     "message": "ડાઉનલોડ્સ $address$ પર જાય છે",
@@ -324,7 +324,7 @@
     "message": "બધી ગુણવત્તા અને સબટાઈટલ..."
   },
   "video_failed": {
-    "message": "Mister Download Manager ઇન્સ્ટોલ કરેલ નથી અથવા શરૂ થયું નથી"
+    "message": "ZDownloader3 ઇન્સ્ટોલ કરેલ નથી અથવા શરૂ થયું નથી"
   },
   "video_download_best": {
     "message": "શ્રેષ્ઠ ડાઉનલોડ કરો"

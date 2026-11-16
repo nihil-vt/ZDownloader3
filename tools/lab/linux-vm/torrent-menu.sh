@@ -5,8 +5,8 @@
 #   torrent-menu.sh <label> add       start MDM, open Add torrent for the lab torrent (prints its frame)
 #   torrent-menu.sh <label> confirm   press Add torrent's default button
 . ~/lab/env.sh
-app=$HOME/lab/bin/$1/misterdownloadmanager
-data=$HOME/.local/share/misterdownloadmanager
+app=$HOME/lab/bin/$1/zdownloader3
+data=$HOME/.local/share/zdownloader3
 dir=$HOME/lab/t177
 frame() {
   local w=$1

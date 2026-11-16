@@ -1,15 +1,15 @@
 {
   "name": {
-    "message": "Mister Download Manager",
-    "description": "the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3",
+    "description": "the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is"
   },
   "description": {
-    "message": "Hands downloads from the browser to Mister Download Manager.",
-    "description": "the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is"
+    "message": "Hands downloads from the browser to ZDownloader3.",
+    "description": "the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is"
   },
   "menu": {
-    "message": "Download with Mister Download Manager",
-    "description": "command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is"
+    "message": "Download with ZDownloader3",
+    "description": "command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is"
   },
   "video_download": {
     "message": "Download video",
@@ -35,27 +35,27 @@
   },
   "video_settings": {
     "message": "Button settings...",
-    "description": "menu command of the download button over a video: opens its settings in Mister Download Manager"
+    "description": "menu command of the download button over a video: opens its settings in ZDownloader3"
   },
   "video_sent": {
-    "message": "Sent to Mister Download Manager",
-    "description": "shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is"
+    "message": "Sent to ZDownloader3",
+    "description": "shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is"
   },
   "menu_selected": {
-    "message": "Download selected links with Mister Download Manager",
-    "description": "command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is"
+    "message": "Download selected links with ZDownloader3",
+    "description": "command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is"
   },
   "menu_all": {
-    "message": "Download all links with Mister Download Manager",
-    "description": "command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is"
+    "message": "Download all links with ZDownloader3",
+    "description": "command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is"
   },
   "status_connected": {
-    "message": "Connected to Mister Download Manager",
-    "description": "the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is"
+    "message": "Connected to ZDownloader3",
+    "description": "the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is"
   },
   "status_connected_version": {
-    "message": "Connected to Mister Download Manager $version$",
-    "description": "the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is",
+    "message": "Connected to ZDownloader3 $version$",
+    "description": "the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -68,28 +68,28 @@
     "description": "status when the user switched off taking downloads in the toolbar button's popup"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager isn't installed, or its browser integration isn't set up",
-    "description": "status when the browser can't find the app's connection; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 isn't installed, or its browser integration isn't set up",
+    "description": "status when the browser can't find the app's connection; keep the name ZDownloader3 as it is"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager doesn't accept this copy of the extension",
-    "description": "status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 doesn't accept this copy of the extension",
+    "description": "status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is"
   },
   "status_not_running": {
-    "message": "Mister Download Manager didn't start in time",
-    "description": "status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 didn't start in time",
+    "description": "status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is"
   },
   "status_host_failed": {
-    "message": "The connection to Mister Download Manager failed",
-    "description": "status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is"
+    "message": "The connection to ZDownloader3 failed",
+    "description": "status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is"
   },
   "status_too_large": {
     "message": "This download's details were too large to hand over",
     "description": "status when a download carried too much data (very large cookies) to give to the app"
   },
   "status_update_app": {
-    "message": "Update Mister Download Manager to use everything this extension offers",
-    "description": "status when the app is older than the extension; keep the name Mister Download Manager as it is"
+    "message": "Update ZDownloader3 to use everything this extension offers",
+    "description": "status when the app is older than the extension; keep the name ZDownloader3 as it is"
   },
   "popup_take": {
     "message": "Take downloads from this browser",
@@ -100,12 +100,12 @@
     "description": "switch in the toolbar button's popup: on, the app downloads through the same proxy the browser uses (one a VPN or proxy extension sets); the browser then asks once to allow reading it"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.",
-    "description": "tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.",
+    "description": "tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is"
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.",
-    "description": "tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.",
+    "description": "tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is"
   },
   "popup_exclude_site": {
     "message": "Never take downloads from $site$",
@@ -132,8 +132,8 @@
     }
   },
   "popup_open": {
-    "message": "Open Mister Download Manager",
-    "description": "button in the toolbar button's popup; keep the name Mister Download Manager as it is"
+    "message": "Open ZDownloader3",
+    "description": "button in the toolbar button's popup; keep the name ZDownloader3 as it is"
   },
   "popup_options": {
     "message": "Options...",
@@ -190,8 +190,8 @@
     "description": "why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it"
   },
   "declined_torrents": {
-    "message": "It's a torrent, and Open magnet links and .torrent files with Mister Download Manager is off in Torrent settings.",
-    "description": "why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with Mister Download Manager, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it"
+    "message": "It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.",
+    "description": "why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it"
   },
   "declined_site_access": {
     "message": "The extension isn't allowed to read this site (the browser's site access).",
@@ -250,20 +250,20 @@
     "description": "in the menu under the download button over a video: the app found no quality of the video it could download"
   },
   "video_playlist": {
-    "message": "A list of videos: choose them in Mister Download Manager",
-    "description": "in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name Mister Download Manager as it is"
+    "message": "A list of videos: choose them in ZDownloader3",
+    "description": "in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager needs yt-dlp for this video",
-    "description": "in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 needs yt-dlp for this video",
+    "description": "in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is"
   },
   "video_too_long": {
     "message": "Looking up took too long",
     "description": "in the menu under the download button over a video: the app took more than a minute to find the video's qualities, so the menu stopped waiting"
   },
   "video_busy": {
-    "message": "Mister Download Manager is busy with other videos",
-    "description": "in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 is busy with other videos",
+    "description": "in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is"
   },
   "video_queued": {
     "message": "Added to the queue",
@@ -291,11 +291,11 @@
   },
   "popup_send_here": {
     "message": "This computer",
-    "description": "choice under Send downloads to: the Mister Download Manager on this computer"
+    "description": "choice under Send downloads to: the ZDownloader3 on this computer"
   },
   "popup_send_remote": {
-    "message": "Another Mister Download Manager (a server)",
-    "description": "choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is"
+    "message": "Another ZDownloader3 (a server)",
+    "description": "choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is"
   },
   "popup_remote_code": {
     "message": "Pairing code",
@@ -310,8 +310,8 @@
     "description": "button: pair this browser with the other MDM using the code"
   },
   "popup_remote_help": {
-    "message": "Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).",
-    "description": "help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is"
+    "message": "Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).",
+    "description": "help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is"
   },
   "status_remote": {
     "message": "Downloads go to $address$",
@@ -383,7 +383,7 @@
   },
   "video_sending": {
     "message": "Sending to MDM...",
-    "description": "on the download button over a video right after it was clicked, while the download goes to the app; MDM is Mister Download Manager's short name, keep it as it is; short"
+    "description": "on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short"
   },
   "video_added": {
     "message": "Added to MDM",
@@ -418,8 +418,8 @@
     "description": "command in the menu of the download button over a video: opens the app's Download video window, with every quality and the subtitles"
   },
   "video_failed": {
-    "message": "Mister Download Manager isn't installed or didn't start",
-    "description": "shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is"
+    "message": "ZDownloader3 isn't installed or didn't start",
+    "description": "shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is"
   },
   "video_download_best": {
     "message": "Download best",

@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Przekazuje pobieranie z przeglądarki do Mister Download Manager."
+    "message": "Przekazuje pobieranie z przeglądarki do ZDownloader3."
   },
   "menu": {
-    "message": "Pobierz za pomocą Mister Download Manager"
+    "message": "Pobierz za pomocą ZDownloader3"
   },
   "video_download": {
     "message": "Pobierz wideo"
@@ -30,19 +30,19 @@
     "message": "Ustawienia przycisku..."
   },
   "video_sent": {
-    "message": "Wysłano do Mister Download Manager"
+    "message": "Wysłano do ZDownloader3"
   },
   "menu_selected": {
-    "message": "Pobierz wybrane łącza za pomocą Mister Download Manager"
+    "message": "Pobierz wybrane łącza za pomocą ZDownloader3"
   },
   "menu_all": {
-    "message": "Pobierz wszystkie łącza za pomocą Mister Download Manager"
+    "message": "Pobierz wszystkie łącza za pomocą ZDownloader3"
   },
   "status_connected": {
-    "message": "Połączono z Mister Download Manager"
+    "message": "Połączono z ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Połączono z Mister Download Manager $version$",
+    "message": "Połączono z ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Wstrzymano: pobieranie pozostaje w przeglądarce"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager nie jest zainstalowany lub jego integracja z przeglądarką nie jest skonfigurowana"
+    "message": "ZDownloader3 nie jest zainstalowany lub jego integracja z przeglądarką nie jest skonfigurowana"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager nie akceptuje tej kopii rozszerzenia"
+    "message": "ZDownloader3 nie akceptuje tej kopii rozszerzenia"
   },
   "status_not_running": {
-    "message": "Mister Download Manager nie uruchomił się na czas"
+    "message": "ZDownloader3 nie uruchomił się na czas"
   },
   "status_host_failed": {
-    "message": "Połączenie z Mister Download Manager nie powiodło się"
+    "message": "Połączenie z ZDownloader3 nie powiodło się"
   },
   "status_too_large": {
     "message": "Szczegóły tego pobierania były zbyt duże, aby je przekazać"
   },
   "status_update_app": {
-    "message": "Zaktualizuj Mister Download Manager, aby korzystać ze wszystkich funkcji oferowanych przez to rozszerzenie"
+    "message": "Zaktualizuj ZDownloader3, aby korzystać ze wszystkich funkcji oferowanych przez to rozszerzenie"
   },
   "popup_take": {
     "message": "Pobieraj pliki z tej przeglądarki"
@@ -78,10 +78,10 @@
     "message": "Wysyłaj pobieranie przez serwer proxy lub rozszerzenie VPN tej przeglądarki"
   },
   "popup_proxy_title": {
-    "message": "Wtedy Mister Download Manager pobiera pliki przez ten sam serwer proxy, co przeglądarka. Przeglądarka raz poprosi o zezwolenie; wyłączenie tej opcji cofa to zezwolenie."
+    "message": "Wtedy ZDownloader3 pobiera pliki przez ten sam serwer proxy, co przeglądarka. Przeglądarka raz poprosi o zezwolenie; wyłączenie tej opcji cofa to zezwolenie."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager pobiera wtedy pliki przez ten sam serwer proxy co przeglądarka. Gdy ta opcja jest wyłączona, rozszerzenie nie odczytuje serwera proxy przeglądarki."
+    "message": "ZDownloader3 pobiera wtedy pliki przez ten sam serwer proxy co przeglądarka. Gdy ta opcja jest wyłączona, rozszerzenie nie odczytuje serwera proxy przeglądarki."
   },
   "popup_exclude_site": {
     "message": "Nigdy nie pobieraj plików z $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Otwórz Mister Download Manager"
+    "message": "Otwórz ZDownloader3"
   },
   "popup_options": {
     "message": "Opcje..."
@@ -150,7 +150,7 @@
     "message": "Opcja „Użyj zaawansowanej integracji z przeglądarką” jest wyłączona w Opcjach → Ogólne."
   },
   "declined_torrents": {
-    "message": "To jest torrent, a opcja Otwieraj linki magnet i pliki .torrent za pomocą Mister Download Manager jest wyłączona w ustawieniach torrentów."
+    "message": "To jest torrent, a opcja Otwieraj linki magnet i pliki .torrent za pomocą ZDownloader3 jest wyłączona w ustawieniach torrentów."
   },
   "declined_site_access": {
     "message": "Rozszerzenie nie ma uprawnień do odczytu tej witryny (dostęp rozszerzenia do witryny w przeglądarce)."
@@ -195,16 +195,16 @@
     "message": "Brak wideo do pobrania w tym miejscu"
   },
   "video_playlist": {
-    "message": "Lista wideo: wybierz je w Mister Download Manager"
+    "message": "Lista wideo: wybierz je w ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager potrzebuje yt-dlp dla tego wideo"
+    "message": "ZDownloader3 potrzebuje yt-dlp dla tego wideo"
   },
   "video_too_long": {
     "message": "Wyszukiwanie trwało zbyt długo"
   },
   "video_busy": {
-    "message": "Mister Download Manager jest zajęty innymi wideo"
+    "message": "ZDownloader3 jest zajęty innymi wideo"
   },
   "video_queued": {
     "message": "Dodano do kolejki"
@@ -228,7 +228,7 @@
     "message": "Ten komputer"
   },
   "popup_send_remote": {
-    "message": "Inny Mister Download Manager (serwer)"
+    "message": "Inny ZDownloader3 (serwer)"
   },
   "popup_remote_code": {
     "message": "Kod parowania"
@@ -240,7 +240,7 @@
     "message": "Paruj"
   },
   "popup_remote_help": {
-    "message": "Otwórz jego adres raz i zaakceptuj certyfikat, a następnie wprowadź kod z jego Opcji, Zdalne, Paruj urządzenie (lub misterdownloadmanager-cli pair)."
+    "message": "Otwórz jego adres raz i zaakceptuj certyfikat, a następnie wprowadź kod z jego Opcji, Zdalne, Paruj urządzenie (lub zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Pobieranie do $address$",
@@ -324,7 +324,7 @@
     "message": "Wszystkie jakości i napisy..."
   },
   "video_failed": {
-    "message": "Mister Download Manager nie jest zainstalowany lub nie uruchomił się"
+    "message": "ZDownloader3 nie jest zainstalowany lub nie uruchomił się"
   },
   "video_download_best": {
     "message": "Pobierz najlepszą jakość"

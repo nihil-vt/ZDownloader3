@@ -2,8 +2,8 @@
 // tabs and address bar): the Blender Foundation's Big Buck Bunny (CC BY 3.0, ATTRIBUTION.md) on
 // YouTube, and the same film as a plain video file. Nothing shows on the screen: the window
 // opens far off the screens without taking the focus (and keeps painting there), Windows draws
-// it into the picture (PrintWindow), and a separate Mister Download Manager runs off the screen
-// for the button to ask (MDM_DATA_DIR, MDM_OFFSCREEN). Windows only.
+// it into the picture (PrintWindow), and a separate ZDownloader3 runs off the screen
+// for the button to ask (ZD3_DATA_DIR, MDM_OFFSCREEN). Windows only.
 //
 //   cargo build --release -p mdm-app -p mdm-nmhost; tools\extension\pack.ps1
 //   node tools/readme/browser-shots.mjs        -> target/browser-shots/video-button-*.png
@@ -77,11 +77,11 @@ async function main() {
   fs.writeFileSync(path.join(data, "downloads.json"), JSON.stringify({ next_id: 1, items: [], version: 2, settings: { language: "en", language_asked: true, extension_never_ask: true } }));
   // No translation offers or other bubbles over the page.
   fs.writeFileSync(path.join(profile, "Default", "Preferences"), JSON.stringify({ translate: { enabled: false }, browser: { has_seen_welcome_page: true } }));
-  process.env.MDM_DATA_DIR = data;
+  process.env.ZD3_DATA_DIR = data;
   process.env.MDM_OFFSCREEN = "1";
 
-  const app = spawn(exe("misterdownloadmanager"), [], { env: process.env, stdio: "ignore" });
-  const nmhost = exe("misterdownloadmanager-nmhost");
+  const app = spawn(exe("zdownloader3"), [], { env: process.env, stdio: "ignore" });
+  const nmhost = exe("zdownloader3-nmhost");
   let browser = null;
   cleanup = () => {
     cleanup = () => {};
@@ -91,10 +91,10 @@ async function main() {
     killTree(app);
   };
   try {
-    await until("Mister Download Manager", 20000, () => fs.existsSync(path.join(data, "ipc.json")));
-    const key = "HKCU\\Software\\Google\\Chrome\\NativeMessagingHosts\\com.misterdownloadmanager.host";
+    await until("ZDownloader3", 20000, () => fs.existsSync(path.join(data, "ipc.json")));
+    const key = "HKCU\\Software\\Google\\Chrome\\NativeMessagingHosts\\com.zdownloader3.host";
     if (spawnSync("reg", ["query", key], { stdio: "ignore" }).status === 0) {
-      throw new Error("Mister Download Manager's host is already registered (an installed copy): not touching it");
+      throw new Error("ZDownloader3's host is already registered (an installed copy): not touching it");
     }
     spawnSync(nmhost, ["--register"]);
     browser = spawn(

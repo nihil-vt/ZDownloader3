@@ -13,9 +13,9 @@ use std::path::{Path, PathBuf};
 use std::process::{Child, Command, ExitStatus};
 use std::time::{Duration, Instant};
 
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 /// The main window's title (main.rs MAIN_TITLE).
-const MAIN: &str = concat!("Mister Download Manager ", env!("CARGO_PKG_VERSION"));
+const MAIN: &str = concat!("ZDownloader3 ", env!("CARGO_PKG_VERSION"));
 
 /// The app, ended and reaped however the test leaves it (a failed assert too).
 struct Process(Child);
@@ -87,7 +87,7 @@ fn wait_exit(app: &mut Child, wait: Duration) -> ExitStatus {
 /// The app's environment: off the screens, its own data folder, its tray icon, and whether the
 /// test says that icon is visible (MDM_TEST_TRAY_VISIBLE).
 fn env<'a>(cmd: &'a mut Command, data: &Path, visible: bool) -> &'a mut Command {
-    cmd.env("MDM_DATA_DIR", data)
+    cmd.env("ZD3_DATA_DIR", data)
         .env("MDM_OFFSCREEN", "1")
         .env("MDM_TEST_TRAY", "1")
         .env("MDM_TEST_TRAY_VISIBLE", if visible { "1" } else { "0" })
@@ -95,7 +95,7 @@ fn env<'a>(cmd: &'a mut Command, data: &Path, visible: bool) -> &'a mut Command 
 
 /// The app's environment with no tray object at all (off-screen copies have none unless asked).
 fn env_no_tray<'a>(cmd: &'a mut Command, data: &Path) -> &'a mut Command {
-    cmd.env("MDM_DATA_DIR", data).env("MDM_OFFSCREEN", "1")
+    cmd.env("ZD3_DATA_DIR", data).env("MDM_OFFSCREEN", "1")
 }
 
 /// A data folder whose first start asks nothing and checks nothing, with the close-to-tray
@@ -265,7 +265,7 @@ fn closing_follows_the_option_and_the_tray_icon() {
 /// the shell gives the icon no place (MDM_TEST_TRAY_RECT=0), as the reporters' did for an icon
 /// behind ^ (#750, #718, #754, #545).
 fn env_real<'a>(cmd: &'a mut Command, data: &Path, placed: bool) -> &'a mut Command {
-    cmd.env("MDM_DATA_DIR", data)
+    cmd.env("ZD3_DATA_DIR", data)
         .env("MDM_OFFSCREEN", "1")
         .env("MDM_TEST_TRAY", "1")
         .env("MDM_TEST_TRAY_RECT", if placed { "1" } else { "0" })

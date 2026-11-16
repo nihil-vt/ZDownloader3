@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "ส่งการดาวน์โหลดจากเบราว์เซอร์ไปยัง Mister Download Manager"
+    "message": "ส่งการดาวน์โหลดจากเบราว์เซอร์ไปยัง ZDownloader3"
   },
   "menu": {
-    "message": "ดาวน์โหลดด้วย Mister Download Manager"
+    "message": "ดาวน์โหลดด้วย ZDownloader3"
   },
   "video_download": {
     "message": "ดาวน์โหลดวิดีโอ"
@@ -30,19 +30,19 @@
     "message": "การตั้งค่าปุ่ม..."
   },
   "video_sent": {
-    "message": "ส่งไปยัง Mister Download Manager"
+    "message": "ส่งไปยัง ZDownloader3"
   },
   "menu_selected": {
-    "message": "ดาวน์โหลดลิงก์ที่เลือกด้วย Mister Download Manager"
+    "message": "ดาวน์โหลดลิงก์ที่เลือกด้วย ZDownloader3"
   },
   "menu_all": {
-    "message": "ดาวน์โหลดลิงก์ทั้งหมดด้วย Mister Download Manager"
+    "message": "ดาวน์โหลดลิงก์ทั้งหมดด้วย ZDownloader3"
   },
   "status_connected": {
-    "message": "เชื่อมต่อกับ Mister Download Manager แล้ว"
+    "message": "เชื่อมต่อกับ ZDownloader3 แล้ว"
   },
   "status_connected_version": {
-    "message": "เชื่อมต่อกับ Mister Download Manager $version$ แล้ว",
+    "message": "เชื่อมต่อกับ ZDownloader3 $version$ แล้ว",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "หยุดชั่วคราว: การดาวน์โหลดจะยังคงอยู่ในเบราว์เซอร์"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager ไม่ได้ติดตั้ง หรือไม่ได้ตั้งค่าการรวมเบราว์เซอร์"
+    "message": "ZDownloader3 ไม่ได้ติดตั้ง หรือไม่ได้ตั้งค่าการรวมเบราว์เซอร์"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager ไม่ยอมรับส่วนขยายนี้"
+    "message": "ZDownloader3 ไม่ยอมรับส่วนขยายนี้"
   },
   "status_not_running": {
-    "message": "Mister Download Manager ไม่เริ่มทำงานทันเวลา"
+    "message": "ZDownloader3 ไม่เริ่มทำงานทันเวลา"
   },
   "status_host_failed": {
-    "message": "การเชื่อมต่อกับ Mister Download Manager ล้มเหลว"
+    "message": "การเชื่อมต่อกับ ZDownloader3 ล้มเหลว"
   },
   "status_too_large": {
     "message": "รายละเอียดการดาวน์โหลดนี้มีขนาดใหญ่เกินกว่าที่จะส่งมอบได้"
   },
   "status_update_app": {
-    "message": "อัปเดต Mister Download Manager เพื่อใช้ทุกสิ่งที่ส่วนขยายนี้มีให้"
+    "message": "อัปเดต ZDownloader3 เพื่อใช้ทุกสิ่งที่ส่วนขยายนี้มีให้"
   },
   "popup_take": {
     "message": "รับการดาวน์โหลดจากเบราว์เซอร์นี้"
@@ -78,10 +78,10 @@
     "message": "ส่งการดาวน์โหลดผ่านพร็อกซีหรือส่วนขยาย VPN ของเบราว์เซอร์นี้"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ เบราว์เซอร์จะขออนุญาตคุณหนึ่งครั้ง การปิดตัวเลือกนี้จะยกเลิกการอนุญาตนั้น"
+    "message": "ZDownloader3 จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ เบราว์เซอร์จะขออนุญาตคุณหนึ่งครั้ง การปิดตัวเลือกนี้จะยกเลิกการอนุญาตนั้น"
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ ขณะที่ปิดอยู่ ส่วนขยายจะไม่สามารถอ่านพร็อกซีของเบราว์เซอร์ได้"
+    "message": "ZDownloader3 จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ ขณะที่ปิดอยู่ ส่วนขยายจะไม่สามารถอ่านพร็อกซีของเบราว์เซอร์ได้"
   },
   "popup_exclude_site": {
     "message": "ห้ามดาวน์โหลดจาก $site$ อีก",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "เปิด Mister Download Manager"
+    "message": "เปิด ZDownloader3"
   },
   "popup_options": {
     "message": "ตัวเลือก..."
@@ -150,7 +150,7 @@
     "message": "การใช้การผสานรวมเบราว์เซอร์ขั้นสูงถูกปิดใน ตัวเลือก → ทั่วไป"
   },
   "declined_torrents": {
-    "message": "เป็นทอร์เรนต์ และ “เปิดลิงก์แม่เหล็กและไฟล์ .torrent ด้วย Mister Download Manager” ปิดอยู่ในการตั้งค่าทอร์เรนต์"
+    "message": "เป็นทอร์เรนต์ และ “เปิดลิงก์แม่เหล็กและไฟล์ .torrent ด้วย ZDownloader3” ปิดอยู่ในการตั้งค่าทอร์เรนต์"
   },
   "declined_site_access": {
     "message": "ส่วนขยายไม่ได้รับอนุญาตให้อ่านไซต์นี้ (การเข้าถึงไซต์ของเบราว์เซอร์)"
@@ -195,16 +195,16 @@
     "message": "ไม่มีวิดีโอให้ดาวน์โหลดที่นี่"
   },
   "video_playlist": {
-    "message": "รายการวิดีโอ: เลือกใน Mister Download Manager"
+    "message": "รายการวิดีโอ: เลือกใน ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager ต้องใช้ yt-dlp สำหรับวิดีโอนี้"
+    "message": "ZDownloader3 ต้องใช้ yt-dlp สำหรับวิดีโอนี้"
   },
   "video_too_long": {
     "message": "การค้นหาใช้เวลานานเกินไป"
   },
   "video_busy": {
-    "message": "Mister Download Manager กำลังยุ่งกับวิดีโออื่น"
+    "message": "ZDownloader3 กำลังยุ่งกับวิดีโออื่น"
   },
   "video_queued": {
     "message": "เพิ่มลงในคิวแล้ว"
@@ -228,7 +228,7 @@
     "message": "คอมพิวเตอร์เครื่องนี้"
   },
   "popup_send_remote": {
-    "message": "Mister Download Manager อื่น (เซิร์ฟเวอร์)"
+    "message": "ZDownloader3 อื่น (เซิร์ฟเวอร์)"
   },
   "popup_remote_code": {
     "message": "รหัสจับคู่"
@@ -240,7 +240,7 @@
     "message": "จับคู่"
   },
   "popup_remote_help": {
-    "message": "เปิดที่อยู่ของเครื่องหนึ่งครั้งและยอมรับใบรับรอง จากนั้นป้อนรหัสจากตัวเลือก ระยะไกล จับคู่อุปกรณ์ (หรือ misterdownloadmanager-cli pair)"
+    "message": "เปิดที่อยู่ของเครื่องหนึ่งครั้งและยอมรับใบรับรอง จากนั้นป้อนรหัสจากตัวเลือก ระยะไกล จับคู่อุปกรณ์ (หรือ zdownloader3-cli pair)"
   },
   "status_remote": {
     "message": "กำลังส่งการดาวน์โหลดไปยัง $address$",
@@ -324,7 +324,7 @@
     "message": "ทุกคุณภาพและคำบรรยาย..."
   },
   "video_failed": {
-    "message": "Mister Download Manager ไม่ได้ติดตั้งหรือไม่ได้เริ่มทำงาน"
+    "message": "ZDownloader3 ไม่ได้ติดตั้งหรือไม่ได้เริ่มทำงาน"
   },
   "video_download_best": {
     "message": "ดาวน์โหลดคุณภาพดีที่สุด"

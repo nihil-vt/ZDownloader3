@@ -28,7 +28,7 @@ $auth = $account.Auth
 try {
 
 $src = "\\wsl$\$Distro\home\lab\lab\bin\$Label"
-if (-not (Test-Path "$src\misterdownloadmanager")) { throw "no build $Label in $Distro (tools/lab/wsl/build.sh)" }
+if (-not (Test-Path "$src\zdownloader3")) { throw "no build $Label in $Distro (tools/lab/wsl/build.sh)" }
 
 function Invoke-Guest([string] $Command) {
     & $vbox guestcontrol $Vm run --exe /bin/bash @auth --wait-stdout --wait-stderr -- -c $Command

@@ -542,7 +542,7 @@ pub async fn tb_device_start() -> Response {
         .insert(device.clone(), 0);
     tb_ok(
         json!({"device_code": device, "interval": 0, "expires_at": "2099-01-01T00:00:00Z",
-        "verification_url": "https://torbox.app/oauth/device?app=MisterDownloadManager",
+        "verification_url": "https://torbox.app/oauth/device?app=ZDownloader3",
         "friendly_verification_url": "https://tor.box/link", "code": "123456"}),
     )
 }

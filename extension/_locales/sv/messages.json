@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Överför nedladdningar från webbläsaren till Mister Download Manager."
+    "message": "Överför nedladdningar från webbläsaren till ZDownloader3."
   },
   "menu": {
-    "message": "Ladda ned med Mister Download Manager"
+    "message": "Ladda ned med ZDownloader3"
   },
   "video_download": {
     "message": "Hämta video"
@@ -30,19 +30,19 @@
     "message": "Knappinställningar..."
   },
   "video_sent": {
-    "message": "Skickades till Mister Download Manager"
+    "message": "Skickades till ZDownloader3"
   },
   "menu_selected": {
-    "message": "Ladda ner valda länkar med Mister Download Manager"
+    "message": "Ladda ner valda länkar med ZDownloader3"
   },
   "menu_all": {
-    "message": "Ladda ner alla länkar med Mister Download Manager"
+    "message": "Ladda ner alla länkar med ZDownloader3"
   },
   "status_connected": {
-    "message": "Ansluten till Mister Download Manager"
+    "message": "Ansluten till ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Ansluten till Mister Download Manager $version$",
+    "message": "Ansluten till ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Pausad: nedladdningar stannar i webbläsaren"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager är inte installerad, eller dess webbläsarintegrering är inte inställd"
+    "message": "ZDownloader3 är inte installerad, eller dess webbläsarintegrering är inte inställd"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager accepterar inte den här kopian av tillägget"
+    "message": "ZDownloader3 accepterar inte den här kopian av tillägget"
   },
   "status_not_running": {
-    "message": "Mister Download Manager startade inte i tid"
+    "message": "ZDownloader3 startade inte i tid"
   },
   "status_host_failed": {
-    "message": "Anslutningen till Mister Download Manager misslyckades"
+    "message": "Anslutningen till ZDownloader3 misslyckades"
   },
   "status_too_large": {
     "message": "Informationen om den här nedladdningen var för stor för att överlämnas"
   },
   "status_update_app": {
-    "message": "Uppdatera Mister Download Manager för att använda allt som det här tillägget erbjuder"
+    "message": "Uppdatera ZDownloader3 för att använda allt som det här tillägget erbjuder"
   },
   "popup_take": {
     "message": "Ta nedladdningar från den här webbläsaren"
@@ -78,10 +78,10 @@
     "message": "Skicka nedladdningar via den här webbläsarens proxy- eller VPN-tillägg"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager laddar sedan ned via samma proxy som den här webbläsaren. Webbläsaren frågar dig en gång om du vill tillåta det. Om du inaktiverar detta tas det tillbaka."
+    "message": "ZDownloader3 laddar sedan ned via samma proxy som den här webbläsaren. Webbläsaren frågar dig en gång om du vill tillåta det. Om du inaktiverar detta tas det tillbaka."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager hämtar sedan via samma proxy som den här webbläsaren. När detta är inaktiverat läser tillägget inte webbläsarens proxy."
+    "message": "ZDownloader3 hämtar sedan via samma proxy som den här webbläsaren. När detta är inaktiverat läser tillägget inte webbläsarens proxy."
   },
   "popup_exclude_site": {
     "message": "Ta aldrig nedladdningar från $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Öppna Mister Download Manager"
+    "message": "Öppna ZDownloader3"
   },
   "popup_options": {
     "message": "Alternativ..."
@@ -150,7 +150,7 @@
     "message": "Använd avancerad webbläsarintegrering är avstängd i Alternativ → Allmänt."
   },
   "declined_torrents": {
-    "message": "Det är en torrent, och Öppna magnetlänkar och .torrent-filer med Mister Download Manager är avstängt i Torrentinställningar."
+    "message": "Det är en torrent, och Öppna magnetlänkar och .torrent-filer med ZDownloader3 är avstängt i Torrentinställningar."
   },
   "declined_site_access": {
     "message": "Tillägget får inte läsa den här webbplatsen (webbläsarens webbplatsåtkomst)."
@@ -195,16 +195,16 @@
     "message": "Ingen video att hämta här"
   },
   "video_playlist": {
-    "message": "En lista med videor: välj dem i Mister Download Manager"
+    "message": "En lista med videor: välj dem i ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager behöver yt-dlp för den här videon"
+    "message": "ZDownloader3 behöver yt-dlp för den här videon"
   },
   "video_too_long": {
     "message": "Sökningen tog för lång tid"
   },
   "video_busy": {
-    "message": "Mister Download Manager är upptaget med andra videor"
+    "message": "ZDownloader3 är upptaget med andra videor"
   },
   "video_queued": {
     "message": "Tillagd i kön"
@@ -228,7 +228,7 @@
     "message": "Den här datorn"
   },
   "popup_send_remote": {
-    "message": "En annan Mister Download Manager (en server)"
+    "message": "En annan ZDownloader3 (en server)"
   },
   "popup_remote_code": {
     "message": "Kopplingskod"
@@ -240,7 +240,7 @@
     "message": "Koppla"
   },
   "popup_remote_help": {
-    "message": "Öppna dess adress en gång och acceptera dess certifikat, ange sedan en kod från dess Alternativ, Fjärr, Koppla en enhet (eller misterdownloadmanager-cli pair)."
+    "message": "Öppna dess adress en gång och acceptera dess certifikat, ange sedan en kod från dess Alternativ, Fjärr, Koppla en enhet (eller zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Nedladdningar går till $address$",
@@ -324,7 +324,7 @@
     "message": "Alla kvaliteter och undertexter..."
   },
   "video_failed": {
-    "message": "Mister Download Manager är inte installerad eller startade inte"
+    "message": "ZDownloader3 är inte installerad eller startade inte"
   },
   "video_download_best": {
     "message": "Ladda ned bästa kvalitet"

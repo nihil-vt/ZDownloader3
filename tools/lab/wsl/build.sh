@@ -44,7 +44,7 @@ status=${PIPESTATUS[0]}
 if [ "$status" = 0 ]; then
   out=target/$profile; [ "$profile" = dev ] && out=target/debug
   mkdir -p "$HOME/lab/bin/$label"
-  cp "$out"/misterdownloadmanager{,-nmhost,-cli} "$out"/labserver "$HOME/lab/bin/$label/"
+  cp "$out"/zdownloader3{,-nmhost,-cli} "$out"/labserver "$HOME/lab/bin/$label/"
   git log --oneline -1 > "$HOME/lab/bin/$label/COMMIT"
 fi
 echo "== exit $status after $(( $(cut -d. -f1 /proc/uptime) - start )) s" | tee -a "$log"

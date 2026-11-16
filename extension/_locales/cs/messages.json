@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Předává stahování z prohlížeče do Mister Download Manager."
+    "message": "Předává stahování z prohlížeče do ZDownloader3."
   },
   "menu": {
-    "message": "Stáhnout pomocí Mister Download Manager"
+    "message": "Stáhnout pomocí ZDownloader3"
   },
   "video_download": {
     "message": "Stáhnout video"
@@ -30,19 +30,19 @@
     "message": "Nastavení tlačítka..."
   },
   "video_sent": {
-    "message": "Odesláno do Mister Download Manager"
+    "message": "Odesláno do ZDownloader3"
   },
   "menu_selected": {
-    "message": "Stáhnout vybrané odkazy pomocí Mister Download Manager"
+    "message": "Stáhnout vybrané odkazy pomocí ZDownloader3"
   },
   "menu_all": {
-    "message": "Stáhnout všechny odkazy pomocí Mister Download Manager"
+    "message": "Stáhnout všechny odkazy pomocí ZDownloader3"
   },
   "status_connected": {
-    "message": "Připojeno k Mister Download Manager"
+    "message": "Připojeno k ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Připojeno k Mister Download Manager $version$",
+    "message": "Připojeno k ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Pozastaveno: stahování zůstává v prohlížeči"
   },
   "status_not_installed": {
-    "message": "Aplikace Mister Download Manager není nainstalovaná nebo není nastavená její integrace s prohlížečem"
+    "message": "Aplikace ZDownloader3 není nainstalovaná nebo není nastavená její integrace s prohlížečem"
   },
   "status_forbidden": {
-    "message": "Aplikace Mister Download Manager tuto kopii rozšíření nepřijímá"
+    "message": "Aplikace ZDownloader3 tuto kopii rozšíření nepřijímá"
   },
   "status_not_running": {
-    "message": "Mister Download Manager se nespustil včas"
+    "message": "ZDownloader3 se nespustil včas"
   },
   "status_host_failed": {
-    "message": "Připojení k Mister Download Manager selhalo"
+    "message": "Připojení k ZDownloader3 selhalo"
   },
   "status_too_large": {
     "message": "Podrobnosti tohoto stahování byly příliš velké na předání"
   },
   "status_update_app": {
-    "message": "Aktualizujte Mister Download Manager, abyste mohli používat vše, co toto rozšíření nabízí"
+    "message": "Aktualizujte ZDownloader3, abyste mohli používat vše, co toto rozšíření nabízí"
   },
   "popup_take": {
     "message": "Přebírat stahování z tohoto prohlížeče"
@@ -78,10 +78,10 @@
     "message": "Předávat stahování přes proxy server nebo rozšíření VPN tohoto prohlížeče"
   },
   "popup_proxy_title": {
-    "message": "Aplikace Mister Download Manager pak stahuje přes stejný proxy server jako tento prohlížeč. Prohlížeč vás jednou požádá o povolení; vypnutím této možnosti toto povolení zrušíte."
+    "message": "Aplikace ZDownloader3 pak stahuje přes stejný proxy server jako tento prohlížeč. Prohlížeč vás jednou požádá o povolení; vypnutím této možnosti toto povolení zrušíte."
   },
   "popup_proxy_title_chromium": {
-    "message": "Aplikace Mister Download Manager pak stahuje přes stejný proxy server jako tento prohlížeč. Pokud je tato možnost vypnutá, rozšíření proxy server prohlížeče nenačítá."
+    "message": "Aplikace ZDownloader3 pak stahuje přes stejný proxy server jako tento prohlížeč. Pokud je tato možnost vypnutá, rozšíření proxy server prohlížeče nenačítá."
   },
   "popup_exclude_site": {
     "message": "Nikdy nepřebírat stahování z webu $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Otevřít Mister Download Manager"
+    "message": "Otevřít ZDownloader3"
   },
   "popup_options": {
     "message": "Možnosti..."
@@ -150,7 +150,7 @@
     "message": "Použít pokročilou integraci prohlížeče je vypnuto v Možnosti → Obecné."
   },
   "declined_torrents": {
-    "message": "Je to torrent a v nastavení torrentů je vypnutá možnost Otevřít magnetické odkazy a soubory .torrent pomocí Mister Download Manager."
+    "message": "Je to torrent a v nastavení torrentů je vypnutá možnost Otevřít magnetické odkazy a soubory .torrent pomocí ZDownloader3."
   },
   "declined_site_access": {
     "message": "Rozšíření nemá povoleno číst tento web (přístup prohlížeče k webu)."
@@ -195,16 +195,16 @@
     "message": "Tady není žádné video ke stažení"
   },
   "video_playlist": {
-    "message": "Seznam videí: vyberte je v Mister Download Manager"
+    "message": "Seznam videí: vyberte je v ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager potřebuje pro toto video yt-dlp"
+    "message": "ZDownloader3 potřebuje pro toto video yt-dlp"
   },
   "video_too_long": {
     "message": "Vyhledávání trvalo příliš dlouho"
   },
   "video_busy": {
-    "message": "Mister Download Manager je zaneprázdněn jinými videi"
+    "message": "ZDownloader3 je zaneprázdněn jinými videi"
   },
   "video_queued": {
     "message": "Přidáno do fronty"
@@ -228,7 +228,7 @@
     "message": "Tento počítač"
   },
   "popup_send_remote": {
-    "message": "Jiný Mister Download Manager (server)"
+    "message": "Jiný ZDownloader3 (server)"
   },
   "popup_remote_code": {
     "message": "Párovací kód"
@@ -240,7 +240,7 @@
     "message": "Spárovat"
   },
   "popup_remote_help": {
-    "message": "Otevřete jeho adresu jednou a přijměte jeho certifikát, poté zadejte kód z jeho Možnosti, Vzdálené, Spárovat zařízení (nebo misterdownloadmanager-cli pair)."
+    "message": "Otevřete jeho adresu jednou a přijměte jeho certifikát, poté zadejte kód z jeho Možnosti, Vzdálené, Spárovat zařízení (nebo zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Stahování jde na $address$",
@@ -324,7 +324,7 @@
     "message": "Všechny kvality a titulky..."
   },
   "video_failed": {
-    "message": "Aplikace Mister Download Manager není nainstalovaná nebo se nespustila"
+    "message": "Aplikace ZDownloader3 není nainstalovaná nebo se nespustila"
   },
   "video_download_best": {
     "message": "Stáhnout nejlepší"

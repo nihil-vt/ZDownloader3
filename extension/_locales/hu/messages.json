@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Átadja a letöltéseket a böngészőből a(z) Mister Download Manager alkalmazásnak."
+    "message": "Átadja a letöltéseket a böngészőből a(z) ZDownloader3 alkalmazásnak."
   },
   "menu": {
-    "message": "Letöltés a(z) Mister Download Manager alkalmazással"
+    "message": "Letöltés a(z) ZDownloader3 alkalmazással"
   },
   "video_download": {
     "message": "Videó letöltése"
@@ -30,19 +30,19 @@
     "message": "Gombbeállítások..."
   },
   "video_sent": {
-    "message": "Elküldve a következőnek: Mister Download Manager"
+    "message": "Elküldve a következőnek: ZDownloader3"
   },
   "menu_selected": {
-    "message": "Kijelölt hivatkozások letöltése az Mister Download Manager alkalmazással"
+    "message": "Kijelölt hivatkozások letöltése az ZDownloader3 alkalmazással"
   },
   "menu_all": {
-    "message": "Összes hivatkozás letöltése az Mister Download Manager alkalmazással"
+    "message": "Összes hivatkozás letöltése az ZDownloader3 alkalmazással"
   },
   "status_connected": {
-    "message": "Csatlakoztatva az Mister Download Manager alkalmazáshoz"
+    "message": "Csatlakoztatva az ZDownloader3 alkalmazáshoz"
   },
   "status_connected_version": {
-    "message": "Csatlakoztatva az Mister Download Manager $version$ alkalmazáshoz",
+    "message": "Csatlakoztatva az ZDownloader3 $version$ alkalmazáshoz",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Szüneteltetve: a letöltések a böngészőben maradnak"
   },
   "status_not_installed": {
-    "message": "Az Mister Download Manager nincs telepítve, vagy a böngészőintegrációja nincs beállítva"
+    "message": "Az ZDownloader3 nincs telepítve, vagy a böngészőintegrációja nincs beállítva"
   },
   "status_forbidden": {
-    "message": "Az Mister Download Manager nem fogadja el a bővítmény ezen másolatát"
+    "message": "Az ZDownloader3 nem fogadja el a bővítmény ezen másolatát"
   },
   "status_not_running": {
-    "message": "Az Mister Download Manager nem indult el időben"
+    "message": "Az ZDownloader3 nem indult el időben"
   },
   "status_host_failed": {
-    "message": "Nem sikerült csatlakozni az Mister Download Manager alkalmazáshoz"
+    "message": "Nem sikerült csatlakozni az ZDownloader3 alkalmazáshoz"
   },
   "status_too_large": {
     "message": "A letöltés részletei túl nagyok voltak az átadáshoz"
   },
   "status_update_app": {
-    "message": "Frissítse a(z) Mister Download Manager alkalmazást, hogy használhassa a bővítmény összes funkcióját"
+    "message": "Frissítse a(z) ZDownloader3 alkalmazást, hogy használhassa a bővítmény összes funkcióját"
   },
   "popup_take": {
     "message": "Letöltések átvétele ebből a böngészőből"
@@ -78,10 +78,10 @@
     "message": "Letöltések küldése a böngésző proxy- vagy VPN-bővítményén keresztül"
   },
   "popup_proxy_title": {
-    "message": "Az Mister Download Manager ezután ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. A böngésző egyszer engedélyt kér erre; ennek kikapcsolásával visszavonhatja az engedélyt."
+    "message": "Az ZDownloader3 ezután ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. A böngésző egyszer engedélyt kér erre; ennek kikapcsolásával visszavonhatja az engedélyt."
   },
   "popup_proxy_title_chromium": {
-    "message": "Ekkor a(z) Mister Download Manager ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. Ha ez ki van kapcsolva, a bővítmény nem olvassa be a böngésző proxyját."
+    "message": "Ekkor a(z) ZDownloader3 ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. Ha ez ki van kapcsolva, a bővítmény nem olvassa be a böngésző proxyját."
   },
   "popup_exclude_site": {
     "message": "Soha ne töltsön le fájlokat a(z) $site$ webhelyről",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Megnyitás: Mister Download Manager"
+    "message": "Megnyitás: ZDownloader3"
   },
   "popup_options": {
     "message": "Beállítások..."
@@ -150,7 +150,7 @@
     "message": "A Speciális böngészőintegráció használata ki van kapcsolva a Beállítások → Általános menüpontban."
   },
   "declined_torrents": {
-    "message": "Ez egy torrent, és a „Mágneshivatkozások és .torrent fájlok megnyitása a(z) Mister Download Manager alkalmazással” beállítás ki van kapcsolva a Torrent-beállításokban."
+    "message": "Ez egy torrent, és a „Mágneshivatkozások és .torrent fájlok megnyitása a(z) ZDownloader3 alkalmazással” beállítás ki van kapcsolva a Torrent-beállításokban."
   },
   "declined_site_access": {
     "message": "A bővítmény nem olvashatja ezt a webhelyet (a böngésző webhely-hozzáférése)."
@@ -195,16 +195,16 @@
     "message": "Itt nincs letölthető videó"
   },
   "video_playlist": {
-    "message": "Videók listája: válassza ki őket a Mister Download Manager alkalmazásban"
+    "message": "Videók listája: válassza ki őket a ZDownloader3 alkalmazásban"
   },
   "video_no_ytdlp": {
-    "message": "A Mister Download Manager alkalmazásnak szüksége van a yt-dlp eszközre ehhez a videóhoz"
+    "message": "A ZDownloader3 alkalmazásnak szüksége van a yt-dlp eszközre ehhez a videóhoz"
   },
   "video_too_long": {
     "message": "A keresés túl sokáig tartott"
   },
   "video_busy": {
-    "message": "A Mister Download Manager alkalmazás más videókkal van elfoglalva"
+    "message": "A ZDownloader3 alkalmazás más videókkal van elfoglalva"
   },
   "video_queued": {
     "message": "Hozzáadva a sorhoz"
@@ -228,7 +228,7 @@
     "message": "Ez a számítógép"
   },
   "popup_send_remote": {
-    "message": "Másik Mister Download Manager (kiszolgáló)"
+    "message": "Másik ZDownloader3 (kiszolgáló)"
   },
   "popup_remote_code": {
     "message": "Párosítási kód"
@@ -240,7 +240,7 @@
     "message": "Párosítás"
   },
   "popup_remote_help": {
-    "message": "Nyissa meg egyszer a címét, és fogadja el a tanúsítványát, majd adja meg a kódot a Beállítások, Távoli, Eszköz párosítása (vagy misterdownloadmanager-cli pair) menüpontból."
+    "message": "Nyissa meg egyszer a címét, és fogadja el a tanúsítványát, majd adja meg a kódot a Beállítások, Távoli, Eszköz párosítása (vagy zdownloader3-cli pair) menüpontból."
   },
   "status_remote": {
     "message": "A letöltések ide mennek: $address$",
@@ -324,7 +324,7 @@
     "message": "Minden minőség és felirat..."
   },
   "video_failed": {
-    "message": "Az Mister Download Manager nincs telepítve, vagy nem indult el"
+    "message": "Az ZDownloader3 nincs telepítve, vagy nem indult el"
   },
   "video_download_best": {
     "message": "Legjobb letöltése"

@@ -1,6 +1,6 @@
 # The progress window of a video and of a torrent, for the docs (progress-video.png,
 # progress-torrent.png: docs/images/*.webp through `tools/shots/make.py docs`), at 1x and off the screens, as docs-shots.ps1 takes the others. Each
-# runs in a Mister Download Manager instance of its own (MDM_DATA_DIR, MDM_OFFSCREEN) whose list
+# runs in a ZDownloader3 instance of its own (ZD3_DATA_DIR, MDM_OFFSCREEN) whose list
 # holds that one download; the automation API starts it and /show progress opens its window,
 # so nothing is clicked or typed. The video comes from the labserver through yt-dlp (copied
 # from your own MDM's tools folder: Tasks → Download video from a page installs it); the
@@ -39,8 +39,8 @@ param(
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $bin = (Resolve-Path (Join-Path $root $Bin)).Path
-$exe = Join-Path $bin "misterdownloadmanager.exe"
-$cli = Join-Path $bin "misterdownloadmanager-cli.exe"
+$exe = Join-Path $bin "zdownloader3.exe"
+$cli = Join-Path $bin "zdownloader3-cli.exe"
 $out = if ([IO.Path]::IsPathRooted($OutDir)) { $OutDir } else { Join-Path $root $OutDir }
 # Under the repository (ignored target/): the temp folder's path names the user.
 $work = if ($Work) { $Work } else { Join-Path $root "target\progress-shots" }
@@ -97,7 +97,7 @@ function Scenario([string]$name, [hashtable]$item, [int]$wait, [scriptblock]$pre
   }
   if ($prepare) { & $prepare $dir }
   [IO.File]::WriteAllText("$dir\data\downloads.json", ($list | ConvertTo-Json -Depth 8))
-  $env:MDM_DATA_DIR = "$dir\data"
+  $env:ZD3_DATA_DIR = "$dir\data"
   $env:MDM_OFFSCREEN = "1"
   if ($At) { $env:MDM_OFFSCREEN_AT = $At }
   $app = Start-Process -PassThru $exe
@@ -134,7 +134,7 @@ function Scenario([string]$name, [hashtable]$item, [int]$wait, [scriptblock]$pre
     }
   } finally {
     Stop-Process -Id $app.Id -ErrorAction SilentlyContinue
-    Remove-Item Env:MDM_DATA_DIR, Env:MDM_OFFSCREEN, Env:MDM_OFFSCREEN_AT, Env:MDM_LAB_PEERS -ErrorAction SilentlyContinue
+    Remove-Item Env:ZD3_DATA_DIR, Env:MDM_OFFSCREEN, Env:MDM_OFFSCREEN_AT, Env:MDM_LAB_PEERS -ErrorAction SilentlyContinue
   }
 }
 
@@ -144,7 +144,7 @@ try {
   New-Item -ItemType Directory -Force $work, $out | Out-Null
 
   if (Want "video") {
-    $tools = Join-Path ([Environment]::GetFolderPath("ApplicationData")) "misterdownloadmanager\tools"
+    $tools = Join-Path ([Environment]::GetFolderPath("ApplicationData")) "zdownloader3\tools"
     if ($YtDlp) {
       # A tools folder of the run's own, holding the given yt-dlp as MDM installs it.
       $tools = Join-Path $work "tools"

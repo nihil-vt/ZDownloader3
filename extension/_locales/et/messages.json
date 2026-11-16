@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Annab allalaadimised brauserist rakendusele Mister Download Manager."
+    "message": "Annab allalaadimised brauserist rakendusele ZDownloader3."
   },
   "menu": {
-    "message": "Laadi alla rakendusega Mister Download Manager"
+    "message": "Laadi alla rakendusega ZDownloader3"
   },
   "video_download": {
     "message": "Laadi video alla"
@@ -30,19 +30,19 @@
     "message": "Nupu sätted..."
   },
   "video_sent": {
-    "message": "Saadetud rakendusse Mister Download Manager"
+    "message": "Saadetud rakendusse ZDownloader3"
   },
   "menu_selected": {
-    "message": "Laadi valitud lingid alla rakendusega Mister Download Manager"
+    "message": "Laadi valitud lingid alla rakendusega ZDownloader3"
   },
   "menu_all": {
-    "message": "Laadi kõik lingid alla rakendusega Mister Download Manager"
+    "message": "Laadi kõik lingid alla rakendusega ZDownloader3"
   },
   "status_connected": {
-    "message": "Ühendatud rakendusega Mister Download Manager"
+    "message": "Ühendatud rakendusega ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Ühendatud rakendusega Mister Download Manager $version$",
+    "message": "Ühendatud rakendusega ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Peatatud: allalaadimised jäävad brauserisse"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager pole installitud või selle brauseri integreerimine pole seadistatud"
+    "message": "ZDownloader3 pole installitud või selle brauseri integreerimine pole seadistatud"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager ei aktsepteeri seda laienduse koopiat"
+    "message": "ZDownloader3 ei aktsepteeri seda laienduse koopiat"
   },
   "status_not_running": {
-    "message": "Mister Download Manager ei käivitunud õigel ajal"
+    "message": "ZDownloader3 ei käivitunud õigel ajal"
   },
   "status_host_failed": {
-    "message": "Ühenduse loomine rakendusega Mister Download Manager nurjus"
+    "message": "Ühenduse loomine rakendusega ZDownloader3 nurjus"
   },
   "status_too_large": {
     "message": "Selle allalaadimise üksikasjad olid edastamiseks liiga suured"
   },
   "status_update_app": {
-    "message": "Värskendage rakendust Mister Download Manager, et kasutada kõiki laienduse võimalusi"
+    "message": "Värskendage rakendust ZDownloader3, et kasutada kõiki laienduse võimalusi"
   },
   "popup_take": {
     "message": "Suuna allalaadimised sellest brauserist rakendusse"
@@ -78,10 +78,10 @@
     "message": "Suuna allalaadimised selle brauseri puhverserveri või VPN-laienduse kaudu"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager laadib seejärel alla sama puhverserveri kaudu, mida see brauser kasutab. Brauser küsib teilt selleks ühe korra luba; selle väljalülitamisel luba tühistatakse."
+    "message": "ZDownloader3 laadib seejärel alla sama puhverserveri kaudu, mida see brauser kasutab. Brauser küsib teilt selleks ühe korra luba; selle väljalülitamisel luba tühistatakse."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager laadib seejärel alla sama puhverserveri kaudu, mida see brauser kasutab. Kui see on välja lülitatud, ei loe laiendus brauseri puhverserverit."
+    "message": "ZDownloader3 laadib seejärel alla sama puhverserveri kaudu, mida see brauser kasutab. Kui see on välja lülitatud, ei loe laiendus brauseri puhverserverit."
   },
   "popup_exclude_site": {
     "message": "Ära võta enam allalaadimisi saidilt $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Ava Mister Download Manager"
+    "message": "Ava ZDownloader3"
   },
   "popup_options": {
     "message": "Suvandid..."
@@ -150,7 +150,7 @@
     "message": "Valik „Kasuta täiustatud brauseri integreerimist” on valikutes Suvandid → Üldine välja lülitatud."
   },
   "declined_torrents": {
-    "message": "See on torrent ja „Ava magnetlingid ja .torrent-failid programmiga Mister Download Manager” on torrenti sätetes välja lülitatud."
+    "message": "See on torrent ja „Ava magnetlingid ja .torrent-failid programmiga ZDownloader3” on torrenti sätetes välja lülitatud."
   },
   "declined_site_access": {
     "message": "Laiendil pole lubatud seda saiti lugeda (brauseri saidi juurdepääs)."
@@ -195,16 +195,16 @@
     "message": "Siin pole allalaaditavat videot"
   },
   "video_playlist": {
-    "message": "Videode loend: valige need rakenduses Mister Download Manager"
+    "message": "Videode loend: valige need rakenduses ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager vajab selle video jaoks programmi yt-dlp"
+    "message": "ZDownloader3 vajab selle video jaoks programmi yt-dlp"
   },
   "video_too_long": {
     "message": "Otsimine võttis liiga kaua aega"
   },
   "video_busy": {
-    "message": "Mister Download Manager on teiste videotega hõivatud"
+    "message": "ZDownloader3 on teiste videotega hõivatud"
   },
   "video_queued": {
     "message": "Lisatud järjekorda"
@@ -228,7 +228,7 @@
     "message": "See arvuti"
   },
   "popup_send_remote": {
-    "message": "Muu Mister Download Manager (server)"
+    "message": "Muu ZDownloader3 (server)"
   },
   "popup_remote_code": {
     "message": "Sidumiskood"
@@ -240,7 +240,7 @@
     "message": "Seo"
   },
   "popup_remote_help": {
-    "message": "Avage selle aadress üks kord ja aktsepteerige selle sertifikaat, seejärel sisestage kood selle valikutest Options, Remote, Pair a device (või misterdownloadmanager-cli pair)."
+    "message": "Avage selle aadress üks kord ja aktsepteerige selle sertifikaat, seejärel sisestage kood selle valikutest Options, Remote, Pair a device (või zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Allalaadimised lähevad asukohta $address$",
@@ -324,7 +324,7 @@
     "message": "Kõik kvaliteedid ja subtiitrid..."
   },
   "video_failed": {
-    "message": "Mister Download Manager pole installitud või ei käivitunud"
+    "message": "ZDownloader3 pole installitud või ei käivitunud"
   },
   "video_download_best": {
     "message": "Laadi parim alla"

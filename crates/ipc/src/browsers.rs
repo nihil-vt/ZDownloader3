@@ -126,7 +126,7 @@ const MOZILLA: [&str; 2] = [
 ];
 
 /// Linux: every folder for everyone a browser reads host manifests from, with the family whose
-/// manifest goes there: where the .deb and .rpm put theirs (`misterdownloadmanager-nmhost
+/// manifest goes there: where the .deb and .rpm put theirs (`zdownloader3-nmhost
 /// --package-manifests`), and `--register --all-users` too.
 pub const LINUX_SYSTEM_HOST_DIRS: &[(&str, Family)] = &[
     (ETC_CHROME, Family::Chromium),
@@ -415,7 +415,7 @@ pub fn windows_can_run_extension(program: &str) -> bool {
 }
 
 /// The host manifest's file name, in every folder.
-pub const HOST_MANIFEST: &str = "com.misterdownloadmanager.host.json";
+pub const HOST_MANIFEST: &str = "com.zdownloader3.host.json";
 
 /// Linux and macOS (`mac`): the folders to write the host manifest into, each with the family
 /// whose manifest goes there, for this user (`home`, `config` = $XDG_CONFIG_HOME) or for
@@ -660,7 +660,7 @@ pub fn manifest_program(manifest: &Path) -> Option<PathBuf> {
 }
 
 /// The native host's name, which its manifests and registry entries carry.
-pub const HOST_NAME: &str = "com.misterdownloadmanager.host";
+pub const HOST_NAME: &str = "com.zdownloader3.host";
 
 /// Windows: the registry keys the browsers look the native host up under (`<key>\HOST_NAME`'s
 /// default value: the manifest's path), under HKCU for one user or HKLM for everyone, each with
@@ -1150,7 +1150,7 @@ mod tests {
         ] {
             std::fs::create_dir_all(home.join(d)).unwrap();
         }
-        let helper = root.join("usr/bin/misterdownloadmanager-nmhost");
+        let helper = root.join("usr/bin/zdownloader3-nmhost");
         std::fs::create_dir_all(helper.parent().unwrap()).unwrap();
         std::fs::write(&helper, "#!/bin/sh\n").unwrap();
         std::fs::set_permissions(&helper, std::fs::Permissions::from_mode(0o755)).unwrap();
@@ -1187,7 +1187,7 @@ mod tests {
         std::fs::remove_dir(home.join(".zen")).unwrap();
 
         // Another helper (an AppImage's copy) isn't covered by the package's.
-        let other = t.path().join("copy/misterdownloadmanager-nmhost");
+        let other = t.path().join("copy/zdownloader3-nmhost");
         std::fs::create_dir_all(other.parent().unwrap()).unwrap();
         std::fs::copy(&helper, &other).unwrap();
         assert_eq!(dirs(Some(&other)), all(&[chrome, brave, opera, mozilla]));
@@ -1205,7 +1205,7 @@ mod tests {
         let t = tempfile::tempdir().unwrap();
         let (root, home) = (t.path().join("root"), t.path().join("home"));
         std::fs::create_dir_all(home.join(".config/net.imput.helium")).unwrap();
-        let helper = root.join("usr/bin/misterdownloadmanager-nmhost");
+        let helper = root.join("usr/bin/zdownloader3-nmhost");
         std::fs::create_dir_all(helper.parent().unwrap()).unwrap();
         std::fs::write(&helper, "#!/bin/sh\n").unwrap();
         std::fs::set_permissions(&helper, std::fs::Permissions::from_mode(0o755)).unwrap();
@@ -1343,14 +1343,14 @@ mod tests {
             ("Rar$DIa1234.5678", true),
             ("7zO8A3B1C2D", true),
             ("7zE0F12AB34", true),
-            ("Temp1_MisterDownloadManager-0.5.2-x64.zip", true),
+            ("Temp1_ZDownloader3-0.5.2-x64.zip", true),
             ("Temp12_x.zip", true),
             ("7-Zip", false),
             ("7zip", false),
             ("7zOops", false),
             ("Templates", false),
             ("Temp_x.zip", false),
-            ("MisterDownloadManager-0.5.2-x64", false),
+            ("ZDownloader3-0.5.2-x64", false),
             ("Rar", false),
         ];
         for (name, archive) in names {
@@ -1362,8 +1362,8 @@ mod tests {
             ("/tmp", "/home/x")
         };
         let temps = [PathBuf::from(temp)];
-        let at = |p: &str| Path::new(p).join("misterdownloadmanager.exe");
-        let rar = format!(r"{temp}/Rar$EXa34720.17029.rartemp/MisterDownloadManager-0.5.2-x64");
+        let at = |p: &str| Path::new(p).join("zdownloader3.exe");
+        let rar = format!(r"{temp}/Rar$EXa34720.17029.rartemp/ZDownloader3-0.5.2-x64");
         assert!(temporary(&at(&rar), &temps));
         assert!(temporary(&at(&format!("{temp}/mdm")), &temps));
         assert!(temporary(&at(temp), &temps));
@@ -1379,7 +1379,7 @@ mod tests {
         // The folder itself, read through its links and short names, as the system gives it.
         let d = tempfile::tempdir().unwrap();
         std::fs::create_dir_all(d.path().join("copy")).unwrap();
-        let exe = d.path().join("copy").join("misterdownloadmanager.exe");
+        let exe = d.path().join("copy").join("zdownloader3.exe");
         std::fs::write(&exe, b"").unwrap();
         assert!(in_temporary_folder(&exe));
         // A temporary folder reached through a link (macOS' /tmp is /private/tmp), with a path
@@ -1419,14 +1419,14 @@ mod tests {
     #[test]
     fn a_registration_leads_to_a_helper_or_nowhere() {
         let d = tempfile::tempdir().unwrap();
-        let helper = d.path().join("mdm").join("misterdownloadmanager-nmhost");
+        let helper = d.path().join("mdm").join("zdownloader3-nmhost");
         program(&helper);
         let m = manifest_naming(&d.path().join("mdm"), &helper);
         assert_eq!(Holder::of(&m), Holder::Alive(helper.clone()));
         assert!(!Holder::of(&m).dead());
         let gone = d.path().join("Rar$EXa1.2").join(HOST_MANIFEST);
         assert_eq!(Holder::of(&gone), Holder::ManifestGone(gone.clone()));
-        let missing = d.path().join("old").join("misterdownloadmanager-nmhost");
+        let missing = d.path().join("old").join("zdownloader3-nmhost");
         let m = manifest_naming(d.path(), &missing);
         assert_eq!(Holder::of(&m), Holder::ProgramGone(missing));
         assert!(Holder::of(&m).dead());
@@ -1436,7 +1436,7 @@ mod tests {
             let copy = d
                 .path()
                 .join("browser-host")
-                .join("misterdownloadmanager-nmhost");
+                .join("zdownloader3-nmhost");
             program(&copy);
             let image = d.path().join("MDM.AppImage");
             program(&image);
@@ -1457,9 +1457,9 @@ mod tests {
     /// computer's works (the browsers read the user's first).
     #[test]
     fn only_a_dead_registration_is_repaired() {
-        let alive = Holder::Alive(PathBuf::from(r"C:\Other\misterdownloadmanager-nmhost.exe"));
+        let alive = Holder::Alive(PathBuf::from(r"C:\Other\zdownloader3-nmhost.exe"));
         let gone = Holder::ManifestGone(PathBuf::from(r"C:\Temp\Rar$EXa1\x.json"));
-        let helper = Holder::ProgramGone(PathBuf::from(r"C:\Old\misterdownloadmanager-nmhost.exe"));
+        let helper = Holder::ProgramGone(PathBuf::from(r"C:\Old\zdownloader3-nmhost.exe"));
         use Repair::*;
         for (user, machine, repair) in [
             (None, None, Keep),
@@ -1487,8 +1487,8 @@ mod tests {
     #[test]
     fn a_start_takes_over_only_what_leads_nowhere() {
         let d = tempfile::tempdir().unwrap();
-        let me = d.path().join("me").join("misterdownloadmanager-nmhost");
-        let other = d.path().join("other").join("misterdownloadmanager-nmhost");
+        let me = d.path().join("me").join("zdownloader3-nmhost");
+        let other = d.path().join("other").join("zdownloader3-nmhost");
         program(&me);
         program(&other);
         assert!(takes_over(None, &me));

@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Siirtää lataukset selaimesta Mister Download Manageriin."
+    "message": "Siirtää lataukset selaimesta ZDownloader3iin."
   },
   "menu": {
-    "message": "Lataa Mister Download Managerilla"
+    "message": "Lataa ZDownloader3illa"
   },
   "video_download": {
     "message": "Lataa video"
@@ -30,19 +30,19 @@
     "message": "Painikkeen asetukset..."
   },
   "video_sent": {
-    "message": "Lähetetty Mister Download Manager:lle"
+    "message": "Lähetetty ZDownloader3:lle"
   },
   "menu_selected": {
-    "message": "Lataa valitut linkit sovelluksella Mister Download Manager"
+    "message": "Lataa valitut linkit sovelluksella ZDownloader3"
   },
   "menu_all": {
-    "message": "Lataa kaikki linkit sovelluksella Mister Download Manager"
+    "message": "Lataa kaikki linkit sovelluksella ZDownloader3"
   },
   "status_connected": {
-    "message": "Yhdistetty sovellukseen Mister Download Manager"
+    "message": "Yhdistetty sovellukseen ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Yhdistetty sovellukseen Mister Download Manager $version$",
+    "message": "Yhdistetty sovellukseen ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Ei käytössä: lataukset jäävät selaimeen"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager ei ole asennettu, tai sen selainintegrointia ei ole määritetty"
+    "message": "ZDownloader3 ei ole asennettu, tai sen selainintegrointia ei ole määritetty"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager ei hyväksy tätä laajennuksen kopiota"
+    "message": "ZDownloader3 ei hyväksy tätä laajennuksen kopiota"
   },
   "status_not_running": {
-    "message": "Mister Download Manager ei käynnistynyt ajoissa"
+    "message": "ZDownloader3 ei käynnistynyt ajoissa"
   },
   "status_host_failed": {
-    "message": "Yhteyden muodostaminen sovellukseen Mister Download Manager epäonnistui"
+    "message": "Yhteyden muodostaminen sovellukseen ZDownloader3 epäonnistui"
   },
   "status_too_large": {
     "message": "Tämän latauksen tiedot olivat liian suuria siirrettäviksi"
   },
   "status_update_app": {
-    "message": "Päivitä Mister Download Manager, jotta voit käyttää kaikkia tämän laajennuksen tarjoamia ominaisuuksia"
+    "message": "Päivitä ZDownloader3, jotta voit käyttää kaikkia tämän laajennuksen tarjoamia ominaisuuksia"
   },
   "popup_take": {
     "message": "Latausten siirtäminen tästä selaimesta"
@@ -78,10 +78,10 @@
     "message": "Lähetä lataukset tämän selaimen välityspalvelimen tai VPN-laajennuksen kautta"
   },
   "popup_proxy_title": {
-    "message": "Tällöin Mister Download Manager lataa saman välityspalvelimen kautta kuin tämä selain. Selain pyytää kerran lupaa; tämän poistaminen käytöstä peruuttaa luvan."
+    "message": "Tällöin ZDownloader3 lataa saman välityspalvelimen kautta kuin tämä selain. Selain pyytää kerran lupaa; tämän poistaminen käytöstä peruuttaa luvan."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager lataa tiedostot sitten tämän selaimen käyttämän välityspalvelimen kautta. Kun tämä asetus on pois päältä, laajennus ei lue selaimen välityspalvelimen asetuksia."
+    "message": "ZDownloader3 lataa tiedostot sitten tämän selaimen käyttämän välityspalvelimen kautta. Kun tämä asetus on pois päältä, laajennus ei lue selaimen välityspalvelimen asetuksia."
   },
   "popup_exclude_site": {
     "message": "Älä koskaan ota latauksia sivustolta $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Avaa Mister Download Manager"
+    "message": "Avaa ZDownloader3"
   },
   "popup_options": {
     "message": "Asetukset..."
@@ -150,7 +150,7 @@
     "message": "Käytä laajennettua selainintegraatiota on pois päältä kohdassa Asetukset → Yleiset."
   },
   "declined_torrents": {
-    "message": "Se on torrent, ja Avaa magnet-linkit ja .torrent-tiedostot sovelluksella Mister Download Manager on pois päältä Torrent-asetuksissa."
+    "message": "Se on torrent, ja Avaa magnet-linkit ja .torrent-tiedostot sovelluksella ZDownloader3 on pois päältä Torrent-asetuksissa."
   },
   "declined_site_access": {
     "message": "Laajennuksella ei ole lupaa lukea tätä sivustoa (selaimen sivustokäyttö)."
@@ -195,16 +195,16 @@
     "message": "Täällä ei ole ladattavaa videota"
   },
   "video_playlist": {
-    "message": "Videoluettelo: valitse videot sovelluksessa Mister Download Manager"
+    "message": "Videoluettelo: valitse videot sovelluksessa ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager tarvitsee yt-dlp:n tätä videota varten"
+    "message": "ZDownloader3 tarvitsee yt-dlp:n tätä videota varten"
   },
   "video_too_long": {
     "message": "Haku kesti liian kauan"
   },
   "video_busy": {
-    "message": "Mister Download Manager on varattu muiden videoiden takia"
+    "message": "ZDownloader3 on varattu muiden videoiden takia"
   },
   "video_queued": {
     "message": "Lisätty jonoon"
@@ -228,7 +228,7 @@
     "message": "Tämä tietokone"
   },
   "popup_send_remote": {
-    "message": "Toinen Mister Download Manager (palvelin)"
+    "message": "Toinen ZDownloader3 (palvelin)"
   },
   "popup_remote_code": {
     "message": "Pariliitoskoodi"
@@ -240,7 +240,7 @@
     "message": "Laita pariksi"
   },
   "popup_remote_help": {
-    "message": "Avaa sen osoite kerran ja hyväksy sen varmenne, anna sitten koodi sen Asetukset, Etä, Laita laite pariksi -kohdasta (tai misterdownloadmanager-cli pair)."
+    "message": "Avaa sen osoite kerran ja hyväksy sen varmenne, anna sitten koodi sen Asetukset, Etä, Laita laite pariksi -kohdasta (tai zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Lataukset menevät osoitteeseen $address$",
@@ -324,7 +324,7 @@
     "message": "Kaikki laadut ja tekstitykset..."
   },
   "video_failed": {
-    "message": "Mister Download Manager ei ole asennettu tai sitä ei käynnistetty"
+    "message": "ZDownloader3 ei ole asennettu tai sitä ei käynnistetty"
   },
   "video_download_best": {
     "message": "Lataa paras"

@@ -1,7 +1,7 @@
-// Mister Download Manager's Safari extension: the native half. Safari's extension can't start a
+// ZDownloader3's Safari extension: the native half. Safari's extension can't start a
 // program of its own (no native messaging host manifests), it can only talk to this app
 // extension. So this does nothing but pass each message on to the same helper the other browsers
-// start (misterdownloadmanager-nmhost; the build puts a copy of it in this extension, signed to
+// start (zdownloader3-nmhost; the build puts a copy of it in this extension, signed to
 // run inside its sandbox), and hand its answer back. All the rules live in the helper and in
 // extension/ (one source for every browser): when the extension learns to say something new,
 // nothing here changes.
@@ -33,16 +33,16 @@ final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
     /// The helper, in this extension: X.appex/Contents/MacOS.
     private static var helper: URL {
-        Bundle.main.bundleURL.appendingPathComponent("Contents/MacOS/misterdownloadmanager-nmhost")
+        Bundle.main.bundleURL.appendingPathComponent("Contents/MacOS/zdownloader3-nmhost")
     }
 
     /// MDM's data folder in the user's real home: the sandbox gives this process a home of its
-    /// own, where the app's files are not (the helper reads MDM_DATA_DIR before anything).
+    /// own, where the app's files are not (the helper reads ZD3_DATA_DIR before anything).
     private static var dataFolder: String? {
         // (selftest.sh points it at a folder of its own.)
-        if let given = ProcessInfo.processInfo.environment["MDM_DATA_DIR"] { return given }
+        if let given = ProcessInfo.processInfo.environment["ZD3_DATA_DIR"] { return given }
         guard let entry = getpwuid(getuid()) else { return nil }
-        return String(cString: entry.pointee.pw_dir) + "/Library/Application Support/misterdownloadmanager"
+        return String(cString: entry.pointee.pw_dir) + "/Library/Application Support/zdownloader3"
     }
 
     static func relay(_ message: Any?) -> [String: Any]? {
@@ -52,7 +52,7 @@ final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         process.executableURL = helper
         process.arguments = ["--safari"]
         if let folder = dataFolder {
-            process.environment = ProcessInfo.processInfo.environment.merging(["MDM_DATA_DIR": folder]) { $1 }
+            process.environment = ProcessInfo.processInfo.environment.merging(["ZD3_DATA_DIR": folder]) { $1 }
         }
         let input = Pipe(), output = Pipe()
         process.standardInput = input

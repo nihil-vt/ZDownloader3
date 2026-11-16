@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "Mister Download Manager"
+    "message": "ZDownloader3"
   },
   "description": {
-    "message": "Menyerahkan muat turun daripada pelayar kepada Mister Download Manager."
+    "message": "Menyerahkan muat turun daripada pelayar kepada ZDownloader3."
   },
   "menu": {
-    "message": "Muat turun dengan Mister Download Manager"
+    "message": "Muat turun dengan ZDownloader3"
   },
   "video_download": {
     "message": "Muat turun video"
@@ -30,19 +30,19 @@
     "message": "Tetapan butang..."
   },
   "video_sent": {
-    "message": "Dihantar ke Mister Download Manager"
+    "message": "Dihantar ke ZDownloader3"
   },
   "menu_selected": {
-    "message": "Muat turun pautan terpilih dengan Mister Download Manager"
+    "message": "Muat turun pautan terpilih dengan ZDownloader3"
   },
   "menu_all": {
-    "message": "Muat turun semua pautan dengan Mister Download Manager"
+    "message": "Muat turun semua pautan dengan ZDownloader3"
   },
   "status_connected": {
-    "message": "Bersambung ke Mister Download Manager"
+    "message": "Bersambung ke ZDownloader3"
   },
   "status_connected_version": {
-    "message": "Bersambung ke Mister Download Manager $version$",
+    "message": "Bersambung ke ZDownloader3 $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Dijeda: muat turun kekal bersama penyemak imbas"
   },
   "status_not_installed": {
-    "message": "Mister Download Manager tidak dipasang, atau penyepaduan penyemak imbasnya tidak disediakan"
+    "message": "ZDownloader3 tidak dipasang, atau penyepaduan penyemak imbasnya tidak disediakan"
   },
   "status_forbidden": {
-    "message": "Mister Download Manager tidak menerima salinan sambungan ini"
+    "message": "ZDownloader3 tidak menerima salinan sambungan ini"
   },
   "status_not_running": {
-    "message": "Mister Download Manager tidak bermula tepat pada masanya"
+    "message": "ZDownloader3 tidak bermula tepat pada masanya"
   },
   "status_host_failed": {
-    "message": "Sambungan ke Mister Download Manager gagal"
+    "message": "Sambungan ke ZDownloader3 gagal"
   },
   "status_too_large": {
     "message": "Butiran muat turun ini terlalu besar untuk diserahkan"
   },
   "status_update_app": {
-    "message": "Kemas kini Mister Download Manager untuk menggunakan semua yang ditawarkan oleh sambungan ini"
+    "message": "Kemas kini ZDownloader3 untuk menggunakan semua yang ditawarkan oleh sambungan ini"
   },
   "popup_take": {
     "message": "Ambil muat turun daripada penyemak imbas ini"
@@ -78,10 +78,10 @@
     "message": "Hantar muat turun melalui proksi atau sambungan VPN pelayar ini"
   },
   "popup_proxy_title": {
-    "message": "Mister Download Manager kemudian memuat turun melalui proksi yang sama seperti pelayar ini. Pelayar meminta anda sekali untuk membenarkannya; mematikan ini akan menarik balik kebenaran itu."
+    "message": "ZDownloader3 kemudian memuat turun melalui proksi yang sama seperti pelayar ini. Pelayar meminta anda sekali untuk membenarkannya; mematikan ini akan menarik balik kebenaran itu."
   },
   "popup_proxy_title_chromium": {
-    "message": "Mister Download Manager kemudian memuat turun melalui proksi yang sama dengan pelayar ini. Apabila pilihan ini dimatikan, sambungan tidak membaca proksi pelayar."
+    "message": "ZDownloader3 kemudian memuat turun melalui proksi yang sama dengan pelayar ini. Apabila pilihan ini dimatikan, sambungan tidak membaca proksi pelayar."
   },
   "popup_exclude_site": {
     "message": "Jangan sekali-kali mengambil muat turun daripada $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Buka Mister Download Manager"
+    "message": "Buka ZDownloader3"
   },
   "popup_options": {
     "message": "Pilihan..."
@@ -150,7 +150,7 @@
     "message": "Guna penyepaduan penyemak imbas lanjutan dimatikan dalam Pilihan → Umum."
   },
   "declined_torrents": {
-    "message": "Ia adalah torrent, dan Buka pautan magnet dan fail .torrent dengan Mister Download Manager dimatikan dalam Tetapan Torrent."
+    "message": "Ia adalah torrent, dan Buka pautan magnet dan fail .torrent dengan ZDownloader3 dimatikan dalam Tetapan Torrent."
   },
   "declined_site_access": {
     "message": "Sambungan tidak dibenarkan membaca tapak ini (akses tapak penyemak imbas)."
@@ -195,16 +195,16 @@
     "message": "Tiada video untuk dimuat turun di sini"
   },
   "video_playlist": {
-    "message": "Senarai video: pilih video dalam Mister Download Manager"
+    "message": "Senarai video: pilih video dalam ZDownloader3"
   },
   "video_no_ytdlp": {
-    "message": "Mister Download Manager memerlukan yt-dlp untuk video ini"
+    "message": "ZDownloader3 memerlukan yt-dlp untuk video ini"
   },
   "video_too_long": {
     "message": "Pencarian mengambil masa terlalu lama"
   },
   "video_busy": {
-    "message": "Mister Download Manager sedang sibuk dengan video lain"
+    "message": "ZDownloader3 sedang sibuk dengan video lain"
   },
   "video_queued": {
     "message": "Ditambah pada giliran"
@@ -228,7 +228,7 @@
     "message": "Komputer ini"
   },
   "popup_send_remote": {
-    "message": "Mister Download Manager lain (pelayan)"
+    "message": "ZDownloader3 lain (pelayan)"
   },
   "popup_remote_code": {
     "message": "Kod pasangan"
@@ -240,7 +240,7 @@
     "message": "Pasangkan"
   },
   "popup_remote_help": {
-    "message": "Buka alamatnya sekali dan terima sijilnya, kemudian masukkan kod dari Pilihannya, Jauh, Pasangkan peranti (atau misterdownloadmanager-cli pair)."
+    "message": "Buka alamatnya sekali dan terima sijilnya, kemudian masukkan kod dari Pilihannya, Jauh, Pasangkan peranti (atau zdownloader3-cli pair)."
   },
   "status_remote": {
     "message": "Muat turun pergi ke $address$",
@@ -324,7 +324,7 @@
     "message": "Semua kualiti dan sari kata..."
   },
   "video_failed": {
-    "message": "Mister Download Manager tidak dipasang atau tidak bermula"
+    "message": "ZDownloader3 tidak dipasang atau tidak bermula"
   },
   "video_download_best": {
     "message": "Muat turun terbaik"

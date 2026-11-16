@@ -1,4 +1,4 @@
-// Mister Download Manager's download button over videos (a content script, in every page and
+// ZDownloader3's download button over videos (a content script, in every page and
 // frame). Our own design: a pill of dark frosted glass at the video's edge that appears while
 // the pointer moves over the video (or it has the keyboard's focus) and fades when the pointer
 // rests or leaves. As it appears the app looks the video up (an embedded player's own address,
@@ -46,7 +46,7 @@
     video_more: "More options",
     video_hide_here: "Hide on this video",
     video_settings: "Button settings...",
-    video_sent: "Sent to Mister Download Manager",
+    video_sent: "Sent to ZDownloader3",
     video_off: "Off on this site",
     video_drm: "Protected video",
     video_cant_save: "can't be saved",
@@ -69,10 +69,10 @@
     video_all_qualities: "All qualities and subtitles...",
     video_looking: "Looking up the qualities…",
     video_no_choices: "No video to download here",
-    video_playlist: "A list of videos: choose them in Mister Download Manager",
-    video_no_ytdlp: "Mister Download Manager needs yt-dlp for this video",
+    video_playlist: "A list of videos: choose them in ZDownloader3",
+    video_no_ytdlp: "ZDownloader3 needs yt-dlp for this video",
     video_too_long: "Looking up took too long",
-    video_busy: "Mister Download Manager is busy with other videos",
+    video_busy: "ZDownloader3 is busy with other videos",
     video_queued: "Added to the queue",
     video_failed_lookup: "Could not look it up",
     video_tab_video: "Video",
@@ -288,7 +288,7 @@
   function noticeOf(s) {
     const n = s && typeof s === "object" ? s.notice : null;
     if (!n || typeof n !== "object" || typeof n.text !== "string" || !n.text.trim()) return null;
-    const ok = typeof n.url === "string" && /^https:\/\/misterdownloadmanager\.com\//.test(n.url);
+    const ok = typeof n.url === "string" && /^https:\/\/zdownloader3\.com\//.test(n.url);
     const link = ok && typeof n.link === "string" && n.link.trim() ? n.link.slice(0, 100) : "";
     return { text: n.text.slice(0, 400), link, url: link ? n.url : "" };
   }
