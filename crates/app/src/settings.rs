@@ -109,6 +109,10 @@ pub struct Settings {
     /// The Categories pane shown, its branches open (All, Unfinished, Finished, Queues),
     /// and the node last shown.
     pub show_categories: bool,
+    /// The JD2 bottom dock in the Downloads tab: "Download Overview" on the left of it,
+    /// "File Properties" on the right (each behind View → its own toggle).
+    pub dock_overview: bool,
+    pub dock_properties: bool,
     pub branches: [bool; 4],
     pub view: Option<crate::app::View>,
     /// View → Dark Mode support (IDM 6.37): follow Windows' dark app mode; off = always light.
@@ -424,6 +428,8 @@ impl Default for Settings {
             window: None,
             window_maximized: false,
             show_categories: true,
+            dock_overview: true,
+            dock_properties: true,
             branches: [true, false, false, false],
             view: None,
             dark_mode_support: true,

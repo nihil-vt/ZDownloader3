@@ -9,6 +9,7 @@ mod clipbatch;
 mod clipboard;
 mod clock;
 mod cnl;
+mod dock;
 mod countries;
 mod crash;
 mod crashui;

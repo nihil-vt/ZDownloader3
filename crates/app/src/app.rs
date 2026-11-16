@@ -353,6 +353,10 @@ enum Cmd {
     AddToQueue(usize),
     RemoveFromQueue,
     ToggleCategories,
+    /// View → Download Overview (the JD2 dock's left panel).
+    ToggleOverview,
+    /// View → File Properties (the JD2 dock's right panel).
+    ToggleProperties,
     /// View → Dark Mode support.
     ToggleDarkMode,
     /// View → Always dark (#60).
@@ -7419,6 +7423,10 @@ impl App {
                 self.dirty = true;
             }
             Cmd::ToggleCategories => self.show_categories = !self.show_categories,
+            Cmd::ToggleOverview => self.settings.dock_overview = !self.settings.dock_overview,
+            Cmd::ToggleProperties => {
+                self.settings.dock_properties = !self.settings.dock_properties
+            }
             Cmd::ChooseLanguage => {
                 if self.lang_picker.is_none() {
                     self.lang_picker = Some(crate::langpick::Picker::new(
@@ -8272,6 +8280,18 @@ impl App {
                     Cmd::ToggleCategories,
                     true,
                     false,
+                ),
+                I(
+                    "Download &overview",
+                    Cmd::ToggleOverview,
+                    true,
+                    self.settings.dock_overview,
+                ),
+                I(
+                    "File propert&ies",
+                    Cmd::ToggleProperties,
+                    true,
+                    self.settings.dock_properties,
                 ),
                 self.arrange_menu(),
                 // i18n: noun: the toolbar (submenu of View with its settings)
@@ -9575,6 +9595,13 @@ impl App {
                 Outcome::Open => {}
             }
         } else {
+        // JD2's bottom dock sits above the strip; the panes above it lose its height.
+        let dock_h = if self.settings.dock_overview || self.settings.dock_properties {
+            crate::dock::DOCK_H
+        } else {
+            0.0
+        };
+        let dock_top = o.y + h - STRIP_H - 4.0 - dock_h;
         // Categories pane.
         let list_left = if self.show_categories {
             let rows = self.tree_rows();
@@ -9585,7 +9612,7 @@ impl App {
             let right = o.x + 6.0 + cat_w;
             let split = winui::rect(egui::Rect::from_min_max(
                 pos2(right, panes_y),
-                pos2(right + 4.0, o.y + h - STRIP_H - 5.0),
+                pos2(right + 4.0, dock_top),
             ));
             let sr = ui.interact(
                 split,
@@ -9650,7 +9677,7 @@ impl App {
                 ui,
                 &mut self.icons,
                 pos2(o.x, panes_y),
-                o.y + h - STRIP_H,
+                dock_top + 5.0,
                 right,
                 &tree,
                 self.tree_keys && free,
@@ -9696,7 +9723,7 @@ impl App {
         let (selected, focus) = self.selection.rows(&ids);
         let outer = egui::Rect::from_min_max(
             pos2(o.x + list_left, panes_y),
-            pos2(o.x + w - 7.0, o.y + h - STRIP_H - 4.0),
+            pos2(o.x + w - 7.0, dock_top),
         );
         self.list.menu_open = self.popup.is_some() || self.open_menu.is_some();
         // Another node shows from its top (its rows aren't the last one's).
@@ -9784,6 +9811,32 @@ impl App {
             && let Some(cmd) = self.empty_state(ui, r.body.unwrap_or(outer))
         {
             chosen = Some((cmd, None));
+        }
+        if dock_h > 0.0 {
+            let items = &self.items;
+            let dock_bottom = o.y + h - STRIP_H - 4.0;
+            let selected_ids = self.selection.ids();
+            let selected_count = selected_ids.len();
+            let selected = selected_ids
+                .first()
+                .and_then(|id| items.iter().find(|it| it.id == *id));
+            if let Some(action) = crate::dock::dock(
+                ui,
+                o,
+                w,
+                dock_top,
+                dock_bottom,
+                items,
+                selected,
+                selected_count,
+                self.settings.dock_overview,
+                self.settings.dock_properties,
+            ) {
+                match action {
+                    crate::dock::Action::HideOverview => self.settings.dock_overview = false,
+                    crate::dock::Action::HideProperties => self.settings.dock_properties = false,
+                }
+            }
         }
         self.status_strip(ui, o, w, h, ids.len());
         if let Some((i, pos)) = r.context {
