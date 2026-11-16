@@ -8288,7 +8288,7 @@ impl App {
                     self.settings.dock_overview,
                 ),
                 I(
-                    "File propert&ies",
+                    "File properti&es",
                     Cmd::ToggleProperties,
                     true,
                     self.settings.dock_properties,

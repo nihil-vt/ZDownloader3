@@ -426,7 +426,8 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
             "st-paused-symbolic.svg", "st-queued-symbolic.svg", "st-seeding-symbolic.svg",
             "tb-add-url-symbolic.svg", "tb-delete-completed-symbolic.svg", "tb-delete.svg",
             "tb-options-symbolic.svg", "tb-resume.svg", "tb-scheduler-symbolic.svg",
-            "tb-stop.svg", "ui-close-symbolic.svg", "ui-maximize-symbolic.svg",
+            "tb-stop.svg", "tb-start-queue.svg", "tb-stop-queue.svg", "tb-stop-all.svg",
+            "ui-close-symbolic.svg", "ui-maximize-symbolic.svg",
             "ui-minimize-symbolic.svg", "ui-restore-symbolic.svg", "ui-to-tray-symbolic.png"];
         24: ["cat-all-symbolic.svg", "cat-compressed.svg", "cat-documents.svg",
             "cat-finished-symbolic.svg", "cat-folder-open-symbolic.svg", "cat-folder-symbolic.svg",
