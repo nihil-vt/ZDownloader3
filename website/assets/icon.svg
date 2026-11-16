@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ZDownloader3">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1f2a44"/>
-      <stop offset="1" stop-color="#2f3a56"/>
+      <stop offset="0" stop-color="#2a0f0a"/><stop offset="0.5" stop-color="#57200f"/>
+      <stop offset="1" stop-color="#16090a"/>
     </linearGradient>
     <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0.55"/>
     </linearGradient>
-    <linearGradient id="zdrop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffd166"/>
-      <stop offset="1" stop-color="#ffb703"/>
+    <linearGradient id="zdrop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="0.5" stop-color="#e8b23e"/>
+      <stop offset="1" stop-color="#c9481f"/>
     </linearGradient>
   </defs>
 

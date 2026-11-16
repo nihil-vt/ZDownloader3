@@ -1,41 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-label="ZDownloader3 — JDownloader2-shaped downloads for the Linux desktop">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0f1730"/>
-      <stop offset="1" stop-color="#23304e"/>
+      <stop offset="0" stop-color="#1a0e0a"/>
+      <stop offset="1" stop-color="#0d0807"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.7" cy="0.55" r="0.6">
-      <stop offset="0" stop-color="#ffd166" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#ffd166" stop-opacity="0"/>
+    <radialGradient id="glow-red" cx="0" cy="1" r="0.8">
+      <stop offset="0" stop-color="#8a2414" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#8a2414" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="zdrop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffd166"/>
-      <stop offset="1" stop-color="#ffb703"/>
+    <radialGradient id="glow-gold" cx="0.85" cy="0" r="0.7">
+      <stop offset="0" stop-color="#e8b23e" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e8b23e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="zdrop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="0.5" stop-color="#e8b23e"/>
+      <stop offset="1" stop-color="#c9481f"/>
     </linearGradient>
     <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#e8c88a" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="mark-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a1410"/>
+      <stop offset="0.5" stop-color="#57200f"/>
+      <stop offset="1" stop-color="#1a0e0a"/>
     </linearGradient>
   </defs>
 
   <rect width="1280" height="320" fill="url(#sky)"/>
-  <rect width="1280" height="320" fill="url(#glow)"/>
+  <rect width="1280" height="320" fill="url(#glow-red)"/>
+  <rect width="1280" height="320" fill="url(#glow-gold)"/>
 
-  <!-- fork mark, large -->
+  <!-- fork mark -->
   <g transform="translate(56, 56)">
-    <path fill="#1f2a44" d="M28 0h152a16 16 0 0 1 16 16v152a16 16 0 0 1-16 16H28a16 16 0 0 1-16-16V16A16 16 0 0 1 28 0z"/>
-    <path fill="url(#badge)" d="M104 42 L150 96 L128 96 L128 150 L104 128 L80 150 L80 96 L58 96 Z" opacity="0.9"/>
+    <rect x="0" y="0" width="208" height="208" rx="24" fill="url(#mark-bg)" stroke="#3a2418" stroke-width="2"/>
+    <path fill="url(#badge)" d="M104 42 L150 96 L128 96 L128 150 L104 128 L80 150 L80 96 L58 96 Z" opacity="0.95"/>
     <path fill="url(#zdrop)" d="M76 66 L148 66 L148 76 L110 76 L148 112 L76 112 L76 103 L111 103 L76 103 Z" transform="translate(0,-4)"/>
   </g>
 
-  <!-- wordmark -->
-  <text x="290" y="128" fill="#f8f9fa" font-family="Inter, system-ui, sans-serif" font-size="76" font-weight="800" letter-spacing="-2">ZDownloader<tspan fill="#ffd166">3</tspan></text>
-  <text x="290" y="172" fill="#c7cdd8" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500">JDownloader2-driven downloads, native to the Linux desktop.</text>
+  <!-- wordmark with subscript 3 -->
+  <text x="290" y="140" fill="#f5efe8" font-family="Georgia, 'Iowan Old Style', serif" font-size="80" font-weight="700" letter-spacing="-2">ZDownloader<tspan baseline-shift="sub" font-size="0.55em" fill="#e8b23e">3</tspan></text>
+  <text x="290" y="184" fill="#c8beb2" font-family="Georgia, serif" font-size="20" font-weight="400">JDownloader2-shaped downloads, native to the Linux desktop.</text>
 
   <!-- callouts -->
-  <g font-family="Inter, system-ui, sans-serif" font-size="20" fill="#ffe3a1">
-    <text x="290" y="232">▼  fast engine</text>
-    <text x="490" y="232">▼  JD2 link grabber</text>
-    <text x="740" y="232">▼  packagizer rules</text>
+  <g font-family="Georgia, serif" font-size="19" font-weight="600" fill="#ffe27a">
+    <text x="290" y="240">▼  fast engine</text>
+    <text x="490" y="240">▼  JD2 link grabber</text>
+    <text x="740" y="240">▼  packagizer rules</text>
   </g>
 </svg>
