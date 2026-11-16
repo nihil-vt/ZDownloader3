@@ -26,7 +26,7 @@ main {
 img.brand { display: block; width: 100%; height: auto; margin: 0 0 1.5rem; }
 
 h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; margin: 1.5rem 0 0.25rem; color: var(--ink); }
-h1.product sub { font-size: 0.6em; }
+h1.product sup { font-size: 0.55em; vertical-align: super; color: var(--accent); }
 h2 { font-size: 1.15rem; font-weight: 700; margin: 2.5rem 0 0.5rem; color: var(--ink); }
 h2::before { content: "## "; color: var(--accent); }
 h3 { font-size: 0.95rem; font-weight: 700; margin: 1.75rem 0 0.4rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }

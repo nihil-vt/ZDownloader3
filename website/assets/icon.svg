@@ -6,5 +6,5 @@
     <path d="M12.5 22.5 Q26 32 39.5 22.5"/>
     <path d="M12.5 41.5 Q26 32 39.5 41.5"/>
   </g>
-  <text x="43" y="20" font-family="Georgia, 'Iowan Old Style', serif" font-size="16" font-weight="900" fill="currentColor" stroke="none">3</text>
+  <text x="42" y="14" font-family="Georgia, 'Iowan Old Style', serif" font-size="15" font-weight="900" fill="currentColor" stroke="none" baseline-shift="super">3</text>
 </svg>
