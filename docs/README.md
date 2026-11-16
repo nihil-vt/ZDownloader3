@@ -1,8 +1,6 @@
 # ZDownloader3 — documentation
 
-ZDownloader3 (MDM) is a free download manager for Windows and Linux (and, still experimental, macOS). It is laid out the way Internet Download Manager users expect: a toolbar, categories on the left, one list of downloads and a browser extension that hands downloads to it.
-
-These pages explain each part of the program. The tutorials walk through the things people do most, one task each.
+This is the fork of Mister Download Manager (GPL-3.0). These pages explain each part of the program. The tutorials walk through the things people do most, one task each. Most pages describe the upstream program unchanged; the fork-specific differences are called out in [`../NOTICE.md`](../NOTICE.md) and `fork-roadmap.md`.
 
 ![The main window](images/main-light.webp)
 
@@ -39,7 +37,7 @@ These pages explain each part of the program. The tutorials walk through the thi
 ## Settings
 
 - **[Options](options.md)** — every page of the Options window.
-- **[Themes](themes.md)** — the built-in looks (Classic, Native, High contrast, Metro, Adwaita, Breeze, Luna, Aero, Aqua, Emerald), and how to make your own in a text file.
+- **[Themes](themes.md)** — the built-in looks (Classic, Native, High contrast, JDownloader2, Metro, Adwaita, Breeze, Luna, Aero, Aqua, Emerald), and how to make your own in a text file.
 - **[Languages](languages.md)** — the 86 interface languages, numbers and dates, right-to-left layouts, and how to help translate.
 - **[Portable mode](portable.md)** — run MDM from a folder or a USB stick without installing it.
 - **[Keyboard shortcuts](keyboard-shortcuts.md)** — every key the main window answers, and screen readers.
