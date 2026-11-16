@@ -2234,7 +2234,7 @@ pub fn categories(
     keys: bool,
 ) -> Option<TreeEvent> {
     let p = ui.painter().clone();
-    let y0 = o.y + pane_top() + MENU_H; // frame top
+    let y0 = o.y; // the pane already sits under the toolbar and the tab strip
     // Laid out in English (frame x 6 .. right); every part made where it is on screen — the pane
     // on the right in RTL, its tree indenting from the right.
     let frame = winui::rect(Rect::from_min_max(

@@ -14,10 +14,10 @@ use std::sync::{Arc, Mutex};
 use egui::{Pos2, Rect, Ui, pos2, vec2};
 use url::Url;
 
-use crate::dialogs::{Outcome, window};
+use crate::dialogs::Outcome;
 use crate::model::{Category, category_folder};
 use crate::transfer::Imported;
-use crate::winui::{self, ButtonKind, LIGHT_BG, LIGHT_TEXT, fill_l as fill, r, text};
+use crate::winui::{self, ButtonKind, LIGHT_TEXT, fill_l as fill, r, text};
 
 const ROW: f32 = 18.0;
 /// The top of the window's last row of buttons (Add to queue, Start, Cancel).
@@ -461,7 +461,7 @@ impl Grabber {
 
     /// The categories changed (Options, while the window is open): each link's again, and the
     /// packages' defaults that follow them.
-    fn follow_categories(&mut self) {
+    pub(crate) fn follow_categories(&mut self) {
         let now = crate::model::categories_changed();
         if now == self.categories {
             return;
@@ -619,7 +619,7 @@ impl Grabber {
     }
 
     /// Answers that came: the server's name and size, or why the link is no good.
-    fn take_answers(&mut self) {
+    pub(crate) fn take_answers(&mut self) {
         let mut moved = Vec::new();
         for l in &mut self.links {
             let Some(slot) = &l.check else { continue };
@@ -672,7 +672,7 @@ impl Grabber {
         }
     }
 
-    fn picked(&self) -> Vec<Picked> {
+    pub(crate) fn picked(&self) -> Vec<Picked> {
         // Each package's ticked links, in one pass over the links.
         let mut by_package: Vec<Vec<(Imported, String, Option<u64>)>> =
             std::iter::repeat_with(Vec::new)
@@ -699,29 +699,8 @@ impl Grabber {
 
     /// `Done((start, packages))`: Start (`true`) or Add to queue (`false`) with the ticked
     /// links of each package.
-    pub fn show(&mut self, ctx: &egui::Context) -> Outcome<(bool, Vec<Picked>)> {
-        self.follow_categories();
-        self.take_answers();
-        if self.links.iter().any(|l| l.state == LinkState::Checking) {
-            ctx.request_repaint_after(std::time::Duration::from_millis(250));
-        }
-        let out = window(
-            ctx,
-            "grabber",
-            "Link grabber",
-            [640.0, BUTTONS_Y + 30.0],
-            true,
-            LIGHT_BG(),
-            |ui, o| self.body(ui, o),
-        );
-        match out {
-            Outcome::Open => Outcome::Open,
-            Outcome::Closed => Outcome::Closed,
-            Outcome::Done(start) => Outcome::Done((start, self.picked())),
-        }
-    }
 
-    fn body(&mut self, ui: &mut Ui, o: Pos2) -> Outcome<bool> {
+    pub(crate) fn body(&mut self, ui: &mut Ui, o: Pos2) -> Outcome<bool> {
         let p = ui.painter().clone();
         // Ctrl+V: the addresses in the pasted text, as Import finds them in a file.
         let pasted: Option<String> = ui.input(|i| {

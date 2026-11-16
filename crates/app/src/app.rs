@@ -1013,6 +1013,15 @@ enum Pane {
     List,
 }
 
+/// The main window's tabs, the JD2 pair: Downloads and Linkgrabber.
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum MainTab {
+    Downloads,
+    Linkgrabber,
+}
+/// The tab strip's height, directly under the toolbar.
+const TAB_H: f32 = 21.0;
+
 /// Where Tab (Shift+Tab: `back`) takes the keys from `from` (`None`: nothing had them, after a
 /// click on the toolbar or the strip), round; the tree left out while it is hidden.
 fn tab_to(from: Option<Pane>, tree_shown: bool, back: bool) -> Pane {
@@ -1049,6 +1058,7 @@ pub struct App {
     selection: crate::selection::Selection,
     view: View,
     show_categories: bool,
+    tab: MainTab,
     /// The node the list was last drawn for (a new one starts at the top).
     list_view: View,
     /// The download Move/Rename's dialog is for (winui::start_pick answers later).
@@ -1871,6 +1881,7 @@ impl App {
             options: None,
             category_dlg: None,
             category_for_file_info: false,
+            tab: MainTab::Downloads,
             grabber: None,
             link_parts: Default::default(),
             assistive_checked: None,
@@ -2125,6 +2136,30 @@ impl App {
             Some(r) => format!("{left}, {r}"),
             None => left.clone(),
         };
+        // JD2's premium bar: one chip per enabled debrid account, at the far left, before the
+        // count line; green dot when its state is known, grey otherwise. Hidden entirely when no
+        // account is configured (an empty bar would only say "nothing premium" at you).
+        let mut chips_w = 0.0f32;
+        for a in self.settings.debrid_accounts.iter().filter(|a| a.enabled) {
+            let name = a.service.name();
+            let (dot, tip) = if a.state.is_empty() {
+                (winui::MUTED(), a.service.name().to_owned())
+            } else {
+                (winui::SUCCESS(), format!("{} — {} ({})", name, a.user, a.state))
+            };
+            let dot_x = o.x + 8.0 + chips_w;
+            p.circle_filled(pos2(dot_x + 4.0, baseline - 3.5), 3.5, dot);
+            // The chip's text with a hover tip (JD2 shows the account's state there).
+            let chip = ui.interact(
+                egui::Rect::from_min_max(pos2(dot_x, top), pos2(dot_x + 10.0 + winui::text_width(p, name), o.y + h)),
+                egui::Id::unique(("chip", name)),
+                egui::Sense::hover(),
+            );
+            let _ = chip.on_hover_text(tip);
+            winui::text(p, dot_x + 10.0, baseline, name, winui::MUTED());
+            chips_w += 10.0 + winui::text_width(p, name) + 12.0;
+        }
+        let left_x = o.x + 8.0 + chips_w;
         winui::expose(
             &strip,
             egui::Role::Status,
@@ -2132,16 +2167,7 @@ impl App {
             true,
             None,
         );
-        winui::fit(
-            ui,
-            p,
-            o.x + 8.0,
-            baseline,
-            &left,
-            winui::MUTED(),
-            o.x + w / 2.0,
-            "strip-left",
-        );
+        winui::fit(ui, p, left_x, baseline, &left, winui::MUTED(), o.x + w / 2.0, "strip-left");
         if let Some(right) = right {
             winui::text_right(p, o.x + w - 10.0, baseline, &right, winui::MUTED());
         }
@@ -6446,7 +6472,6 @@ impl App {
                 // i18n: Link grabber: where the links came from: the clipboard (Tasks → Add batch download from clipboard)
                 let source = crate::i18n::t("Clipboard").to_owned();
                 self.show_import(found, source);
-                dialogs::raise(ctx, dialogs::dialog_viewport("grabber"));
                 return;
             }
             crate::clipbatch::Clip::Pattern(p) => {
@@ -7719,7 +7744,6 @@ impl App {
             Cmd::Import { ef2 } => self.import(ef2),
             Cmd::LinkGrabber => {
                 self.show_import(Vec::new(), String::new());
-                dialogs::raise(ctx, dialogs::dialog_viewport("grabber"));
             }
             Cmd::Redownload => {
                 if let Some(id) = target
@@ -9471,6 +9495,86 @@ impl App {
             None => {}
         }
 
+        // The JD2 tab strip: Downloads / Linkgrabber. Flat, the active one underlined in the
+        // accent colour, directly under the toolbar.
+        let tabs_y = o.y + chrome::MENU_H + chrome::pane_top();
+        let panes_y = tabs_y + TAB_H;
+        {
+            let p = ui.painter().clone();
+            p.rect_filled(
+                egui::Rect::from_min_max(pos2(o.x, tabs_y), pos2(o.x + w, tabs_y + TAB_H)),
+                0.0,
+                crate::winui::LIGHT_BG(),
+            );
+            let mut x = o.x + 12.0;
+            for (tab, label) in [
+                (MainTab::Downloads, "Downloads"),
+                (MainTab::Linkgrabber, "Linkgrabber"),
+            ] {
+                let label = crate::i18n::mark(label);
+                let width = winui::text_width(&p, label) + 30.0;
+                let rc = egui::Rect::from_min_max(pos2(x, tabs_y), pos2(x + width, tabs_y + TAB_H));
+                let resp = ui
+                    .interact(rc, egui::Id::unique(("tab", label)), egui::Sense::click())
+                    .on_hover_cursor(egui::CursorIcon::PointingHand);
+                if resp.clicked() {
+                    self.tab = tab;
+                }
+                let active = self.tab == tab;
+                winui::text(
+                    &p,
+                    x + 15.0,
+                    tabs_y + TAB_H - 8.0,
+                    label,
+                    if active { crate::winui::LIGHT_TEXT() } else { winui::MUTED() },
+                );
+                if active {
+                    p.rect_filled(
+                        egui::Rect::from_min_max(pos2(x, tabs_y + TAB_H - 2.0), pos2(x + width, tabs_y + TAB_H)),
+                        0.0,
+                        winui::accent(),
+                    );
+                }
+                x += width + 2.0;
+            }
+        }
+        if self.tab == MainTab::Linkgrabber {
+            // The Linkgrabber pane: the grabber drawn inline, centred in the pane (its canvas
+            // is fixed, as the grabber window's; JD2's linkgrabber tab is one view, too).
+            let pane = egui::Rect::from_min_max(
+                pos2(o.x + 6.0, panes_y + 2.0),
+                pos2(o.x + w - 7.0, o.y + h - STRIP_H - 3.0),
+            );
+            let gw = 640.0f32;
+            let gx = pane.min.x + ((pane.width() - gw).max(0.0)) / 2.0;
+            let grabber = self.grabber.get_or_insert_with(|| {
+                crate::grabber::Grabber::new(
+                    self.downloads.clone(),
+                    self.settings.category_dirs.clone(),
+                    self.settings.grabber_hide_pages,
+                    self.settings.extract_delete,
+                )
+            });
+            grabber.follow_categories();
+            grabber.take_answers();
+            if grabber.links.iter().any(|l| l.state == crate::grabber::LinkState::Checking) {
+                ctx.request_repaint_after(std::time::Duration::from_millis(250));
+            }
+            let outcome = grabber.body(ui, pos2(gx, pane.min.y + 2.0));
+            match outcome {
+                Outcome::Done(start) => {
+                    let picked = grabber.picked();
+                    self.grabber = None;
+                    self.add_grabbed(start, picked);
+                    self.tab = MainTab::Downloads;
+                }
+                Outcome::Closed => {
+                    self.grabber = None;
+                    self.tab = MainTab::Downloads;
+                }
+                Outcome::Open => {}
+            }
+        } else {
         // Categories pane.
         let list_left = if self.show_categories {
             let rows = self.tree_rows();
@@ -9480,7 +9584,7 @@ impl App {
             let cat_w = (self.settings.categories_width as f32).clamp(100.0, max_w);
             let right = o.x + 6.0 + cat_w;
             let split = winui::rect(egui::Rect::from_min_max(
-                pos2(right, o.y + chrome::MENU_H + chrome::pane_top()),
+                pos2(right, panes_y),
                 pos2(right + 4.0, o.y + h - STRIP_H - 5.0),
             ));
             let sr = ui.interact(
@@ -9545,7 +9649,7 @@ impl App {
             if let Some(ev) = chrome::categories(
                 ui,
                 &mut self.icons,
-                o,
+                pos2(o.x, panes_y),
                 o.y + h - STRIP_H,
                 right,
                 &tree,
@@ -9591,7 +9695,7 @@ impl App {
         self.selection.retain(&ids);
         let (selected, focus) = self.selection.rows(&ids);
         let outer = egui::Rect::from_min_max(
-            pos2(o.x + list_left, o.y + chrome::MENU_H + chrome::pane_top()),
+            pos2(o.x + list_left, panes_y),
             pos2(o.x + w - 7.0, o.y + h - STRIP_H - 4.0),
         );
         self.list.menu_open = self.popup.is_some() || self.open_menu.is_some();
@@ -9767,6 +9871,7 @@ impl App {
         }
         if let Some((c, target)) = chosen {
             self.run(c, target, &ctx);
+        }
         }
     }
 
@@ -10477,6 +10582,7 @@ impl App {
     /// the list already go unticked under "Already in the list" (imported twice, they were
     /// doubled).
     fn show_import(&mut self, found: Vec<crate::transfer::Imported>, source: String) {
+        self.tab = MainTab::Linkgrabber;
         let known: std::collections::HashSet<String> =
             self.items.iter().map(|i| i.url.to_string()).collect();
         let (downloads, s) = (&self.downloads, &self.settings);
@@ -11017,16 +11123,6 @@ impl App {
             }
         }
         self.grabber_checks(ctx);
-        if let Some(d) = &mut self.grabber {
-            match d.show(ctx) {
-                Outcome::Open => {}
-                Outcome::Closed => self.grabber = None,
-                Outcome::Done((start, packages)) => {
-                    self.grabber = None;
-                    self.add_grabbed(start, packages);
-                }
-            }
-        }
         // Click'n'Load's question about a site; closing it is "Not now".
         let answer = self.cnl.ask.as_mut().and_then(|d| match d.show(ctx) {
             Outcome::Open => None,
