@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Icelandic: tools/installer/languages.py
+﻿; zDownloader³'s installer in Icelandic: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Afskrái %1.
 
 [CustomMessages]
 TaskBrowser=Setja upp samþættingu við &vafra (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Opna .&torrent skrár og segultengla með ZDownloader3
-TaskStartup=Ræsa ZDownloader3 þegar &Windows ræsir
+TaskTorrents=Opna .&torrent skrár og segultengla með zDownloader³
+TaskStartup=Ræsa zDownloader³ þegar &Windows ræsir
 TaskGroupOther=Annað:
-Launch=Ræsa ZDownloader3
+Launch=Ræsa zDownloader³
 KeepData=Eyða líka niðurhalslistanum þínum og stillingum?%n%nNiðurhalaðar skrár þínar verða ekki snertar hvort sem er.

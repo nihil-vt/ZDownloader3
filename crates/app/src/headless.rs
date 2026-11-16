@@ -66,7 +66,7 @@ pub fn main(args: Vec<String>) -> ExitCode {
     }
     let Some(_instance) = mdm_ipc::instance_lock() else {
         eprintln!(
-            "Another ZDownloader3 uses the data folder {}.",
+            "Another zDownloader³ uses the data folder {}.",
             data.display()
         );
         return ExitCode::FAILURE;
@@ -76,7 +76,7 @@ pub fn main(args: Vec<String>) -> ExitCode {
     // the one links added by hand go with (#668).
     crate::defaultbrowser::start();
     tracing::info!(
-        "ZDownloader3 {} ({}) starting without a window",
+        "zDownloader³ {} ({}) starting without a window",
         crate::help::VERSION,
         crate::help::COMMIT
     );

@@ -447,7 +447,7 @@ impl Native {
         };
         add(
             &menu,
-            crate::i18n::mark("Open ZDownloader3"),
+            crate::i18n::mark("Open zDownloader³"),
             TrayCmd::Show,
         );
         menu.append(&PredefinedMenuItem::separator()).ok();

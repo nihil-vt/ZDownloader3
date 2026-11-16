@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Menyerahkan unduhan dari browser ke ZDownloader3."
+    "message": "Menyerahkan unduhan dari browser ke zDownloader³."
   },
   "menu": {
-    "message": "Unduh dengan ZDownloader3"
+    "message": "Unduh dengan zDownloader³"
   },
   "video_download": {
     "message": "Unduh video"
@@ -30,19 +30,19 @@
     "message": "Pengaturan tombol..."
   },
   "video_sent": {
-    "message": "Dikirim ke ZDownloader3"
+    "message": "Dikirim ke zDownloader³"
   },
   "menu_selected": {
-    "message": "Unduh tautan yang dipilih dengan ZDownloader3"
+    "message": "Unduh tautan yang dipilih dengan zDownloader³"
   },
   "menu_all": {
-    "message": "Unduh semua tautan dengan ZDownloader3"
+    "message": "Unduh semua tautan dengan zDownloader³"
   },
   "status_connected": {
-    "message": "Terhubung ke ZDownloader3"
+    "message": "Terhubung ke zDownloader³"
   },
   "status_connected_version": {
-    "message": "Terhubung ke ZDownloader3 $version$",
+    "message": "Terhubung ke zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Dijeda: unduhan tetap di browser"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 tidak terinstal, atau integrasi browsernya tidak diatur"
+    "message": "zDownloader³ tidak terinstal, atau integrasi browsernya tidak diatur"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 tidak menerima salinan ekstensi ini"
+    "message": "zDownloader³ tidak menerima salinan ekstensi ini"
   },
   "status_not_running": {
-    "message": "ZDownloader3 tidak dimulai tepat waktu"
+    "message": "zDownloader³ tidak dimulai tepat waktu"
   },
   "status_host_failed": {
-    "message": "Koneksi ke ZDownloader3 gagal"
+    "message": "Koneksi ke zDownloader³ gagal"
   },
   "status_too_large": {
     "message": "Detail unduhan ini terlalu besar untuk diserahkan"
   },
   "status_update_app": {
-    "message": "Perbarui ZDownloader3 untuk menggunakan semua yang ditawarkan ekstensi ini"
+    "message": "Perbarui zDownloader³ untuk menggunakan semua yang ditawarkan ekstensi ini"
   },
   "popup_take": {
     "message": "Ambil unduhan dari browser ini"
@@ -78,10 +78,10 @@
     "message": "Kirim unduhan melalui proxy atau ekstensi VPN browser ini"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 kemudian mengunduh melalui proxy yang sama dengan browser ini. Browser meminta Anda sekali untuk mengizinkannya; mematikan ini akan membatalkannya."
+    "message": "zDownloader³ kemudian mengunduh melalui proxy yang sama dengan browser ini. Browser meminta Anda sekali untuk mengizinkannya; mematikan ini akan membatalkannya."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 kemudian mengunduh melalui proxy yang sama dengan browser ini. Saat opsi ini nonaktif, ekstensi tidak membaca proxy browser."
+    "message": "zDownloader³ kemudian mengunduh melalui proxy yang sama dengan browser ini. Saat opsi ini nonaktif, ekstensi tidak membaca proxy browser."
   },
   "popup_exclude_site": {
     "message": "Jangan pernah mengambil unduhan dari $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Buka ZDownloader3"
+    "message": "Buka zDownloader³"
   },
   "popup_options": {
     "message": "Opsi..."
@@ -150,7 +150,7 @@
     "message": "Integrasi browser lanjutan tidak aktif di Opsi → Umum."
   },
   "declined_torrents": {
-    "message": "Ini adalah torrent, dan Buka tautan magnet dan file .torrent dengan ZDownloader3 tidak aktif di pengaturan Torrent."
+    "message": "Ini adalah torrent, dan Buka tautan magnet dan file .torrent dengan zDownloader³ tidak aktif di pengaturan Torrent."
   },
   "declined_site_access": {
     "message": "Ekstensi tidak diizinkan untuk membaca situs ini (akses situs browser)."
@@ -195,16 +195,16 @@
     "message": "Tidak ada video untuk diunduh di sini"
   },
   "video_playlist": {
-    "message": "Daftar video: pilih di ZDownloader3"
+    "message": "Daftar video: pilih di zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 memerlukan yt-dlp untuk video ini"
+    "message": "zDownloader³ memerlukan yt-dlp untuk video ini"
   },
   "video_too_long": {
     "message": "Pencarian memakan waktu terlalu lama"
   },
   "video_busy": {
-    "message": "ZDownloader3 sedang sibuk dengan video lain"
+    "message": "zDownloader³ sedang sibuk dengan video lain"
   },
   "video_queued": {
     "message": "Ditambahkan ke antrean"
@@ -228,7 +228,7 @@
     "message": "Komputer ini"
   },
   "popup_send_remote": {
-    "message": "ZDownloader3 lain (server)"
+    "message": "zDownloader³ lain (server)"
   },
   "popup_remote_code": {
     "message": "Kode pemasangan"
@@ -324,7 +324,7 @@
     "message": "Semua kualitas dan subtitel..."
   },
   "video_failed": {
-    "message": "ZDownloader3 tidak terinstal atau tidak dimulai"
+    "message": "zDownloader³ tidak terinstal atau tidak dimulai"
   },
   "video_download_best": {
     "message": "Unduh terbaik"

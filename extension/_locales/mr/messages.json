@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "ब्राउझरवरून ZDownloader3 ला डाउनलोड्स देतो."
+    "message": "ब्राउझरवरून zDownloader³ ला डाउनलोड्स देतो."
   },
   "menu": {
-    "message": "ZDownloader3 सह डाउनलोड करा"
+    "message": "zDownloader³ सह डाउनलोड करा"
   },
   "video_download": {
     "message": "व्हिडिओ डाउनलोड करा"
@@ -30,19 +30,19 @@
     "message": "बटण सेटिंग्ज..."
   },
   "video_sent": {
-    "message": "ZDownloader3 ला पाठवले"
+    "message": "zDownloader³ ला पाठवले"
   },
   "menu_selected": {
-    "message": "ZDownloader3 सह निवडलेल्या लिंक्स डाउनलोड करा"
+    "message": "zDownloader³ सह निवडलेल्या लिंक्स डाउनलोड करा"
   },
   "menu_all": {
-    "message": "ZDownloader3 सह सर्व लिंक्स डाउनलोड करा"
+    "message": "zDownloader³ सह सर्व लिंक्स डाउनलोड करा"
   },
   "status_connected": {
-    "message": "ZDownloader3 शी कनेक्ट केले"
+    "message": "zDownloader³ शी कनेक्ट केले"
   },
   "status_connected_version": {
-    "message": "ZDownloader3 $version$ शी कनेक्ट केले",
+    "message": "zDownloader³ $version$ शी कनेक्ट केले",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "विरामित: डाउनलोड ब्राउझरमध्येच राहतात"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 स्थापित केलेले नाही, किंवा त्याचे ब्राउझर एकत्रीकरण सेट केलेले नाही"
+    "message": "zDownloader³ स्थापित केलेले नाही, किंवा त्याचे ब्राउझर एकत्रीकरण सेट केलेले नाही"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 एक्स्टेंशनची ही प्रत स्वीकारत नाही"
+    "message": "zDownloader³ एक्स्टेंशनची ही प्रत स्वीकारत नाही"
   },
   "status_not_running": {
-    "message": "ZDownloader3 वेळेत सुरू झाले नाही"
+    "message": "zDownloader³ वेळेत सुरू झाले नाही"
   },
   "status_host_failed": {
-    "message": "ZDownloader3 शी कनेक्शन अयशस्वी झाले"
+    "message": "zDownloader³ शी कनेक्शन अयशस्वी झाले"
   },
   "status_too_large": {
     "message": "या डाउनलोडचे तपशील हस्तांतरित करण्यासाठी खूप मोठे होते"
   },
   "status_update_app": {
-    "message": "या एक्स्टेंशनची सर्व वैशिष्ट्ये वापरण्यासाठी ZDownloader3 अपडेट करा"
+    "message": "या एक्स्टेंशनची सर्व वैशिष्ट्ये वापरण्यासाठी zDownloader³ अपडेट करा"
   },
   "popup_take": {
     "message": "या ब्राउझरमधील डाउनलोड घ्या"
@@ -78,10 +78,10 @@
     "message": "या ब्राउझरच्या प्रॉक्सी किंवा VPN एक्स्टेंशनद्वारे डाउनलोड पाठवा"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 नंतर या ब्राउझरसारख्याच प्रॉक्सीद्वारे डाउनलोड करते. ब्राउझर तुम्हाला एकदा परवानगी देण्यास सांगेल; हे बंद केल्यास ती परवानगी रद्द होते."
+    "message": "zDownloader³ नंतर या ब्राउझरसारख्याच प्रॉक्सीद्वारे डाउनलोड करते. ब्राउझर तुम्हाला एकदा परवानगी देण्यास सांगेल; हे बंद केल्यास ती परवानगी रद्द होते."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 नंतर या ब्राउझरच्या समान प्रॉक्सीद्वारे डाउनलोड करते. हे बंद असताना, एक्स्टेंशन ब्राउझरची प्रॉक्सी वाचत नाही."
+    "message": "zDownloader³ नंतर या ब्राउझरच्या समान प्रॉक्सीद्वारे डाउनलोड करते. हे बंद असताना, एक्स्टेंशन ब्राउझरची प्रॉक्सी वाचत नाही."
   },
   "popup_exclude_site": {
     "message": "$site$ वरील डाउनलोड कधीही घेऊ नका",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "ZDownloader3 उघडा"
+    "message": "zDownloader³ उघडा"
   },
   "popup_options": {
     "message": "पर्याय..."
@@ -150,7 +150,7 @@
     "message": "पर्याय → सामान्य मध्ये 'प्रगत ब्राउझर एकत्रीकरण वापरा' बंद आहे."
   },
   "declined_torrents": {
-    "message": "ही एक टॉरेंट फाइल आहे आणि टॉरेंट सेटिंग्जमध्ये ZDownloader3 सह मॅग्नेट लिंक्स आणि .torrent फाइल्स उघडा हे बंद आहे."
+    "message": "ही एक टॉरेंट फाइल आहे आणि टॉरेंट सेटिंग्जमध्ये zDownloader³ सह मॅग्नेट लिंक्स आणि .torrent फाइल्स उघडा हे बंद आहे."
   },
   "declined_site_access": {
     "message": "या साइटला वाचण्याची विस्ताराला परवानगी नाही (ब्राउझरची साइट ॲक्सेस)."
@@ -195,16 +195,16 @@
     "message": "येथे डाउनलोड करण्यासाठी व्हिडिओ नाही"
   },
   "video_playlist": {
-    "message": "व्हिडिओंची सूची: ते ZDownloader3 मध्ये निवडा"
+    "message": "व्हिडिओंची सूची: ते zDownloader³ मध्ये निवडा"
   },
   "video_no_ytdlp": {
-    "message": "या व्हिडिओसाठी ZDownloader3 ला yt-dlp आवश्यक आहे"
+    "message": "या व्हिडिओसाठी zDownloader³ ला yt-dlp आवश्यक आहे"
   },
   "video_too_long": {
     "message": "शोधण्यास खूप वेळ लागला"
   },
   "video_busy": {
-    "message": "ZDownloader3 इतर व्हिडिओंमध्ये व्यस्त आहे"
+    "message": "zDownloader³ इतर व्हिडिओंमध्ये व्यस्त आहे"
   },
   "video_queued": {
     "message": "रांगेत जोडले"
@@ -228,7 +228,7 @@
     "message": "हे संगणक"
   },
   "popup_send_remote": {
-    "message": "दुसरा ZDownloader3 (एक सर्व्हर)"
+    "message": "दुसरा zDownloader³ (एक सर्व्हर)"
   },
   "popup_remote_code": {
     "message": "पेअरिंग कोड"
@@ -324,7 +324,7 @@
     "message": "सर्व गुणवत्ता स्तर आणि उपशीर्षके..."
   },
   "video_failed": {
-    "message": "ZDownloader3 स्थापित केलेले नाही किंवा सुरू झाले नाही"
+    "message": "zDownloader³ स्थापित केलेले नाही किंवा सुरू झाले नाही"
   },
   "video_download_best": {
     "message": "सर्वोत्तम डाउनलोड करा"

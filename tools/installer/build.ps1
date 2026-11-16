@@ -1,10 +1,10 @@
 # Builds the Windows release for one processor into target/dist/ (-Arch x64, the default; arm64;
 # x86). The x64 files keep the names they had before there were others, so every copy installed
 # before finds its update (crates/tools/src/update.rs Install::assets_on):
-#   ZDownloader3-<version>-setup.exe        the installer (tools/installer/mdm.iss)
-#   ZDownloader3-<version>-portable.zip     the same programs with a `data` folder (portable
+#   zDownloader³-<version>-setup.exe        the installer (tools/installer/mdm.iss)
+#   zDownloader³-<version>-portable.zip     the same programs with a `data` folder (portable
 #                                                    mode: settings beside the exe, no registry)
-#   ZDownloader3-<version>-x64.zip          the same programs, data in %APPDATA% as installed
+#   zDownloader³-<version>-x64.zip          the same programs, data in %APPDATA% as installed
 #   ...-setup-arm64.exe, ...-portable-arm64.zip, ...-arm64.zip   Windows on ARM (-Arch arm64)
 #   ...-setup-x86.exe, ...-portable-x86.zip, ...-x86.zip         32-bit Windows (-Arch x86)
 #   SHA256SUMS.txt
@@ -77,7 +77,7 @@ function New-Zip([string]$name, [bool]$portable) {
   if ($portable) {
     New-Item -ItemType Directory -Force (Join-Path $stage "data") | Out-Null
     Set-Content -Encoding utf8 (Join-Path $stage "data\README.txt") @"
-This folder makes ZDownloader3 portable: the download list and settings are kept
+This folder makes zDownloader³ portable: the download list and settings are kept
 here instead of in your profile, and nothing is written to the registry. Delete the folder to
 use the profile instead. Browser integration needs the installer.
 "@
@@ -107,11 +107,11 @@ use the profile instead. Browser integration needs the installer.
   }
 }
 Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
-New-Zip "ZDownloader3-$version-portable$suffix" $true
-New-Zip "ZDownloader3-$version-$Arch" $false
+New-Zip "zDownloader³-$version-portable$suffix" $true
+New-Zip "zDownloader³-$version-$Arch" $false
 Remove-Item -LiteralPath (Join-Path $dist "stage") -Recurse -Force
 
-$files = Get-ChildItem $dist -File | Where-Object { $_.Name -like "ZDownloader3-$version-*" }
+$files = Get-ChildItem $dist -File | Where-Object { $_.Name -like "zDownloader³-$version-*" }
 $files | ForEach-Object { "{0}  {1}" -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower(), $_.Name } |
   Set-Content -Encoding ascii (Join-Path $dist "SHA256SUMS.txt")
 $files | ForEach-Object { "{0}  {1:N1} MB" -f $_.Name, ($_.Length / 1MB) }

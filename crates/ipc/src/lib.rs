@@ -1,4 +1,4 @@
-//! ZDownloader3's command channel (shared by the app, its command line and the browser host).
+//! zDownloader³'s command channel (shared by the app, its command line and the browser host).
 //! Single-instance command channel. The running app listens on a localhost port and writes
 //! `{port, token}` to `%APPDATA%\zdownloader3\ipc.json`; a second launch (IDM-style command line)
 //! or the browser's native messaging host sends one JSON line per command, carrying the token.
@@ -477,7 +477,7 @@ impl std::fmt::Display for SendError {
     }
 }
 
-/// Send `cmd` to a running ZDownloader3.
+/// Send `cmd` to a running zDownloader³.
 pub fn send(cmd: &Command) -> Result<(), SendError> {
     let ack = exchange(cmd, ANSWER_WAIT)?;
     if ack.trim() == "ok" {

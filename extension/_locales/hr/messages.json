@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Preuzimanja iz preglednika prosljeđuje u ZDownloader3."
+    "message": "Preuzimanja iz preglednika prosljeđuje u zDownloader³."
   },
   "menu": {
-    "message": "Preuzmi pomoću ZDownloader3"
+    "message": "Preuzmi pomoću zDownloader³"
   },
   "video_download": {
     "message": "Preuzmi videozapis"
@@ -30,19 +30,19 @@
     "message": "Postavke gumba..."
   },
   "video_sent": {
-    "message": "Poslano aplikaciji ZDownloader3"
+    "message": "Poslano aplikaciji zDownloader³"
   },
   "menu_selected": {
-    "message": "Preuzmi odabrane veze s ZDownloader3"
+    "message": "Preuzmi odabrane veze s zDownloader³"
   },
   "menu_all": {
-    "message": "Preuzmi sve veze s ZDownloader3"
+    "message": "Preuzmi sve veze s zDownloader³"
   },
   "status_connected": {
-    "message": "Povezano s ZDownloader3"
+    "message": "Povezano s zDownloader³"
   },
   "status_connected_version": {
-    "message": "Povezano s ZDownloader3 $version$",
+    "message": "Povezano s zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Pauzirano: preuzimanja ostaju u pregledniku"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 nije instaliran ili njegova integracija preglednika nije postavljena"
+    "message": "zDownloader³ nije instaliran ili njegova integracija preglednika nije postavljena"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 ne prihvaća ovu kopiju proširenja"
+    "message": "zDownloader³ ne prihvaća ovu kopiju proširenja"
   },
   "status_not_running": {
-    "message": "ZDownloader3 se nije pokrenuo na vrijeme"
+    "message": "zDownloader³ se nije pokrenuo na vrijeme"
   },
   "status_host_failed": {
-    "message": "Veza s aplikacijom ZDownloader3 nije uspjela"
+    "message": "Veza s aplikacijom zDownloader³ nije uspjela"
   },
   "status_too_large": {
     "message": "Pojedinosti o ovom preuzimanju bile su prevelike za prijenos"
   },
   "status_update_app": {
-    "message": "Ažurirajte ZDownloader3 da biste koristili sve što nudi ovo proširenje"
+    "message": "Ažurirajte zDownloader³ da biste koristili sve što nudi ovo proširenje"
   },
   "popup_take": {
     "message": "Preuzimaj datoteke iz ovog preglednika"
@@ -78,10 +78,10 @@
     "message": "Šalji preuzimanja putem proxyja ili VPN proširenja ovog preglednika"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 zatim preuzima putem istog proxyja kao i ovaj preglednik. Preglednik će vas jednom pitati želite li to dopustiti; isključivanjem ove opcije to se poništava."
+    "message": "zDownloader³ zatim preuzima putem istog proxyja kao i ovaj preglednik. Preglednik će vas jednom pitati želite li to dopustiti; isključivanjem ove opcije to se poništava."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 zatim preuzima putem istog proxyja kao i ovaj preglednik. Dok je ovo isključeno, proširenje ne čita proxy preglednika."
+    "message": "zDownloader³ zatim preuzima putem istog proxyja kao i ovaj preglednik. Dok je ovo isključeno, proširenje ne čita proxy preglednika."
   },
   "popup_exclude_site": {
     "message": "Nikad ne preuzimaj s $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Otvori ZDownloader3"
+    "message": "Otvori zDownloader³"
   },
   "popup_options": {
     "message": "Mogućnosti..."
@@ -150,7 +150,7 @@
     "message": "Opcija „Koristi naprednu integraciju preglednika” isključena je u Mogućnosti → Općenito."
   },
   "declined_torrents": {
-    "message": "To je torrent, a opcija Otvori magnetne veze i .torrent datoteke s ZDownloader3 isključena je u postavkama torrenta."
+    "message": "To je torrent, a opcija Otvori magnetne veze i .torrent datoteke s zDownloader³ isključena je u postavkama torrenta."
   },
   "declined_site_access": {
     "message": "Proširenje ne smije čitati ovu stranicu (pristup stranici preglednika)."
@@ -195,16 +195,16 @@
     "message": "Ovdje nema videozapisa za preuzimanje"
   },
   "video_playlist": {
-    "message": "Popis videozapisa: odaberite ih u ZDownloader3"
+    "message": "Popis videozapisa: odaberite ih u zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 treba yt-dlp za ovaj videozapis"
+    "message": "zDownloader³ treba yt-dlp za ovaj videozapis"
   },
   "video_too_long": {
     "message": "Traženje je trajalo predugo"
   },
   "video_busy": {
-    "message": "ZDownloader3 je zauzet drugim videozapisima"
+    "message": "zDownloader³ je zauzet drugim videozapisima"
   },
   "video_queued": {
     "message": "Dodano u red čekanja"
@@ -228,7 +228,7 @@
     "message": "Ovo računalo"
   },
   "popup_send_remote": {
-    "message": "Drugi ZDownloader3 (poslužitelj)"
+    "message": "Drugi zDownloader³ (poslužitelj)"
   },
   "popup_remote_code": {
     "message": "Kôd za uparivanje"
@@ -324,7 +324,7 @@
     "message": "Sve kvalitete i titlovi..."
   },
   "video_failed": {
-    "message": "ZDownloader3 nije instaliran ili se nije pokrenuo"
+    "message": "zDownloader³ nije instaliran ili se nije pokrenuo"
   },
   "video_download_best": {
     "message": "Preuzmi najbolje"

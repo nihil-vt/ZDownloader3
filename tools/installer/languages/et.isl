@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Estonian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Estonian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Eemaldan %1.
 
 [CustomMessages]
 TaskBrowser=Seadista &brauseri integreerimine (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Ava &torrent-failid ja magnetlingid rakendusega ZDownloader3
-TaskStartup=Käivita ZDownloader3 &Windowsi käivitamisel
+TaskTorrents=Ava &torrent-failid ja magnetlingid rakendusega zDownloader³
+TaskStartup=Käivita zDownloader³ &Windowsi käivitamisel
 TaskGroupOther=Muu:
-Launch=Käivita ZDownloader3
+Launch=Käivita zDownloader³
 KeepData=Kas kustutada ka teie allalaadimiste loend ja sätted?%n%nTeie allalaaditud faile ei puudutata kummalgi juhul.

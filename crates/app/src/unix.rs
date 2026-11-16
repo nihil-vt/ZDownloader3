@@ -431,7 +431,7 @@ fn startup_entry(exe: &Path, macos: bool) -> String {
             })
             .collect();
         format!(
-            "[Desktop Entry]\nType=Application\nName=ZDownloader3\n\
+            "[Desktop Entry]\nType=Application\nName=zDownloader³\n\
              Exec=\"{quoted}\" {arg}\nIcon=zdownloader3\nTerminal=false\n\
              X-GNOME-Autostart-enabled=true\n"
         )
@@ -968,7 +968,7 @@ pub fn show_in_folder(path: &Path) {
     });
 }
 
-/// Torrent settings → open magnet links and .torrent files with ZDownloader3: Linux
+/// Torrent settings → open magnet links and .torrent files with zDownloader³: Linux
 /// records it with xdg-mime for the desktop entry the packages install, macOS with Launch
 /// Services for the app (`open_events::make_default`, #698). Turning it off leaves the choice to
 /// the desktop's settings (macOS: Finder's Get Info → Open with).
@@ -2151,11 +2151,11 @@ pub fn missing_text(libs: &[&WindowLib], opening: bool) -> String {
     let names = ltr(&names.join(", "));
     let what = if opening {
         // i18n: Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
-        t("ZDownloader3 can't open its window: this system lacks {libraries}.")
+        t("zDownloader³ can't open its window: this system lacks {libraries}.")
     } else {
         // i18n: Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
         t(
-            "ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.",
+            "zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.",
         )
     };
     let what = fmt(what, &[("libraries", &names)]);
@@ -2178,7 +2178,7 @@ pub fn missing_text(libs: &[&WindowLib], opening: bool) -> String {
 pub fn tell_window_failed(text: &str) {
     eprintln!("{text}");
     tracing::error!("{text}");
-    let title = "ZDownloader3";
+    let title = "zDownloader³";
     // A program of the desktop's draws it: without isolates (#919).
     let text = &crate::i18n::os_text(text);
     let boxes: [(&str, Vec<&str>); 2] = [
@@ -2982,7 +2982,7 @@ pub fn mark_downloaded(path: &Path, url: &str, referrer: Option<&str>) {
         set_xattr(
             path,
             "com.apple.quarantine",
-            &format!("0081;{now:x};ZDownloader3;"),
+            &format!("0081;{now:x};zDownloader³;"),
         );
         let _ = url;
     }
@@ -4287,9 +4287,9 @@ mod startup_tests {
     #[test]
     fn the_startup_entries_start_mdm_in_the_tray() {
         for exe in [
-            "/home/ana/Apps/ZDownloader3.AppImage",
+            "/home/ana/Apps/zDownloader³.AppImage",
             "/opt/mdm/zdownloader3",
-            "/Applications/ZDownloader3.app/Contents/MacOS/zdownloader3",
+            "/Applications/zDownloader³.app/Contents/MacOS/zdownloader3",
             "/home/a\"b$c/m&d<m>",
         ] {
             for macos in [false, true] {
@@ -4310,7 +4310,7 @@ mod startup_tests {
     /// An entry of a version before 0.5.0 for this program is written again; another copy's is not.
     #[test]
     fn old_startup_entries_are_rewritten() {
-        let exe = "/home/ana/Apps/ZDownloader3.AppImage";
+        let exe = "/home/ana/Apps/zDownloader³.AppImage";
         for macos in [false, true] {
             assert!(startup_outdated(
                 &old_entry(exe, macos),
@@ -4781,7 +4781,7 @@ pub fn keep_awake(reason: Option<&str>) -> bool {
         )?;
         logind.call(
             "Inhibit",
-            &("sleep", "ZDownloader3", reason, "block"),
+            &("sleep", "zDownloader³", reason, "block"),
         )
     };
     match take() {

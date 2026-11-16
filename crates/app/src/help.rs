@@ -173,13 +173,13 @@ pub type Slot = Arc<Mutex<Option<Result<Found, String>>>>;
 /// Ask GitHub for the latest release in the background; the answer lands in the slot. Whatever
 /// goes wrong, even a panic in the check, lands there as a failed check (#1123): the slot never
 /// stays empty, which would leave Check for updates waiting for good.
-/// ZDownloader3 (this fork): self-update is disabled — the fork publishes no release feed and
-/// has no signing key; installing ZDownloader3 binaries into a user's system belongs to the
+/// zDownloader³ (this fork): self-update is disabled — the fork publishes no release feed and
+/// has no signing key; installing zDownloader³ binaries into a user's system belongs to the
 /// package manager that installed it, or to the fork's (future) releases page. The old code
 /// pointed the check and the SHA256SUMS verification at upstream Mister Download Manager, which
 /// would have silently replaced the fork with upstream's build.
 pub const FORK_UPDATE_DISABLED: &str =
-    "Self-update is disabled in ZDownloader3. Use your package manager, or the fork's releases page.";
+    "Self-update is disabled in zDownloader³. Use your package manager, or the fork's releases page.";
 
 pub fn check(_rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
     let slot: Slot = Arc::new(Mutex::new(Some(Err(FORK_UPDATE_DISABLED.to_owned()))));
@@ -193,7 +193,7 @@ pub fn check(_rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
 fn settled(joined: Result<Result<Found, String>, tokio::task::JoinError>) -> Result<Found, String> {
     joined.unwrap_or_else(|e| {
         tracing::warn!("the update check stopped: {e}");
-        Err(crate::i18n::t("ZDownloader3 hit an internal error").to_owned())
+        Err(crate::i18n::t("zDownloader³ hit an internal error").to_owned())
     })
 }
 
@@ -380,7 +380,7 @@ impl Updates {
                     Some(Ok(Found::Latest)) => {
                         let line = crate::i18n::fmt(
                             crate::i18n::t(
-                                "You have the latest version of ZDownloader3 ({version}).",
+                                "You have the latest version of zDownloader³ ({version}).",
                             ),
                             &[("version", VERSION)],
                         );
@@ -400,7 +400,7 @@ impl Updates {
                     Some(Ok(Found::Newer(rel))) => {
                         let line = crate::i18n::fmt(
                             crate::i18n::t(
-                                "ZDownloader3 {version} is available (released {date}).",
+                                "zDownloader³ {version} is available (released {date}).",
                             ),
                             &[("version", &rel.version), ("date", &rel.date)],
                         );
@@ -722,7 +722,7 @@ impl About {
         window(
             ctx,
             "about",
-            "About ZDownloader3",
+            "About zDownloader³",
             [420.0, 236.0 + extra],
             false,
             winui::BG(),
@@ -738,7 +738,7 @@ impl About {
                     &p,
                     o.x + 80.0,
                     o.y + 28.0,
-                    crate::i18n::t("ZDownloader3"),
+                    crate::i18n::t("zDownloader³"),
                     ink,
                 );
                 let version = crate::i18n::fmt(
@@ -968,7 +968,7 @@ impl TellFriend {
     fn message() -> String {
         crate::i18n::fmt(
             crate::i18n::t(
-                "I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}",
+                "I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}",
             ),
             &[("link", SITE)],
         )
@@ -1087,7 +1087,7 @@ impl TellFriend {
                             .collect::<String>()
                             .replace('+', "%20")
                     };
-                    let subject = crate::i18n::t("ZDownloader3");
+                    let subject = crate::i18n::t("zDownloader³");
                     let opened = open::that_detached(format!(
                         "mailto:?subject={}&body={}",
                         enc(subject),

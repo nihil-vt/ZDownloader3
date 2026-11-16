@@ -116,7 +116,7 @@ The Speed Limiter keeps MDM from using all of your connection.
 3. Click **OK**.
 4. Choose **Downloads → Speed Limiter → Turn on**. **Turn off** gives full speed again.
 
-**Always turn on Speed Limiter on ZDownloader3 startup** turns it on each time MDM starts.
+**Always turn on Speed Limiter on zDownloader³ startup** turns it on each time MDM starts.
 
 A torrent counts as one file here: each torrent gets the limit of its own. So do a video and an image gallery ([Videos](video.md#speed-limits)). A download with a limit of its own (see [For one download](#for-one-download)) keeps that one.
 

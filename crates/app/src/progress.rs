@@ -1305,7 +1305,7 @@ impl Progress {
             ui,
             o + vec2(33.0, 114.0),
             &mut self.exit,
-            "Exit ZDownloader3 when done",
+            "Exit zDownloader³ when done",
             on,
         );
         winui::checkbox_until(

@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Filipino: tools/installer/languages.py
+﻿; zDownloader³'s installer in Filipino: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Ina-uninstall ang %1.
 
 [CustomMessages]
 TaskBrowser=I-set up ang pagsasama ng &browser (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Buksan ang mga .&torrent file at magnet link gamit ang ZDownloader3
-TaskStartup=Simulan ang ZDownloader3 kapag nagsimula ang &Windows
+TaskTorrents=Buksan ang mga .&torrent file at magnet link gamit ang zDownloader³
+TaskStartup=Simulan ang zDownloader³ kapag nagsimula ang &Windows
 TaskGroupOther=Iba pa:
-Launch=Simulan ang ZDownloader3
+Launch=Simulan ang zDownloader³
 KeepData=Burahin din ang iyong listahan ng download at mga setting?%n%nAng iyong mga na-download na file ay hindi maaapektuhan.

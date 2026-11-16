@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Azerbaijani: tools/installer/languages.py
+﻿; zDownloader³'s installer in Azerbaijani: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 silinir.
 
 [CustomMessages]
 TaskBrowser=Brauzer inteqrasiyasını quraşdırın (&Chrome, Edge, Brave, Firefox)
-TaskTorrents=.&torrent fayllarını və maqnit keçidlərini ZDownloader3 ilə açın
-TaskStartup=&Windows işə düşəndə ZDownloader3 proqramını başladın
+TaskTorrents=.&torrent fayllarını və maqnit keçidlərini zDownloader³ ilə açın
+TaskStartup=&Windows işə düşəndə zDownloader³ proqramını başladın
 TaskGroupOther=Digər:
-Launch=ZDownloader3 işə salınsın
+Launch=zDownloader³ işə salınsın
 KeepData=Yükləmə siyahınızı və parametrlərinizi də silmək istəyirsiniz?%n%nYüklənmiş fayllarınıza hər iki halda toxunulmayacaq.

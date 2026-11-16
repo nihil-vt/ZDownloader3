@@ -2,11 +2,11 @@
 //! TMPDIR naming that folder.
 //!
 //! A helper used to inherit MDM's own working folder, which is the install folder when MDM is
-//! opened from the Start menu (`C:\Program Files\ZDownloader3`). yt-dlp writes there:
+//! opened from the Start menu (`C:\Program Files\zDownloader³`). yt-dlp writes there:
 //! before it chooses a format a site marks as needing a check (YouTube's streams in pieces of a
 //! video put online in the last two days), it tries the format with a small file of its own in
 //! its working folder (its `temp` path, which MDM doesn't set), and Windows refused it: "[Errno
-//! 13] Permission denied: 'C:\\Program Files\\ZDownloader3\\tmp….tmp'".
+//! 13] Permission denied: 'C:\\Program Files\\zDownloader³\\tmp….tmp'".
 //!
 //! The folder is the person's temporary folder when a file can be made in it, else a `work`
 //! folder in MDM's data folder (said once in the log): Python, yt-dlp's and gallery-dl's

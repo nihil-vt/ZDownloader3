@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Builds the macOS release into target/dist/ (experimental: built by CI, not yet tested by us):
-#   ZDownloader3-<version>-macos-arm64-experimental.dmg   Apple Silicon
-#   ZDownloader3-<version>-macos-x86_64-experimental.dmg  Intel
+#   zDownloader³-<version>-macos-arm64-experimental.dmg   Apple Silicon
+#   zDownloader³-<version>-macos-x86_64-experimental.dmg  Intel
 # One app per processor, each half the size of a universal one (#25), ad-hoc signed: without an
 # Apple Developer ID, macOS asks before the first start (right-click the app -> Open).
 # The app carries the Safari extension (tools/safari). Safari loads an ad-hoc signed one only with
@@ -44,9 +44,9 @@ mkdir -p "$stage"
 set_dir="$stage/AppIcon.iconset"
 mkdir -p "$set_dir"
 for s in 16 32 128 256 512; do
-  sips -z "$s" "$s" "$root/art/ZDownloader3.png" --out "$set_dir/icon_${s}x${s}.png" >/dev/null
+  sips -z "$s" "$s" "$root/art/zDownloader³.png" --out "$set_dir/icon_${s}x${s}.png" >/dev/null
   d=$((s * 2))
-  sips -z "$d" "$d" "$root/art/ZDownloader3.png" --out "$set_dir/icon_${s}x${s}@2x.png" >/dev/null
+  sips -z "$d" "$d" "$root/art/zDownloader³.png" --out "$set_dir/icon_${s}x${s}@2x.png" >/dev/null
 done
 iconutil -c icns "$set_dir" -o "$stage/AppIcon.icns"
 
@@ -54,8 +54,8 @@ dmgs=()
 for pair in "${targets[@]}"; do
   t="${pair%%:*}"
   arch="${pair##*:}"
-  name="ZDownloader3-$version-macos-$arch-experimental"
-  app="$stage/$arch/dmg/ZDownloader3.app"
+  name="zDownloader³-$version-macos-$arch-experimental"
+  app="$stage/$arch/dmg/zDownloader³.app"
   mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
 
   # Crash reports: the release's symbols for this processor (the -symbols zip, one per .dmg) from
@@ -81,8 +81,8 @@ for pair in "${targets[@]}"; do
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleName</key><string>ZDownloader3</string>
-  <key>CFBundleDisplayName</key><string>ZDownloader3</string>
+  <key>CFBundleName</key><string>zDownloader³</string>
+  <key>CFBundleDisplayName</key><string>zDownloader³</string>
   <key>CFBundleIdentifier</key><string>io.github.anefzaoui.zdownloader3</string>
   <key>CFBundleVersion</key><string>$version</string>
   <key>CFBundleShortVersionString</key><string>$version</string>
@@ -152,7 +152,7 @@ EOF
   # 10.15 and later; the app needs 11) packs it tighter than zlib (UDZO).
   ln -s /Applications "$stage/$arch/dmg/Applications"
   rm -f "$dist/$name.dmg"
-  hdiutil create -volname "ZDownloader3" -srcfolder "$stage/$arch/dmg" -ov -format ULMO \
+  hdiutil create -volname "zDownloader³" -srcfolder "$stage/$arch/dmg" -ov -format ULMO \
     "$dist/$name.dmg"
   if [ -n "${MDM_NOTARY_PROFILE:-}" ]; then
     codesign --force --sign "$sign" --timestamp "$dist/$name.dmg"

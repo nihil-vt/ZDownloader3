@@ -1,4 +1,4 @@
-//! ZDownloader3 download engine. See notes/ENGINE.md.
+//! zDownloader³ download engine. See notes/ENGINE.md.
 
 pub mod agent;
 mod browserlike;

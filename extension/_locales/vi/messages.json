@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Chuyển các bản tải xuống từ trình duyệt sang ZDownloader3."
+    "message": "Chuyển các bản tải xuống từ trình duyệt sang zDownloader³."
   },
   "menu": {
-    "message": "Tải xuống bằng ZDownloader3"
+    "message": "Tải xuống bằng zDownloader³"
   },
   "video_download": {
     "message": "Tải xuống video"
@@ -30,19 +30,19 @@
     "message": "Cài đặt nút..."
   },
   "video_sent": {
-    "message": "Đã gửi đến ZDownloader3"
+    "message": "Đã gửi đến zDownloader³"
   },
   "menu_selected": {
-    "message": "Tải xuống các liên kết đã chọn bằng ZDownloader3"
+    "message": "Tải xuống các liên kết đã chọn bằng zDownloader³"
   },
   "menu_all": {
-    "message": "Tải xuống tất cả liên kết bằng ZDownloader3"
+    "message": "Tải xuống tất cả liên kết bằng zDownloader³"
   },
   "status_connected": {
-    "message": "Đã kết nối với ZDownloader3"
+    "message": "Đã kết nối với zDownloader³"
   },
   "status_connected_version": {
-    "message": "Đã kết nối với ZDownloader3 $version$",
+    "message": "Đã kết nối với zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Đã tạm dừng: các bản tải xuống vẫn ở trong trình duyệt"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 chưa được cài đặt hoặc tích hợp trình duyệt chưa được thiết lập"
+    "message": "zDownloader³ chưa được cài đặt hoặc tích hợp trình duyệt chưa được thiết lập"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 không chấp nhận bản sao tiện ích mở rộng này"
+    "message": "zDownloader³ không chấp nhận bản sao tiện ích mở rộng này"
   },
   "status_not_running": {
-    "message": "ZDownloader3 chưa khởi động kịp"
+    "message": "zDownloader³ chưa khởi động kịp"
   },
   "status_host_failed": {
-    "message": "Kết nối với ZDownloader3 không thành công"
+    "message": "Kết nối với zDownloader³ không thành công"
   },
   "status_too_large": {
     "message": "Thông tin của lượt tải xuống này quá lớn để chuyển giao"
   },
   "status_update_app": {
-    "message": "Cập nhật ZDownloader3 để sử dụng mọi tính năng mà tiện ích mở rộng này cung cấp"
+    "message": "Cập nhật zDownloader³ để sử dụng mọi tính năng mà tiện ích mở rộng này cung cấp"
   },
   "popup_take": {
     "message": "Nhận tải xuống từ trình duyệt này"
@@ -78,10 +78,10 @@
     "message": "Gửi các bản tải xuống qua proxy hoặc tiện ích VPN của trình duyệt này"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 sau đó tải xuống thông qua cùng một proxy với trình duyệt này. Trình duyệt sẽ hỏi bạn một lần để cho phép; tắt tùy chọn này sẽ thu hồi quyền đó."
+    "message": "zDownloader³ sau đó tải xuống thông qua cùng một proxy với trình duyệt này. Trình duyệt sẽ hỏi bạn một lần để cho phép; tắt tùy chọn này sẽ thu hồi quyền đó."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 sau đó tải xuống qua cùng một proxy với trình duyệt này. Khi tắt tùy chọn này, tiện ích sẽ không đọc proxy của trình duyệt."
+    "message": "zDownloader³ sau đó tải xuống qua cùng một proxy với trình duyệt này. Khi tắt tùy chọn này, tiện ích sẽ không đọc proxy của trình duyệt."
   },
   "popup_exclude_site": {
     "message": "Không nhận tải xuống từ $site$ nữa",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Mở ZDownloader3"
+    "message": "Mở zDownloader³"
   },
   "popup_options": {
     "message": "Tùy chọn..."
@@ -150,7 +150,7 @@
     "message": "Tích hợp trình duyệt nâng cao đang tắt trong Tùy chọn → Chung."
   },
   "declined_torrents": {
-    "message": "Đây là torrent, và tùy chọn Mở liên kết magnet và tệp .torrent bằng ZDownloader3 đang tắt trong cài đặt Torrent."
+    "message": "Đây là torrent, và tùy chọn Mở liên kết magnet và tệp .torrent bằng zDownloader³ đang tắt trong cài đặt Torrent."
   },
   "declined_site_access": {
     "message": "Tiện ích không được phép đọc trang web này (quyền truy cập trang web của trình duyệt)."
@@ -195,16 +195,16 @@
     "message": "Không có video nào để tải xuống ở đây"
   },
   "video_playlist": {
-    "message": "Danh sách video: hãy chọn chúng trong ZDownloader3"
+    "message": "Danh sách video: hãy chọn chúng trong zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 cần yt-dlp cho video này"
+    "message": "zDownloader³ cần yt-dlp cho video này"
   },
   "video_too_long": {
     "message": "Việc tìm kiếm mất quá nhiều thời gian"
   },
   "video_busy": {
-    "message": "ZDownloader3 đang bận với các video khác"
+    "message": "zDownloader³ đang bận với các video khác"
   },
   "video_queued": {
     "message": "Đã thêm vào hàng đợi"
@@ -228,7 +228,7 @@
     "message": "Máy tính này"
   },
   "popup_send_remote": {
-    "message": "Một ZDownloader3 khác (máy chủ)"
+    "message": "Một zDownloader³ khác (máy chủ)"
   },
   "popup_remote_code": {
     "message": "Mã ghép nối"
@@ -324,7 +324,7 @@
     "message": "Tất cả chất lượng và phụ đề..."
   },
   "video_failed": {
-    "message": "ZDownloader3 chưa được cài đặt hoặc chưa khởi động"
+    "message": "zDownloader³ chưa được cài đặt hoặc chưa khởi động"
   },
   "video_download_best": {
     "message": "Tải xuống chất lượng tốt nhất"

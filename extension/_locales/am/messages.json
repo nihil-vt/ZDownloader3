@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "ማውረዶችን ከብሮውዘር ወደ ZDownloader3 ያስተላልፋል።"
+    "message": "ማውረዶችን ከብሮውዘር ወደ zDownloader³ ያስተላልፋል።"
   },
   "menu": {
-    "message": "በZDownloader3 ያውርዱ"
+    "message": "በzDownloader³ ያውርዱ"
   },
   "video_download": {
     "message": "ቪዲዮ አውርድ"
@@ -30,19 +30,19 @@
     "message": "የአዝራር ቅንብሮች..."
   },
   "video_sent": {
-    "message": "ወደ ZDownloader3 ተልኳል"
+    "message": "ወደ zDownloader³ ተልኳል"
   },
   "menu_selected": {
-    "message": "የተመረጡ አገናኞችን በZDownloader3 ያውርዱ"
+    "message": "የተመረጡ አገናኞችን በzDownloader³ ያውርዱ"
   },
   "menu_all": {
-    "message": "ሁሉንም አገናኞች በZDownloader3 ያውርዱ"
+    "message": "ሁሉንም አገናኞች በzDownloader³ ያውርዱ"
   },
   "status_connected": {
-    "message": "ከZDownloader3 ጋር ተገናኝቷል"
+    "message": "ከzDownloader³ ጋር ተገናኝቷል"
   },
   "status_connected_version": {
-    "message": "ከZDownloader3 $version$ ጋር ተገናኝቷል",
+    "message": "ከzDownloader³ $version$ ጋር ተገናኝቷል",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "ባለበት ቆሟል፦ ውርዶች በአሳሹ ይቀራሉ"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 አልተጫነም፣ ወይም የአሳሽ ውህደቱ አልተዘጋጀም"
+    "message": "zDownloader³ አልተጫነም፣ ወይም የአሳሽ ውህደቱ አልተዘጋጀም"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 የዚህን ቅጥያ ቅጂ አይቀበልም"
+    "message": "zDownloader³ የዚህን ቅጥያ ቅጂ አይቀበልም"
   },
   "status_not_running": {
-    "message": "ZDownloader3 በጊዜ አልጀመረም"
+    "message": "zDownloader³ በጊዜ አልጀመረም"
   },
   "status_host_failed": {
-    "message": "ከZDownloader3 ጋር ያለው ግንኙነት አልተሳካም"
+    "message": "ከzDownloader³ ጋር ያለው ግንኙነት አልተሳካም"
   },
   "status_too_large": {
     "message": "የዚህ ውርድ ዝርዝሮች ለማስተላለፍ በጣም ትልቅ ነበሩ"
   },
   "status_update_app": {
-    "message": "ይህ ቅጥያ የሚያቀርበውን ሁሉ ለመጠቀም ZDownloader3ን ያዘምኑ"
+    "message": "ይህ ቅጥያ የሚያቀርበውን ሁሉ ለመጠቀም zDownloader³ን ያዘምኑ"
   },
   "popup_take": {
     "message": "ውርዶችን ከዚህ አሳሽ ይውሰዱ"
@@ -78,10 +78,10 @@
     "message": "ውርዶችን በዚህ አሳሽ ፕሮክሲ ወይም ቪፒኤን ቅጥያ በኩል ይላኩ"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 ከዚያ በዚህ አሳሽ ከሚጠቀምበት ፕሮክሲ በኩል ያወርዳል። አሳሹ አንድ ጊዜ እንዲፈቅዱ ይጠይቅዎታል፤ ይህን ማጥፋት ፈቃዱን ይሽራል።"
+    "message": "zDownloader³ ከዚያ በዚህ አሳሽ ከሚጠቀምበት ፕሮክሲ በኩል ያወርዳል። አሳሹ አንድ ጊዜ እንዲፈቅዱ ይጠይቅዎታል፤ ይህን ማጥፋት ፈቃዱን ይሽራል።"
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 ከዚያም በዚህ አሳሽ በኩል በተመሳሳይ ፕሮክሲ ያወርዳል። ይህ ሲጠፋ፣ ቅጥያው የአሳሹን ፕሮክሲ አያነብም።"
+    "message": "zDownloader³ ከዚያም በዚህ አሳሽ በኩል በተመሳሳይ ፕሮክሲ ያወርዳል። ይህ ሲጠፋ፣ ቅጥያው የአሳሹን ፕሮክሲ አያነብም።"
   },
   "popup_exclude_site": {
     "message": "ከ$site$ የሚመጡ ውርዶችን ዳግም አትውሰዱ",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "ZDownloader3ን ይክፈቱ"
+    "message": "zDownloader³ን ይክፈቱ"
   },
   "popup_options": {
     "message": "አማራጮች..."
@@ -150,7 +150,7 @@
     "message": "የላቀ የአሳሽ ውህደትን ተጠቀም በአማራጮች → አጠቃላይ ውስጥ ጠፍቷል።"
   },
   "declined_torrents": {
-    "message": "ቶረንት ነው፣ እና በቶረንት ቅንብሮች ውስጥ Open magnet links and .torrent files with ZDownloader3 ተሰናክሏል።"
+    "message": "ቶረንት ነው፣ እና በቶረንት ቅንብሮች ውስጥ Open magnet links and .torrent files with zDownloader³ ተሰናክሏል።"
   },
   "declined_site_access": {
     "message": "ቅጥያው ይህንን ጣቢያ ለማንበብ አልተፈቀደለትም (የአሳሹ የጣቢያ መዳረሻ)።"
@@ -195,16 +195,16 @@
     "message": "እዚህ የሚወርድ ቪዲዮ የለም"
   },
   "video_playlist": {
-    "message": "የቪዲዮዎች ዝርዝር፦ በZDownloader3 ውስጥ ይምረጧቸው"
+    "message": "የቪዲዮዎች ዝርዝር፦ በzDownloader³ ውስጥ ይምረጧቸው"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 ለዚህ ቪዲዮ yt-dlp ይፈልጋል"
+    "message": "zDownloader³ ለዚህ ቪዲዮ yt-dlp ይፈልጋል"
   },
   "video_too_long": {
     "message": "መፈለጉ በጣም ረጅም ጊዜ ወሰደ"
   },
   "video_busy": {
-    "message": "ZDownloader3 በሌሎች ቪዲዮዎች ተጠምዷል"
+    "message": "zDownloader³ በሌሎች ቪዲዮዎች ተጠምዷል"
   },
   "video_queued": {
     "message": "ወደ ወረፋው ታክሏል"
@@ -228,7 +228,7 @@
     "message": "ይህ ኮምፒውተር"
   },
   "popup_send_remote": {
-    "message": "ሌላ ZDownloader3 (አገልጋይ)"
+    "message": "ሌላ zDownloader³ (አገልጋይ)"
   },
   "popup_remote_code": {
     "message": "የማጣመሪያ ኮድ"
@@ -324,7 +324,7 @@
     "message": "ሁሉም ጥራቶች እና የትርጉም ጽሑፎች..."
   },
   "video_failed": {
-    "message": "ZDownloader3 አልተጫነም ወይም አልጀመረም"
+    "message": "zDownloader³ አልተጫነም ወይም አልጀመረም"
   },
   "video_download_best": {
     "message": "ምርጡን አውርድ"

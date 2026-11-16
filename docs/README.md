@@ -1,4 +1,4 @@
-# ZDownloader3 — documentation
+# zDownloader³ — documentation
 
 This is the fork of Mister Download Manager (GPL-3.0). These pages explain each part of the program. The tutorials walk through the things people do most, one task each. Most pages describe the upstream program unchanged; the fork-specific differences are called out in [`../NOTICE.md`](../NOTICE.md) and `fork-roadmap.md`.
 

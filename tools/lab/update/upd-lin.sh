@@ -60,8 +60,8 @@ release() { # release <name> <kind targz|file> <asset> [mkrel args]
     --kind "$kind" --program "$bin/zdownloader3" --program-name zdownloader3 "$@" |
     sed 's/^/  /' | tee -a "$work/log.txt"
 }
-TGZ=ZDownloader3-9.9.9-linux-x86_64.tar.gz
-APP=ZDownloader3-9.9.9-linux-x86_64.AppImage
+TGZ=zDownloader³-9.9.9-linux-x86_64.tar.gz
+APP=zDownloader³-9.9.9-linux-x86_64.AppImage
 log "making the fake releases (throwaway keys in $keys)"
 release targz-good targz $TGZ
 release targz-bad-hash targz $TGZ --sums bad
@@ -74,7 +74,7 @@ run() { # run <name> <targz|appimage> <release> <hold> <close: -|download|instal
   local name=$1 kind=$2 rel=$3 hold=$4 close=$5
   local w=$work/run-$1 prog srv slow="" pid upd before new
   mkdir -p "$w/copy" "$w/data" "$w/Downloads"
-  if [ "$kind" = appimage ]; then prog=$w/copy/ZDownloader3.AppImage; else prog=$w/copy/zdownloader3; fi
+  if [ "$kind" = appimage ]; then prog=$w/copy/zDownloader³.AppImage; else prog=$w/copy/zdownloader3; fi
   cp "$bin/zdownloader3" "$prog"
   local start_hash; start_hash=$(sha256sum "$prog" | cut -c1-16)
   python3 - "$w/data/downloads.json" "$w/Downloads" <<'PY'

@@ -1,4 +1,4 @@
-"""IDM vs ZDownloader3: the same downloads from the same local lab server, timed.
+"""IDM vs zDownloader³: the same downloads from the same local lab server, timed.
 
     python tools/bench/bench.py [--runs N] [--only scenario,...] [--out DIR]
 

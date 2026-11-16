@@ -719,7 +719,7 @@ impl Torrents {
             }),
             // Major and minor only: the exact build would help someone aiming at one (#40).
             client_name_and_version: Some(format!(
-                "ZDownloader3/{}.{}",
+                "zDownloader³/{}.{}",
                 env!("CARGO_PKG_VERSION_MAJOR"),
                 env!("CARGO_PKG_VERSION_MINOR")
             )),

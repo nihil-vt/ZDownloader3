@@ -1,8 +1,8 @@
-> **Fork context (2026-11-16):** This tree is now ZDownloader3, a GPL-3.0 fork of upstream ZDownloader3 (see NOTICE.md). Upstream docs/CLAUDE.md apply with renamed identity (ZDownloader3, Linux-native first). Pre-fork scaffold: attic/. Analysis: docs/jd2-internals.md, docs/mdm-borrow.md.
+> **Fork context (2026-11-16):** This tree is now zDownloader³, a GPL-3.0 fork of upstream zDownloader³ (see NOTICE.md). Upstream docs/CLAUDE.md apply with renamed identity (zDownloader³, Linux-native first). Pre-fork scaffold: attic/. Analysis: docs/jd2-internals.md, docs/mdm-borrow.md.
 
-# ZDownloader3 (MDM) — agent guide
+# zDownloader³ (MDM) — agent guide
 
-ZDownloader3 (MDM) is a download manager for Windows in Rust (egui + storytold
+zDownloader³ (MDM) is a download manager for Windows in Rust (egui + storytold
 craft-libs), laid out the way Internet Download Manager users expect. Start by reading
 [README.md](README.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 

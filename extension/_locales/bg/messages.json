@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Прехвърля изтеглянията от браузъра към ZDownloader3."
+    "message": "Прехвърля изтеглянията от браузъра към zDownloader³."
   },
   "menu": {
-    "message": "Изтеглете с ZDownloader3"
+    "message": "Изтеглете с zDownloader³"
   },
   "video_download": {
     "message": "Изтеглете видео"
@@ -30,19 +30,19 @@
     "message": "Настройки на бутона..."
   },
   "video_sent": {
-    "message": "Изпратено до ZDownloader3"
+    "message": "Изпратено до zDownloader³"
   },
   "menu_selected": {
-    "message": "Изтеглете избрани връзки с ZDownloader3"
+    "message": "Изтеглете избрани връзки с zDownloader³"
   },
   "menu_all": {
-    "message": "Изтеглете всички връзки с ZDownloader3"
+    "message": "Изтеглете всички връзки с zDownloader³"
   },
   "status_connected": {
-    "message": "Свързан с ZDownloader3"
+    "message": "Свързан с zDownloader³"
   },
   "status_connected_version": {
-    "message": "Свързан с ZDownloader3 $version$",
+    "message": "Свързан с zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "На пауза: изтеглянията остават в браузъра"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 не е инсталиран или интеграцията му с браузъра не е настроена"
+    "message": "zDownloader³ не е инсталиран или интеграцията му с браузъра не е настроена"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 не приема това копие на разширението"
+    "message": "zDownloader³ не приема това копие на разширението"
   },
   "status_not_running": {
-    "message": "ZDownloader3 не стартира навреме"
+    "message": "zDownloader³ не стартира навреме"
   },
   "status_host_failed": {
-    "message": "Връзката с ZDownloader3 прекъсна"
+    "message": "Връзката с zDownloader³ прекъсна"
   },
   "status_too_large": {
     "message": "Данните за това изтегляне бяха твърде големи, за да бъдат предадени"
   },
   "status_update_app": {
-    "message": "Актуализирайте ZDownloader3, за да използвате всичко, което предлага това разширение"
+    "message": "Актуализирайте zDownloader³, за да използвате всичко, което предлага това разширение"
   },
   "popup_take": {
     "message": "Приемайте изтегляния от този браузър"
@@ -78,10 +78,10 @@
     "message": "Изпращайте изтеглянията през прокси или VPN разширението на този браузър"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 след това изтегля през същия прокси сървър като този браузър. Браузърът ще ви попита веднъж дали да го разрешите; изключването на тази опция отменя това."
+    "message": "zDownloader³ след това изтегля през същия прокси сървър като този браузър. Браузърът ще ви попита веднъж дали да го разрешите; изключването на тази опция отменя това."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 изтегля през същия прокси сървър като този браузър. Докато тази опция е изключена, разширението не чете прокси сървъра на браузъра."
+    "message": "zDownloader³ изтегля през същия прокси сървър като този браузър. Докато тази опция е изключена, разширението не чете прокси сървъра на браузъра."
   },
   "popup_exclude_site": {
     "message": "Никога не вземайте изтегляния от $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Отворете ZDownloader3"
+    "message": "Отворете zDownloader³"
   },
   "popup_options": {
     "message": "Опции..."
@@ -150,7 +150,7 @@
     "message": "„Използване на разширена интеграция с браузъра“ е изключено в Опции → Общи."
   },
   "declined_torrents": {
-    "message": "Това е торент и „Отваряне на магнитни връзки и .torrent файлове с ZDownloader3“ е изключено в настройките за торенти."
+    "message": "Това е торент и „Отваряне на магнитни връзки и .torrent файлове с zDownloader³“ е изключено в настройките за торенти."
   },
   "declined_site_access": {
     "message": "Разширението няма разрешение да чете този сайт (достъпът на браузъра до сайта)."
@@ -195,16 +195,16 @@
     "message": "Тук няма видео за изтегляне"
   },
   "video_playlist": {
-    "message": "Списък с видеоклипове: изберете ги в ZDownloader3"
+    "message": "Списък с видеоклипове: изберете ги в zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 се нуждае от yt-dlp за това видео"
+    "message": "zDownloader³ се нуждае от yt-dlp за това видео"
   },
   "video_too_long": {
     "message": "Търсенето отне твърде много време"
   },
   "video_busy": {
-    "message": "ZDownloader3 е зает с други видеоклипове"
+    "message": "zDownloader³ е зает с други видеоклипове"
   },
   "video_queued": {
     "message": "Добавено към опашката"
@@ -228,7 +228,7 @@
     "message": "Този компютър"
   },
   "popup_send_remote": {
-    "message": "Друг ZDownloader3 (сървър)"
+    "message": "Друг zDownloader³ (сървър)"
   },
   "popup_remote_code": {
     "message": "Код за сдвояване"
@@ -324,7 +324,7 @@
     "message": "Всички качества и субтитри..."
   },
   "video_failed": {
-    "message": "ZDownloader3 не е инсталиран или не е стартиран"
+    "message": "zDownloader³ не е инсталиран или не е стартиран"
   },
   "video_download_best": {
     "message": "Изтегляне на най-доброто"

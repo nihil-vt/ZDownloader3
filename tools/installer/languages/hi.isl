@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Hindi: tools/installer/languages.py
+﻿; zDownloader³'s installer in Hindi: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 अनइंस्टॉल हो रह�
 
 [CustomMessages]
 TaskBrowser=ब्राउज़र इंटिग्रेशन सेट अप करें (&browser integration) (Chrome, Edge, Brave, Firefox)
-TaskTorrents=ZDownloader3 के साथ .&torrent फ़ाइलें और मैग्नेट लिंक खोलें
-TaskStartup=जब &Windows शुरू हो, तो ZDownloader3 शुरू करें
+TaskTorrents=zDownloader³ के साथ .&torrent फ़ाइलें और मैग्नेट लिंक खोलें
+TaskStartup=जब &Windows शुरू हो, तो zDownloader³ शुरू करें
 TaskGroupOther=अन्य:
-Launch=ZDownloader3 शुरू करें
+Launch=zDownloader³ शुरू करें
 KeepData=क्या आपकी डाउनलोड सूची और सेटिंग्स भी हटानी हैं?%n%nआपकी डाउनलोड की गई फ़ाइलों को किसी भी तरह से नहीं छुआ जाएगा।

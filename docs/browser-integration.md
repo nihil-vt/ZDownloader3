@@ -13,45 +13,45 @@ Browsers built on them work too: Chromium and Helium take the extension as Chrom
 Browser integration has two parts: a small helper program that the browser talks to, and the extension itself.
 
 1. Install MDM with the setup and keep **Set up browser integration (Chrome, Edge, Brave, Firefox)** ticked. This registers the helper. (The portable copy can't do this; see [Portable mode](portable.md).) On Linux and macOS MDM registers it itself, each time it starts, for the browsers installed then.
-2. Add the extension to each browser you use, as below: Firefox from its add-ons store, the others from the Chrome Web Store. Until a browser's extension has reached MDM, MDM's **Add ZDownloader3 to your browser** window opens at each start: it lists the browsers it found, and **Add the extension** opens the store's page in that browser. **Install it by hand** opens the steps for loading it without the store; **Don't ask again** stops the window.
+2. Add the extension to each browser you use, as below: Firefox from its add-ons store, the others from the Chrome Web Store. Until a browser's extension has reached MDM, MDM's **Add zDownloader³ to your browser** window opens at each start: it lists the browsers it found, and **Add the extension** opens the store's page in that browser. **Install it by hand** opens the steps for loading it without the store; **Don't ask again** stops the window.
 
-![Add ZDownloader3 to your browser: each browser found, with a button to its store page](images/help/browser-offer.webp)
+![Add zDownloader³ to your browser: each browser found, with a button to its store page](images/help/browser-offer.webp)
 *MDM's own window opens each browser's store page for you.*
 
 ### Firefox
 
-Firefox 140 or later is needed. Install the add-on from its page on addons.mozilla.org, [ZDownloader3](https://addons.mozilla.org/firefox/addon/mister-download-manager/): click **Add to Firefox**. Firefox keeps it updated. Zen and LibreWolf install it from the same page. (MDM's **Add ZDownloader3 to your browser** window opens that page for you.)
+Firefox 140 or later is needed. Install the add-on from its page on addons.mozilla.org, [zDownloader³](https://addons.mozilla.org/firefox/addon/mister-download-manager/): click **Add to Firefox**. Firefox keeps it updated. Zen and LibreWolf install it from the same page. (MDM's **Add zDownloader³ to your browser** window opens that page for you.)
 
 ### Chrome, Edge, Brave, Opera and Vivaldi
 
-Install the extension from its page in the Chrome Web Store, [ZDownloader3](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp): click **Add to Chrome**. In Edge the button is **Get**: Edge first asks to **Allow extensions from other stores** (click **Allow**), then **Add extension**. The browser keeps it updated. MDM's **Add ZDownloader3 to your browser** window opens that page in each browser for you, and Chrome may offer it by itself at its next start once MDM is installed.
+Install the extension from its page in the Chrome Web Store, [zDownloader³](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp): click **Add to Chrome**. In Edge the button is **Get**: Edge first asks to **Allow extensions from other stores** (click **Allow**), then **Add extension**. The browser keeps it updated. MDM's **Add zDownloader³ to your browser** window opens that page in each browser for you, and Chrome may offer it by itself at its next start once MDM is installed.
 
-To load it by hand instead (a browser that can't use the store, or a build of your own): its files are in the `extension` folder where MDM is installed: `%LOCALAPPDATA%\Programs\ZDownloader3\extension` if you installed it for yourself, or `Program Files\ZDownloader3\extension` if you installed it for everyone. Every release also has them as their own download, `...-extension-chromium.zip` (unzip it first).
+To load it by hand instead (a browser that can't use the store, or a build of your own): its files are in the `extension` folder where MDM is installed: `%LOCALAPPDATA%\Programs\zDownloader³\extension` if you installed it for yourself, or `Program Files\zDownloader³\extension` if you installed it for everyone. Every release also has them as their own download, `...-extension-chromium.zip` (unzip it first).
 
 1. Open the extensions page: `chrome://extensions`, `edge://extensions` or `brave://extensions`.
 2. Turn on **Developer mode**.
 3. Click **Load unpacked** and choose the `extension\chromium` folder.
 
-**ZDownloader3** appears in the list. Leave it turned on. Pin its button to the toolbar to see at a glance whether the browser reaches MDM.
+**zDownloader³** appears in the list. Leave it turned on. Pin its button to the toolbar to see at a glance whether the browser reaches MDM.
 
 ### Helium
 
 [Helium](https://helium.computer/) installs the extension from the same page in the Chrome Web Store: click **Add to Chrome**. Helium fetches extensions through its own services, so this works only while they're allowed. If Helium says **Extension downloads are disabled**, open `helium://settings/privacy/services` (**Settings → Privacy and security → Helium services**), turn on **Allow connecting to Helium services** and **Proxy extension downloads and updates**, and click **Add to Chrome** again. With those off, load the extension by hand instead, as above (`chrome://extensions` works in Helium too).
 
-MDM's setup registers the helper where Helium looks for it, on Windows, Linux and macOS. On Linux and macOS MDM also offers the extension to Helium, through Helium's own services, so with them allowed it arrives by itself at Helium's next start (on macOS Helium asks first: **New extension added** in its menu, where you turn it on). The Linux packages (.deb, .rpm) leave that to the window below, writing nothing in your home folder. On Windows Helium can't be offered the extension this way: MDM's **Add ZDownloader3 to your browser** window opens the store's page in Helium when Helium was installed with its setup; Helium from its zip isn't found there, so open the store's page in it yourself. Helium presents itself as Google Chrome, on purpose, so in **Options → General → Capture downloads from the following browsers** it is **Google Chrome**.
+MDM's setup registers the helper where Helium looks for it, on Windows, Linux and macOS. On Linux and macOS MDM also offers the extension to Helium, through Helium's own services, so with them allowed it arrives by itself at Helium's next start (on macOS Helium asks first: **New extension added** in its menu, where you turn it on). The Linux packages (.deb, .rpm) leave that to the window below, writing nothing in your home folder. On Windows Helium can't be offered the extension this way: MDM's **Add zDownloader³ to your browser** window opens the store's page in Helium when Helium was installed with its setup; Helium from its zip isn't found there, so open the store's page in it yourself. Helium presents itself as Google Chrome, on purpose, so in **Options → General → Capture downloads from the following browsers** it is **Google Chrome**.
 
 ### Safari (macOS)
 
 The Mac app carries the Safari extension: there is nothing to download. Safari 17 or later and macOS 14 or later are needed.
 
-1. Drag MDM to Applications and start it once. MDM's **Add ZDownloader3 to your browser** window lists Safari: **How to Add** shows the steps below.
-2. In Safari open **Settings → Extensions** and tick **ZDownloader3**. Click **Always Allow on Every Website**: the extension needs to read the site to pass your sign-in on.
+1. Drag MDM to Applications and start it once. MDM's **Add zDownloader³ to your browser** window lists Safari: **How to Add** shows the steps below.
+2. In Safari open **Settings → Extensions** and tick **zDownloader³**. Click **Always Allow on Every Website**: the extension needs to read the site to pass your sign-in on.
 3. While the app is not notarized by Apple (the experimental builds are not), Safari lists the extension only with unsigned extensions allowed: **Settings → Advanced** → **Show features for web developers**, then **Settings → Developer** → **Allow unsigned extensions**. Safari forgets that setting each time it quits.
 
 Safari lets an extension neither see nor stop the browser's downloads, so what works differs from the other browsers:
 
 - **Works as in the other browsers:** the right-click items, the button over videos, **Media on this page**, the toolbar button, **Alt**-click, MDM starting by itself, and every rule in Options.
-- **A click on a link to a file type MDM takes** goes to MDM. A download the page starts by itself (a script, or a link with no file name in its address that the server answers with a file) stays with Safari: use right-click → **Download with ZDownloader3** for those.
+- **A click on a link to a file type MDM takes** goes to MDM. A download the page starts by itself (a script, or a link with no file name in its address that the server answers with a file) stays with Safari: use right-click → **Download with zDownloader³** for those.
 - **Not available:** sharing the browser's proxy or VPN, and a download from a form.
 
 ### From the plain zip
@@ -73,7 +73,7 @@ When you click a download, the extension checks MDM's Options:
 - **Options → File types → Automatically start downloading the following file types** must list the file's type. The list starts with the usual ones: ZIP, RAR, 7Z, EXE, MSI, ISO, DMG, DEB, RPM, APPIMAGE, MP3, MP4, MKV, WEBM, PDF, AI models such as GGUF and SAFETENSORS, 3D files such as GLB and STL, and many more. Anything else can be added to the list.
 - **Options → File types → Don't start downloading automatically from the following sites** must not list the site. Names are separated by spaces; a name covers its subdomains (`example.com` covers `www.example.com`, as `*.update.microsoft.com` covers `dl.update.microsoft.com`; `*` matches anything, as in `*.example.*`), and the files the site's pages link to on another server (a CDN), told by the page the download came from (its referrer). **Edit list ...** below it lists whole addresses to leave alone, one per line (`https://example.com/private/*`).
 - **Options → File types → Don't take files smaller than** leaves small files (a receipt, an icon) to the browser. 0 takes any size.
-- A `.torrent` file goes to MDM only while **Tasks → Torrent settings → Open magnet links and .torrent files with ZDownloader3** is on. Off, the browser keeps it and opens it in your own torrent program. See [Torrents](torrents.md#add-a-torrent).
+- A `.torrent` file goes to MDM only while **Tasks → Torrent settings → Open magnet links and .torrent files with zDownloader³** is on. Off, the browser keeps it and opens it in your own torrent program. See [Torrents](torrents.md#add-a-torrent).
 - The extension must be allowed to read the site. When you limit it to some sites (or **On click**), it can't pass your sign-in on, so it leaves those sites' downloads to the browser.
 
 ![Options, General: Use advanced browser integration and the list of browsers MDM takes downloads from](images/help/options-integration.webp)
@@ -112,7 +112,7 @@ The extension's button shows whether the browser reaches MDM. A red **!** means 
 
 - **Take downloads from this browser**: untick it to pause, and every download stays with the browser until you tick it again.
 - **Never take downloads from** the current site: adds it to MDM's excluded sites. The popup then says **Downloads from** the site **stay with the browser**, with **Undo** to take it off the list again; it says the same whenever you open it on that site.
-- **Open ZDownloader3** and **Options...**.
+- **Open zDownloader³** and **Options...**.
 - **Media on this page**: what the page has loaded that MDM can download (see below).
 
 ## A VPN or proxy extension
@@ -173,11 +173,11 @@ This needs nothing more from you: the extension already sees what the browser do
 to hand downloads over. What it notes stays in the browser's memory and is forgotten when the
 browser closes.
 
-## Right-click: Download with ZDownloader3
+## Right-click: Download with zDownloader³
 
-Right-click a link, a video, a sound or a picture and choose **Download with ZDownloader3**. MDM downloads it whatever its type: you asked for it, so the file types list and the excluded sites don't apply here (they only decide which downloads MDM takes over by itself). A video that plays as a stream goes to the **Download video** window with the stream its player loaded (HLS or DASH), as the [button over videos](#the-download-button-over-videos) sends it, with your cookies for the stream's server and what the browser sent with the stream (its referrer and origin, else the page as the referrer).
+Right-click a link, a video, a sound or a picture and choose **Download with zDownloader³**. MDM downloads it whatever its type: you asked for it, so the file types list and the excluded sites don't apply here (they only decide which downloads MDM takes over by itself). A video that plays as a stream goes to the **Download video** window with the stream its player loaded (HLS or DASH), as the [button over videos](#the-download-button-over-videos) sends it, with your cookies for the stream's server and what the browser sent with the stream (its referrer and origin, else the page as the referrer).
 
-Select part of a page and right-click it for **Download selected links with ZDownloader3**, or right-click the page for **Download all links with ZDownloader3**: the links open in **[Link grabber](link-grabber.md)**, sorted into packages, where you tick the ones you want. A page with tens of thousands of links works too: the extension sends a long list in parts, and Link grabber shows it once they are all in.
+Select part of a page and right-click it for **Download selected links with zDownloader³**, or right-click the page for **Download all links with zDownloader³**: the links open in **[Link grabber](link-grabber.md)**, sorted into packages, where you tick the ones you want. A page with tens of thousands of links works too: the extension sends a long list in parts, and Link grabber shows it once they are all in.
 
 If MDM can't be reached when you choose one of these, the help page opens at the section that explains why.
 

@@ -1,4 +1,4 @@
-# ZDownloader3 — fork roadmap
+# zDownloader³ — fork roadmap
 
 Overrides the upstream `ROADMAP.md` (kept as reference). Guiding principle: **JDownloader2 functionality and look, Linux-native, GPL-3.0 fork hygiene** — upstream-compatible changes stay mergeable.
 

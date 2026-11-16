@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Valencian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Valencian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Desinstal·lant %1.
 
 [CustomMessages]
 TaskBrowser=Configura la integració del &navegador (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Obri fitxers .&torrent i enllaços magnet amb ZDownloader3
-TaskStartup=Inicia ZDownloader3 quan s'inicia &Windows
+TaskTorrents=Obri fitxers .&torrent i enllaços magnet amb zDownloader³
+TaskStartup=Inicia zDownloader³ quan s'inicia &Windows
 TaskGroupOther=Altres:
-Launch=Inicia ZDownloader3
+Launch=Inicia zDownloader³
 KeepData=Vols esborrar també la llista de descàrregues i la configuració?%n%nEls fitxers descarregats no es toquen de cap manera.

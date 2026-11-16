@@ -12,9 +12,9 @@ Every version is on the [Releases](https://github.com/anefzaoui/misterdownloadma
 
 | File | What it is |
 |---|---|
-| `ZDownloader3-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
-| `ZDownloader3-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
-| `ZDownloader3-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\zdownloader3`, like an installed copy. |
+| `zDownloader³-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
+| `zDownloader³-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
+| `zDownloader³-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\zdownloader3`, like an installed copy. |
 
 These three are for 64-bit Windows on an Intel or AMD processor (x64), the usual PC. From the
 version after 0.5.2, each comes for two more kinds of PC too, with the processor in its name:
@@ -31,8 +31,8 @@ version after 0.5.2, each comes for two more kinds of PC too, with the processor
 MDM is also in [WinGet](https://learn.microsoft.com/windows/package-manager/winget/), Windows' package manager. In a terminal, the first line installs MDM and the second updates it to the latest version:
 
 ```
-winget install AhmedNefzaoui.ZDownloader3
-winget upgrade AhmedNefzaoui.ZDownloader3
+winget install AhmedNefzaoui.zDownloader³
+winget upgrade AhmedNefzaoui.zDownloader³
 ```
 
 WinGet downloads the setup and installs MDM without the setup's questions.
@@ -130,20 +130,20 @@ so you'd be among the first. Please
 
 | File | What it is |
 |---|---|
-| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag ZDownloader3 to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
+| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag zDownloader³ to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
 | `...-macos-x86_64-experimental.dmg` | The same, for a Mac with an Intel processor (About This Mac shows a *Processor*). |
 
 Browser integration is set up by MDM itself at each start (the browsers installed then are found); add the extension as in [Browser integration](browser-integration.md).
 
 ## Install with the setup
 
-1. Run `ZDownloader3-<version>-setup.exe`.
+1. Run `zDownloader³-<version>-setup.exe`.
 2. Choose the language. Windows' display language is already selected. The setup offers every language MDM has, and MDM starts in the one you pick.
-3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\ZDownloader3`. For everyone goes to `Program Files`.
+3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\zDownloader³`. For everyone goes to `Program Files`.
 4. Pick what the setup should do:
    - **Set up browser integration (Chrome, Edge, Brave, Firefox)**
-   - **Open .torrent files and magnet links with ZDownloader3**
-   - **Start ZDownloader3 when Windows starts**
+   - **Open .torrent files and magnet links with zDownloader³**
+   - **Start zDownloader³ when Windows starts**
    - **Create a desktop shortcut** (off unless you tick it)
 5. Click **Install**, then **Finish** to start MDM.
 
@@ -262,11 +262,11 @@ used, and how to make and share one.
 
 ## The tray icon
 
-Closing the main window doesn't quit MDM. It hides in the notification area, and downloads, queues and schedules carry on. To make closing quit (a portable copy's folder can then be deleted), untick **Options → General → Keep running when closing the window**. If there is no icon for MDM at all — not in the notification area, nor behind the ^ hidden icons — the window minimizes to the taskbar instead, so downloads continue and there is a way back. An icon behind ^ can be clicked to bring the window back, and starting MDM again always does. On macOS the window closes into the Dock, as Mac apps' windows do: click MDM's icon in the Dock (or in the menu bar) to bring it back, and quit with **Cmd+Q** or **ZDownloader3 → Quit**.
+Closing the main window doesn't quit MDM. It hides in the notification area, and downloads, queues and schedules carry on. To make closing quit (a portable copy's folder can then be deleted), untick **Options → General → Keep running when closing the window**. If there is no icon for MDM at all — not in the notification area, nor behind the ^ hidden icons — the window minimizes to the taskbar instead, so downloads continue and there is a way back. An icon behind ^ can be clicked to bring the window back, and starting MDM again always does. On macOS the window closes into the Dock, as Mac apps' windows do: click MDM's icon in the Dock (or in the menu bar) to bring it back, and quit with **Cmd+Q** or **zDownloader³ → Quit**.
 
 On Linux this needs a tray, which most desktops have (KDE Plasma, Xfce, Cinnamon, Ubuntu's GNOME or GNOME with the AppIndicator extension, waybar's tray). On a desktop without one (some tiling window managers), closing the window quits MDM, since there would be nowhere to bring it back from.
 
-![MDM's icon in the top bar of Ubuntu's GNOME, its menu open: Open ZDownloader3, Add new download, Add batch download, Downloads in progress, Speed Limiter, Scheduler, the main queue, Options and Exit](images/tray-linux.webp)
+![MDM's icon in the top bar of Ubuntu's GNOME, its menu open: Open zDownloader³, Add new download, Add batch download, Downloads in progress, Speed Limiter, Scheduler, the main queue, Options and Exit](images/tray-linux.webp)
 *The tray icon's menu on Ubuntu's GNOME.*
 
 - Click the tray icon to bring the window back.

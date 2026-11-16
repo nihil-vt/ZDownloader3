@@ -383,7 +383,7 @@ impl Http {
     }
 }
 
-const USER_AGENT: &str = concat!("ZDownloader3/", env!("CARGO_PKG_VERSION"));
+const USER_AGENT: &str = concat!("zDownloader³/", env!("CARGO_PKG_VERSION"));
 
 /// One account, signed in: its access token in memory (Real-Debrid's device flow gives tokens
 /// that expire; Mega-Debrid's sign-in one that lasts until the next sign-in; a pasted token
@@ -1144,7 +1144,7 @@ pub mod signin {
             assert!(
                 own_page(
                     tb,
-                    "https://torbox.app/oauth/device?app=ZDownloader3"
+                    "https://torbox.app/oauth/device?app=zDownloader³"
                 )
                 .is_ok()
             );

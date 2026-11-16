@@ -1,4 +1,4 @@
-//! ZDownloader3 updating itself: how this copy was installed, the release file that
+//! zDownloader³ updating itself: how this copy was installed, the release file that
 //! replaces it, and that file fetched and checked against the release's SHA256SUMS.txt, whose
 //! signature by MDM's release key ([`crate::signed_by_mdm`]) is checked first. Putting the file
 //! in place is the app's (`crates/app/src/update.rs`): it has to close itself to do it.
@@ -148,7 +148,7 @@ impl Install {
             (_, Arch::Arm64) if linux => ("linux-arm64".to_owned(), self.linux_ext()),
             _ => return Vec::new(),
         };
-        let name = |tail: &str| format!("ZDownloader3-{version}-{tail}{ext}");
+        let name = |tail: &str| format!("zDownloader³-{version}-{tail}{ext}");
         match (self, arch) {
             (Install::Installer | Install::PortableZip | Install::PlainZip, _) => vec![name(&tail)],
             // Linux on ARM came after "-experimental" went: it has no older name.
@@ -416,8 +416,8 @@ Connection: close
 
     #[tokio::test]
     async fn a_release_file_is_taken_only_from_a_list_signed_by_mdm() {
-        let zip = "ZDownloader3-9.9.9-x64.zip";
-        let setup = "ZDownloader3-9.9.9-setup.exe";
+        let zip = "zDownloader³-9.9.9-x64.zip";
+        let setup = "zDownloader³-9.9.9-setup.exe";
         let assets = |base: &str| -> Vec<(String, String)> {
             ["SHA256SUMS.txt", "SHA256SUMS.txt.sig", zip, setup]
                 .iter()
@@ -481,15 +481,15 @@ Connection: close
         let x64 = Some(Arch::X64);
         assert_eq!(
             Install::Installer.assets_on(x64, "0.2.2"),
-            ["ZDownloader3-0.2.2-setup.exe"]
+            ["zDownloader³-0.2.2-setup.exe"]
         );
         assert_eq!(
             Install::PortableZip.assets_on(x64, "0.2.2"),
-            ["ZDownloader3-0.2.2-portable.zip"]
+            ["zDownloader³-0.2.2-portable.zip"]
         );
         assert_eq!(
             Install::PlainZip.assets_on(x64, "0.2.2"),
-            ["ZDownloader3-0.2.2-x64.zip"]
+            ["zDownloader³-0.2.2-x64.zip"]
         );
         // Linux and macOS: the plain name first, then the one up to 0.2.x.
         for (install, ext) in [
@@ -501,8 +501,8 @@ Connection: close
             assert_eq!(
                 install.assets_on(x64, "1.0.0"),
                 [
-                    format!("ZDownloader3-1.0.0-linux-x86_64{ext}"),
-                    format!("ZDownloader3-1.0.0-linux-x86_64-experimental{ext}"),
+                    format!("zDownloader³-1.0.0-linux-x86_64{ext}"),
+                    format!("zDownloader³-1.0.0-linux-x86_64-experimental{ext}"),
                 ]
             );
         }
@@ -511,8 +511,8 @@ Connection: close
             assert_eq!(
                 Install::Dmg.assets_on(Some(arch), "1.0.0"),
                 [
-                    format!("ZDownloader3-1.0.0-macos-{name}.dmg"),
-                    format!("ZDownloader3-1.0.0-macos-{name}-experimental.dmg"),
+                    format!("zDownloader³-1.0.0-macos-{name}.dmg"),
+                    format!("zDownloader³-1.0.0-macos-{name}-experimental.dmg"),
                 ]
             );
         }
@@ -533,27 +533,27 @@ Connection: close
         let (arm, x86) = (Some(Arch::Arm64), Some(Arch::X86));
         assert_eq!(
             Install::Installer.assets_on(arm, "1.0.0"),
-            ["ZDownloader3-1.0.0-setup-arm64.exe"]
+            ["zDownloader³-1.0.0-setup-arm64.exe"]
         );
         assert_eq!(
             Install::PortableZip.assets_on(arm, "1.0.0"),
-            ["ZDownloader3-1.0.0-portable-arm64.zip"]
+            ["zDownloader³-1.0.0-portable-arm64.zip"]
         );
         assert_eq!(
             Install::PlainZip.assets_on(arm, "1.0.0"),
-            ["ZDownloader3-1.0.0-arm64.zip"]
+            ["zDownloader³-1.0.0-arm64.zip"]
         );
         assert_eq!(
             Install::Installer.assets_on(x86, "1.0.0"),
-            ["ZDownloader3-1.0.0-setup-x86.exe"]
+            ["zDownloader³-1.0.0-setup-x86.exe"]
         );
         assert_eq!(
             Install::PortableZip.assets_on(x86, "1.0.0"),
-            ["ZDownloader3-1.0.0-portable-x86.zip"]
+            ["zDownloader³-1.0.0-portable-x86.zip"]
         );
         assert_eq!(
             Install::PlainZip.assets_on(x86, "1.0.0"),
-            ["ZDownloader3-1.0.0-x86.zip"]
+            ["zDownloader³-1.0.0-x86.zip"]
         );
         for (install, ext) in [
             (Install::TarGz, ".tar.gz"),
@@ -564,7 +564,7 @@ Connection: close
             // Linux on ARM came after "-experimental" went.
             assert_eq!(
                 install.assets_on(arm, "1.0.0"),
-                [format!("ZDownloader3-1.0.0-linux-arm64{ext}")]
+                [format!("zDownloader³-1.0.0-linux-arm64{ext}")]
             );
             assert!(install.assets_on(x86, "1.0.0").is_empty());
         }
@@ -592,13 +592,13 @@ Connection: close
     fn the_windows_names_are_build_ps1_s() {
         let script = include_str!("../../../tools/installer/build.ps1").replace("\r\n", "\n");
         assert!(script.contains(
-            "\nNew-Zip \"ZDownloader3-$version-portable$suffix\" $true\nNew-Zip \"ZDownloader3-$version-$Arch\" $false\n"
+            "\nNew-Zip \"zDownloader³-$version-portable$suffix\" $true\nNew-Zip \"zDownloader³-$version-$Arch\" $false\n"
         ));
         assert!(script.contains("$suffix = if ($Arch -eq \"x64\") { \"\" } else { \"-$Arch\" }"));
         assert!(script.contains("[ValidateSet(\"x64\", \"arm64\", \"x86\")]"));
         let iss = include_str!("../../../tools/installer/mdm.iss").replace("\r\n", "\n");
         assert!(iss.contains(
-            "#if Arch == \"x64\"\nOutputBaseFilename=ZDownloader3-{#AppVersion}-setup\n#else\nOutputBaseFilename=ZDownloader3-{#AppVersion}-setup-{#Arch}\n#endif"
+            "#if Arch == \"x64\"\nOutputBaseFilename=zDownloader³-{#AppVersion}-setup\n#else\nOutputBaseFilename=zDownloader³-{#AppVersion}-setup-{#Arch}\n#endif"
         ));
         for arch in [Arch::X64, Arch::Arm64, Arch::X86] {
             let (a, suffix) = match arch {
@@ -607,15 +607,15 @@ Connection: close
             };
             assert_eq!(
                 Install::Installer.assets_on(Some(arch), "1.0.0"),
-                [format!("ZDownloader3-1.0.0-setup{suffix}.exe")]
+                [format!("zDownloader³-1.0.0-setup{suffix}.exe")]
             );
             assert_eq!(
                 Install::PortableZip.assets_on(Some(arch), "1.0.0"),
-                [format!("ZDownloader3-1.0.0-portable{suffix}.zip")]
+                [format!("zDownloader³-1.0.0-portable{suffix}.zip")]
             );
             assert_eq!(
                 Install::PlainZip.assets_on(Some(arch), "1.0.0"),
-                [format!("ZDownloader3-1.0.0-{a}.zip")]
+                [format!("zDownloader³-1.0.0-{a}.zip")]
             );
         }
     }
@@ -626,7 +626,7 @@ Connection: close
     fn the_linux_names_are_build_linux_sh_s() {
         let script = include_str!("../../../tools/installer/build-linux.sh").replace("\r\n", "\n");
         assert!(
-            script.contains("\nname=\"ZDownloader3-$version-linux-$arch\"\n"),
+            script.contains("\nname=\"zDownloader³-$version-linux-$arch\"\n"),
             "build-linux.sh names its files differently"
         );
         // Its processors, as the names say them.
@@ -648,11 +648,11 @@ Connection: close
             );
             assert_eq!(
                 install.assets_on(Some(Arch::X64), "1.0.0")[0],
-                format!("ZDownloader3-1.0.0-linux-x86_64{ext}")
+                format!("zDownloader³-1.0.0-linux-x86_64{ext}")
             );
             assert_eq!(
                 install.assets_on(Some(Arch::Arm64), "1.0.0")[0],
-                format!("ZDownloader3-1.0.0-linux-arm64{ext}")
+                format!("zDownloader³-1.0.0-linux-arm64{ext}")
             );
         }
     }
@@ -678,7 +678,7 @@ Connection: close
         assert_eq!(linux_package(exe, &both), Install::Deb);
         // The .tar.gz unpacked in the home folder, /opt or /usr/local: MDM's own to replace.
         let nobody = |_: &str, _: &[&str]| false;
-        let home = Path::new("/home/me/ZDownloader3/zdownloader3");
+        let home = Path::new("/home/me/zDownloader³/zdownloader3");
         assert_eq!(linux_package(home, &nobody), Install::TarGz);
         assert_eq!(
             linux_package(Path::new("/opt/mdm/zdownloader3"), &nobody),
@@ -695,11 +695,11 @@ Connection: close
     #[test]
     fn bundles_on_a_mac() {
         let exe = Path::new(
-            "/Applications/ZDownloader3.app/Contents/MacOS/zdownloader3",
+            "/Applications/zDownloader³.app/Contents/MacOS/zdownloader3",
         );
         assert_eq!(
             app_bundle(exe).as_deref(),
-            Some(Path::new("/Applications/ZDownloader3.app"))
+            Some(Path::new("/Applications/zDownloader³.app"))
         );
         assert_eq!(
             app_bundle(Path::new("/usr/bin/zdownloader3")),
@@ -747,7 +747,7 @@ Connection: close
         let zip_path = root.path().join("r.zip");
         let mut w = zip::ZipWriter::new(std::fs::File::create(&zip_path).unwrap());
         let opts = zip::write::SimpleFileOptions::default();
-        w.start_file("ZDownloader3-9.9.9-x64/mdm.exe", opts)
+        w.start_file("zDownloader³-9.9.9-x64/mdm.exe", opts)
             .unwrap();
         w.write_all(b"exe").unwrap();
         w.start_file("../escape.txt", opts).unwrap();

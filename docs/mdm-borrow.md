@@ -1,6 +1,6 @@
 # Borrowing ledger — misterdownloadmanager (github.com/anefzaoui/misterdownloadmanager)
 
-Read at v0.5.2 (~100k lines Rust, GPL-3.0-or-later). **License boundary: ideas and architecture only — zero code may come across.** JD2-vs-MDM positioning: MDM is an IDM-style manager (own engine, no host plugins, no linkgrabber plugin market; JD2 is a hoster-plugin framework). ZDownloader3 sits closer to JD2, but MDM solved several UX/security problems better than JD2 does.
+Read at v0.5.2 (~100k lines Rust, GPL-3.0-or-later). **License boundary: ideas and architecture only — zero code may come across.** JD2-vs-MDM positioning: MDM is an IDM-style manager (own engine, no host plugins, no linkgrabber plugin market; JD2 is a hoster-plugin framework). zDownloader³ sits closer to JD2, but MDM solved several UX/security problems better than JD2 does.
 
 Source layout consulted: `docs/ARCHITECTURE.md`, `docs/link-grabber.md`, `docs/queues-and-scheduler.md`, `docs/themes.md`, `crates/*` (engine, app, ipc, cnl, debrid, remote, mcp, extract, nmhost).
 
@@ -15,7 +15,7 @@ JD2 exposes CNL2 on 127.0.0.1:9666 but blindly trusts posts and answers `jdcheck
 - doesn't answer `jdcheck.js` (sites may hide the button; honest trade-off)
 - one program per port, and says so ("JDownloader is running…")
 - toggle off = forget all site answers
-→ **ZDownloader3 ships exactly this model for CNL2. It's the reference spec for our grabber daemon's security.**
+→ **zDownloader³ ships exactly this model for CNL2. It's the reference spec for our grabber daemon's security.**
 
 ### 2. Link look-ups with etiquette
 On add, MDM HEAD-checks each link: shows *Online / Offline (404) / Needs login / Busy*, unticks offline, throttled per-site concurrency, and an option to disable look-ups entirely (some hosts count them as downloads). JD2's equivalent is the linkchecker, but MDM's "off by default? no — toggle + per-site caps + measured against user harm" framing is the right one.
@@ -41,11 +41,11 @@ MDM themes are light/dark pairs declaring stable **role keys** (`button.hot`, `l
 
 ### 7. Browser extension + native messaging host
 Extension (MV3 Chromium/Firefox) → native messaging host → app; host accepts only MDM's own extension IDs; 1 MB message cap with paged transfers for large link lists (carries referrer/cookies per link, no isFirstPost spoofing possible); browser download canceled only after app accepts.
-→ Phase-2 item for ZDownloader3 (post-MVP): `zd3-nmhost` + extension adds "Send to ZDownloader3" context item. Design constraint noted: referrer/cookies travel with the link — we must honor that for hoster plugins later.
+→ Phase-2 item for zDownloader³ (post-MVP): `zd3-nmhost` + extension adds "Send to zDownloader³" context item. Design constraint noted: referrer/cookies travel with the link — we must honor that for hoster plugins later.
 
 ### 8. Remote control as automation API, one surface
 MDM exposes everything (list/add/start/stop/queues/settings) as one "automation API"; three frontends ride it: local IPC socket, LN-remote HTTPS server with pairing codes + device tokens (phone on LAN), and an MCP server for AI assistants (`rmcp`, stdio).
-→ ZDownloader3's planned "remote control API" should be a single command bus + thin frontends (local socket, optional HTTPS+token, optional MCP), not three parallel APIs.
+→ zDownloader³'s planned "remote control API" should be a single command bus + thin frontends (local socket, optional HTTPS+token, optional MCP), not three parallel APIs.
 
 ### 9. Headless mode as first-class
 `--headless` runs the same `App` without egui, driven by the command channel. Makes server/Docker deployments trivial and forces the engine to never depend on the UI.
@@ -73,4 +73,4 @@ MDM exposes everything (list/add/start/stop/queues/settings) as one "automation 
 ## Doc cross-links
 
 - `docs/jd2-internals.md` — JD2 reference (engine, plugins, GUI, config)
-- `docs/architecture.md` — ZDownloader3 module map + roadmap (needs the command-bus note added)
+- `docs/architecture.md` — zDownloader³ module map + roadmap (needs the command-bus note added)

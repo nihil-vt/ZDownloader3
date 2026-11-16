@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Cherokee: tools/installer/languages.py
+﻿; zDownloader³'s installer in Cherokee: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=ᎤᏕᎳᎰᏒᎢ %1.
 
 [CustomMessages]
 TaskBrowser=ᎤᏓᎷᎪᏗ &ᏗᏟᎶᏍᏗ (Chrome, Edge, Brave, Firefox) ᏕᎪᏢᎾ
-TaskTorrents=ZDownloader3 &ᎠᏍᏚᎢᏍᏗ .torrent Ꮧ फाइल ᎢᏯᏓᏛᏁᎯ ᎠᎴ magnet links
-TaskStartup=&Windows ᎤᎴᏅᎲᎯ ZDownloader3 ᎤᎴᏅᏗ
+TaskTorrents=zDownloader³ &ᎠᏍᏚᎢᏍᏗ .torrent Ꮧ फाइल ᎢᏯᏓᏛᏁᎯ ᎠᎴ magnet links
+TaskStartup=&Windows ᎤᎴᏅᎲᎯ zDownloader³ ᎤᎴᏅᏗ
 TaskGroupOther=ᎤᏟᏍᏗ:
-Launch=ZDownloader3 ᎤᎴᏅᏗ
+Launch=zDownloader³ ᎤᎴᏅᏗ
 KeepData=ᎠᎴᏬ ᏕᏣᏓᎴᏔᏅᏍᎪᎢ ᏗᏟᎶᏍᏗ ᏗᏓᎴᏔᏅᏍᏗ ᎠᎴ ᏗᏟᎶᏍᏗ?%n%nᏗᏟᎶᏍᏗ ᏗᏓᎴᏔᏅᏍᏗ ᎥᏝ ᏱᏗᏓᎴᏔᏅᏍᎦ.

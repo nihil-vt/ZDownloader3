@@ -47,8 +47,8 @@ MDM's helper serves only its own extension. The browser says this copy isn't one
   Until then, remove the store's copy
   and load the one in MDM's folder instead (`extension\chromium`, see
   [Browser integration](browser-integration.md#chrome-edge-brave-opera-and-vivaldi)).
-- **Two copies installed?** Open the browser's extensions page (`chrome://extensions`, `edge://extensions`, `brave://extensions`) and keep only one **ZDownloader3**.
-- **A copy from elsewhere?** Remove it and add the extension as MDM's **Add ZDownloader3 to your browser** window shows (see [Browser integration](browser-integration.md)).
+- **Two copies installed?** Open the browser's extensions page (`chrome://extensions`, `edge://extensions`, `brave://extensions`) and keep only one **zDownloader³**.
+- **A copy from elsewhere?** Remove it and add the extension as MDM's **Add zDownloader³ to your browser** window shows (see [Browser integration](browser-integration.md)).
 - **An older MDM?** Update MDM: a newer extension may have an ID an old helper doesn't know.
 
 ## The extension is newer than MDM {#update-app}
@@ -71,7 +71,7 @@ The extension is connected, but MDM's own settings leave this download to the br
 2. The file's type is listed in **Options → File types**.
 3. The site isn't in **Don't start downloading automatically from the following sites**, nor the address in **Don't start downloading automatically from the following addresses**.
 4. The file isn't smaller than **Don't take files smaller than** in **Options → File types**.
-5. For a `.torrent` file: **Open magnet links and .torrent files with ZDownloader3** is on in **Tasks → Torrent settings**.
+5. For a `.torrent` file: **Open magnet links and .torrent files with zDownloader³** is on in **Tasks → Torrent settings**.
 
 Also check the extension's toolbar button: with **Take downloads from this browser** off, everything stays with the browser.
 
@@ -97,10 +97,10 @@ An add-on loaded with **Load Temporary Add-on** (from `about:debugging`) is remo
 
 Browsers installed as a Flatpak or a Snap run in a sandbox, which decides whether they can reach MDM.
 
-- **Firefox as a Snap** (Ubuntu's own Firefox) reaches MDM through the desktop, which reads the browser files in your home folder and those the .deb or .rpm installs for everyone. The first time the extension calls MDM, the desktop asks **Allow Firefox to start WebExtension backend?** for ZDownloader3: choose **Allow**. After **Don't allow**, the extension says the connection failed and the desktop doesn't ask again; to be asked again, run this in a terminal, then use the extension again:
+- **Firefox as a Snap** (Ubuntu's own Firefox) reaches MDM through the desktop, which reads the browser files in your home folder and those the .deb or .rpm installs for everyone. The first time the extension calls MDM, the desktop asks **Allow Firefox to start WebExtension backend?** for zDownloader³: choose **Allow**. After **Don't allow**, the extension says the connection failed and the desktop doesn't ask again; to be asked again, run this in a terminal, then use the extension again:
 
   `gdbus call --session --dest org.freedesktop.impl.portal.PermissionStore --object-path /org/freedesktop/impl/portal/PermissionStore --method org.freedesktop.impl.portal.PermissionStore.Delete webextensions com.zdownloader3.host`
-- **Chromium as a Snap** (Ubuntu's Chromium) starts MDM's helper inside its sandbox, where it can't reach MDM, so MDM doesn't list it in **Add ZDownloader3 to your browser**. Use Firefox, or Google Chrome from its own `.deb`.
+- **Chromium as a Snap** (Ubuntu's Chromium) starts MDM's helper inside its sandbox, where it can't reach MDM, so MDM doesn't list it in **Add zDownloader³ to your browser**. Use Firefox, or Google Chrome from its own `.deb`.
 - **Flatpak browsers** (such as Zen's `app.zen_browser.zen`) can't start MDM's helper, so MDM doesn't list them either. Install the browser from your distribution's packages (or the browser maker's own `.deb`, `.rpm`, tarball or AppImage) to use browser integration.
 
 ## Next steps

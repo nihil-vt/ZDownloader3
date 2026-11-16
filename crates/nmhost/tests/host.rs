@@ -1,5 +1,5 @@
 //! The native host as the browser runs it: the real program, its standard streams framed as
-//! native messages, its own data folder (ZD3_DATA_DIR) with a fake ZDownloader3
+//! native messages, its own data folder (ZD3_DATA_DIR) with a fake zDownloader³
 //! listening where `ipc.json` says, answering as the test wants.
 
 use std::io::{BufRead, BufReader, Read, Write};
@@ -417,7 +417,7 @@ fn a_host_in_a_temporary_folder_is_not_registered() {
     let home = data_dir("temporary", serde_json::json!({}));
     let (chrome, hosts) = chrome_dirs(&home);
     std::fs::create_dir_all(&chrome).unwrap();
-    let extracted = home.join("Rar$EXa34720.17029.rartemp/ZDownloader3");
+    let extracted = home.join("Rar$EXa34720.17029.rartemp/zDownloader³");
     std::fs::create_dir_all(&extracted).unwrap();
     let copy = extracted.join("zdownloader3-nmhost");
     std::fs::copy(HOST, &copy).unwrap();

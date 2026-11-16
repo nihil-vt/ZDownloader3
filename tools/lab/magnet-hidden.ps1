@@ -150,7 +150,7 @@ function Run-State([string]$St) {
   $reply = ""
   try {
     # The main window: the copy's first (its title has the version, Options' starts the same).
-    $main = Wait-Window $app.Id "ZDownloader3*"
+    $main = Wait-Window $app.Id "zDownloader³*"
     Start-Sleep -Milliseconds 800
     switch ($St) {
       "visible" { }

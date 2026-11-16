@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "يسلم التنزيلات من المستعرض إلى ZDownloader3."
+    "message": "يسلم التنزيلات من المستعرض إلى zDownloader³."
   },
   "menu": {
-    "message": "تنزيل باستخدام ZDownloader3"
+    "message": "تنزيل باستخدام zDownloader³"
   },
   "video_download": {
     "message": "تنزيل الفيديو"
@@ -30,19 +30,19 @@
     "message": "إعدادات الزر..."
   },
   "video_sent": {
-    "message": "تم الإرسال إلى ZDownloader3"
+    "message": "تم الإرسال إلى zDownloader³"
   },
   "menu_selected": {
-    "message": "تنزيل الروابط المحددة باستخدام ZDownloader3"
+    "message": "تنزيل الروابط المحددة باستخدام zDownloader³"
   },
   "menu_all": {
-    "message": "تنزيل جميع الروابط باستخدام ZDownloader3"
+    "message": "تنزيل جميع الروابط باستخدام zDownloader³"
   },
   "status_connected": {
-    "message": "متصل بـ ZDownloader3"
+    "message": "متصل بـ zDownloader³"
   },
   "status_connected_version": {
-    "message": "متصل بـ ZDownloader3 $version$",
+    "message": "متصل بـ zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "متوقف مؤقتا: تبقى التنزيلات مع المستعرض"
   },
   "status_not_installed": {
-    "message": "لم يتم تثبيت ZDownloader3، أو لم يتم إعداد الربط بالمستعرض الخاص به"
+    "message": "لم يتم تثبيت zDownloader³، أو لم يتم إعداد الربط بالمستعرض الخاص به"
   },
   "status_forbidden": {
-    "message": "لا يقبل ZDownloader3 هذه النسخة من الملحق"
+    "message": "لا يقبل zDownloader³ هذه النسخة من الملحق"
   },
   "status_not_running": {
-    "message": "لم يبدأ ZDownloader3 في الوقت المحدد"
+    "message": "لم يبدأ zDownloader³ في الوقت المحدد"
   },
   "status_host_failed": {
-    "message": "فشل الاتصال بـ ZDownloader3"
+    "message": "فشل الاتصال بـ zDownloader³"
   },
   "status_too_large": {
     "message": "كانت تفاصيل هذا التنزيل كبيرة جدا بحيث لا يمكن تسليمها"
   },
   "status_update_app": {
-    "message": "قم بتحديث ZDownloader3 لاستخدام كل ما يوفره هذا الملحق"
+    "message": "قم بتحديث zDownloader³ لاستخدام كل ما يوفره هذا الملحق"
   },
   "popup_take": {
     "message": "تلقي التنزيلات من هذا المستعرض"
@@ -78,10 +78,10 @@
     "message": "إرسال التنزيلات عبر وكيل هذا المستعرض أو ملحق VPN"
   },
   "popup_proxy_title": {
-    "message": "يجري ZDownloader3 التنزيل بعد ذلك عبر الوكيل نفسه الذي يستخدمه هذا المستعرض. يطلب منك المستعرض مرة واحدة السماح بذلك؛ وإيقاف هذا يلغي ذلك."
+    "message": "يجري zDownloader³ التنزيل بعد ذلك عبر الوكيل نفسه الذي يستخدمه هذا المستعرض. يطلب منك المستعرض مرة واحدة السماح بذلك؛ وإيقاف هذا يلغي ذلك."
   },
   "popup_proxy_title_chromium": {
-    "message": "يجري ZDownloader3 التنزيل بعد ذلك عبر الوكيل نفسه الذي يستخدمه هذا المستعرض. عندما يكون هذا الخيار متوقفا، لا يقرأ الملحق وكيل المستعرض."
+    "message": "يجري zDownloader³ التنزيل بعد ذلك عبر الوكيل نفسه الذي يستخدمه هذا المستعرض. عندما يكون هذا الخيار متوقفا، لا يقرأ الملحق وكيل المستعرض."
   },
   "popup_exclude_site": {
     "message": "عدم التقاط التنزيلات من $site$ أبدا",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "فتح ZDownloader3"
+    "message": "فتح zDownloader³"
   },
   "popup_options": {
     "message": "خيارات..."
@@ -150,7 +150,7 @@
     "message": "استخدام تكامل المتصفح المتقدم معطل في خيارات ← عام."
   },
   "declined_torrents": {
-    "message": "إنه تورنت، وخيار «فتح روابط مغناطيسية وملفات .torrent باستخدام ZDownloader3» متوقف في إعدادات التورنت."
+    "message": "إنه تورنت، وخيار «فتح روابط مغناطيسية وملفات .torrent باستخدام zDownloader³» متوقف في إعدادات التورنت."
   },
   "declined_site_access": {
     "message": "لا يسمح للملحق بقراءة هذا الموقع (وصول الملحق إلى الموقع)."
@@ -195,16 +195,16 @@
     "message": "لا يوجد فيديو للتنزيل هنا"
   },
   "video_playlist": {
-    "message": "قائمة فيديوهات: اختر منها في ZDownloader3"
+    "message": "قائمة فيديوهات: اختر منها في zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "يحتاج ZDownloader3 إلى yt-dlp لهذا الفيديو"
+    "message": "يحتاج zDownloader³ إلى yt-dlp لهذا الفيديو"
   },
   "video_too_long": {
     "message": "استغرق البحث وقتا طويلا"
   },
   "video_busy": {
-    "message": "ZDownloader3 مشغول بفيديوهات أخرى"
+    "message": "zDownloader³ مشغول بفيديوهات أخرى"
   },
   "video_queued": {
     "message": "تمت الإضافة إلى قائمة الانتظار"
@@ -228,7 +228,7 @@
     "message": "هذا الكمبيوتر"
   },
   "popup_send_remote": {
-    "message": "ZDownloader3 آخر (خادم)"
+    "message": "zDownloader³ آخر (خادم)"
   },
   "popup_remote_code": {
     "message": "رمز الإقران"
@@ -324,7 +324,7 @@
     "message": "كل الجودات والترجمات..."
   },
   "video_failed": {
-    "message": "لم يتم تثبيت ZDownloader3 أو لم يبدأ"
+    "message": "لم يتم تثبيت zDownloader³ أو لم يبدأ"
   },
   "video_download_best": {
     "message": "تنزيل بأفضل جودة"

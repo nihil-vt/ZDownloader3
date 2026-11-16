@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Amharic: tools/installer/languages.py
+﻿; zDownloader³'s installer in Amharic: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 እየተራገፈ ነው።
 
 [CustomMessages]
 TaskBrowser=የ&አሳሽ ውህደትን ያዋቅሩ (Chrome, Edge, Brave, Firefox)
-TaskTorrents=.&torrent ፋይሎችን እና ማግኔት ማገናኛዎችን በZDownloader3 ይክፈቱ
-TaskStartup=Start ZDownloader3 when &Windows starts
+TaskTorrents=.&torrent ፋይሎችን እና ማግኔት ማገናኛዎችን በzDownloader³ ይክፈቱ
+TaskStartup=Start zDownloader³ when &Windows starts
 TaskGroupOther=ሌላ:
-Launch=ZDownloader3ን ያስጀምሩ
+Launch=zDownloader³ን ያስጀምሩ
 KeepData=የእርስዎን የማውረድ ዝርዝር እና ቅንብሮችም መሰረዝ ይፈልጋሉ?%n%nየወረዱ ፋይሎችዎ በማንኛውም መንገድ አይነኩም።

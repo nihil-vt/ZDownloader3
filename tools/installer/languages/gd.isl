@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Scottish Gaelic: tools/installer/languages.py
+﻿; zDownloader³'s installer in Scottish Gaelic: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=A' dì-stàladh %1.
 
 [CustomMessages]
 TaskBrowser=Suidhich amalachadh a' bhrabhsair (&browser integration) (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Fosgail faidhlichean .&torrent agus ceanglaichean magnet le ZDownloader3
-TaskStartup=Tòisich ZDownloader3 nuair a thòisicheas &Windows
+TaskTorrents=Fosgail faidhlichean .&torrent agus ceanglaichean magnet le zDownloader³
+TaskStartup=Tòisich zDownloader³ nuair a thòisicheas &Windows
 TaskGroupOther=Eile:
-Launch=Tòisich ZDownloader3
+Launch=Tòisich zDownloader³
 KeepData=Sguab às an liosta luchdachadh sìos agus na roghainnean agad cuideachd?%n%nCha tèid suathadh air na faidhlichean a luchdaich thu sìos co-dhiù.

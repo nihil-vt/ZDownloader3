@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Belarusian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Belarusian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Выдаленне %1.
 
 [CustomMessages]
 TaskBrowser=Наладзіць інтэграцыю з &браўзерам (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Адкрываць файлы .&torrent і магнітныя спасылкі з дапамогай ZDownloader3
-TaskStartup=Запускаць ZDownloader3 пры запуску &Windows
+TaskTorrents=Адкрываць файлы .&torrent і магнітныя спасылкі з дапамогай zDownloader³
+TaskStartup=Запускаць zDownloader³ пры запуску &Windows
 TaskGroupOther=Іншае:
-Launch=Запусціць ZDownloader3
+Launch=Запусціць zDownloader³
 KeepData=Выдаліць таксама спіс загрузак і налады?%n%nВашы загружаныя файлы не будуць закрануты ў любым выпадку.

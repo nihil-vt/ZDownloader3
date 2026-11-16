@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Передает загрузки из браузера в ZDownloader3."
+    "message": "Передает загрузки из браузера в zDownloader³."
   },
   "menu": {
-    "message": "Загрузить с помощью ZDownloader3"
+    "message": "Загрузить с помощью zDownloader³"
   },
   "video_download": {
     "message": "Скачать видео"
@@ -30,19 +30,19 @@
     "message": "Настройки кнопки..."
   },
   "video_sent": {
-    "message": "Отправлено в ZDownloader3"
+    "message": "Отправлено в zDownloader³"
   },
   "menu_selected": {
-    "message": "Загрузить выбранные ссылки с ZDownloader3"
+    "message": "Загрузить выбранные ссылки с zDownloader³"
   },
   "menu_all": {
-    "message": "Загрузить все ссылки с ZDownloader3"
+    "message": "Загрузить все ссылки с zDownloader³"
   },
   "status_connected": {
-    "message": "Подключено к ZDownloader3"
+    "message": "Подключено к zDownloader³"
   },
   "status_connected_version": {
-    "message": "Подключено к ZDownloader3 $version$",
+    "message": "Подключено к zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Приостановлено: загрузки остаются в браузере"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 не установлен или его интеграция с браузером не настроена"
+    "message": "zDownloader³ не установлен или его интеграция с браузером не настроена"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 не принимает эту копию расширения"
+    "message": "zDownloader³ не принимает эту копию расширения"
   },
   "status_not_running": {
-    "message": "ZDownloader3 не запустился вовремя"
+    "message": "zDownloader³ не запустился вовремя"
   },
   "status_host_failed": {
-    "message": "Не удалось подключиться к ZDownloader3"
+    "message": "Не удалось подключиться к zDownloader³"
   },
   "status_too_large": {
     "message": "Сведения об этой загрузке были слишком велики для передачи"
   },
   "status_update_app": {
-    "message": "Обновите ZDownloader3, чтобы использовать все возможности этого расширения"
+    "message": "Обновите zDownloader³, чтобы использовать все возможности этого расширения"
   },
   "popup_take": {
     "message": "Перехватывать загрузки из этого браузера"
@@ -78,10 +78,10 @@
     "message": "Отправлять загрузки через прокси-сервер или расширение VPN этого браузера"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 загружает файлы через тот же прокси-сервер, что и этот браузер. Браузер один раз запросит у вас разрешение; отключение этой функции отменяет это разрешение."
+    "message": "zDownloader³ загружает файлы через тот же прокси-сервер, что и этот браузер. Браузер один раз запросит у вас разрешение; отключение этой функции отменяет это разрешение."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 будет загружать файлы через тот же прокси-сервер, что и этот браузер. Если этот параметр отключен, расширение не будет считывать прокси-сервер браузера."
+    "message": "zDownloader³ будет загружать файлы через тот же прокси-сервер, что и этот браузер. Если этот параметр отключен, расширение не будет считывать прокси-сервер браузера."
   },
   "popup_exclude_site": {
     "message": "Никогда не загружать с $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Открыть ZDownloader3"
+    "message": "Открыть zDownloader³"
   },
   "popup_options": {
     "message": "Параметры..."
@@ -150,7 +150,7 @@
     "message": "Параметр «Использовать расширенную интеграцию с браузером» отключен в меню «Параметры» → «Общие»."
   },
   "declined_torrents": {
-    "message": "Это торрент, а параметр «Открывать magnet-ссылки и файлы .torrent с помощью ZDownloader3» в настройках торрентов отключён."
+    "message": "Это торрент, а параметр «Открывать magnet-ссылки и файлы .torrent с помощью zDownloader³» в настройках торрентов отключён."
   },
   "declined_site_access": {
     "message": "Расширению не разрешено читать этот сайт (доступ расширения к сайту в браузере)."
@@ -195,16 +195,16 @@
     "message": "Здесь нет видео для скачивания"
   },
   "video_playlist": {
-    "message": "Список видео: выберите их в ZDownloader3"
+    "message": "Список видео: выберите их в zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "Для этого видео ZDownloader3 нужен yt-dlp"
+    "message": "Для этого видео zDownloader³ нужен yt-dlp"
   },
   "video_too_long": {
     "message": "Поиск занял слишком много времени"
   },
   "video_busy": {
-    "message": "ZDownloader3 занят другими видео"
+    "message": "zDownloader³ занят другими видео"
   },
   "video_queued": {
     "message": "Добавлено в очередь"
@@ -228,7 +228,7 @@
     "message": "Этот компьютер"
   },
   "popup_send_remote": {
-    "message": "Другой ZDownloader3 (сервер)"
+    "message": "Другой zDownloader³ (сервер)"
   },
   "popup_remote_code": {
     "message": "Код сопряжения"
@@ -324,7 +324,7 @@
     "message": "Все качества и субтитры..."
   },
   "video_failed": {
-    "message": "ZDownloader3 не установлен или не запустился"
+    "message": "zDownloader³ не установлен или не запустился"
   },
   "video_download_best": {
     "message": "Скачать лучшее"

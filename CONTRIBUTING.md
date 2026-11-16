@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping with ZDownloader3. Bug reports, ideas, translation fixes and pull
+Thanks for helping with zDownloader³. Bug reports, ideas, translation fixes and pull
 requests are all welcome.
 
 ## Getting set up

@@ -317,16 +317,16 @@ mod tests {
                 .collect()
         };
         let full = a(&[
-            "ZDownloader3-0.2.2-setup.exe",
+            "zDownloader³-0.2.2-setup.exe",
             "SHA256SUMS.txt",
             "SHA256SUMS.txt.sig",
         ]);
         assert_eq!(
             asset_on(Install::Installer, X64, "0.2.2", &full).as_deref(),
-            Some("ZDownloader3-0.2.2-setup.exe")
+            Some("zDownloader³-0.2.2-setup.exe")
         );
         // An unsigned release, another kind's file, a build from source: no.
-        let unsigned = a(&["ZDownloader3-0.2.2-setup.exe", "SHA256SUMS.txt"]);
+        let unsigned = a(&["zDownloader³-0.2.2-setup.exe", "SHA256SUMS.txt"]);
         assert_eq!(asset_on(Install::Installer, X64, "0.2.2", &unsigned), None);
         assert_eq!(asset_on(Install::PortableZip, X64, "0.2.2", &full), None);
         assert_eq!(asset_on(Install::Source, X64, "0.2.2", &full), None);
@@ -343,9 +343,9 @@ mod tests {
                 .map(|n| (n.to_string(), format!("https://x/{n}")))
                 .collect()
         };
-        let old = "ZDownloader3-0.3.0-linux-x86_64-experimental.AppImage";
-        let new = "ZDownloader3-0.3.0-linux-x86_64.AppImage";
-        let deb = "ZDownloader3-0.3.0-linux-x86_64.deb";
+        let old = "zDownloader³-0.3.0-linux-x86_64-experimental.AppImage";
+        let new = "zDownloader³-0.3.0-linux-x86_64.AppImage";
+        let deb = "zDownloader³-0.3.0-linux-x86_64.deb";
         for (assets, want) in [
             (release(&[old]), Some(old)),
             (release(&[new, deb]), Some(new)),
@@ -372,19 +372,19 @@ mod tests {
     #[test]
     fn each_processor_takes_its_own_file() {
         let names = [
-            "ZDownloader3-1.0.0-setup.exe",
-            "ZDownloader3-1.0.0-setup-arm64.exe",
-            "ZDownloader3-1.0.0-setup-x86.exe",
-            "ZDownloader3-1.0.0-portable.zip",
-            "ZDownloader3-1.0.0-portable-arm64.zip",
-            "ZDownloader3-1.0.0-portable-x86.zip",
-            "ZDownloader3-1.0.0-x64.zip",
-            "ZDownloader3-1.0.0-arm64.zip",
-            "ZDownloader3-1.0.0-x86.zip",
-            "ZDownloader3-1.0.0-linux-x86_64.AppImage",
-            "ZDownloader3-1.0.0-linux-arm64.AppImage",
-            "ZDownloader3-1.0.0-linux-x86_64.deb",
-            "ZDownloader3-1.0.0-linux-arm64.deb",
+            "zDownloader³-1.0.0-setup.exe",
+            "zDownloader³-1.0.0-setup-arm64.exe",
+            "zDownloader³-1.0.0-setup-x86.exe",
+            "zDownloader³-1.0.0-portable.zip",
+            "zDownloader³-1.0.0-portable-arm64.zip",
+            "zDownloader³-1.0.0-portable-x86.zip",
+            "zDownloader³-1.0.0-x64.zip",
+            "zDownloader³-1.0.0-arm64.zip",
+            "zDownloader³-1.0.0-x86.zip",
+            "zDownloader³-1.0.0-linux-x86_64.AppImage",
+            "zDownloader³-1.0.0-linux-arm64.AppImage",
+            "zDownloader³-1.0.0-linux-x86_64.deb",
+            "zDownloader³-1.0.0-linux-arm64.deb",
             "SHA256SUMS.txt",
             "SHA256SUMS.txt.sig",
         ];
@@ -409,7 +409,7 @@ mod tests {
         ] {
             assert_eq!(
                 asset_on(install, arch, "1.0.0", &assets).as_deref(),
-                Some(format!("ZDownloader3-1.0.0-{want}").as_str()),
+                Some(format!("zDownloader³-1.0.0-{want}").as_str()),
                 "{install:?} {arch:?}"
             );
         }

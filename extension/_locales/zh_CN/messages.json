@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "将下载从浏览器交给 ZDownloader3。"
+    "message": "将下载从浏览器交给 zDownloader³。"
   },
   "menu": {
-    "message": "使用 ZDownloader3 下载"
+    "message": "使用 zDownloader³ 下载"
   },
   "video_download": {
     "message": "下载视频"
@@ -30,19 +30,19 @@
     "message": "按钮设置..."
   },
   "video_sent": {
-    "message": "已发送到 ZDownloader3"
+    "message": "已发送到 zDownloader³"
   },
   "menu_selected": {
-    "message": "使用 ZDownloader3 下载选定链接"
+    "message": "使用 zDownloader³ 下载选定链接"
   },
   "menu_all": {
-    "message": "使用 ZDownloader3 下载所有链接"
+    "message": "使用 zDownloader³ 下载所有链接"
   },
   "status_connected": {
-    "message": "已连接到 ZDownloader3"
+    "message": "已连接到 zDownloader³"
   },
   "status_connected_version": {
-    "message": "已连接到 ZDownloader3 $version$",
+    "message": "已连接到 zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "已暂停: 下载保留在浏览器中"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 未安装，或其浏览器集成未设置"
+    "message": "zDownloader³ 未安装，或其浏览器集成未设置"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 不接受此扩展副本"
+    "message": "zDownloader³ 不接受此扩展副本"
   },
   "status_not_running": {
-    "message": "ZDownloader3 未及时启动"
+    "message": "zDownloader³ 未及时启动"
   },
   "status_host_failed": {
-    "message": "与 ZDownloader3 的连接失败"
+    "message": "与 zDownloader³ 的连接失败"
   },
   "status_too_large": {
     "message": "此下载的详细信息过大，无法移交"
   },
   "status_update_app": {
-    "message": "更新 ZDownloader3 以使用此扩展提供的所有功能"
+    "message": "更新 zDownloader³ 以使用此扩展提供的所有功能"
   },
   "popup_take": {
     "message": "从此浏览器接管下载"
@@ -78,10 +78,10 @@
     "message": "通过此浏览器的代理或 VPN 扩展发送下载"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 将通过与此浏览器相同的代理下载。浏览器会要求您允许一次；关闭此功能将撤销该权限。"
+    "message": "zDownloader³ 将通过与此浏览器相同的代理下载。浏览器会要求您允许一次；关闭此功能将撤销该权限。"
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 将通过此浏览器使用的相同代理下载。关闭此选项时，扩展程序不会读取浏览器的代理设置。"
+    "message": "zDownloader³ 将通过此浏览器使用的相同代理下载。关闭此选项时，扩展程序不会读取浏览器的代理设置。"
   },
   "popup_exclude_site": {
     "message": "永不从 $site$ 获取下载",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "打开 ZDownloader3"
+    "message": "打开 zDownloader³"
   },
   "popup_options": {
     "message": "选项..."
@@ -150,7 +150,7 @@
     "message": "“选项”→“常规”中已关闭“使用高级浏览器集成”。"
   },
   "declined_torrents": {
-    "message": "这是一个种子文件，并且“在 Torrent 设置中用 ZDownloader3 打开磁力链接和 .torrent 文件”已关闭。"
+    "message": "这是一个种子文件，并且“在 Torrent 设置中用 zDownloader³ 打开磁力链接和 .torrent 文件”已关闭。"
   },
   "declined_site_access": {
     "message": "此扩展不允许读取此网站(浏览器的网站访问)。"
@@ -195,16 +195,16 @@
     "message": "此处没有可下载的视频"
   },
   "video_playlist": {
-    "message": "视频列表：请在 ZDownloader3 中选择"
+    "message": "视频列表：请在 zDownloader³ 中选择"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 需要 yt-dlp 才能下载此视频"
+    "message": "zDownloader³ 需要 yt-dlp 才能下载此视频"
   },
   "video_too_long": {
     "message": "查找耗时过长"
   },
   "video_busy": {
-    "message": "ZDownloader3 正忙于处理其他视频"
+    "message": "zDownloader³ 正忙于处理其他视频"
   },
   "video_queued": {
     "message": "已添加到队列"
@@ -228,7 +228,7 @@
     "message": "此电脑"
   },
   "popup_send_remote": {
-    "message": "另一个 ZDownloader3（服务器）"
+    "message": "另一个 zDownloader³（服务器）"
   },
   "popup_remote_code": {
     "message": "配对代码"
@@ -324,7 +324,7 @@
     "message": "所有画质和字幕..."
   },
   "video_failed": {
-    "message": "ZDownloader3 未安装或未启动"
+    "message": "zDownloader³ 未安装或未启动"
   },
   "video_download_best": {
     "message": "下载最佳"

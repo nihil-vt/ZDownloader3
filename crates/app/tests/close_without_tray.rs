@@ -15,7 +15,7 @@ use std::time::{Duration, Instant};
 
 const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 /// The main window's title (main.rs MAIN_TITLE).
-const MAIN: &str = concat!("ZDownloader3 ", env!("CARGO_PKG_VERSION"));
+const MAIN: &str = concat!("zDownloader³ ", env!("CARGO_PKG_VERSION"));
 
 /// The app, ended and reaped however the test leaves it (a failed assert too).
 struct Process(Child);

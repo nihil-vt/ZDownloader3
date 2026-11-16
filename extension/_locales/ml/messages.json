@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "ബ്രൗസറിൽ നിന്നുള്ള ഡൗൺലോഡുകൾ ZDownloader3-ലേക്ക് കൈമാറുന്നു."
+    "message": "ബ്രൗസറിൽ നിന്നുള്ള ഡൗൺലോഡുകൾ zDownloader³-ലേക്ക് കൈമാറുന്നു."
   },
   "menu": {
-    "message": "ZDownloader3 ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യുക"
+    "message": "zDownloader³ ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യുക"
   },
   "video_download": {
     "message": "വീഡിയോ ഡൗൺലോഡ് ചെയ്യുക"
@@ -30,19 +30,19 @@
     "message": "ബട്ടൺ ക്രമീകരണങ്ങൾ..."
   },
   "video_sent": {
-    "message": "ZDownloader3 ലേക്ക് അയച്ചു"
+    "message": "zDownloader³ ലേക്ക് അയച്ചു"
   },
   "menu_selected": {
-    "message": "ZDownloader3 ഉപയോഗിച്ച് തിരഞ്ഞെടുത്ത ലിങ്കുകൾ ഡൗൺലോഡ് ചെയ്യുക"
+    "message": "zDownloader³ ഉപയോഗിച്ച് തിരഞ്ഞെടുത്ത ലിങ്കുകൾ ഡൗൺലോഡ് ചെയ്യുക"
   },
   "menu_all": {
-    "message": "ZDownloader3 ഉപയോഗിച്ച് എല്ലാ ലിങ്കുകളും ഡൗൺലോഡ് ചെയ്യുക"
+    "message": "zDownloader³ ഉപയോഗിച്ച് എല്ലാ ലിങ്കുകളും ഡൗൺലോഡ് ചെയ്യുക"
   },
   "status_connected": {
-    "message": "ZDownloader3 എന്നതുമായി ബന്ധിപ്പിച്ചു"
+    "message": "zDownloader³ എന്നതുമായി ബന്ധിപ്പിച്ചു"
   },
   "status_connected_version": {
-    "message": "ZDownloader3 $version$ എന്നതുമായി ബന്ധിപ്പിച്ചു",
+    "message": "zDownloader³ $version$ എന്നതുമായി ബന്ധിപ്പിച്ചു",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "താൽക്കാലികമായി നിർത്തി: ഡൗൺലോഡുകൾ ബ്രൗസറിൽ തുടരും"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല, അല്ലെങ്കിൽ അതിന്റെ ബ്രൗസർ സംയോജനം സജ്ജീകരിച്ചിട്ടില്ല"
+    "message": "zDownloader³ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല, അല്ലെങ്കിൽ അതിന്റെ ബ്രൗസർ സംയോജനം സജ്ജീകരിച്ചിട്ടില്ല"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 ഈ എക്സ്റ്റൻഷൻ കോപ്പി സ്വീകരിക്കുന്നില്ല"
+    "message": "zDownloader³ ഈ എക്സ്റ്റൻഷൻ കോപ്പി സ്വീകരിക്കുന്നില്ല"
   },
   "status_not_running": {
-    "message": "ZDownloader3 കൃത്യസമയത്ത് ആരംഭിച്ചില്ല"
+    "message": "zDownloader³ കൃത്യസമയത്ത് ആരംഭിച്ചില്ല"
   },
   "status_host_failed": {
-    "message": "ZDownloader3 ലേക്കുള്ള കണക്ഷൻ പരാജയപ്പെട്ടു"
+    "message": "zDownloader³ ലേക്കുള്ള കണക്ഷൻ പരാജയപ്പെട്ടു"
   },
   "status_too_large": {
     "message": "ഈ ഡൗൺലോഡിന്റെ വിശദാംശങ്ങൾ കൈമാറാൻ കഴിയാത്തത്ര വലുതായിരുന്നു"
   },
   "status_update_app": {
-    "message": "ഈ എക്സ്റ്റൻഷന്റെ എല്ലാ സവിശേഷതകളും ഉപയോഗിക്കാൻ ZDownloader3 അപ്‌ഡേറ്റ് ചെയ്യുക"
+    "message": "ഈ എക്സ്റ്റൻഷന്റെ എല്ലാ സവിശേഷതകളും ഉപയോഗിക്കാൻ zDownloader³ അപ്‌ഡേറ്റ് ചെയ്യുക"
   },
   "popup_take": {
     "message": "ഈ ബ്രൗസറിൽ നിന്ന് ഡൗൺലോഡുകൾ എടുക്കുക"
@@ -78,10 +78,10 @@
     "message": "ഈ ബ്രൗസറിൻ്റെ പ്രോക്സി അല്ലെങ്കിൽ VPN എക്സ്റ്റൻഷൻ വഴി ഡൗൺലോഡുകൾ അയയ്ക്കുക"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് അനുവദിക്കാൻ ബ്രൗസർ ഒരിക്കൽ ചോദിക്കും; ഇത് ഓഫാക്കുന്നത് ആ അനുമതി പിൻവലിക്കും."
+    "message": "zDownloader³ ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് അനുവദിക്കാൻ ബ്രൗസർ ഒരിക്കൽ ചോദിക്കും; ഇത് ഓഫാക്കുന്നത് ആ അനുമതി പിൻവലിക്കും."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് ഓഫായിരിക്കുമ്പോൾ, എക്സ്റ്റൻഷൻ ബ്രൗസറിന്റെ പ്രോക്സി വായിക്കില്ല."
+    "message": "zDownloader³ ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് ഓഫായിരിക്കുമ്പോൾ, എക്സ്റ്റൻഷൻ ബ്രൗസറിന്റെ പ്രോക്സി വായിക്കില്ല."
   },
   "popup_exclude_site": {
     "message": "$site$ ൽ നിന്നുള്ള ഡൗൺലോഡുകൾ ഇനി എടുക്കരുത്",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "ZDownloader3 തുറക്കുക"
+    "message": "zDownloader³ തുറക്കുക"
   },
   "popup_options": {
     "message": "ഓപ്ഷനുകൾ..."
@@ -150,7 +150,7 @@
     "message": "ഓപ്ഷനുകൾ → പൊതുവായത് എന്നതിൽ വിപുലമായ ബ്രൗസർ സംയോജനം ഉപയോഗിക്കുക എന്നത് ഓഫാണ്."
   },
   "declined_torrents": {
-    "message": "ഇതൊരു ടോറന്റാണ്, കൂടാതെ ടോറന്റ് ക്രമീകരണങ്ങളിൽ ZDownloader3 ഉപയോഗിച്ച് മാഗ്നറ്റ് ലിങ്കുകളും .torrent ഫയലുകളും തുറക്കുക എന്നത് ഓഫാണ്."
+    "message": "ഇതൊരു ടോറന്റാണ്, കൂടാതെ ടോറന്റ് ക്രമീകരണങ്ങളിൽ zDownloader³ ഉപയോഗിച്ച് മാഗ്നറ്റ് ലിങ്കുകളും .torrent ഫയലുകളും തുറക്കുക എന്നത് ഓഫാണ്."
   },
   "declined_site_access": {
     "message": "ഈ സൈറ്റ് വായിക്കാൻ വിപുലീകരണത്തിന് അനുവാദമില്ല (ബ്രൗസറിന്റെ സൈറ്റ് ആക്സസ്)."
@@ -195,16 +195,16 @@
     "message": "ഇവിടെ ഡൗൺലോഡ് ചെയ്യാൻ വീഡിയോ ഒന്നുമില്ല"
   },
   "video_playlist": {
-    "message": "വീഡിയോകളുടെ ഒരു പട്ടിക: അവ ZDownloader3-ൽ തിരഞ്ഞെടുക്കുക"
+    "message": "വീഡിയോകളുടെ ഒരു പട്ടിക: അവ zDownloader³-ൽ തിരഞ്ഞെടുക്കുക"
   },
   "video_no_ytdlp": {
-    "message": "ഈ വീഡിയോയ്ക്ക് ZDownloader3-ന് yt-dlp ആവശ്യമാണ്"
+    "message": "ഈ വീഡിയോയ്ക്ക് zDownloader³-ന് yt-dlp ആവശ്യമാണ്"
   },
   "video_too_long": {
     "message": "തിരയാൻ വളരെയധികം സമയമെടുത്തു"
   },
   "video_busy": {
-    "message": "ZDownloader3 മറ്റ് വീഡിയോകളിൽ തിരക്കിലാണ്"
+    "message": "zDownloader³ മറ്റ് വീഡിയോകളിൽ തിരക്കിലാണ്"
   },
   "video_queued": {
     "message": "ക്യൂവിലേക്ക് ചേർത്തു"
@@ -228,7 +228,7 @@
     "message": "ഈ കമ്പ്യൂട്ടർ"
   },
   "popup_send_remote": {
-    "message": "മറ്റൊരു ZDownloader3 (ഒരു സെർവർ)"
+    "message": "മറ്റൊരു zDownloader³ (ഒരു സെർവർ)"
   },
   "popup_remote_code": {
     "message": "ജോടിയാക്കൽ കോഡ്"
@@ -324,7 +324,7 @@
     "message": "എല്ലാ ഗുണനിലവാരങ്ങളും സബ്ടൈറ്റിലുകളും..."
   },
   "video_failed": {
-    "message": "ZDownloader3 ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല അല്ലെങ്കിൽ ആരംഭിച്ചില്ല"
+    "message": "zDownloader³ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല അല്ലെങ്കിൽ ആരംഭിച്ചില്ല"
   },
   "video_download_best": {
     "message": "മികച്ചത് ഡൗൺലോഡ് ചെയ്യുക"

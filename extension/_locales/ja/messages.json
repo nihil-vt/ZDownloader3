@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "ブラウザーから ZDownloader3 にダウンロードを渡します。"
+    "message": "ブラウザーから zDownloader³ にダウンロードを渡します。"
   },
   "menu": {
-    "message": "ZDownloader3 でダウンロード"
+    "message": "zDownloader³ でダウンロード"
   },
   "video_download": {
     "message": "動画をダウンロード"
@@ -30,19 +30,19 @@
     "message": "ボタンの設定..."
   },
   "video_sent": {
-    "message": "ZDownloader3 に送信済み"
+    "message": "zDownloader³ に送信済み"
   },
   "menu_selected": {
-    "message": "ZDownloader3 で選択したリンクをダウンロード"
+    "message": "zDownloader³ で選択したリンクをダウンロード"
   },
   "menu_all": {
-    "message": "ZDownloader3 で全リンクをダウンロード"
+    "message": "zDownloader³ で全リンクをダウンロード"
   },
   "status_connected": {
-    "message": "ZDownloader3 に接続済み"
+    "message": "zDownloader³ に接続済み"
   },
   "status_connected_version": {
-    "message": "ZDownloader3 $version$ に接続済み",
+    "message": "zDownloader³ $version$ に接続済み",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "一時停止: ダウンロードはブラウザーに残ります"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 がインストールされていないか、ブラウザー統合が設定されていません"
+    "message": "zDownloader³ がインストールされていないか、ブラウザー統合が設定されていません"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 はこの拡張機能のコピーを受け入れません"
+    "message": "zDownloader³ はこの拡張機能のコピーを受け入れません"
   },
   "status_not_running": {
-    "message": "ZDownloader3 が時間内に起動しませんでした"
+    "message": "zDownloader³ が時間内に起動しませんでした"
   },
   "status_host_failed": {
-    "message": "ZDownloader3 への接続に失敗しました"
+    "message": "zDownloader³ への接続に失敗しました"
   },
   "status_too_large": {
     "message": "このダウンロードの詳細は大きすぎて引き渡せませんでした"
   },
   "status_update_app": {
-    "message": "この拡張機能のすべての機能を使用するには、ZDownloader3 を更新してください"
+    "message": "この拡張機能のすべての機能を使用するには、zDownloader³ を更新してください"
   },
   "popup_take": {
     "message": "このブラウザーからのダウンロードを取得する"
@@ -78,10 +78,10 @@
     "message": "このブラウザーのプロキシまたは VPN 拡張機能経由でダウンロードを送信する"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 は、このブラウザーと同じプロキシ経由でダウンロードします。ブラウザーは一度だけ許可を求めます。これをオフにすると、その許可は取り消されます。"
+    "message": "zDownloader³ は、このブラウザーと同じプロキシ経由でダウンロードします。ブラウザーは一度だけ許可を求めます。これをオフにすると、その許可は取り消されます。"
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 は、このブラウザーと同じプロキシ経由でダウンロードします。これがオフの場合、拡張機能はブラウザーのプロキシを読み取りません。"
+    "message": "zDownloader³ は、このブラウザーと同じプロキシ経由でダウンロードします。これがオフの場合、拡張機能はブラウザーのプロキシを読み取りません。"
   },
   "popup_exclude_site": {
     "message": "$site$ からのダウンロードは今後取得しない",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "ZDownloader3 を開く"
+    "message": "zDownloader³ を開く"
   },
   "popup_options": {
     "message": "オプション..."
@@ -150,7 +150,7 @@
     "message": "オプション → 全般で「高度なブラウザー統合を使用する」がオフになっています。"
   },
   "declined_torrents": {
-    "message": "これはトレントであり、トレント設定で「マグネット リンクと .torrent ファイルを ZDownloader3 で開く」がオフになっています。"
+    "message": "これはトレントであり、トレント設定で「マグネット リンクと .torrent ファイルを zDownloader³ で開く」がオフになっています。"
   },
   "declined_site_access": {
     "message": "このサイトの読み取りは拡張機能に許可されていません (ブラウザーのサイト アクセス)。"
@@ -195,16 +195,16 @@
     "message": "ここにはダウンロードできる動画がありません"
   },
   "video_playlist": {
-    "message": "動画の一覧: ZDownloader3 で選択してください"
+    "message": "動画の一覧: zDownloader³ で選択してください"
   },
   "video_no_ytdlp": {
-    "message": "この動画には ZDownloader3 に yt-dlp が必要です"
+    "message": "この動画には zDownloader³ に yt-dlp が必要です"
   },
   "video_too_long": {
     "message": "検索に時間がかかりすぎました"
   },
   "video_busy": {
-    "message": "ZDownloader3 は他の動画の処理中です"
+    "message": "zDownloader³ は他の動画の処理中です"
   },
   "video_queued": {
     "message": "キューに追加しました"
@@ -228,7 +228,7 @@
     "message": "このコンピューター"
   },
   "popup_send_remote": {
-    "message": "別の ZDownloader3 (サーバー)"
+    "message": "別の zDownloader³ (サーバー)"
   },
   "popup_remote_code": {
     "message": "ペアリング コード"
@@ -324,7 +324,7 @@
     "message": "すべての画質と字幕..."
   },
   "video_failed": {
-    "message": "ZDownloader3 がインストールされていないか、起動していません"
+    "message": "zDownloader³ がインストールされていないか、起動していません"
   },
   "video_download_best": {
     "message": "最高画質をダウンロード"

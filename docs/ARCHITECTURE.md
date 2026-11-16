@@ -1,6 +1,6 @@
 # Architecture
 
-How ZDownloader3's pieces fit together.
+How zDownloader³'s pieces fit together.
 
 ## Crates
 

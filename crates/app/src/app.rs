@@ -5713,9 +5713,9 @@ impl App {
         self.notice = Some((
             crate::i18n::mark("Torrent settings"),
             crate::i18n::fmt(
-                // i18n: after ticking "Open magnet links and .torrent files with ZDownloader3", when Windows' Default apps keeps another app; {apps}: their names. "MAGNET" as Windows' Default apps lists it
+                // i18n: after ticking "Open magnet links and .torrent files with zDownloader³", when Windows' Default apps keeps another app; {apps}: their names. "MAGNET" as Windows' Default apps lists it
                 crate::i18n::t(
-                    "Windows still opens magnet links or .torrent files with {apps}, chosen in Windows' Default apps, where only you can change it. Settings opens there now: pick ZDownloader3 for MAGNET and .torrent.",
+                    "Windows still opens magnet links or .torrent files with {apps}, chosen in Windows' Default apps, where only you can change it. Settings opens there now: pick zDownloader³ for MAGNET and .torrent.",
                 ),
                 &[("apps", &crate::i18n::isolate(&others.join(", ")))],
             ),
@@ -8126,7 +8126,7 @@ impl App {
                 Err(e) => {
                     if self.save_failed.as_ref() != Some(&e) {
                         self.notice = Some((
-                            crate::i18n::mark("ZDownloader3"),
+                            crate::i18n::mark("zDownloader³"),
                             crate::i18n::fmt(
                                 crate::i18n::t(
                                     "The download list could not be saved: {error}. Changes are kept while MDM runs.",
@@ -8354,7 +8354,7 @@ impl App {
                 I("&Keyboard shortcuts", Cmd::Shortcuts, true, false),
                 Sep,
                 I(
-                    "ZDownloader3 &Home Page",
+                    "zDownloader³ &Home Page",
                     Cmd::HelpPage(""),
                     true,
                     false,
@@ -8363,7 +8363,7 @@ impl App {
                 Sep,
                 I("Check for &updates...", Cmd::CheckUpdates, true, false),
                 Sep,
-                I("&About ZDownloader3", Cmd::About, true, false),
+                I("&About zDownloader³", Cmd::About, true, false),
                 I("Tell a &friend", Cmd::TellFriend, true, false),
                 // MDM's, not IDM's: the creator's GitHub Sponsors page, asked for only.
                 I("Support &MDM", Cmd::Support, true, false),
@@ -8799,7 +8799,7 @@ impl App {
             Popup::Node(node) => (self.node_entries(node), None),
             Popup::DropTarget => (
                 vec![
-                    MenuEntry::Item("Show ZDownloader3", Cmd::ShowMain, true, false),
+                    MenuEntry::Item("Show zDownloader³", Cmd::ShowMain, true, false),
                     MenuEntry::Item("&Add new download", Cmd::AddUrl, true, false),
                     MenuEntry::Sep,
                     MenuEntry::Item("Hide drop target", Cmd::ToggleDropTarget, true, false),
@@ -10516,7 +10516,7 @@ impl App {
             } else {
                 // A file MDM can't download or import (a picture, a program).
                 self.notice = Some((
-                    crate::i18n::mark("ZDownloader3"),
+                    crate::i18n::mark("zDownloader³"),
                     crate::i18n::fmt(
                         crate::i18n::t(
                             "Nothing to download in {item}: drop links, a .torrent file, or a list of addresses (.txt, .ef2).",

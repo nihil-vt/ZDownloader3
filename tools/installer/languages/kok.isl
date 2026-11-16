@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Konkani: tools/installer/languages.py
+﻿; zDownloader³'s installer in Konkani: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 अनइंस्टॉल करता.
 
 [CustomMessages]
 TaskBrowser=ब्रावझर एकीकरण सेट करा (&B) (Chrome, Edge, Brave, Firefox)
-TaskTorrents=.&torrent फायली आनी मॅग्नेट लिंक्स ZDownloader3 वापरून उगडा
-TaskStartup=जेन्ना &Windows सुरू जाता तेन्ना ZDownloader3 सुरू करात
+TaskTorrents=.&torrent फायली आनी मॅग्नेट लिंक्स zDownloader³ वापरून उगडा
+TaskStartup=जेन्ना &Windows सुरू जाता तेन्ना zDownloader³ सुरू करात
 TaskGroupOther=हेर:
-Launch=ZDownloader3 सुरू करात
+Launch=zDownloader³ सुरू करात
 KeepData=तुमची डाउनलोड वळेरी आनी सेटिंग्स लेगीत काडून उडोवची?%n%nतुमच्यो डाउनलोड केल्ल्यो फायली खंयच्याच पद्दतीन हात लावच्यो न्हय.

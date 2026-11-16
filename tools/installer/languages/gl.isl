@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Galician: tools/installer/languages.py
+﻿; zDownloader³'s installer in Galician: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Desinstalando %1.
 
 [CustomMessages]
 TaskBrowser=Configurar a integración co &navegador (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Abrir ficheiros .&torrent e ligazóns magnet con ZDownloader3
-TaskStartup=Iniciar ZDownloader3 cando se inicia &Windows
+TaskTorrents=Abrir ficheiros .&torrent e ligazóns magnet con zDownloader³
+TaskStartup=Iniciar zDownloader³ cando se inicia &Windows
 TaskGroupOther=Outros:
-Launch=Iniciar ZDownloader3
+Launch=Iniciar zDownloader³
 KeepData=Queres eliminar tamén a túa lista de descargas e a configuración?%n%nOs teus ficheiros descargados non se tocarán de ningún xeito.

@@ -1,4 +1,4 @@
-//! zdownloader3-mcp: ZDownloader3's MCP server. An AI assistant starts it and
+//! zdownloader3-mcp: zDownloader³'s MCP server. An AI assistant starts it and
 //! speaks MCP with it on stdin and stdout; it hands what the assistant asks to the running app
 //! (docs/ai-assistants.md).
 
@@ -13,7 +13,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 println!("zdownloader3-mcp {}", env!("CARGO_PKG_VERSION"))
             }
             _ => println!(
-                "zdownloader3-mcp: ZDownloader3's MCP server, for AI \
+                "zdownloader3-mcp: zDownloader³'s MCP server, for AI \
                  assistants. The assistant starts it (no arguments) and talks to it on stdin and \
                  stdout. Setup: \
                  https://misterdownloadmanager.com/help/ai-assistants.html"

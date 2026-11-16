@@ -689,7 +689,7 @@ async fn by_host(
 }
 
 /// The index page (`GET /`): every route, parameter and fault.
-pub const HELP: &str = r#"labserver: an HTTP test server for ZDownloader3
+pub const HELP: &str = r#"labserver: an HTTP test server for zDownloader³
 
 FILES  deterministic content: byte i of seed s is the same on every request (src/content.rs)
 GET|HEAD /gen/{size}[/{name}]?seed=N&<file params>&<faults>   size: 12345, 64K, 100M, 1G

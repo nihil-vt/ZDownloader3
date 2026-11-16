@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Norwegian Nynorsk: tools/installer/languages.py
+﻿; zDownloader³'s installer in Norwegian Nynorsk: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Avinstallerer %1.
 
 [CustomMessages]
 TaskBrowser=Set opp nettlesar&integrering (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Opne .&torrent-filer og magnetlenkjer med ZDownloader3
-TaskStartup=Start ZDownloader3 når &Windows startar
+TaskTorrents=Opne .&torrent-filer og magnetlenkjer med zDownloader³
+TaskStartup=Start zDownloader³ når &Windows startar
 TaskGroupOther=Anna:
-Launch=Start ZDownloader3
+Launch=Start zDownloader³
 KeepData=Vil du òg slette nedlastingslista og innstillingane dine?%n%nDei nedlasta filene dine blir ikkje rørt uansett.

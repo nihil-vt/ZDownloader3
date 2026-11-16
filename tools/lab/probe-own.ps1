@@ -2,7 +2,7 @@
 # idle for -IdleMs, then clicks, captures, presses Escape (unless -NoEscape), and gives the
 # user's foreground window and cursor back. X/Y are relative to the window's visible top-left.
 param(
-  [string]$Title = "ZDownloader3 0",
+  [string]$Title = "zDownloader³ 0",
   [Parameter(Mandatory)][int]$X, [Parameter(Mandatory)][int]$Y,
   [switch]$Right, [switch]$Double, [switch]$NoEscape,
   # Hover this point (visible-relative) after the click, before capturing (submenus).

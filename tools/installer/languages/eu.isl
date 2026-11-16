@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Basque: tools/installer/languages.py
+﻿; zDownloader³'s installer in Basque: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 desinstalatzen.
 
 [CustomMessages]
 TaskBrowser=Arakatzailearen integrazioa konfiguratu (&B) (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Ireki .&torrent fitxategiak eta magnet estekak ZDownloader3 aplikazioarekin
-TaskStartup=Abiarazi ZDownloader3 &Windows abiaraztean
+TaskTorrents=Ireki .&torrent fitxategiak eta magnet estekak zDownloader³ aplikazioarekin
+TaskStartup=Abiarazi zDownloader³ &Windows abiaraztean
 TaskGroupOther=Bestelakoak:
-Launch=Abiarazi ZDownloader3
+Launch=Abiarazi zDownloader³
 KeepData=Zure deskarga-zerrenda eta ezarpenak ere ezabatu?%n%nDeskargatutako fitxategiak ez dira ukitzen, edonola ere.

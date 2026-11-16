@@ -2,11 +2,11 @@
 # Builds the Linux release for this machine's processor into target/dist/ (up to 0.2.4, each
 # name ended in "-experimental"), <arch> being x86_64 on a 64-bit Intel or AMD machine and arm64
 # on a 64-bit ARM one:
-#   ZDownloader3-<version>-linux-<arch>.AppImage        runs on most distros
-#   ZDownloader3-<version>-linux-<arch>.AppImage.zsync  its updates (AppImage tools)
-#   ZDownloader3-<version>-linux-<arch>.tar.gz          the plain programs
-#   ZDownloader3-<version>-linux-<arch>.deb             Debian, Ubuntu, Mint
-#   ZDownloader3-<version>-linux-<arch>.rpm             Fedora, RHEL, openSUSE
+#   zDownloader³-<version>-linux-<arch>.AppImage        runs on most distros
+#   zDownloader³-<version>-linux-<arch>.AppImage.zsync  its updates (AppImage tools)
+#   zDownloader³-<version>-linux-<arch>.tar.gz          the plain programs
+#   zDownloader³-<version>-linux-<arch>.deb             Debian, Ubuntu, Mint
+#   zDownloader³-<version>-linux-<arch>.rpm             Fedora, RHEL, openSUSE
 # Update now (crates/tools/src/update.rs), the website (tools/website/build.py) and the docs
 # look for these names, and still for the "-experimental" ones of older releases.
 # Needs: cargo, pwsh (the extension), python3 with Pillow (the icon), dpkg-deb, rpmbuild, network access (appimagetool is fetched),
@@ -26,7 +26,7 @@ case "$(uname -m)" in
   aarch64) arch=arm64 deb_arch=arm64 pkg_arch=aarch64 ;;
   *) echo "no Linux release is built for $(uname -m)" >&2; exit 1 ;;
 esac
-name="ZDownloader3-$version-linux-$arch"
+name="zDownloader³-$version-linux-$arch"
 programs=(zdownloader3 zdownloader3-nmhost zdownloader3-cli zdownloader3-mcp)
 
 if [ "${1:-}" != "--no-build" ]; then
@@ -64,7 +64,7 @@ echo "the programs need glibc $glibc or newer"
 cp -r "$root/target/extension/chromium" "$tree/usr/share/zdownloader3/extension-chromium"
 cp "$root/target/extension/mdm-firefox.xpi" "$tree/usr/share/zdownloader3/"
 cp "$root/LICENSE" "$root/ATTRIBUTION.md" "$tree/usr/share/doc/zdownloader3/"
-python3 - "$root/art/ZDownloader3.png" \
+python3 - "$root/art/zDownloader³.png" \
   "$tree/usr/share/icons/hicolor/256x256/apps/zdownloader3.png" <<'EOF'
 import sys
 from PIL import Image
@@ -75,7 +75,7 @@ EOF
 cat > "$tree/usr/share/applications/zdownloader3.desktop" <<EOF
 [Desktop Entry]
 Type=Application
-Name=ZDownloader3
+Name=zDownloader³
 Comment=Download manager
 Exec=zdownloader3 %U
 Icon=zdownloader3
@@ -174,7 +174,7 @@ chmod +x "$tool"
 # Update information (#24): AppImageLauncher, Gear Lever and AppImageUpdate read it from the
 # AppImage, find the latest release's .zsync and download only the parts that changed. MDM's own
 # Update now doesn't need it. The pattern also matches the names up to 0.2.4, with "-experimental".
-update="gh-releases-zsync|anefzaoui|zdownloader3|latest|ZDownloader3-*-linux-$arch*.AppImage.zsync"
+update="gh-releases-zsync|anefzaoui|zdownloader3|latest|zDownloader³-*-linux-$arch*.AppImage.zsync"
 # No FUSE on CI runners: the tool runs from its own extracted copy.
 # zstd at its strongest level (#25; unpacking is as fast): the tool's 128K blocks stay, as 1M
 # blocks make the AppImage start slower (AppImage/appimagetool#64).

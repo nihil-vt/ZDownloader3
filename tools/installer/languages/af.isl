@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Afrikaans: tools/installer/languages.py
+﻿; zDownloader³'s installer in Afrikaans: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Deïnstalleer %1.
 
 [CustomMessages]
 TaskBrowser=Stel &blaaierintegrasie op (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Maak .&torrent-lêers en magneetskakels oop met ZDownloader3
-TaskStartup=Begin ZDownloader3 wanneer &Windows begin
+TaskTorrents=Maak .&torrent-lêers en magneetskakels oop met zDownloader³
+TaskStartup=Begin zDownloader³ wanneer &Windows begin
 TaskGroupOther=Ander:
-Launch=Begin ZDownloader3
+Launch=Begin zDownloader³
 KeepData=Vee ook jou aflaailys en instellings uit?%n%nJou afgelaaide lêers word in elk geval nie aangeraak nie.

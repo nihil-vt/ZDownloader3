@@ -100,7 +100,7 @@ impl Picker {
                     o.x + 12.0,
                     o.y + 20.0,
                     crate::i18n::t(
-                        "Choose the language ZDownloader3 shows its windows in:",
+                        "Choose the language zDownloader³ shows its windows in:",
                     ),
                     ink,
                     o.x + W - 12.0,

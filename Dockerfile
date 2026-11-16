@@ -1,4 +1,4 @@
-# ZDownloader3 on a server, without a window (#157): docs/server.md.
+# zDownloader³ on a server, without a window (#157): docs/server.md.
 #
 #   docker build -t zdownloader3 .
 #   docker run -d --name mdm -p 8463:8463 -v mdm-config:/config -v /srv/downloads:/downloads \

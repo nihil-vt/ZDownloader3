@@ -1,10 +1,10 @@
-﻿; ZDownloader3's installer in Italian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Italian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [CustomMessages]
 TaskBrowser=Configura l'integrazione con il &browser (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Apri i file .&torrent e i collegamenti magnet con ZDownloader3
-TaskStartup=Avvia ZDownloader3 all'avvio di &Windows
+TaskTorrents=Apri i file .&torrent e i collegamenti magnet con zDownloader³
+TaskStartup=Avvia zDownloader³ all'avvio di &Windows
 TaskGroupOther=Altro:
-Launch=Avvia ZDownloader3
+Launch=Avvia zDownloader³
 KeepData=Eliminare anche l'elenco dei download e le impostazioni?%n%nI file scaricati non verranno comunque toccati.

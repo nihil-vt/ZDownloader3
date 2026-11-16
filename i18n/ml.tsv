@@ -1,4 +1,4 @@
-# ZDownloader3 in Malayalam (മലയാളം): tools/i18n/translate.py
+# zDownloader³ in Malayalam (മലയാളം): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	മലയാളം
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	ZDownloader3-ന്റെ ഡൗൺലോഡ് ലിസ്റ്റിൽ നിന്ന് {n} ഡൗൺലോഡ് ഇല്ലാതാക്കണോ?|ZDownloader3-ന്റെ ഡൗൺലോഡ് ലിസ്റ്റിൽ നിന്ന് ഈ {n} ഡൗൺലോഡുകൾ ഇല്ലാതാക്കണോ?
+@plural	Are you sure you want to delete {n} download from zDownloader³ list of downloads?|Are you sure you want to delete these {n} downloads from zDownloader³ list of downloads?	zDownloader³-ന്റെ ഡൗൺലോഡ് ലിസ്റ്റിൽ നിന്ന് {n} ഡൗൺലോഡ് ഇല്ലാതാക്കണോ?|zDownloader³-ന്റെ ഡൗൺലോഡ് ലിസ്റ്റിൽ നിന്ന് ഈ {n} ഡൗൺലോഡുകൾ ഇല്ലാതാക്കണോ?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	അതിന്റെ ഒരു വോളിയം കാണുന്നില്ല
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About ZDownloader3	ZDownloader3-നെക്കുറിച്ച്
+	About zDownloader³	zDownloader³-നെക്കുറിച്ച്
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add ZDownloader3 to your browser	ZDownloader3 നിങ്ങളുടെ ബ്രൗസറിലേക്ക് ചേർക്കുക
+	Add zDownloader³ to your browser	zDownloader³ നിങ്ങളുടെ ബ്രൗസറിലേക്ക് ചേർക്കുക
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	എല്ലായ്‌പ്പോഴും അതിൻ്റെ പേരുള്ള ഒരു ഫോൾഡറിലേക്ക്
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on ZDownloader3 startup	ZDownloader3 ആരംഭിക്കുമ്പോൾ സ്പീഡ് ലിമിറ്റർ എപ്പോഴും ഓണാക്കുക
+	Always turn on Speed Limiter on zDownloader³ startup	zDownloader³ ആരംഭിക്കുമ്പോൾ സ്പീഡ് ലിമിറ്റർ എപ്പോഴും ഓണാക്കുക
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	ZDownloader3 ഡൗൺലോഡുകളുടെ ലിസ്റ്റിൽ നിന്ന് "{name}" ഇല്ലാതാക്കാൻ നിങ്ങൾ ഉറപ്പാണോ?
+	Are you sure you want to delete "{name}" from zDownloader³ list of downloads?	zDownloader³ ഡൗൺലോഡുകളുടെ ലിസ്റ്റിൽ നിന്ന് "{name}" ഇല്ലാതാക്കാൻ നിങ്ങൾ ഉറപ്പാണോ?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	ബ്രൗസ് ചെയ്യുക...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	ഈ കമ്പ്യൂട്ടറിൽ ബ്രൗസർ സംയോജനം സജ്ജീകരിച്ചിട്ടില്ല, അതിനാൽ ഒരു ബ്രൗസറിനും ZDownloader3 ഇതുവരെ എത്തിച്ചേരാൻ കഴിയില്ല.
+	Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.	ഈ കമ്പ്യൂട്ടറിൽ ബ്രൗസർ സംയോജനം സജ്ജീകരിച്ചിട്ടില്ല, അതിനാൽ ഒരു ബ്രൗസറിനും zDownloader³ ഇതുവരെ എത്തിച്ചേരാൻ കഴിയില്ല.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	ബ്രൗസർ/സിസ്റ്റം സംയോജനം
@@ -944,7 +944,7 @@
 	Choose a language	ഒരു ഭാഷ തിരഞ്ഞെടുക്കുക
 #. text in langpick.rs
 #, machine
-	Choose the language ZDownloader3 shows its windows in:	ZDownloader3 അതിൻ്റെ വിൻഡോകളിൽ കാണിക്കുന്ന ഭാഷ തിരഞ്ഞെടുക്കുക:
+	Choose the language zDownloader³ shows its windows in:	zDownloader³ അതിൻ്റെ വിൻഡോകളിൽ കാണിക്കുന്ന ഭാഷ തിരഞ്ഞെടുക്കുക:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	പുറത്തുകടക്കുക
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit ZDownloader3 when done	പൂർത്തിയാകുമ്പോൾ ZDownloader3-ൽ നിന്ന് പുറത്തുകടക്കുക
+	Exit zDownloader³ when done	പൂർത്തിയാകുമ്പോൾ zDownloader³-ൽ നിന്ന് പുറത്തുകടക്കുക
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	പ്രതീക്ഷിക്കുന്ന ചെക്ക്സം (MD5, SHA-1, SHA-256, SHA-512 അല്ലെങ്കിൽ CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	വെബ് പേജുകൾ മറയ്ക്കുക
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	ZDownloader3 ഡൗൺലോഡ് ചെയ്യുന്നതിനു പകരം ബ്രൗസറിനെക്കൊണ്ട് ഡൗൺലോഡ് ചെയ്യാൻ, ഒരു ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുമ്പോൾ Alt അമർത്തിപ്പിടിക്കുക.
+	Hold Alt while clicking a link to let the browser download it instead of zDownloader³.	zDownloader³ ഡൗൺലോഡ് ചെയ്യുന്നതിനു പകരം ബ്രൗസറിനെക്കൊണ്ട് ഡൗൺലോഡ് ചെയ്യാൻ, ഒരു ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുമ്പോൾ Alt അമർത്തിപ്പിടിക്കുക.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	ഹോം പേജ്
@@ -2127,7 +2127,7 @@
 	Hungary	ഹംഗറി
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	ഞാൻ ZDownloader3 ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യുന്നു: വേഗതയേറിയതും സൗജന്യവും, നിങ്ങൾക്കറിയാവുന്ന ഡൗൺലോഡ് മാനേജർ പോലെയാണിത്. {link}
+	I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}	ഞാൻ zDownloader³ ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യുന്നു: വേഗതയേറിയതും സൗജന്യവും, നിങ്ങൾക്കറിയാവുന്ന ഡൗൺലോഡ് മാനേജർ പോലെയാണിത്. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	ലാത്വിയ
 #. text in the Options window
 #, machine
-	Launch ZDownloader3 on startup	സിസ്റ്റം ആരംഭിക്കുമ്പോൾ ZDownloader3 പ്രവർത്തിപ്പിക്കുക
+	Launch zDownloader³ on startup	സിസ്റ്റം ആരംഭിക്കുമ്പോൾ zDownloader³ പ്രവർത്തിപ്പിക്കുക
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	ഡൗൺലോഡ് ചെയ്യാത്തവ
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	ZDownloader3	ZDownloader3
+	zDownloader³	zDownloader³
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3-ന് അതിന്റെ വിൻഡോ തുറക്കാനാകുന്നില്ല: ഈ സിസ്റ്റത്തിൽ {libraries} ഇല്ല.
+	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³-ന് അതിന്റെ വിൻഡോ തുറക്കാനാകുന്നില്ല: ഈ സിസ്റ്റത്തിൽ {libraries} ഇല്ല.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	ZDownloader3 closed unexpectedly	ZDownloader3 അപ്രതീക്ഷിതമായി അടച്ചു
+	zDownloader³ closed unexpectedly	zDownloader³ അപ്രതീക്ഷിതമായി അടച്ചു
 #. window title in the Options window
 #, machine
-	ZDownloader3 Configuration	ZDownloader3 കോൺഫിഗറേഷൻ
+	zDownloader³ Configuration	zDownloader³ കോൺഫിഗറേഷൻ
 #. text in crashui.rs
 #, machine
-	ZDownloader3 crash report	ZDownloader3 ക്രാഷ് റിപ്പോർട്ട്
+	zDownloader³ crash report	zDownloader³ ക്രാഷ് റിപ്പോർട്ട്
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	ZDownloader3 hit an internal error	ZDownloader3-ന് ഒരു ആന്തരിക പിശക് സംഭവിച്ചു
+	zDownloader³ hit an internal error	zDownloader³-ന് ഒരു ആന്തരിക പിശക് സംഭവിച്ചു
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	ZDownloader3 is downloading	ZDownloader3 ഡൗൺലോഡ് ചെയ്യുന്നു
+	zDownloader³ is downloading	zDownloader³ ഡൗൺലോഡ് ചെയ്യുന്നു
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	ZDownloader3 is running the queue "{queue}"	ZDownloader3 "{queue}" ക്യൂ പ്രവർത്തിപ്പിക്കുന്നു
+	zDownloader³ is running the queue "{queue}"	zDownloader³ "{queue}" ക്യൂ പ്രവർത്തിപ്പിക്കുന്നു
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	ZDownloader3 stopped responding	ZDownloader3 പ്രതികരിക്കുന്നത് നിർത്തി
+	zDownloader³ stopped responding	zDownloader³ പ്രതികരിക്കുന്നത് നിർത്തി
 #. text in crashui.rs
 #, machine
-	ZDownloader3 stopped responding for a while	ZDownloader3 കുറച്ചുനേരമായി പ്രതികരിക്കുന്നില്ല
+	zDownloader³ stopped responding for a while	zDownloader³ കുറച്ചുനേരമായി പ്രതികരിക്കുന്നില്ല
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 ഓരോ കണക്ഷനും നേരിട്ട് അന്തിമ ഫയലിലേക്ക് എഴുതുന്നു\n(അതിനടുത്തുള്ള ഒരു സ്പാർസ് പാർട്ട് ഫയൽ), അതിനാൽ താൽക്കാലിക ഡയറക്ടറിയോ\nഅസംബ്ലിംഗ് ഘട്ടമോ ആവശ്യമില്ല.
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ ഓരോ കണക്ഷനും നേരിട്ട് അന്തിമ ഫയലിലേക്ക് എഴുതുന്നു\n(അതിനടുത്തുള്ള ഒരു സ്പാർസ് പാർട്ട് ഫയൽ), അതിനാൽ താൽക്കാലിക ഡയറക്ടറിയോ\nഅസംബ്ലിംഗ് ഘട്ടമോ ആവശ്യമില്ല.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} ലഭ്യമാണ് ({date}-ന് പുറത്തിറക്കി).
+	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} ലഭ്യമാണ് ({date}-ന് പുറത്തിറക്കി).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3's own copy, version {version}	ZDownloader3-ന്റെ സ്വന്തം പകർപ്പ്, പതിപ്പ് {version}
+	zDownloader³'s own copy, version {version}	zDownloader³-ന്റെ സ്വന്തം പകർപ്പ്, പതിപ്പ് {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ZDownloader3-ന്റെ X11 വിൻഡോയ്ക്ക് {libraries} ആവശ്യമാണ്, എന്നാൽ ഈ സിസ്റ്റത്തിൽ അവ ഇല്ല: പകരം Wayland-ൽ തുറക്കുന്നു, അവിടെ മെനുകൾ അവയുടെ ശീർഷകങ്ങളിൽ നിന്ന് അകലെയായി തുറന്നേക്കാം.
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	zDownloader³-ന്റെ X11 വിൻഡോയ്ക്ക് {libraries} ആവശ്യമാണ്, എന്നാൽ ഈ സിസ്റ്റത്തിൽ അവ ഇല്ല: പകരം Wayland-ൽ തുറക്കുന്നു, അവിടെ മെനുകൾ അവയുടെ ശീർഷകങ്ങളിൽ നിന്ന് അകലെയായി തുറന്നേക്കാം.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	ബ്രൗസറിൽ തുറക്കുക
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with ZDownloader3	മാഗ്നറ്റ് ലിങ്കുകളും .torrent ഫയലുകളും ZDownloader3 ഉപയോഗിച്ച് തുറക്കുക
+	Open magnet links and .torrent files with zDownloader³	മാഗ്നറ്റ് ലിങ്കുകളും .torrent ഫയലുകളും zDownloader³ ഉപയോഗിച്ച് തുറക്കുക
 #. text in the tray icon's menu
 #, machine
-	Open ZDownloader3	ZDownloader3 തുറക്കുക
+	Open zDownloader³	zDownloader³ തുറക്കുക
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with ZDownloader3	ZDownloader3 മായി ജോടിയാക്കുക
+	Pair with zDownloader³	zDownloader³ മായി ജോടിയാക്കുക
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	ഡോട്ടുകളുള്ള ഔട്ട്‌ലൈനോടുകൂടിയ ഡൗൺലോഡ് തിരഞ്ഞെടുക്കുക അല്ലെങ്കിൽ തിരഞ്ഞെടുക്കാതിരിക്കുക
 #. group box title in the Options window
 #, machine
-	Select sounds for ZDownloader3 events	ZDownloader3 ഇവന്റുകൾക്കായി ശബ്‌ദങ്ങൾ തിരഞ്ഞെടുക്കുക
+	Select sounds for zDownloader³ events	zDownloader³ ഇവന്റുകൾക്കായി ശബ്‌ദങ്ങൾ തിരഞ്ഞെടുക്കുക
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	ബോക്സിലെ ഡൗൺലോഡുകൾ തിരഞ്ഞെടുക്കുക
@@ -4230,7 +4230,7 @@
 	Start download at	ഡൗൺലോഡ് ആരംഭിക്കുക
 #. checkbox in the Scheduler window
 #, machine
-	Start download on ZDownloader3 startup	ZDownloader3 ആരംഭിക്കുമ്പോൾ ഡൗൺലോഡ് ആരംഭിക്കുക
+	Start download on zDownloader³ startup	zDownloader³ ആരംഭിക്കുമ്പോൾ ഡൗൺലോഡ് ആരംഭിക്കുക
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	"ഫയൽ വിവരങ്ങൾ ഡൗൺലോഡ് ചെയ്യുക" ഡയലോഗ് പ്രദർശിപ്പിക്കുമ്പോൾ ഉടനടി ഡൗൺലോഡ് ആരംഭിക്കുക
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	കമ്പ്യൂട്ടറിനൊപ്പം ആരംഭിക്കുമ്പോൾ, ഇത് ചെറുതാക്കിയ നിലയിൽ ആരംഭിക്കുന്നു: ഇവിടെ അറിയിപ്പ് ഏരിയയിൽ ഇതിന്റെ ഐക്കൺ കാണിക്കില്ല
 #. text in the Options window
-#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch zDownloader³ on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	കമ്പ്യൂട്ടറിനൊപ്പം ആരംഭിക്കുമ്പോൾ, ഇത് അറിയിപ്പ് ഏരിയയിൽ കാത്തിരിക്കുന്നു
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find ZDownloader3	ബ്രൗസറുകൾക്ക് ZDownloader3 കണ്ടെത്താനാകും
+	The browsers can find zDownloader³	ബ്രൗസറുകൾക്ക് zDownloader³ കണ്ടെത്താനാകും
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	ആരംഭിക്കുന്നതിന് ഒരു മിനിറ്റ് മുമ്പ് കമ്പ്യൂട്ടർ ഉണർത്തുകയും ക്യൂ പ്രവർത്തിക്കുമ്പോൾ ഉണർന്നിരിക്കുകയും ചെയ്യും. ZDownloader3 പ്രവർത്തിച്ചുകൊണ്ടിരിക്കണം (അത് നോട്ടിഫിക്കേഷൻ ഏരിയയിൽ കാത്തിരിക്കാം).
+	The computer is woken a minute before the start time and kept awake while the queue runs. zDownloader³ has to be running (it can wait in the notification area).	ആരംഭിക്കുന്നതിന് ഒരു മിനിറ്റ് മുമ്പ് കമ്പ്യൂട്ടർ ഉണർത്തുകയും ക്യൂ പ്രവർത്തിക്കുമ്പോൾ ഉണർന്നിരിക്കുകയും ചെയ്യും. zDownloader³ പ്രവർത്തിച്ചുകൊണ്ടിരിക്കണം (അത് നോട്ടിഫിക്കേഷൻ ഏരിയയിൽ കാത്തിരിക്കാം).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	തിരഞ്ഞെടുത്ത ഡൗൺലോഡ് പൂർത്തിയായിട്ടില്ല. ഇത് ZDownloader3-ന്റെ\nഡൗൺലോഡ് ലിസ്റ്റിൽ നിന്ന് ഇല്ലാതാക്കണോ?
+	The selected download is not complete. Are you sure you want to delete\nit from zDownloader³ list of downloads?	തിരഞ്ഞെടുത്ത ഡൗൺലോഡ് പൂർത്തിയായിട്ടില്ല. ഇത് zDownloader³-ന്റെ\nഡൗൺലോഡ് ലിസ്റ്റിൽ നിന്ന് ഇല്ലാതാക്കണോ?
 #. text in errors.rs
 #, machine
 	the server answered {status}	സെർവർ {status} എന്ന് മറുപടി നൽകി
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "ZDownloader3" and allow it on all websites.	"ZDownloader3" ഓണാക്കി എല്ലാ വെബ്‌സൈറ്റുകളിലും അനുവദിക്കുക.
+	Turn on "zDownloader³" and allow it on all websites.	"zDownloader³" ഓണാക്കി എല്ലാ വെബ്‌സൈറ്റുകളിലും അനുവദിക്കുക.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of ZDownloader3 ({version}).	നിങ്ങൾ ZDownloader3-ന്റെ ഏറ്റവും പുതിയ പതിപ്പാണ് ({version}) ഉപയോഗിക്കുന്നത്.
+	You have the latest version of zDownloader³ ({version}).	നിങ്ങൾ zDownloader³-ന്റെ ഏറ്റവും പുതിയ പതിപ്പാണ് ({version}) ഉപയോഗിക്കുന്നത്.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	കൈമാറ്റ നിരക്ക്
 #, machine
 column	Upload speed	അപ്‌ലോഡ് വേഗത
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name zDownloader³ as it is
 #, machine
-extension	A list of videos: choose them in ZDownloader3	വീഡിയോകളുടെ ഒരു പട്ടിക: അവ ZDownloader3-ൽ തിരഞ്ഞെടുക്കുക
+extension	A list of videos: choose them in zDownloader³	വീഡിയോകളുടെ ഒരു പട്ടിക: അവ zDownloader³-ൽ തിരഞ്ഞെടുക്കുക
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	ക്യൂവിലേക്ക് ചേർത�
 #, machine
 extension	All qualities and subtitles...	എല്ലാ ഗുണനിലവാരങ്ങളും സബ്ടൈറ്റിലുകളും...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name zDownloader³ as it is
 #, machine
-extension	Another ZDownloader3 (a server)	മറ്റൊരു ZDownloader3 (ഒരു സെർവർ)
+extension	Another zDownloader³ (a server)	മറ്റൊരു zDownloader³ (ഒരു സെർവർ)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	മികച്ചത്
 #, machine
 extension	Browser extension	ബ്രൗസർ എക്സ്റ്റൻഷൻ
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in ZDownloader3
+#. menu command of the download button over a video: opens its settings in zDownloader³
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	ബട്ടൺ ക്രമീകരണങ്ങൾ...
@@ -6108,14 +6108,14 @@ extension	can't be saved	സംരക്ഷിക്കാൻ കഴിയില
 #, machine
 extension	Can't tell which video this is: open its own page and try there	ഇത് ഏത് വീഡിയോ ആണെന്ന് അറിയാൻ കഴിയുന്നില്ല: അതിന്റെ സ്വന്തം പേജ് തുറന്ന് അവിടെ ശ്രമിക്കുക
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app; keep the name zDownloader³ as it is
 #, machine
-extension	Connected to ZDownloader3	ZDownloader3 എന്നതുമായി ബന്ധിപ്പിച്ചു
+extension	Connected to zDownloader³	zDownloader³ എന്നതുമായി ബന്ധിപ്പിച്ചു
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name zDownloader³ as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to ZDownloader3 {version}	ZDownloader3 {version} എന്നതുമായി ബന്ധിപ്പിച്ചു
+extension	Connected to zDownloader³ {version}	zDownloader³ {version} എന്നതുമായി ബന്ധിപ്പിച്ചു
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	തിരയാൻ കഴിഞ്ഞില്ല
 #, machine
 extension	Download	ഡൗൺലോഡ് ചെയ്യുക
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name zDownloader³ as it is
 #, machine
-extension	Download all links with ZDownloader3	ZDownloader3 ഉപയോഗിച്ച് എല്ലാ ലിങ്കുകളും ഡൗൺലോഡ് ചെയ്യുക
+extension	Download all links with zDownloader³	zDownloader³ ഉപയോഗിച്ച് എല്ലാ ലിങ്കുകളും ഡൗൺലോഡ് ചെയ്യുക
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	മികച്ചത് ഡൗൺലോഡ് ചെയ്യുക
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name zDownloader³ as it is
 #, machine
-extension	Download selected links with ZDownloader3	ZDownloader3 ഉപയോഗിച്ച് തിരഞ്ഞെടുത്ത ലിങ്കുകൾ ഡൗൺലോഡ് ചെയ്യുക
+extension	Download selected links with zDownloader³	zDownloader³ ഉപയോഗിച്ച് തിരഞ്ഞെടുത്ത ലിങ്കുകൾ ഡൗൺലോഡ് ചെയ്യുക
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	മികച്ച ഗുണനിലവാ�
 #, machine
 extension	Download video	വീഡിയോ ഡൗൺലോഡ് ചെയ്യുക
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name zDownloader³ as it is
 #, machine
-extension	Download with ZDownloader3	ZDownloader3 ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യുക
+extension	Download with zDownloader³	zDownloader³ ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യുക
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	അതിൻ്റെ https:// വില�
 #, machine
 extension	Get MDM	MDM നേടുക
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
+#. the extension's description in the browser's list of extensions; keep the name zDownloader³ as it is
 #, machine
-extension	Hands downloads from the browser to ZDownloader3.	ബ്രൗസറിൽ നിന്നുള്ള ഡൗൺലോഡുകൾ ZDownloader3-ലേക്ക് കൈമാറുന്നു.
+extension	Hands downloads from the browser to zDownloader³.	ബ്രൗസറിൽ നിന്നുള്ള ഡൗൺലോഡുകൾ zDownloader³-ലേക്ക് കൈമാറുന്നു.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	ഇത് പ്രവർത്തിച്
 #, machine
 extension	It shows no code now: click Pair a device there first.	ഇത് ഇപ്പോൾ കോഡ് കാണിക്കുന്നില്ല: ആദ്യം അവിടെയുള്ള ഒരു ഉപകരണം ജോടിയാക്കുക എന്നതിൽ ക്ലിക്ക് ചെയ്യുക.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with zDownloader³, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	ഇതൊരു ടോറന്റാണ്, കൂടാതെ ടോറന്റ് ക്രമീകരണങ്ങളിൽ ZDownloader3 ഉപയോഗിച്ച് മാഗ്നറ്റ് ലിങ്കുകളും .torrent ഫയലുകളും തുറക്കുക എന്നത് ഓഫാണ്.
+extension	It's a torrent, and Open magnet links and .torrent files with zDownloader³ is off in Torrent settings.	ഇതൊരു ടോറന്റാണ്, കൂടാതെ ടോറന്റ് ക്രമീകരണങ്ങളിൽ zDownloader³ ഉപയോഗിച്ച് മാഗ്നറ്റ് ലിങ്കുകളും .torrent ഫയലുകളും തുറക്കുക എന്നത് ഓഫാണ്.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM പ്രതികരിച്ചില്ല
 #, machine
 extension	Media on this page	ഈ പേജിലെ മീഡിയ
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3	ZDownloader3
+extension	zDownloader³	zDownloader³
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 didn't start in time	ZDownloader3 കൃത്യസമയത്ത് ആരംഭിച്ചില്ല
+extension	zDownloader³ didn't start in time	zDownloader³ കൃത്യസമയത്ത് ആരംഭിച്ചില്ല
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 ഈ എക്സ്റ്റൻഷൻ കോപ്പി സ്വീകരിക്കുന്നില്ല
+extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ ഈ എക്സ്റ്റൻഷൻ കോപ്പി സ്വീകരിക്കുന്നില്ല
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 is busy with other videos	ZDownloader3 മറ്റ് വീഡിയോകളിൽ തിരക്കിലാണ്
+extension	zDownloader³ is busy with other videos	zDownloader³ മറ്റ് വീഡിയോകളിൽ തിരക്കിലാണ്
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല അല്ലെങ്കിൽ ആരംഭിച്ചില്ല
+extension	zDownloader³ isn't installed or didn't start	zDownloader³ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല അല്ലെങ്കിൽ ആരംഭിച്ചില്ല
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല, അല്ലെങ്കിൽ അതിന്റെ ബ്രൗസർ സംയോജനം സജ്ജീകരിച്ചിട്ടില്ല
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല, അല്ലെങ്കിൽ അതിന്റെ ബ്രൗസർ സംയോജനം സജ്ജീകരിച്ചിട്ടില്ല
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 needs yt-dlp for this video	ഈ വീഡിയോയ്ക്ക് ZDownloader3-ന് yt-dlp ആവശ്യമാണ്
+extension	zDownloader³ needs yt-dlp for this video	ഈ വീഡിയോയ്ക്ക് zDownloader³-ന് yt-dlp ആവശ്യമാണ്
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് അനുവദിക്കാൻ ബ്രൗസർ ഒരിക്കൽ ചോദിക്കും; ഇത് ഓഫാക്കുന്നത് ആ അനുമതി പിൻവലിക്കും.
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് അനുവദിക്കാൻ ബ്രൗസർ ഒരിക്കൽ ചോദിക്കും; ഇത് ഓഫാക്കുന്നത് ആ അനുമതി പിൻവലിക്കും.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് ഓഫായിരിക്കുമ്പോൾ, എക്സ്റ്റൻഷൻ ബ്രൗസറിന്റെ പ്രോക്സി വായിക്കില്ല.
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ ഈ ബ്രൗസറിന്റെ അതേ പ്രോക്സി വഴി ഡൗൺലോഡ് ചെയ്യുന്നു. ഇത് ഓഫായിരിക്കുമ്പോൾ, എക്സ്റ്റൻഷൻ ബ്രൗസറിന്റെ പ്രോക്സി വായിക്കില്ല.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6325,9 +6325,9 @@ extension	Open it	തുറക്കുക
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	അതിൻ്റെ വിലാസം ഒരിക്കൽ തുറന്ന് അതിൻ്റെ സർട്ടിഫിക്കറ്റ് സ്വീകരിക്കുക, തുടർന്ന് അതിൻ്റെ ഓപ്ഷനുകൾ, റിമോട്ട്, ഒരു ഉപകരണം ജോടിയാക്കുക (അല്ലെങ്കിൽ zdownloader3-cli pair) എന്നിവയിൽ നിന്ന് ഒരു കോഡ് നൽകുക.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
 #, machine
-extension	Open ZDownloader3	ZDownloader3 തുറക്കുക
+extension	Open zDownloader³	zDownloader³ തുറക്കുക
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	ഈ ബ�
 #, machine
 extension	Send downloads to	ഡൗൺലോഡുകൾ ഇതിലേക്ക് അയയ്ക്കുക
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is zDownloader³'s short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	MDM-ലേക്ക് അയക്കുന്നു...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
+#. shown briefly on the download button after it was clicked; keep the name zDownloader³ as it is
 #, machine
-extension	Sent to ZDownloader3	ZDownloader3 ലേക്ക് അയച്ചു
+extension	Sent to zDownloader³	zDownloader³ ലേക്ക് അയച്ചു
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	ഈ ബ്രൗസറിൽ നി�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store-ന്റെ നിയമങ്ങൾ ആഡ്-ഓണിന്റെ ഈ പകർപ്പിനെ ഈ സൈറ്റിലെ വീഡിയോകളിൽ നിന്ന് അകറ്റി നിർത്തുന്നു. എന്തു ചെയ്യാമെന്ന് «സഹായം» പറയുന്നു.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name zDownloader³ as it is
 #, machine
-extension	The connection to ZDownloader3 failed	ZDownloader3 ലേക്കുള്ള കണക്ഷൻ പരാജയപ്പെട്ടു
+extension	The connection to zDownloader³ failed	zDownloader³ ലേക്കുള്ള കണക്ഷൻ പരാജയപ്പെട്ടു
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	അവസാനത്തെ
 #, machine
 extension	This browser isn't ticked in Options → General.	ഓപ്ഷനുകൾ → പൊതുവായത് എന്നതിൽ ഈ ബ്രൗസർ ടിക്ക് ചെയ്തിട്ടില്ല.
 #. text in the browser extension
-#. choice under Send downloads to: the ZDownloader3 on this computer
+#. choice under Send downloads to: the zDownloader³ on this computer
 #, machine
 extension	This computer	ഈ കമ്പ്യൂട്ടർ
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	ഓൺ ചെയ്യുക
 #, machine
 extension	Undo	പഴയപടിയാക്കുക
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name ZDownloader3 as it is
+#. status when the app is older than the extension; keep the name zDownloader³ as it is
 #, machine
-extension	Update ZDownloader3 to use everything this extension offers	ഈ എക്സ്റ്റൻഷന്റെ എല്ലാ സവിശേഷതകളും ഉപയോഗിക്കാൻ ZDownloader3 അപ്‌ഡേറ്റ് ചെയ്യുക
+extension	Update zDownloader³ to use everything this extension offers	ഈ എക്സ്റ്റൻഷന്റെ എല്ലാ സവിശേഷതകളും ഉപയോഗിക്കാൻ zDownloader³ അപ്‌ഡേറ്റ് ചെയ്യുക
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	മുകളിലേക്ക് / താഴേക്ക്
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About ZDownloader3	ZDownloader3-നെക്കുറിച്ച്(&A)
+menu	&About zDownloader³	zDownloader³-നെക്കുറിച്ച്(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6979,7 +6979,7 @@ menu	Metro	മെട്രോ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	ZDownloader3 &Home Page	ZDownloader3 ഹോം &പേജ്
+menu	zDownloader³ &Home Page	zDownloader³ ഹോം &പേജ്
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	നീക്കുക/പേരുമാറ്റുക (Ctrl-M)
@@ -7112,7 +7112,7 @@ menu	Select &all	എല്ലാം &തിരഞ്ഞെടുക്കുക
 menu	Show &drop target	ഡ്രോപ്പ് ടാർഗറ്റ് കാണിക്കുക(&d)
 #. menu command in the main window
 #, machine
-menu	Show ZDownloader3	ZDownloader3 കാണിക്കുക
+menu	Show zDownloader³	zDownloader³ കാണിക്കുക
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

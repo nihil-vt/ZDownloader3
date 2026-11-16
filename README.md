@@ -1,6 +1,6 @@
-# ZDownloader3
+# zDownloader³
 
-<p align="center"><img src="docs/assets/brand/banner.svg" alt="ZDownloader3" width="100%" /></p>
+<p align="center"><img src="docs/assets/brand/banner.svg" alt="zDownloader³" width="100%" /></p>
 
 A native Linux-first download manager with a JDownloader2-shaped UI: a category sidebar, a
 `Downloads`/`Linkgrabber` tab pair, a package-grouped link list, and a flat, fast-darkmed
@@ -41,6 +41,6 @@ packages `.deb` / `.rpm` / AppImage (see its header for tooling).
 
 ## License
 
-GNU GPL-3.0. ZDownloader3 descends from Mister Download Manager by Ahmed Nefzaoui; see
+GNU GPL-3.0. zDownloader³ descends from Mister Download Manager by Ahmed Nefzaoui; see
 `NOTICE.md` for provenance and `LICENSE` for the terms. Attribution is kindly retained.
 Not affiliated with jdownloader.org, Eye/appwork, or misterdownloadmanager.com.

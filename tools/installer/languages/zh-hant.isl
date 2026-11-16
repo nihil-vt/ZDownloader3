@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Chinese (Traditional): tools/installer/languages.py
+﻿; zDownloader³'s installer in Chinese (Traditional): tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=正在解除安裝 %1。
 
 [CustomMessages]
 TaskBrowser=設定瀏覽器整合(&B) (Chrome、Edge、Brave、Firefox)
-TaskTorrents=使用 ZDownloader3 開啟 .&torrent 檔案和磁力連結
-TaskStartup=當 &Windows 啟動時啟動 ZDownloader3
+TaskTorrents=使用 zDownloader³ 開啟 .&torrent 檔案和磁力連結
+TaskStartup=當 &Windows 啟動時啟動 zDownloader³
 TaskGroupOther=其他：
-Launch=啟動 ZDownloader3
+Launch=啟動 zDownloader³
 KeepData=也要刪除您的下載清單和設定嗎？%n%n無論如何，您的下載檔案都不會受到影響。

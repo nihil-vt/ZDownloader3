@@ -1,5 +1,5 @@
 ---
-name: ZDownloader3 website
+name: zDownloader³ website
 description: A download is a delivery. The site is the file's waybill, stuck on the real app window.
 colors:
   board: "#1f63d6"
@@ -181,7 +181,7 @@ components:
     textColor: "{colors.paper}"
 ---
 
-# Design System: ZDownloader3 website
+# Design System: zDownloader³ website
 
 ## Overview
 

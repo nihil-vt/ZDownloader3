@@ -1,6 +1,6 @@
 # JDownloader2 Internals — Decompiled Source Analysis
 
-Analysis of shipped JD2 (Flatpak `org.jdownloader.JDownloader`, rev 50639, built 2026-04-22, Java 27). **Clean-room document: these are observations of design, not copied code.** ZDownloader3 is MIT/Apache-2.0 — no JD2 code may be reused verbatim.
+Analysis of shipped JD2 (Flatpak `org.jdownloader.JDownloader`, rev 50639, built 2026-04-22, Java 27). **Clean-room document: these are observations of design, not copied code.** zDownloader³ is MIT/Apache-2.0 — no JD2 code may be reused verbatim.
 
 Tooling: REA (archive inventory, hash verification, Evidence `ev_942c16a0…` / `ev_7c547c2d…`, bundle `/tmp/opencode/jd2-core-artifact.json`) + CFR 0.152 decompilation of `Core.jar`, `JDGUI.jar`, `JDHttp.jar`, `JDUtils.jar`, `cons.jar`, `Filters.jar`, `JAntiCaptcha.jar`, `Extraction.jar` → `/tmp/opencode/jd2src/` (2,833 files, 23 MB). REA is native/archive-oriented — Java bytecode is outside its analysis scope beyond inventory; decompile was done with CFR and is structurally complete but some methods were deliberately obfuscated (e.g. `handleCaptchaChallenge`) and `org.appwork.*` lives in separate jars not in the distro (framework not decompiled).
 
@@ -44,11 +44,11 @@ public static final KeyHandler GUI_SIDEBAR_VISIBLE = StorageHandler.instance().g
 - Persisted as `cfg/<fqcn>.json` (e.g. `cfg/org.jdownloader.settings.GraphicalUserInterfaceSettings.json` — the live dump we copied has ~200 GUI toggles).
 - Legacy plugin config: `SubConfiguration` (AES-obfuscated JSON `.ejs`, hardcoded key — not real encryption), being replaced by plain-JSON `cfg/plugins/<id>` via `PluginJsonConfig`.
 - GUI listens via `GenericConfigEventListener.onConfigValueModified` → relayout. Example: toggling `linkgrabbersidebarvisible` re-flows the panel immediately.
-- **Lesson for ZDownloader3:** adopt the same *declared settings* pattern (e.g. a Rust `Settings` trait + typed keys + change events), plain JSON or SQLite, no hidden encryption.
+- **Lesson for zDownloader³:** adopt the same *declared settings* pattern (e.g. a Rust `Settings` trait + typed keys + change events), plain JSON or SQLite, no hidden encryption.
 
 ### 2.3 Event system
 
-Every subsystem publishes via `*EventSender`: `DownloadWatchdogEventSender`, `DownloadControllerEventSender`, `LinkCollectorEventSender`, `LinkCrawlerEventSender`, `ReconnectEventSender`, `ChallengeResponseEventSender`, `FileCreationEventSender`, `PackagizerControllerEventSender`, `IPControllEventSender`, `AccountCheckerEventSender`, … GUI subscribes directly; RemoteAPI wraps the same events as `EventPublisher`s streamed over websocket/long-poll to MyJDownloader clients. **ZDownloader3: tokio `broadcast` per domain.**
+Every subsystem publishes via `*EventSender`: `DownloadWatchdogEventSender`, `DownloadControllerEventSender`, `LinkCollectorEventSender`, `LinkCrawlerEventSender`, `ReconnectEventSender`, `ChallengeResponseEventSender`, `FileCreationEventSender`, `PackagizerControllerEventSender`, `IPControllEventSender`, `AccountCheckerEventSender`, … GUI subscribes directly; RemoteAPI wraps the same events as `EventPublisher`s streamed over websocket/long-poll to MyJDownloader clients. **zDownloader³: tokio `broadcast` per domain.**
 
 ## 3. Download engine
 
@@ -91,7 +91,7 @@ Two-stage rule chain applied inside `LinkCollector` after crawl:
 1. **`org.jdownloader.controlling.filter`** (`LinkGrabberFilterRule`, `LinkFilterController`) — accept/except by URL regex, filetype, size, online status, plugin status, origin; drops garbage before it shows up.
 2. **`org.jdownloader.controlling.packagizer`** (`PackagizerController`, `PackagizerRule`, JSON-config ordered, `stopAfterThisRule`) — rename (`<jd:packagename>`, `<jd:simpledate:>`, env vars), move to package, set destination, chunks/priority/autostart/autoextract, subfolder rules.
 
-**ZDownloader3: port the *rule model* (condition + action, ordered list, stop flag), not the code. It's the highest-value part of the linkgrabber besides plugins.**
+**zDownloader³: port the *rule model* (condition + action, ordered list, stop flag), not the code. It's the highest-value part of the linkgrabber besides plugins.**
 
 ### 3.4 Accounts
 
@@ -145,7 +145,7 @@ Left: scrollable premium account chips (`premiumbar.ServicePanel`, traffic + sta
 
 ### 5.7 Theming
 
-FlatLaf (default) or Synthetica (licensed), installed by `LookAndFeelController`; `LAFOptions` is the central color/gap facade (package-row highlight, table selection, panel background, insets). Icons: `NewTheme.I().getIcon()` from `themes/standard/` (291 PNGs + few SVGs). **No CSS/stylus infrastructure — it's all Java code.** ZDownloader3 replaces this with libadwaita CSS (already scaffolded with 6 builtins).
+FlatLaf (default) or Synthetica (licensed), installed by `LookAndFeelController`; `LAFOptions` is the central color/gap facade (package-row highlight, table selection, panel background, insets). Icons: `NewTheme.I().getIcon()` from `themes/standard/` (291 PNGs + few SVGs). **No CSS/stylus infrastructure — it's all Java code.** zDownloader³ replaces this with libadwaita CSS (already scaffolded with 6 builtins).
 
 ### 5.8 Notifications & tray
 
@@ -155,9 +155,9 @@ FlatLaf (default) or Synthetica (licensed), installed by `LookAndFeelController`
 
 - `RemoteAPIController`: local JSON/websocket API (HTTP on 3128 default-off, localhost-only) + CNL2 extern interface (9666) + **MyJDownloader cloud** (`api.jdownloader.org`, custom `gazeisp` AES+gzip over HTTP, appKey-authenticated, device-bind flow). MyJD pushes captcha challenges/answers and mirrors the whole RemoteAPI surface (`bindings/interfaces/*` mirror `@ApiNamespace`).
 - `UpdateController` loads in the updater module (not shipped in these jars); extensions (Extraction, EventScripter, FolderWatch, Scheduler…) install on demand via it. No signature verification exists for plugins/extensions in the shipped code — trust = the update endpoint.
-- Plugin trust model: unsigned plugins, full JVM access. **Not acceptable for us**: ZDownloader3 plugins should be sandboxed (separate process or at minimum capability-declared) or at least signed.
+- Plugin trust model: unsigned plugins, full JVM access. **Not acceptable for us**: zDownloader³ plugins should be sandboxed (separate process or at minimum capability-declared) or at least signed.
 
-## 7. Prioritized takeaways for ZDownloader3
+## 7. Prioritized takeaways for zDownloader³
 
 1. **Adopt the declared-settings pattern** (typed keys + change events). It is the single best structural idea in JD2.
 2. **One package-table component, two tab bindings** (linkgrabber/downloads) — implement once as a `TreeListModel`+`ColumnView`.

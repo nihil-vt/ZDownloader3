@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Nepali: tools/installer/languages.py
+﻿; zDownloader³'s installer in Nepali: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 अनइन्स्टल गर्द�
 
 [CustomMessages]
 TaskBrowser=ब्राउजर एकीकरण (Chrome, Edge, Brave, Firefox) &सेट अप गर्नुहोस्
-TaskTorrents=ZDownloader3 मार्फत .&torrent फाइलहरू र म्याग्नेट लिङ्कहरू खोल्नुहोस्
-TaskStartup=&Windows सुरु हुँदा ZDownloader3 सुरु गर्नुहोस्
+TaskTorrents=zDownloader³ मार्फत .&torrent फाइलहरू र म्याग्नेट लिङ्कहरू खोल्नुहोस्
+TaskStartup=&Windows सुरु हुँदा zDownloader³ सुरु गर्नुहोस्
 TaskGroupOther=अन्य:
-Launch=ZDownloader3 सुरु गर्नुहोस्
+Launch=zDownloader³ सुरु गर्नुहोस्
 KeepData=तपाईंको डाउनलोड सूची र सेटिङहरू पनि मेटाउने?%n%nतपाईंको डाउनलोड गरिएका फाइलहरू कुनै पनि तरिकाले छोइँदैनन्।

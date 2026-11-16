@@ -1,7 +1,7 @@
-//! ZDownloader3's browser native messaging host (Chrome, Edge, Brave, Firefox).
+//! zDownloader³'s browser native messaging host (Chrome, Edge, Brave, Firefox).
 //!
 //! - Started by the browser: reads native messages (u32 LE length + JSON) from stdin, hands each
-//!   download to the running ZDownloader3 over mdm-ipc (starting ZDownloader3 if needed), answers
+//!   download to the running zDownloader³ over mdm-ipc (starting zDownloader³ if needed), answers
 //!   `{"ok": …}`. A download Options says to leave to the browser (file type, excluded site or
 //!   address, browser, integration off: `mdm_ipc::capture`) is answered `{"ok": false}` without
 //!   starting anything, and the extension lets the browser have it. `{"rules": true}` asks for
@@ -109,7 +109,7 @@ struct Message {
     proxy: Option<String>,
     proxy_pac: Option<String>,
     proxy_login: bool,
-    /// The user asked for this download (right-click → Download with ZDownloader3):
+    /// The user asked for this download (right-click → Download with zDownloader³):
     /// Options' automatic-capture rules don't apply, as IDM's "Download with IDM" takes any link.
     explicit: bool,
     /// May the download button show over videos on page `url`? With `referrer`: the tab's
@@ -146,7 +146,7 @@ struct Message {
     exclude_site: Option<String>,
     /// The popup's Undo (#404): take this host name off the excluded sites again.
     include_site: Option<String>,
-    /// The toolbar button: bring ZDownloader3's window up.
+    /// The toolbar button: bring zDownloader³'s window up.
     open: bool,
     /// The extension left a download to the browser by Options' rules (it has them from
     /// `rules`) without asking about it: for MDM's log. Under its own key, with no `url`: an
@@ -251,7 +251,7 @@ struct Reply {
     /// (docs/browser-help.md): `not-running`, `too-large`, `refused`, `options`.
     #[serde(skip_serializing_if = "Option::is_none")]
     why: Option<&'static str>,
-    /// ZDownloader3's version (this host comes with it).
+    /// zDownloader³'s version (this host comes with it).
     #[serde(skip_serializing_if = "Option::is_none")]
     version: Option<&'static str>,
     /// For `rules`: Options → File types.
@@ -276,7 +276,7 @@ struct Reply {
     #[serde(skip_serializing_if = "Option::is_none")]
     capture_off: Option<&'static str>,
     /// For `rules`: whether a .torrent is taken (Torrent settings → "Open magnet links and
-    /// .torrent files with ZDownloader3", #1058); false, the extension leaves one to
+    /// .torrent files with zDownloader³", #1058); false, the extension leaves one to
     /// the browser (`torrents`). A host before it doesn't say: the extension takes them as listed.
     #[serde(skip_serializing_if = "Option::is_none")]
     torrents: Option<bool>,
@@ -1007,7 +1007,7 @@ enum Undelivered {
     Refused(String),
 }
 
-/// How long a ZDownloader3 just started gets to open its channel (a first start, a
+/// How long a zDownloader³ just started gets to open its channel (a first start, a
 /// slow disk or an antivirus scan can take a while); the browser's download waits meanwhile.
 const START_WAIT: Duration = Duration::from_secs(20);
 
@@ -1023,7 +1023,7 @@ fn bundle_of(exe: &std::path::Path) -> Option<PathBuf> {
         .map(PathBuf::from)
 }
 
-/// Hand `cmd` to ZDownloader3, starting it only if none is running.
+/// Hand `cmd` to zDownloader³, starting it only if none is running.
 fn deliver(cmd: &mdm_ipc::Command) -> Result<(), Undelivered> {
     // Whatever it asks may open a window: the app may bring it to the front (Windows only: Linux
     // and macOS have no foreground lock for a host to lift).
@@ -1084,7 +1084,7 @@ fn deliver(cmd: &mdm_ipc::Command) -> Result<(), Undelivered> {
         }
     }
     Err(Undelivered::NotRunning(
-        "ZDownloader3 did not start".into(),
+        "zDownloader³ did not start".into(),
     ))
 }
 
@@ -1172,7 +1172,7 @@ fn this_program() -> Result<PathBuf, String> {
 fn chromium_manifest(program: &std::path::Path) -> serde_json::Value {
     serde_json::json!({
         "name": HOST_NAME,
-        "description": "ZDownloader3",
+        "description": "zDownloader³",
         "path": program,
         "type": "stdio",
         "allowed_origins": chromium_ids().into_iter().map(origin).collect::<Vec<_>>(),
@@ -1183,7 +1183,7 @@ fn chromium_manifest(program: &std::path::Path) -> serde_json::Value {
 fn firefox_manifest(program: &std::path::Path) -> serde_json::Value {
     serde_json::json!({
         "name": HOST_NAME,
-        "description": "ZDownloader3",
+        "description": "zDownloader³",
         "path": program,
         "type": "stdio",
         "allowed_extensions": [FIREFOX_ID],
@@ -1202,7 +1202,7 @@ fn portable_refused() -> Result<(), String> {
     if mdm_ipc::portable_dir().is_some() {
         return Err(
             "portable mode: browser integration is not registered (nothing is written outside \
-             its folder); install ZDownloader3 to use it"
+             its folder); install zDownloader³ to use it"
                 .into(),
         );
     }
@@ -1218,7 +1218,7 @@ fn temporary_refused() -> Result<(), String> {
     if mdm_ipc::browsers::in_temporary_folder(&program) {
         return Err(format!(
             "{} is a temporary folder, deleted once it quits (an archive run without extracting \
-             it first): browser integration is not registered. Extract ZDownloader3 \
+             it first): browser integration is not registered. Extract zDownloader³ \
              to a folder of its own and run it from there",
             program.parent().unwrap_or(&program).display()
         ));
@@ -1592,7 +1592,7 @@ fn main() {
         // manifests' allowed_origins / allowed_extensions say the same; this is a second check).
         _ if our_caller(&args) => serve().map_err(|e| e.to_string()),
         _ => Err(format!(
-            "refusing caller {args:?}: not the ZDownloader3 extension"
+            "refusing caller {args:?}: not the zDownloader³ extension"
         )),
     };
     if let Err(e) = result {
@@ -1618,11 +1618,11 @@ mod tests {
     #[test]
     fn safari_helper_finds_its_app() {
         let exe = std::path::Path::new(
-            "/Applications/ZDownloader3.app/Contents/PlugIns/ZDownloader3.appex/Contents/MacOS/zdownloader3-nmhost",
+            "/Applications/zDownloader³.app/Contents/PlugIns/zDownloader³.appex/Contents/MacOS/zdownloader3-nmhost",
         );
         assert_eq!(
             bundle_of(exe),
-            Some(PathBuf::from("/Applications/ZDownloader3.app"))
+            Some(PathBuf::from("/Applications/zDownloader³.app"))
         );
         assert_eq!(bundle_of(std::path::Path::new("/usr/bin/nmhost")), None);
     }
@@ -1709,7 +1709,7 @@ mod tests {
         );
         assert!(r.ok && r.types.unwrap().contains("ZIP"));
         assert_eq!(file_name_of(&msg("https://x.org/f/b.rar?x=1", "")), "b.rar");
-        // Right-click → Download with ZDownloader3: any link, whatever Options say.
+        // Right-click → Download with zDownloader³: any link, whatever Options say.
         let mut page = msg("https://example.com/page.html", "");
         assert!(verdict(&page, &rules).is_err());
         page.explicit = true;
@@ -2770,7 +2770,7 @@ mod tests {
         assert_eq!(c.user_agent.as_deref(), Some("UA"));
         assert_eq!(
             c.name, None,
-            "empty filename means: let ZDownloader3 decide"
+            "empty filename means: let zDownloader³ decide"
         );
         assert!(!c.later && !c.silent);
         assert_eq!((c.proxy, c.proxy_pac, c.proxy_login), (None, None, false));

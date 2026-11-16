@@ -1,6 +1,6 @@
 """The release's symbols for crash reports: Breakpad .sym files of the programs MDM ships, in a
 symbol store (<debug file>/<id>/<name>.sym, as rust-minidump and Mozilla's symbol servers read
-it), zipped as ZDownloader3-<version>-symbols-<platform>.zip beside the release's other
+it), zipped as zDownloader³-<version>-symbols-<platform>.zip beside the release's other
 downloads. The crash report window fetches the zip for its own version to make its stacks
 readable (crates/crash/src/symbols.rs); the programs themselves ship without their debug info.
 
@@ -89,7 +89,7 @@ def main():
             f.write(sym)
         print(f"{debug_file} {debug_id} ({len(sym) / 1048576:.1f} MB)")
     os.makedirs(out_dir, exist_ok=True)
-    zip_path = os.path.join(out_dir, f"ZDownloader3-{version}-symbols-{plat}.zip")
+    zip_path = os.path.join(out_dir, f"zDownloader³-{version}-symbols-{plat}.zip")
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for root, _, files in os.walk(store):
             for fn in files:

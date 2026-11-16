@@ -95,7 +95,7 @@ pub fn monitor_main(m: MonitorArgs) -> eframe::Result {
     let builder = crate::quiet(
         crate::window_builder()
             .with_title(crate::i18n::os_text(crate::i18n::t(
-                "ZDownloader3 crash report",
+                "zDownloader³ crash report",
             )))
             .with_inner_size([CLIENT[0] * zoom, CLIENT[1] * zoom])
             .with_resizable(false)
@@ -262,7 +262,7 @@ fn prepare(job: &Job, shared: Arc<Mutex<Shared>>, ctx: egui::Context) {
             return;
         };
         let Ok(http) = reqwest::Client::builder()
-            .user_agent(concat!("ZDownloader3/", env!("CARGO_PKG_VERSION")))
+            .user_agent(concat!("zDownloader³/", env!("CARGO_PKG_VERSION")))
             .timeout(Duration::from_secs(120))
             .build()
         else {
@@ -364,7 +364,7 @@ impl eframe::App for ReportWindow {
         #[cfg(windows)]
         if !self.caption_dwm {
             self.caption_dwm = crate::win32::caption_dark(
-                crate::i18n::t("ZDownloader3 crash report"),
+                crate::i18n::t("zDownloader³ crash report"),
                 crate::theme::dark_surface(),
             );
         }
@@ -392,14 +392,14 @@ impl ReportWindow {
         match self.job.kind {
             // i18n: crash report window heading: the window of MDM stopped answering, then answered again
             Kind::Freeze if self.recovered => {
-                crate::i18n::t("ZDownloader3 stopped responding for a while")
+                crate::i18n::t("zDownloader³ stopped responding for a while")
             }
             // i18n: crash report window heading: MDM's window doesn't answer (frozen)
-            Kind::Freeze => crate::i18n::t("ZDownloader3 stopped responding"),
+            Kind::Freeze => crate::i18n::t("zDownloader³ stopped responding"),
             // i18n: crash report window heading: an internal error, MDM still running
-            Kind::Panic if alive => crate::i18n::t("ZDownloader3 hit an internal error"),
+            Kind::Panic if alive => crate::i18n::t("zDownloader³ hit an internal error"),
             // i18n: crash report window heading: MDM crashed and is gone
-            _ => crate::i18n::t("ZDownloader3 closed unexpectedly"),
+            _ => crate::i18n::t("zDownloader³ closed unexpectedly"),
         }
     }
 

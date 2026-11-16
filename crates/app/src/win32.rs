@@ -1,4 +1,4 @@
-//! The only Windows FFI in ZDownloader3 (D-008): IDM's dialog frame for our dialog windows, and the
+//! The only Windows FFI in zDownloader³ (D-008): IDM's dialog frame for our dialog windows, and the
 //! shell's own small file-type icons (the ones Explorer and IDM show — Windows' artwork, not IDM's),
 //! and the drop target's OLE `IDropTarget` (`ole`).
 #![allow(unsafe_code)]
@@ -4949,7 +4949,7 @@ fn reg_string(key: &str, name: &str) -> Option<String> {
 /// names have `_` for `-`.
 pub fn take_install_language() -> Option<String> {
     use windows_sys::Win32::System::Registry::{HKEY_CURRENT_USER, RegDeleteKeyValueW};
-    const KEY: &str = r"Software\ZDownloader3";
+    const KEY: &str = r"Software\zDownloader³";
     const NAME: &str = "InstallLanguage";
     let value = reg_string(KEY, NAME)?;
     let w = |s: &str| -> Vec<u16> { s.encode_utf16().chain(Some(0)).collect() };
@@ -4966,7 +4966,7 @@ pub fn take_install_language() -> Option<String> {
 /// installer wrote it. Only read: the app settles Torrent settings' switch from it once
 /// (`Settings::settle_torrent_handler`, #1058), and an upgrade's value is never asked again.
 pub fn install_torrents() -> Option<bool> {
-    reg_string(r"Software\ZDownloader3", "InstallTorrents").map(|v| v.trim() == "1")
+    reg_string(r"Software\zDownloader³", "InstallTorrents").map(|v| v.trim() == "1")
 }
 
 /// Is this program what Windows opens .torrent files with by their class (the user's or
@@ -4995,8 +4995,8 @@ fn runs_program(command: &str, exe: &str) -> bool {
 mod torrent_handler_tests {
     #[test]
     fn an_open_command_names_its_program() {
-        let exe = r"C:\Program Files\ZDownloader3\zdownloader3.exe";
-        let ours = r#""c:\program files\mister download manager\ZDownloader3.exe" "%1""#;
+        let exe = r"C:\Program Files\zDownloader³\zdownloader3.exe";
+        let ours = r#""c:\program files\mister download manager\zDownloader³.exe" "%1""#;
         assert!(super::runs_program(ours, exe));
         let other = r#""C:\Program Files\qBittorrent\qbittorrent.exe" "%1""#;
         assert!(!super::runs_program(other, exe));
@@ -5305,13 +5305,13 @@ pub fn play_sound(file: &str) {
 /// the same as its Capabilities' ApplicationName (Microsoft: "ApplicationName must always match
 /// the name that is registered under RegisteredApplications"). tools/installer/mdm.iss writes
 /// the same.
-pub const REGISTERED_NAME: &str = "ZDownloader3";
+pub const REGISTERED_NAME: &str = "zDownloader³";
 /// MDM's Capabilities (Default apps' list of what it can open), under HKCU or HKLM.
-const CAPABILITIES: &str = r"Software\ZDownloader3\Capabilities";
+const CAPABILITIES: &str = r"Software\zDownloader³\Capabilities";
 /// The ProgIDs MDM's Capabilities name: Default apps wants an application-specific one for each
 /// file type and protocol, never the generic `magnet` class.
-const TORRENT_PROGID: &str = "ZDownloader3.Torrent";
-const MAGNET_PROGID: &str = "ZDownloader3.Magnet";
+const TORRENT_PROGID: &str = "zDownloader³.Torrent";
+const MAGNET_PROGID: &str = "zDownloader³.Magnet";
 
 /// Make MDM (on) or stop it being (off) what Windows opens magnet links and .torrent files
 /// with, for the current user (HKCU; no admin). Off removes only what points at us.
@@ -5394,7 +5394,7 @@ pub fn set_torrent_handlers(on: bool) {
             set(
                 CAPABILITIES,
                 Some("ApplicationDescription"),
-                // i18n: Windows' Settings → Default apps: what ZDownloader3 is
+                // i18n: Windows' Settings → Default apps: what zDownloader³ is
                 crate::i18n::t("Downloads files, videos and torrents"),
             );
             set(CAPABILITIES, Some("ApplicationIcon"), &icon);
@@ -5577,7 +5577,7 @@ fn others(handlers: &[Handler], exe: &str) -> Vec<String> {
 mod default_apps_tests {
     use super::{Handler, default_apps_uri, others};
 
-    const MDM: &str = r"C:\Program Files\ZDownloader3\zdownloader3.exe";
+    const MDM: &str = r"C:\Program Files\zDownloader³\zdownloader3.exe";
     const FDM: &str = r"C:\Program Files\Softdeluxe\Free Download Manager\fdm.exe";
 
     fn h(program: Option<&str>, name: Option<&str>) -> Handler {
@@ -5605,7 +5605,7 @@ mod default_apps_tests {
     #[test]
     fn another_default_is_named_once() {
         let fdm = || h(Some(FDM), Some("Free Download Manager"));
-        let ours = || h(Some(&MDM.to_uppercase()), Some("ZDownloader3"));
+        let ours = || h(Some(&MDM.to_uppercase()), Some("zDownloader³"));
         assert_eq!(others(&[fdm(), fdm()], MDM), ["Free Download Manager"]);
         assert_eq!(others(&[fdm(), ours()], MDM), ["Free Download Manager"]);
         assert!(others(&[ours(), ours()], MDM).is_empty());
@@ -5634,7 +5634,7 @@ mod default_apps_tests {
             HKEY, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_OPTION_NON_VOLATILE, RegCloseKey,
             RegCreateKeyExW, RegDeleteKeyW, RegDeleteTreeW, RegOverridePredefKey,
         };
-        let scratch: Vec<u16> = r"Software\ZDownloader3Test1091"
+        let scratch: Vec<u16> = r"Software\zDownloader³Test1091"
             .encode_utf16()
             .chain(Some(0))
             .collect();
@@ -5664,21 +5664,21 @@ mod default_apps_tests {
                 (r"Software\Classes\magnet\shell\open\command", ""),
                 (r"Software\Classes\.torrent", ""),
                 (
-                    r"Software\Classes\ZDownloader3.Magnet",
+                    r"Software\Classes\zDownloader³.Magnet",
                     "URL Protocol",
                 ),
                 (
-                    r"Software\Classes\ZDownloader3.Magnet\shell\open\command",
+                    r"Software\Classes\zDownloader³.Magnet\shell\open\command",
                     "",
                 ),
                 (CAPABILITIES, "ApplicationName"),
                 (CAPABILITIES, "ApplicationDescription"),
                 (
-                    r"Software\ZDownloader3\Capabilities\UrlAssociations",
+                    r"Software\zDownloader³\Capabilities\UrlAssociations",
                     "magnet",
                 ),
                 (
-                    r"Software\ZDownloader3\Capabilities\FileAssociations",
+                    r"Software\zDownloader³\Capabilities\FileAssociations",
                     ".torrent",
                 ),
                 (r"Software\RegisteredApplications", REGISTERED_NAME),
@@ -5720,9 +5720,9 @@ fn run_value() -> Option<String> {
     if crate::offscreen() {
         return std::env::var("MDM_TEST_RUN_VALUE")
             .ok()
-            .filter(|v| v.starts_with("ZDownloader3Test"));
+            .filter(|v| v.starts_with("zDownloader³Test"));
     }
-    Some("ZDownloader3".to_owned())
+    Some("zDownloader³".to_owned())
 }
 
 const RUN_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Run";
@@ -5761,7 +5761,7 @@ fn startup_outdated(value: &str, exe: &std::path::Path) -> bool {
         .any(|a| a.eq_ignore_ascii_case(mdm_ipc::STARTUP))
 }
 
-/// Is ZDownloader3 in the user's Run key (set by Options or by the installer's
+/// Is zDownloader³ in the user's Run key (set by Options or by the installer's
 /// "Start when Windows starts")? The registry is the truth for Options → "Launch on startup".
 pub fn run_at_startup() -> bool {
     run_value().is_some_and(|name| {
@@ -5832,7 +5832,7 @@ mod startup_tests {
     use super::{startup_command, startup_outdated};
     use std::path::Path;
 
-    const EXE: &str = r"C:\Program Files\ZDownloader3\zdownloader3.exe";
+    const EXE: &str = r"C:\Program Files\zDownloader³\zdownloader3.exe";
 
     /// The entry Options and the installer write (#226): the program, quoted, then `/startup`.
     #[test]
@@ -5881,7 +5881,7 @@ mod startup_tests {
     fn the_installer_writes_the_same_entry() {
         let iss = include_str!("../../../tools/installer/mdm.iss");
         assert!(iss.contains(
-            r#"ValueName: "ZDownloader3"; ValueData: """{app}\{#AppExe}"" /startup""#
+            r#"ValueName: "zDownloader³"; ValueData: """{app}\{#AppExe}"" /startup""#
         ));
     }
 }
@@ -6641,7 +6641,7 @@ pub mod ole {
 /// with the process.
 pub fn mark_running() {
     use windows_sys::Win32::System::Threading::CreateMutexW;
-    let name: Vec<u16> = "ZDownloader3.Running\0".encode_utf16().collect();
+    let name: Vec<u16> = "zDownloader³.Running\0".encode_utf16().collect();
     // SAFETY: NUL-terminated name; the handle is deliberately kept for the process's life.
     unsafe {
         CreateMutexW(std::ptr::null(), 0, name.as_ptr());

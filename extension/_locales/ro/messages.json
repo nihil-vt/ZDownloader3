@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Transferă descărcările din browser către ZDownloader3."
+    "message": "Transferă descărcările din browser către zDownloader³."
   },
   "menu": {
-    "message": "Descărcați cu ZDownloader3"
+    "message": "Descărcați cu zDownloader³"
   },
   "video_download": {
     "message": "Descărcați videoclipul"
@@ -30,19 +30,19 @@
     "message": "Setări buton..."
   },
   "video_sent": {
-    "message": "Trimis la ZDownloader3"
+    "message": "Trimis la zDownloader³"
   },
   "menu_selected": {
-    "message": "Descărcați linkurile selectate cu ZDownloader3"
+    "message": "Descărcați linkurile selectate cu zDownloader³"
   },
   "menu_all": {
-    "message": "Descărcați toate linkurile cu ZDownloader3"
+    "message": "Descărcați toate linkurile cu zDownloader³"
   },
   "status_connected": {
-    "message": "Conectat la ZDownloader3"
+    "message": "Conectat la zDownloader³"
   },
   "status_connected_version": {
-    "message": "Conectat la ZDownloader3 $version$",
+    "message": "Conectat la zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Întrerupt: descărcările rămân în browser"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 nu este instalat sau integrarea browserului nu este configurată"
+    "message": "zDownloader³ nu este instalat sau integrarea browserului nu este configurată"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 nu acceptă această copie a extensiei"
+    "message": "zDownloader³ nu acceptă această copie a extensiei"
   },
   "status_not_running": {
-    "message": "ZDownloader3 nu a pornit la timp"
+    "message": "zDownloader³ nu a pornit la timp"
   },
   "status_host_failed": {
-    "message": "Conexiunea la ZDownloader3 a eșuat"
+    "message": "Conexiunea la zDownloader³ a eșuat"
   },
   "status_too_large": {
     "message": "Detaliile acestei descărcări au fost prea mari pentru a fi transferate"
   },
   "status_update_app": {
-    "message": "Actualizați ZDownloader3 pentru a utiliza tot ce oferă această extensie"
+    "message": "Actualizați zDownloader³ pentru a utiliza tot ce oferă această extensie"
   },
   "popup_take": {
     "message": "Preluare descărcări din acest browser"
@@ -78,10 +78,10 @@
     "message": "Trimiteți descărcările prin proxy-ul sau extensia VPN a acestui browser"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 descarcă apoi prin același proxy ca și acest browser. Browserul vă va cere o singură dată să permiteți acest lucru; dezactivarea acestei opțiuni anulează permisiunea."
+    "message": "zDownloader³ descarcă apoi prin același proxy ca și acest browser. Browserul vă va cere o singură dată să permiteți acest lucru; dezactivarea acestei opțiuni anulează permisiunea."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 descarcă apoi prin același proxy ca acest browser. Cât timp această opțiune este dezactivată, extensia nu citește setările proxy ale browserului."
+    "message": "zDownloader³ descarcă apoi prin același proxy ca acest browser. Cât timp această opțiune este dezactivată, extensia nu citește setările proxy ale browserului."
   },
   "popup_exclude_site": {
     "message": "Nu preluați niciodată descărcări de pe $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Deschideți ZDownloader3"
+    "message": "Deschideți zDownloader³"
   },
   "popup_options": {
     "message": "Opțiuni..."
@@ -150,7 +150,7 @@
     "message": "Opțiunea „Utilizare integrare avansată browser” este dezactivată în Opțiuni → General."
   },
   "declined_torrents": {
-    "message": "Este un torrent, iar „Deschideți linkurile magnet și fișierele .torrent cu ZDownloader3” este dezactivat în setările Torrent."
+    "message": "Este un torrent, iar „Deschideți linkurile magnet și fișierele .torrent cu zDownloader³” este dezactivat în setările Torrent."
   },
   "declined_site_access": {
     "message": "Extensia nu are permisiunea de a citi acest site (accesul la site al browserului)."
@@ -195,16 +195,16 @@
     "message": "Nu există niciun videoclip de descărcat aici"
   },
   "video_playlist": {
-    "message": "O listă de videoclipuri: alegeți-le în ZDownloader3"
+    "message": "O listă de videoclipuri: alegeți-le în zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 are nevoie de yt-dlp pentru acest videoclip"
+    "message": "zDownloader³ are nevoie de yt-dlp pentru acest videoclip"
   },
   "video_too_long": {
     "message": "Căutarea a durat prea mult"
   },
   "video_busy": {
-    "message": "ZDownloader3 este ocupat cu alte videoclipuri"
+    "message": "zDownloader³ este ocupat cu alte videoclipuri"
   },
   "video_queued": {
     "message": "Adăugat la coadă"
@@ -228,7 +228,7 @@
     "message": "Acest computer"
   },
   "popup_send_remote": {
-    "message": "Alt ZDownloader3 (un server)"
+    "message": "Alt zDownloader³ (un server)"
   },
   "popup_remote_code": {
     "message": "Cod de asociere"
@@ -324,7 +324,7 @@
     "message": "Toate calitățile și subtitrările..."
   },
   "video_failed": {
-    "message": "ZDownloader3 nu este instalat sau nu a pornit"
+    "message": "zDownloader³ nu este instalat sau nu a pornit"
   },
   "video_download_best": {
     "message": "Descărcați cea mai bună calitate"

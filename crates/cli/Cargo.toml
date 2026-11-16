@@ -1,6 +1,6 @@
 [package]
 name = "mdm-cli"
-description = "ZDownloader3, headless command line (in the app's program) and its launcher"
+description = "zDownloader³, headless command line (in the app's program) and its launcher"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

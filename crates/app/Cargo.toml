@@ -1,6 +1,6 @@
 [package]
 name = "mdm-app"
-description = "ZDownloader3, desktop app (egui)"
+description = "zDownloader³, desktop app (egui)"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

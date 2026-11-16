@@ -1,4 +1,4 @@
-# ZDownloader3 in Uyghur (ئۇيغۇرچە): tools/i18n/translate.py
+# zDownloader³ in Uyghur (ئۇيغۇرچە): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	ئۇيغۇرچە
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	{n} چۈشۈرۈلمە ماتېرىيالنى ZDownloader3 نىڭ چۈشۈرۈلمە ماتېرىيال تىزىملىكىدىن ئۆچۈرۈۋېتىشنى جەزملەشتۈرەمسىز؟|بۇ {n} چۈشۈرۈلمە ماتېرىيالنى ZDownloader3 نىڭ چۈشۈرۈلمە ماتېرىيال تىزىملىكىدىن ئۆچۈرۈۋېتىشنى جەزملەشتۈرەمسىز؟
+@plural	Are you sure you want to delete {n} download from zDownloader³ list of downloads?|Are you sure you want to delete these {n} downloads from zDownloader³ list of downloads?	{n} چۈشۈرۈلمە ماتېرىيالنى zDownloader³ نىڭ چۈشۈرۈلمە ماتېرىيال تىزىملىكىدىن ئۆچۈرۈۋېتىشنى جەزملەشتۈرەمسىز؟|بۇ {n} چۈشۈرۈلمە ماتېرىيالنى zDownloader³ نىڭ چۈشۈرۈلمە ماتېرىيال تىزىملىكىدىن ئۆچۈرۈۋېتىشنى جەزملەشتۈرەمسىز؟
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	ئۇنىڭ بىر تومى يوق
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About ZDownloader3	ZDownloader3 ھەققىدە
+	About zDownloader³	zDownloader³ ھەققىدە
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add ZDownloader3 to your browser	ZDownloader3 نى تور كۆرگۈچىڭىزگە قوشۇش
+	Add zDownloader³ to your browser	zDownloader³ نى تور كۆرگۈچىڭىزگە قوشۇش
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	ھەمىشە ئۆزىنىڭ ئىسمى بىلەن ئاتالغان ھۆججەت قىسقۇچىغا
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on ZDownloader3 startup	ZDownloader3 قوزغالغاندا سۈرئەت چەكلەشنى ھەمىشە ئېچىڭ
+	Always turn on Speed Limiter on zDownloader³ startup	zDownloader³ قوزغالغاندا سۈرئەت چەكلەشنى ھەمىشە ئېچىڭ
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	«{name}» نى ZDownloader3 نىڭ چۈشۈرۈشلەر تىزىملىكىدىن ئۆچۈرەمسىز؟
+	Are you sure you want to delete "{name}" from zDownloader³ list of downloads?	«{name}» نى zDownloader³ نىڭ چۈشۈرۈشلەر تىزىملىكىدىن ئۆچۈرەمسىز؟
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	كۆرۈش...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	توركۆرگۈچ بىر گەۋدىلەشتۈرۈش بۇ كومپيۇتېردا تەڭشەلمىگەن، شۇڭا ھېچقانداق توركۆرگۈچ ZDownloader3 غا تېخى يېتەلمەيدۇ.
+	Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.	توركۆرگۈچ بىر گەۋدىلەشتۈرۈش بۇ كومپيۇتېردا تەڭشەلمىگەن، شۇڭا ھېچقانداق توركۆرگۈچ zDownloader³ غا تېخى يېتەلمەيدۇ.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	توركۆرگۈچ/سىستېما بىرلىشىش
@@ -944,7 +944,7 @@
 	Choose a language	تىل تاللاڭ
 #. text in langpick.rs
 #, machine
-	Choose the language ZDownloader3 shows its windows in:	ZDownloader3 كۆزنەكلىرىنى كۆرسىتىدىغان تىلنى تاللاڭ:
+	Choose the language zDownloader³ shows its windows in:	zDownloader³ كۆزنەكلىرىنى كۆرسىتىدىغان تىلنى تاللاڭ:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	چىقىش
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit ZDownloader3 when done	تاماملانغاندىن كېيىن ZDownloader3 تىن چىقىش
+	Exit zDownloader³ when done	تاماملانغاندىن كېيىن zDownloader³ تىن چىقىش
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	مۆلچەردىكى تەكشۈرۈش يىغىندىسى (MD5, SHA-1, SHA-256, SHA-512 ياكى CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	تور بەتلەرنى يوشۇرۇش
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	ئالتنى بېسىپ تۇرۇپ ئۇلىنىشنى چېكىڭ، شۇنداق بولغاندا ZDownloader3 نىڭ ئورنىغا توركۆرگۈچ چۈشۈرىدۇ.
+	Hold Alt while clicking a link to let the browser download it instead of zDownloader³.	ئالتنى بېسىپ تۇرۇپ ئۇلىنىشنى چېكىڭ، شۇنداق بولغاندا zDownloader³ نىڭ ئورنىغا توركۆرگۈچ چۈشۈرىدۇ.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	باش بەت
@@ -2127,7 +2127,7 @@
 	Hungary	ۋېنگىرىيە
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	مەن ZDownloader3 بىلەن چۈشۈرىمەن: تېز، ھەقسىز، ھەمدە سىز ئاللىبۇرۇن بىلىدىغان چۈشۈرۈش باشقۇرغۇچقا ئوخشايدۇ. {link}
+	I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}	مەن zDownloader³ بىلەن چۈشۈرىمەن: تېز، ھەقسىز، ھەمدە سىز ئاللىبۇرۇن بىلىدىغان چۈشۈرۈش باشقۇرغۇچقا ئوخشايدۇ. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	لاتۋىيە
 #. text in the Options window
 #, machine
-	Launch ZDownloader3 on startup	قوزغىتىشتا ZDownloader3 نى ئىجرا قىلىش
+	Launch zDownloader³ on startup	قوزغىتىشتا zDownloader³ نى ئىجرا قىلىش
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	كەم
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	ZDownloader3	ZDownloader3
+	zDownloader³	zDownloader³
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 كۆزنىكىنى ئاچالمايدۇ: بۇ سىستېمىدا {libraries} كەم.
+	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³ كۆزنىكىنى ئاچالمايدۇ: بۇ سىستېمىدا {libraries} كەم.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	ZDownloader3 closed unexpectedly	ZDownloader3 تۇيۇقسىز تاقىلىپ قالدى
+	zDownloader³ closed unexpectedly	zDownloader³ تۇيۇقسىز تاقىلىپ قالدى
 #. window title in the Options window
 #, machine
-	ZDownloader3 Configuration	ZDownloader3 سەپلىمىسى
+	zDownloader³ Configuration	zDownloader³ سەپلىمىسى
 #. text in crashui.rs
 #, machine
-	ZDownloader3 crash report	ZDownloader3 چۈشۈش دوكلاتى
+	zDownloader³ crash report	zDownloader³ چۈشۈش دوكلاتى
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	ZDownloader3 hit an internal error	ZDownloader3 ئىچكى خاتالىققا يولۇقتى
+	zDownloader³ hit an internal error	zDownloader³ ئىچكى خاتالىققا يولۇقتى
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	ZDownloader3 is downloading	ZDownloader3 چۈشۈرۈۋاتىدۇ
+	zDownloader³ is downloading	zDownloader³ چۈشۈرۈۋاتىدۇ
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	ZDownloader3 is running the queue "{queue}"	ZDownloader3 «{queue}» نۆۋىتىنى ئىجرا قىلىۋاتىدۇ
+	zDownloader³ is running the queue "{queue}"	zDownloader³ «{queue}» نۆۋىتىنى ئىجرا قىلىۋاتىدۇ
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	ZDownloader3 stopped responding	ZDownloader3 ئىنكاس قايتۇرۇشنى توختاتتى
+	zDownloader³ stopped responding	zDownloader³ ئىنكاس قايتۇرۇشنى توختاتتى
 #. text in crashui.rs
 #, machine
-	ZDownloader3 stopped responding for a while	ZDownloader3 بىر مەزگىل ئىنكاس قايتۇرۇشنى توختاتتى
+	zDownloader³ stopped responding for a while	zDownloader³ بىر مەزگىل ئىنكاس قايتۇرۇشنى توختاتتى
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 ھەر بىر ئۇلىنىشنى بىۋاسىتە ئاخىرقى\nھۆججەتكە يازىدۇ (يېنىدىكى بوش ھۆججەت قىسمى)، شۇڭا ۋاقىتلىق مۇندەرىجە ۋە\nقۇراشتۇرۇش باسقۇچىنىڭ ھاجىتى يوق.
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ ھەر بىر ئۇلىنىشنى بىۋاسىتە ئاخىرقى\nھۆججەتكە يازىدۇ (يېنىدىكى بوش ھۆججەت قىسمى)، شۇڭا ۋاقىتلىق مۇندەرىجە ۋە\nقۇراشتۇرۇش باسقۇچىنىڭ ھاجىتى يوق.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} نۇسخىسى بار (چىقىرىلغان ۋاقتى {date}).
+	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} نۇسخىسى بار (چىقىرىلغان ۋاقتى {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3's own copy, version {version}	ZDownloader3 نىڭ ئۆزىنىڭ نۇسخىسى، {version} نەشرى
+	zDownloader³'s own copy, version {version}	zDownloader³ نىڭ ئۆزىنىڭ نۇسخىسى، {version} نەشرى
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ZDownloader3 نىڭ X11 كۆزنىكىگە {libraries} كېرەك، بۇ سىستېمىدا ئۇلار كەم: ئۇنىڭ ئورنىغا Wayland دا ئېچىلىدۇ، بۇ يەردە تىزىملىكلەر ماۋزۇلىرىدىن يىراقراق ئېچىلىشى مۇمكىن.
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	zDownloader³ نىڭ X11 كۆزنىكىگە {libraries} كېرەك، بۇ سىستېمىدا ئۇلار كەم: ئۇنىڭ ئورنىغا Wayland دا ئېچىلىدۇ، بۇ يەردە تىزىملىكلەر ماۋزۇلىرىدىن يىراقراق ئېچىلىشى مۇمكىن.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	توركۆرگۈدە ئېچىش
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with ZDownloader3	ماگنىت ئۇلىنىشلىرى ۋە .torrent ھۆججەتلىرىنى ZDownloader3 بىلەن ئېچىش
+	Open magnet links and .torrent files with zDownloader³	ماگنىت ئۇلىنىشلىرى ۋە .torrent ھۆججەتلىرىنى zDownloader³ بىلەن ئېچىش
 #. text in the tray icon's menu
 #, machine
-	Open ZDownloader3	ZDownloader3 نى ئېچىش
+	Open zDownloader³	zDownloader³ نى ئېچىش
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with ZDownloader3	ZDownloader3 بىلەن جۈپلەش
+	Pair with zDownloader³	zDownloader³ بىلەن جۈپلەش
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	نۇقتا گىرۋەكلىك چۈشۈرۈلمىنى تاللا ياكى تاللىما
 #. group box title in the Options window
 #, machine
-	Select sounds for ZDownloader3 events	ZDownloader3 ۋەقەلىرى ئۈچۈن ئاۋاز تاللاڭ
+	Select sounds for zDownloader³ events	zDownloader³ ۋەقەلىرى ئۈچۈن ئاۋاز تاللاڭ
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	رامكىدىكى چۈشۈرۈلمىلەرنى تاللا
@@ -4230,7 +4230,7 @@
 	Start download at	چۈشۈرۈشنى باشلاش ۋاقتى
 #. checkbox in the Scheduler window
 #, machine
-	Start download on ZDownloader3 startup	ZDownloader3 قوزغالغاندا چۈشۈرۈشنى باشلا
+	Start download on zDownloader³ startup	zDownloader³ قوزغالغاندا چۈشۈرۈشنى باشلا
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	«ھۆججەت ئۇچۇرىنى چۈشۈرۈش» سۆزلۈك رامكىسىنى كۆرسىتىش بىلەن بىرگە دەرھال چۈشۈرۈشنى باشلا
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	كومپيۇتېر بىلەن قوزغىتىلغاندا، ئۇ كىچىكلىتىلگەن ھالەتتە باشلىنىدۇ: بۇ يەردە ئۇنىڭ سىنبەلگىسى كۆرسىتىلمەيدۇ
 #. text in the Options window
-#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch zDownloader³ on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	كومپيۇتېر بىلەن قوزغىتىلغاندا، ئۇ ئۇقتۇرۇش رايونىدا ساقلايدۇ
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find ZDownloader3	تور كۆرگۈچلەر ZDownloader3 نى تاپالايدۇ
+	The browsers can find zDownloader³	تور كۆرگۈچلەر zDownloader³ نى تاپالايدۇ
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	كومپيۇتېر باشلاش ۋاقتىدىن بىر مىنۇت بۇرۇن ئويغىتىلىدۇ ھەمدە نۆۋەت ئىجرا بولۇۋاتقاندا ئويغاق تۇرىدۇ. ZDownloader3 ئىجرا بولۇۋاتقان بولۇشى كېرەك (ئۇ ئۇقتۇرۇش رايونىدا ساقلىيالايدۇ).
+	The computer is woken a minute before the start time and kept awake while the queue runs. zDownloader³ has to be running (it can wait in the notification area).	كومپيۇتېر باشلاش ۋاقتىدىن بىر مىنۇت بۇرۇن ئويغىتىلىدۇ ھەمدە نۆۋەت ئىجرا بولۇۋاتقاندا ئويغاق تۇرىدۇ. zDownloader³ ئىجرا بولۇۋاتقان بولۇشى كېرەك (ئۇ ئۇقتۇرۇش رايونىدا ساقلىيالايدۇ).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	تاللانغان چۈشۈرۈش تاماملانمىدى. ئۇنى راستىنلا\nZDownloader3 نىڭ چۈشۈرۈش تىزىملىكىدىن ئۆچۈرمەكچىمۇ؟
+	The selected download is not complete. Are you sure you want to delete\nit from zDownloader³ list of downloads?	تاللانغان چۈشۈرۈش تاماملانمىدى. ئۇنى راستىنلا\nzDownloader³ نىڭ چۈشۈرۈش تىزىملىكىدىن ئۆچۈرمەكچىمۇ؟
 #. text in errors.rs
 #, machine
 	the server answered {status}	مۇلازىمېتىر {status} دەپ جاۋاب بەردى
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "ZDownloader3" and allow it on all websites.	«ZDownloader3» نى قوزغىتىپ، بارلىق تور بېكەتلەردە ئىشلىتىشكە يول قويۇڭ.
+	Turn on "zDownloader³" and allow it on all websites.	«zDownloader³» نى قوزغىتىپ، بارلىق تور بېكەتلەردە ئىشلىتىشكە يول قويۇڭ.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of ZDownloader3 ({version}).	سىزدە ZDownloader3 نىڭ ئەڭ يېڭى نەشرى ({version}) بار.
+	You have the latest version of zDownloader³ ({version}).	سىزدە zDownloader³ نىڭ ئەڭ يېڭى نەشرى ({version}) بار.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	يۆتكەش سۈرئىتى
 #, machine
 column	Upload speed	يۈكلەپ چىقىرىش سۈرئىتى
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name zDownloader³ as it is
 #, machine
-extension	A list of videos: choose them in ZDownloader3	سىن تىزىملىكى: ئۇلارنى ZDownloader3 دا تاللاڭ
+extension	A list of videos: choose them in zDownloader³	سىن تىزىملىكى: ئۇلارنى zDownloader³ دا تاللاڭ
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	نۆۋەتكە قوشۇلدى
 #, machine
 extension	All qualities and subtitles...	بارلىق سۈپەتلەر ۋە خەتلىك تەرجىمىلەر...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name zDownloader³ as it is
 #, machine
-extension	Another ZDownloader3 (a server)	باشقا ZDownloader3 (مۇلازىمېتىر)
+extension	Another zDownloader³ (a server)	باشقا zDownloader³ (مۇلازىمېتىر)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	ئەڭ ياخشى
 #, machine
 extension	Browser extension	توركۆرگۈ كېڭەيتمىسى
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in ZDownloader3
+#. menu command of the download button over a video: opens its settings in zDownloader³
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	كۇنۇپكا تەڭشەكلىرى...
@@ -6108,14 +6108,14 @@ extension	can't be saved	ساقلىغىلى بولمايدۇ
 #, machine
 extension	Can't tell which video this is: open its own page and try there	بۇ قايسى ۋىدېئو ئىكەنلىكىنى بىلگىلى بولمىدى: ئۇنىڭ ئۆز بېتىنى ئېچىپ، شۇ يەردە سىناڭ
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app; keep the name zDownloader³ as it is
 #, machine
-extension	Connected to ZDownloader3	ZDownloader3 غا باغلاندى
+extension	Connected to zDownloader³	zDownloader³ غا باغلاندى
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name zDownloader³ as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to ZDownloader3 {version}	ZDownloader3 {version} غا باغلاندى
+extension	Connected to zDownloader³ {version}	zDownloader³ {version} غا باغلاندى
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	ئىزدەش مۇمكىن بولمىدى
 #, machine
 extension	Download	چۈشۈرۈش
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name zDownloader³ as it is
 #, machine
-extension	Download all links with ZDownloader3	بارلىق ئۇلىنىشلارنى ZDownloader3 ئارقىلىق چۈشۈرۈش
+extension	Download all links with zDownloader³	بارلىق ئۇلىنىشلارنى zDownloader³ ئارقىلىق چۈشۈرۈش
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	ئەڭ ياخشىنى چۈشۈرۈش
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name zDownloader³ as it is
 #, machine
-extension	Download selected links with ZDownloader3	تاللانغان ئۇلىنىشلارنى ZDownloader3 ئارقىلىق چۈشۈرۈش
+extension	Download selected links with zDownloader³	تاللانغان ئۇلىنىشلارنى zDownloader³ ئارقىلىق چۈشۈرۈش
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	ئەڭ ياخشى سۈپەتنى چۈشۈر�
 #, machine
 extension	Download video	سىننى چۈشۈرۈش
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name zDownloader³ as it is
 #, machine
-extension	Download with ZDownloader3	ZDownloader3 ئارقىلىق چۈشۈرۈش
+extension	Download with zDownloader³	zDownloader³ ئارقىلىق چۈشۈرۈش
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	ئۇنىڭ https:// ئادرېسىنى ك�
 #, machine
 extension	Get MDM	MDM نى ئېلىڭ
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
+#. the extension's description in the browser's list of extensions; keep the name zDownloader³ as it is
 #, machine
-extension	Hands downloads from the browser to ZDownloader3.	چۈشۈرۈشلەرنى توركۆرگۈدىن ZDownloader3 غا يۆتكەيدۇ.
+extension	Hands downloads from the browser to zDownloader³.	چۈشۈرۈشلەرنى توركۆرگۈدىن zDownloader³ غا يۆتكەيدۇ.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	ئىشلىمىدى. قايتا سىناڭ.
 #, machine
 extension	It shows no code now: click Pair a device there first.	ھازىر كود كۆرسەتمىدى: ئالدى بىلەن ئۇ يەردىكى ئۈسكۈنە جۈپلەش نۇسخىسىنى چېكىڭ.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with zDownloader³, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	ئۇ بىر توررېنت، ھەمدە ZDownloader3 بىلەن ماگنىت ئۇلانمىلىرى ۋە .torrent ھۆججەتلىرىنى ئېچىش توررېنت تەڭشەكلىرىدە ئۆچۈرۈلگەن.
+extension	It's a torrent, and Open magnet links and .torrent files with zDownloader³ is off in Torrent settings.	ئۇ بىر توررېنت، ھەمدە zDownloader³ بىلەن ماگنىت ئۇلانمىلىرى ۋە .torrent ھۆججەتلىرىنى ئېچىش توررېنت تەڭشەكلىرىدە ئۆچۈرۈلگەن.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM جاۋاب بەرمىدى
 #, machine
 extension	Media on this page	بۇ بەتتىكى تاراتقۇلار
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3	ZDownloader3
+extension	zDownloader³	zDownloader³
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 didn't start in time	ZDownloader3 ۋاقتىدا باشلانمىدى
+extension	zDownloader³ didn't start in time	zDownloader³ ۋاقتىدا باشلانمىدى
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 كېڭەيتمىنىڭ بۇ نۇسخىسىنى قوبۇل قىلمايدۇ
+extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ كېڭەيتمىنىڭ بۇ نۇسخىسىنى قوبۇل قىلمايدۇ
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 is busy with other videos	ZDownloader3 باشقا سىنلار بىلەن ئالدىراش
+extension	zDownloader³ is busy with other videos	zDownloader³ باشقا سىنلار بىلەن ئالدىراش
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 قاچىلانمىغان ياكى باشلانمىغان
+extension	zDownloader³ isn't installed or didn't start	zDownloader³ قاچىلانمىغان ياكى باشلانمىغان
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 قاچىلانمىغان ياكى ئۇنىڭ توركۆرگۈچ بىر گەۋدىلەشتۈرۈشى تەڭشەلمىگەن
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ قاچىلانمىغان ياكى ئۇنىڭ توركۆرگۈچ بىر گەۋدىلەشتۈرۈشى تەڭشەلمىگەن
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3 بۇ سىن ئۈچۈن yt-dlp غا ئېھتىياجلىق
+extension	zDownloader³ needs yt-dlp for this video	zDownloader³ بۇ سىن ئۈچۈن yt-dlp غا ئېھتىياجلىق
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 ئاندىن بۇ توركۆرگۈچ بىلەن ئوخشاش ۋاكالەتچى ئارقىلىق چۈشۈرىدۇ. توركۆرگۈچ سىزدىن بىر قېتىم رۇخسەت قىلىشنى سورايدۇ؛ بۇنى تاقاش ئۇنى بىكار قىلىدۇ.
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ ئاندىن بۇ توركۆرگۈچ بىلەن ئوخشاش ۋاكالەتچى ئارقىلىق چۈشۈرىدۇ. توركۆرگۈچ سىزدىن بىر قېتىم رۇخسەت قىلىشنى سورايدۇ؛ بۇنى تاقاش ئۇنى بىكار قىلىدۇ.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 ئاندىن بۇ توركۆرگۈچ بىلەن ئوخشاش ۋاكالەتچى ئارقىلىق چۈشۈرىدۇ. بۇ تاقالغاندا، قىستۇرما توركۆرگۈچنىڭ ۋاكالەتچىسىنى ئوقۇمايدۇ.
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ ئاندىن بۇ توركۆرگۈچ بىلەن ئوخشاش ۋاكالەتچى ئارقىلىق چۈشۈرىدۇ. بۇ تاقالغاندا، قىستۇرما توركۆرگۈچنىڭ ۋاكالەتچىسىنى ئوقۇمايدۇ.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6325,9 +6325,9 @@ extension	Open it	ئېچىڭ
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	ئۇنىڭ ئادرېسىنى بىر قېتىم ئېچىپ، گۇۋاھنامىسىنى قوبۇل قىلىڭ، ئاندىن ئۇنىڭ تاللانمىلىرى، يىراقتىن، ئۈسكۈنە جۈپلەش (ياكى zdownloader3-cli pair) دىن كود كىرگۈزۈڭ.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
 #, machine
-extension	Open ZDownloader3	ZDownloader3 نى ئېچىش
+extension	Open zDownloader³	zDownloader³ نى ئېچىش
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	چۈشۈ�
 #, machine
 extension	Send downloads to	چۈشۈرۈشلەرنى ئەۋەتىش ئورنى
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is zDownloader³'s short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	MDM غا ئەۋەتىۋاتىدۇ...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
+#. shown briefly on the download button after it was clicked; keep the name zDownloader³ as it is
 #, machine
-extension	Sent to ZDownloader3	ZDownloader3 غا ئەۋەتىلدى
+extension	Sent to zDownloader³	zDownloader³ غا ئەۋەتىلدى
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	بۇ توركۆرگۈدىن چۈشۈ�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store نىڭ قائىدىلىرى بۇ كېڭەيتمە نۇسخىسىنىڭ بۇ تور بېكەتتىكى ۋىدېئولارغا ئىشلىتىلىشىگە يول قويمايدۇ. نېمە قىلغىلى بولىدىغانلىقىنى «ياردەم» دىن كۆرۈڭ.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name zDownloader³ as it is
 #, machine
-extension	The connection to ZDownloader3 failed	ZDownloader3 بىلەن بولغان ئۇلىنىش مەغلۇپ بولدى
+extension	The connection to zDownloader³ failed	zDownloader³ بىلەن بولغان ئۇلىنىش مەغلۇپ بولدى
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	ئاخىرقى چۈشۈرۈ
 #, machine
 extension	This browser isn't ticked in Options → General.	بۇ تور كۆرگۈچ تاللاشلار → ئومۇمىيدا تاللانمىغان.
 #. text in the browser extension
-#. choice under Send downloads to: the ZDownloader3 on this computer
+#. choice under Send downloads to: the zDownloader³ on this computer
 #, machine
 extension	This computer	بۇ كومپيۇتېر
 #. text in the browser extension
@@ -6439,9 +6439,9 @@ extension	This page's player streams its video in pieces, so there's no file to 
 #, machine
 extension	Turn on	ئاچىش
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name ZDownloader3 as it is
+#. status when the app is older than the extension; keep the name zDownloader³ as it is
 #, machine
-extension	Update ZDownloader3 to use everything this extension offers	بۇ كېڭەيتمە تەمىنلىگەن بارلىق ئىقتىدارلارنى ئىشلىتىش ئۈچۈن ZDownloader3 نى يېڭىلاڭ
+extension	Update zDownloader³ to use everything this extension offers	بۇ كېڭەيتمە تەمىنلىگەن بارلىق ئىقتىدارلارنى ئىشلىتىش ئۈچۈن zDownloader³ نى يېڭىلاڭ
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6569,7 +6569,7 @@ key	Up / Down	Up / Down
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About ZDownloader3	ZDownloader3 ھە&ققىدە
+menu	&About zDownloader³	zDownloader³ ھە&ققىدە
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6975,7 +6975,7 @@ menu	Metro	مېترو
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	ZDownloader3 &Home Page	ZDownloader3 &باش بەت
+menu	zDownloader³ &Home Page	zDownloader³ &باش بەت
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	يۆتكەش/ئات ئۆزگەرتىش (Ctrl-M)
@@ -7108,7 +7108,7 @@ menu	Select &all	ھەممىنى تاللاش(&a)
 menu	Show &drop target	چۈشۈرۈش نىشانىنى كۆرسىتىش(&d)
 #. menu command in the main window
 #, machine
-menu	Show ZDownloader3	ZDownloader3 نى كۆرسىتىش
+menu	Show zDownloader³	zDownloader³ نى كۆرسىتىش
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

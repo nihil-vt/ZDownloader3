@@ -460,8 +460,8 @@ mod tests {
         // No isolate: untouched, in any direction.
         for rtl in [false, true] {
             assert_eq!(
-                os_text_in("ZDownloader3", rtl),
-                "ZDownloader3"
+                os_text_in("zDownloader³", rtl),
+                "zDownloader³"
             );
             assert_eq!(os_text_in("مدير التنزيل", rtl), "مدير التنزيل");
         }
@@ -483,7 +483,7 @@ mod tests {
             // Counts in an Arabic tip, one per line (the notification area's icon).
             (
                 format!(
-                    "ZDownloader3\n{}",
+                    "zDownloader³\n{}",
                     fmt(
                         "{n} تنزيلات، {speed}",
                         &[("n", &ltr("3")), ("speed", &ltr("1.2 MB/s"))]

@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Irish: tools/installer/languages.py
+﻿; zDownloader³'s installer in Irish: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Ag díshuiteáil %1.
 
 [CustomMessages]
 TaskBrowser=Cumasaigh comhtháthú &brabhsálaí (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Oscail comhaid .&torrent agus naisc mhaighnéadacha le ZDownloader3
-TaskStartup=Tosaigh ZDownloader3 nuair a thosaíonn &Windows
+TaskTorrents=Oscail comhaid .&torrent agus naisc mhaighnéadacha le zDownloader³
+TaskStartup=Tosaigh zDownloader³ nuair a thosaíonn &Windows
 TaskGroupOther=Eile:
-Launch=Tosaigh ZDownloader3
+Launch=Tosaigh zDownloader³
 KeepData=Scrios do liosta íoslódálacha agus socruithe freisin?%n%nNí dhéantar teagmháil le do chuid comhad íoslódáilte ar aon nós.

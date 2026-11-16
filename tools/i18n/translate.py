@@ -68,7 +68,7 @@ BATCH = 40
 REASONING = {"enabled": False}
 
 # Names that stay as they are in every language.
-KEEP = ["ZDownloader3", "MDM", "IDM", "Internet Download Manager", "Windows",
+KEEP = ["zDownloader³", "MDM", "IDM", "Internet Download Manager", "Windows",
         "Chrome", "Edge", "Firefox", "Brave", "Opera", "yt-dlp", "ffmpeg", "BitTorrent",
         "GitHub", "librqbit", "URL", "HTTP", "HTTPS", "FTP", "SOCKS", "MD5", "SHA-1", "SHA-256",
         "DNS", "TLS", "TCP", "UDP", "IP", "Cloudflare", "Google", "Quad9", "AdGuard", "NextDNS",
@@ -95,7 +95,7 @@ JOINERS = "\u200c\u200d"
 PLACEHOLDER = re.compile(r"\{[^{}]*\}")
 ACCESS = re.compile(r"&(?!&)(.)")
 
-RULES = """You translate the user interface of ZDownloader3, a Windows desktop download
+RULES = """You translate the user interface of zDownloader³, a Windows desktop download
 manager, from English into {english} ({native}, language code {code}). Write exactly what a
 professional Microsoft localizer would ship in Windows 11 in this language.
 
@@ -158,7 +158,7 @@ Rules:
 
 # The second pass: a native reviewer reads every draft beside the English (--review).
 REVIEW = """You are a native {english} ({native}) software localizer reviewing machine translations
-of ZDownloader3, a Windows download manager, before they ship. For each row you get the
+of zDownloader³, a Windows download manager, before they ship. For each row you get the
 English, where it is used ("context", "notes"), this language's settled "terms", and the "draft".
 "reviewed" (when present) are rows a native speaker of this language already reviewed: they set
 the standard.
@@ -458,7 +458,7 @@ def call(key, model, system, items, spend, max_tokens=8192, reasoning=None):
     for attempt in range(8):
         req = urllib.request.Request(URL, data=body, headers={
             "Authorization": f"Bearer {key}", "Content-Type": "application/json",
-            "X-Title": "ZDownloader3 i18n"})
+            "X-Title": "zDownloader³ i18n"})
         try:
             with urllib.request.urlopen(req, timeout=180) as r:
                 data = json.loads(r.read().decode("utf-8"))
@@ -525,7 +525,7 @@ def glossary_terms():
 
 # The product name goes to the model as a placeholder and comes back as the name: some models
 # transliterate it however firmly rule 5 asks them not to.
-APP = "ZDownloader3"
+APP = "zDownloader³"
 
 
 def hide(s):
@@ -630,7 +630,7 @@ def review_drafts(key, review_model, lang, forms, rows, drafts, spend, pairs):
 
 def write_catalog(lang, rows, done, machine):
     lines = [
-        f"# ZDownloader3 in {lang['english']} ({lang['native']}): tools/i18n/translate.py",
+        f"# zDownloader³ in {lang['english']} ({lang['native']}): tools/i18n/translate.py",
         "# writes the rows marked '#, machine'; a native speaker deletes that line after checking.",
         "# context\tsource\ttranslation (craft-i18n format, rows as in en.tsv)",
         f"@id\tlanguage.name\t{esc(lang['native'])}",

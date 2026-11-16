@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Macedonian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Macedonian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Деинсталирање на %1.
 
 [CustomMessages]
 TaskBrowser=Постави интеграција со &прелистувач (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Отвори .&torrent-датотеки и магнетни врски со ZDownloader3
-TaskStartup=Стартувај го ZDownloader3 кога ќе се стартува &Windows
+TaskTorrents=Отвори .&torrent-датотеки и магнетни врски со zDownloader³
+TaskStartup=Стартувај го zDownloader³ кога ќе се стартува &Windows
 TaskGroupOther=Друго:
-Launch=Стартувај го ZDownloader3
+Launch=Стартувај го zDownloader³
 KeepData=Дали да се избришат и списокот за преземање и поставките?%n%nПреземените датотеки не се допираат во секој случај.

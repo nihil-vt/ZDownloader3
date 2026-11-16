@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Urdu: tools/installer/languages.py
+﻿; zDownloader³'s installer in Urdu: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -292,8 +292,8 @@ ShutdownBlockReasonUninstallingApp=%1 ان انسٹال ہو رہا ہے۔
 
 [CustomMessages]
 TaskBrowser=براؤزر انٹیگریشن سیٹ اپ کریں (&B) (Chrome, Edge, Brave, Firefox)
-TaskTorrents=۔torrent فائلیں اور مقناطیسی لنکس ZDownloader3 کے ساتھ کھولیں(&T)
-TaskStartup=جب Windows شروع ہو تو ZDownloader3 شروع کریں(&W)
+TaskTorrents=۔torrent فائلیں اور مقناطیسی لنکس zDownloader³ کے ساتھ کھولیں(&T)
+TaskStartup=جب Windows شروع ہو تو zDownloader³ شروع کریں(&W)
 TaskGroupOther=دیگر:
-Launch=شروع کریں ZDownloader3
+Launch=شروع کریں zDownloader³
 KeepData=کیا آپ اپنی ڈاؤن لوڈ کی فہرست اور ترتیبات کو بھی حذف کرنا چاہتے ہیں؟%n%nآپ کی ڈاؤن لوڈ کردہ فائلوں کو کسی بھی صورت میں نہیں چھوا جائے گا۔

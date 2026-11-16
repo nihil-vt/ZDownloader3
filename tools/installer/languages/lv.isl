@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Latvian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Latvian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Atinstalē %1.
 
 [CustomMessages]
 TaskBrowser=Iestatīt pārlūkprogrammas &integrāciju (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Atvērt .&torrent failus un magnētsaites ar ZDownloader3
-TaskStartup=Sākt ZDownloader3, kad startējas &Windows
+TaskTorrents=Atvērt .&torrent failus un magnētsaites ar zDownloader³
+TaskStartup=Sākt zDownloader³, kad startējas &Windows
 TaskGroupOther=Cits:
-Launch=Startēt ZDownloader3
+Launch=Startēt zDownloader³
 KeepData=Vai dzēst arī lejupielāžu sarakstu un iestatījumus?%n%nJūsu lejupielādētie faili netiek skarti.

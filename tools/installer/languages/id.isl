@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Indonesian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Indonesian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Menghapus instalasi %1.
 
 [CustomMessages]
 TaskBrowser=Siapkan integrasi &browser (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Buka file .&torrent dan tautan magnet dengan ZDownloader3
-TaskStartup=Mulai ZDownloader3 saat &Windows dimulai
+TaskTorrents=Buka file .&torrent dan tautan magnet dengan zDownloader³
+TaskStartup=Mulai zDownloader³ saat &Windows dimulai
 TaskGroupOther=Lainnya:
-Launch=Mulai ZDownloader3
+Launch=Mulai zDownloader³
 KeepData=Hapus juga daftar unduhan dan pengaturan Anda?%n%nFile yang Anda unduh tidak akan tersentuh.

@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Serbian (Latin): tools/installer/languages.py
+﻿; zDownloader³'s installer in Serbian (Latin): tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Deinstaliranje programa %1.
 
 [CustomMessages]
 TaskBrowser=Podesite integraciju &pregledača (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Otvorite .&torrent datoteke i magnet veze pomoću programa ZDownloader3
-TaskStartup=Pokreni ZDownloader3 kada se pokrene &Windows
+TaskTorrents=Otvorite .&torrent datoteke i magnet veze pomoću programa zDownloader³
+TaskStartup=Pokreni zDownloader³ kada se pokrene &Windows
 TaskGroupOther=Ostalo:
-Launch=Pokreni ZDownloader3
+Launch=Pokreni zDownloader³
 KeepData=Izbrisati i listu preuzimanja i podešavanja?%n%nPreuzete datoteke se ne diraju ni u jednom slučaju.

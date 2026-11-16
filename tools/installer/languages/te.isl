@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Telugu: tools/installer/languages.py
+﻿; zDownloader³'s installer in Telugu: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 అన్‌ఇన్‌స్టాల్
 
 [CustomMessages]
 TaskBrowser=బ్రౌజర్ ఇంటిగ్రేషన్ (&B) (Chrome, Edge, Brave, Firefox) సెటప్ చేయండి
-TaskTorrents=ZDownloader3తో .&torrent ఫైల్‌లు మరియు మాగ్నెట్ లింక్‌లను తెరవండి
-TaskStartup=Windows ప్రారంభమైనప్పుడు ZDownloader3ని &ప్రారంభించండి
+TaskTorrents=zDownloader³తో .&torrent ఫైల్‌లు మరియు మాగ్నెట్ లింక్‌లను తెరవండి
+TaskStartup=Windows ప్రారంభమైనప్పుడు zDownloader³ని &ప్రారంభించండి
 TaskGroupOther=ఇతర:
-Launch=ZDownloader3ని ప్రారంభించండి
+Launch=zDownloader³ని ప్రారంభించండి
 KeepData=మీ డౌన్‌లోడ్ జాబితా మరియు సెట్టింగ్‌లను కూడా తొలగించాలా?%n%nమీరు డౌన్‌లోడ్ చేసిన ఫైల్‌లు ఏ విధంగానూ తాకబడవు.

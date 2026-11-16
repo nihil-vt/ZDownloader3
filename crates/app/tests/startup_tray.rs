@@ -16,7 +16,7 @@ use std::time::{Duration, Instant};
 
 const APP: &str = env!("CARGO_BIN_EXE_zdownloader3");
 /// The main window's title (main.rs MAIN_TITLE).
-const MAIN: &str = concat!("ZDownloader3 ", env!("CARGO_PKG_VERSION"));
+const MAIN: &str = concat!("zDownloader³ ", env!("CARGO_PKG_VERSION"));
 
 /// The app's log so far (every file of `logs/`).
 fn log(data: &Path) -> String {
@@ -80,7 +80,7 @@ impl Startup {
     fn old(_dir: &Path) -> Startup {
         #[cfg(windows)]
         {
-            let name = format!("ZDownloader3Test{}", std::process::id());
+            let name = format!("zDownloader³Test{}", std::process::id());
             let status = Command::new("reg")
                 .args(["add", RUN, "/v", &name, "/t", "REG_SZ", "/f", "/d"])
                 .arg(format!("\"{APP}\""))
@@ -97,7 +97,7 @@ impl Startup {
             std::fs::write(
                 auto.join("zdownloader3.desktop"),
                 format!(
-                    "[Desktop Entry]\nType=Application\nName=ZDownloader3\n\
+                    "[Desktop Entry]\nType=Application\nName=zDownloader³\n\
                      Exec=\"{APP}\"\nIcon=zdownloader3\nTerminal=false\n\
                      X-GNOME-Autostart-enabled=true\n"
                 ),

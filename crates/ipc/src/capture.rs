@@ -1,4 +1,4 @@
-//! What the browser extension may hand to ZDownloader3: Options → General ("Use
+//! What the browser extension may hand to zDownloader³: Options → General ("Use
 //! advanced browser integration", the browsers to capture from) and Options → File types (the
 //! types to take, the sites and addresses to leave alone). One implementation for the app and
 //! the native messaging host: the host reads the app's saved settings at every hand-off (so a
@@ -63,7 +63,7 @@ pub struct CaptureRules {
     /// Options → File types: files smaller than this (KB) stay with the browser (a receipt, an
     /// icon); 0 takes any size. Only when the browser knows the size.
     pub capture_min_kb: u64,
-    /// Torrent settings → "Open magnet links and .torrent files with ZDownloader3"
+    /// Torrent settings → "Open magnet links and .torrent files with zDownloader³"
     /// as the app settled it (`Settings::torrent_associations`, saved under this name). Off, a
     /// .torrent the browser downloads stays with the browser too, which opens it in the user's
     /// own torrent client (#1058), though TORRENT is in File types. None (not decided yet: an
@@ -150,7 +150,7 @@ impl Declined {
                 "it is smaller than Options > File types > Don't take files smaller than"
             }
             Declined::Torrents => {
-                "it is a .torrent and Tasks > Torrent settings > Open magnet links and .torrent files with ZDownloader3 is off"
+                "it is a .torrent and Tasks > Torrent settings > Open magnet links and .torrent files with zDownloader³ is off"
             }
         }
     }

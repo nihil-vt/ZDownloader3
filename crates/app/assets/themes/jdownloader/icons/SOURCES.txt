@@ -1,9 +1,9 @@
-ZDownloader3's "jdownloader" icon set (#45).
+zDownloader³'s "jdownloader" icon set (#45).
 
 Derived from breeze-icons 6.31.0 (Uri Herrera and the KDE Visual Design Group;
 https://invent.kde.org/frameworks/breeze-icons, commit 60ca51729f00b85813f01580fc9e85723245054d),
 used under the GNU LGPL v3 as clarified for KDE artwork (LICENSE, beside this file).
-Placeholder set for the JD2-style look; icons are being redrawn as ZDownloader3 originals.
+Placeholder set for the JD2-style look; icons are being redrawn as zDownloader³ originals.
 Licence: GNU LGPL v3 or later, with KDE's clarification for artwork (LICENSE, beside this file;
 the GNU GPL v3 it builds on is MDM's own LICENSE, at the top of the repository).
 

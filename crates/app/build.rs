@@ -26,8 +26,8 @@ fn main() {
         println!("cargo:rerun-if-changed=assets/icons/app/mdm.ico");
         let mut res = winresource::WindowsResource::new();
         res.set_icon("assets/icons/app/mdm.ico")
-            .set("ProductName", "ZDownloader3")
-            .set("FileDescription", "ZDownloader3")
+            .set("ProductName", "zDownloader³")
+            .set("FileDescription", "zDownloader³")
             .set("CompanyName", "Ahmed Nefzaoui")
             .set(
                 "LegalCopyright",

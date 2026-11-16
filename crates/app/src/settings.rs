@@ -294,7 +294,7 @@ pub struct Settings {
     /// Torrents keep sharing after they finish (D-018: off; a finished torrent stops, like any
     /// download).
     pub torrent_keep_sharing: bool,
-    /// Torrent settings' "Open magnet links and .torrent files with ZDownloader3":
+    /// Torrent settings' "Open magnet links and .torrent files with zDownloader³":
     /// the system opens them with MDM (D-018: opt-in, current user), and the browser hands a
     /// .torrent download over (#1058: off, it stays with the browser for the user's own torrent
     /// client). None: never decided, settled once at the first start (`settle_torrent_handler`)
@@ -438,7 +438,7 @@ impl Default for Settings {
             view: None,
             dark_mode_support: true,
             always_dark: false,
-            // ZDownloader3 fork default: the JDownloader2 style on Linux (our look);
+            // zDownloader³ fork default: the JDownloader2 style on Linux (our look);
             // classic stays the default elsewhere, matching upstream's look there.
             theme: if cfg!(target_os = "linux") { "jdownloader".into() } else { "classic".into() },
             renderer: None,
@@ -598,7 +598,7 @@ impl Settings {
             "proxy".into(),
             &|| {
                 format!(
-                    "ZDownloader3: {} {}:{}",
+                    "zDownloader³: {} {}:{}",
                     // i18n: the proxy's password in the system's keychain (Credential Manager, the keyring): its name there, followed by the proxy's address
                     crate::i18n::t("proxy server"),
                     self.proxy_host,
@@ -610,7 +610,7 @@ impl Settings {
         for (a, d) in self.debrid_accounts.iter().zip(&mut disk.debrid_accounts) {
             d.secret = kept(
                 format!("debrid/{}", a.id),
-                &|| format!("ZDownloader3: {} ({})", a.service.name(), a.user),
+                &|| format!("zDownloader³: {} ({})", a.service.name(), a.user),
                 &a.secret,
             );
         }
@@ -623,7 +623,7 @@ impl Settings {
 {user}"
                     ))
                 ),
-                &|| format!("ZDownloader3: {site} ({user})"),
+                &|| format!("zDownloader³: {site} ({user})"),
                 pw,
             );
         }

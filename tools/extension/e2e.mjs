@@ -818,7 +818,7 @@ async function firefox(bin, profile, dl, page, ready) {
   }
 }
 
-// ---- the test instance of ZDownloader3 ----------------------------------------------
+// ---- the test instance of zDownloader³ ----------------------------------------------
 
 let data = "";
 let downloads = "";
@@ -916,7 +916,7 @@ async function arrived(file, size, sub = "Compressed", ms = 45000) {
   const want = path.join(downloads, sub, file);
   let last = null;
   try {
-    return await until(`${file} in ZDownloader3`, ms, async () => {
+    return await until(`${file} in zDownloader³`, ms, async () => {
       const item = (await mdmList().catch(() => [])).find((d) => d.file === file);
       last = item || last;
       if (item && item.status === "Error") throw new Error(`${file}: MDM's download failed: ${item.error}`);
@@ -942,7 +942,7 @@ async function requests(p) {
 const clearLog = () => fetch(`${LAB}/_log`, { method: "DELETE" });
 const brief = (e) => `${e.method} ${e.status} ${e.outcome} ${e.range || "-"}`;
 
-// ---- another ZDownloader3 (the remote case, #157) -------------------------------------
+// ---- another zDownloader³ (the remote case, #157) -------------------------------------
 
 // The server the remote case sends downloads to: E2E_REMOTE_URL names one already running (the
 // Docker image: E2E_REMOTE_PAIR is a command printing a pairing code, `docker exec mdm
@@ -1363,7 +1363,7 @@ async function videoButton(session, never) {
   if (!show) throw new Error(`no "Show" on the button: ${JSON.stringify(sent)}`);
   if (appWindows(appPid()).includes(VIDEO_WINDOW)) throw new Error("the click opened the Download video window");
   await session.mouse(show.x, show.y, "click");
-  await until("MDM's main window, shown", 10000, () => appWindows(appPid()).some((x) => /^ZDownloader3/.test(x)));
+  await until("MDM's main window, shown", 10000, () => appWindows(appPid()).some((x) => /^zDownloader³/.test(x)));
   await session.mouse(5, 5);
   await sleep(300);
   b = await hover(session, v);
@@ -2127,7 +2127,7 @@ const CASES = {
 
   // #1058: a .torrent from a tracker's download.php (named by Content-Disposition, sent as
   // application/x-bittorrent) stays with the browser while Torrent settings' "Open magnet links
-  // and .torrent files with ZDownloader3" is off, as by default, though TORRENT is in
+  // and .torrent files with zDownloader³" is off, as by default, though TORRENT is in
   // File types (it is in this run's list); with it on, MDM takes it (its Add torrent fetches it)
   // and the browser keeps nothing.
   async torrents(t) {
@@ -2358,7 +2358,7 @@ const CASES = {
     await t.session.navigate(page);
     const log = path.join(data, "logs", "mdm.log");
     const from = fs.existsSync(log) ? fs.statSync(log).size : 0;
-    const label = "Download all links with ZDownloader3";
+    const label = "Download all links with zDownloader³";
     const help = "https://misterdownloadmanager.com/help/browser-help.html";
     // The tabs open now (the help page's, when the extension explains a failure).
     const tabs = () =>
@@ -2880,7 +2880,7 @@ const CASES = {
       // The right-click menu on the player (Firefox: its menu can be driven headless).
       if (t.session.menu) {
         done.push(await named(`${kind} menu`, () => streamLookedUp(async () => {
-          const r = await t.session.menu((v.l + v.r) / 2, (v.t + v.b) / 2, "Download with ZDownloader3");
+          const r = await t.session.menu((v.l + v.r) / 2, (v.t + v.b) / 2, "Download with zDownloader³");
           if (!String(r).startsWith("chosen")) throw new Error(`the right-click menu: ${r}`);
           if (process.env.E2E_DEBUG) console.error("menu:", r);
         }, manifest, page, cookie)));
@@ -3013,7 +3013,7 @@ const CASES = {
       if (theirs.length) throw new Error(`refused: ${theirs.map(brief).join("; ")}`);
       if (!mdm.length) throw new Error("no request for the file");
       const said = await until("the popup's word", 5000, () => popup.evaluate(`document.getElementById("media-said").textContent`));
-      if (!/Sent to ZDownloader3/.test(said)) throw new Error(`the popup said "${said}"`);
+      if (!/Sent to zDownloader³/.test(said)) throw new Error(`the popup said "${said}"`);
       // Each stream: the Download video window, for its manifest.
       const pid = appPid();
       const opened = [];
@@ -3207,7 +3207,7 @@ const CASES = {
     try {
       await until("the test instance, in the notification area", 20000, () => mdmList().then(() => true, () => false));
       const pid = appPid();
-      const main = (titles) => titles.filter((x) => /^ZDownloader3 \d/.test(x));
+      const main = (titles) => titles.filter((x) => /^zDownloader³ \d/.test(x));
       const progress = (titles) => titles.find((x) => /^\d+% /.test(x));
       const at = appWindows(pid);
       if (main(at).length) throw new Error(`started in the notification area, its main window shows (${at.join(", ")})`);
@@ -3851,7 +3851,7 @@ const CASES = {
     return `started by the host (pid ${pids[0]})${WIN ? ", off the screens" : ""}, stopped`;
   },
 
-  // #157: Send downloads to → Another ZDownloader3. The popup pairs with a server (its
+  // #157: Send downloads to → Another zDownloader³. The popup pairs with a server (its
   // address and a code); a link clicked then downloads there, into the server's folders, the
   // browser's cookies not sent: neither the browser nor this computer's MDM keeps it. The popup
   // goes back to This computer at the end.
@@ -3928,7 +3928,7 @@ const REG_KEYS = ["HKCU", "HKLM"].flatMap((root) => [
     "Software\\Mozilla\\NativeMessagingHosts",
   ].map((k) => [`${root}\\${k}\\${HOST}`, false]),
   [`${root}\\Software\\Google\\Chrome\\Extensions`, true],
-]).concat([".torrent", "magnet", "ZDownloader3.Torrent"].map((k) => [`HKCU\\Software\\Classes\\${k}`, false]));
+]).concat([".torrent", "magnet", "zDownloader³.Torrent"].map((k) => [`HKCU\\Software\\Classes\\${k}`, false]));
 const TORRENT_KEYS = new Set(REG_KEYS.filter(([k]) => k.includes("\\Classes\\")).map(([k]) => k));
 
 // Linux and macOS: the host's manifests (`<HOST>.json`) in the home folder's browser folders,
@@ -4045,7 +4045,7 @@ function testHost(name, browsers, nmhost) {
   const write = (kind, more) => {
     const file = path.join(work, "host", `${name}.${kind}.json`);
     fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, JSON.stringify({ name, description: "ZDownloader3 (test)", path: nmhost, type: "stdio", ...more }, null, 2));
+    fs.writeFileSync(file, JSON.stringify({ name, description: "zDownloader³ (test)", path: nmhost, type: "stdio", ...more }, null, 2));
     manifests[kind] = file;
   };
   if (kinds.has("chromium")) {
@@ -4187,14 +4187,14 @@ async function run() {
   let testLeft = [];
   try {
     await until("the lab server", 10000, () => fetch(`${LAB}/`).then((r) => r.ok, () => false));
-    // An installed ZDownloader3's registration is never replaced or removed.
+    // An installed zDownloader³'s registration is never replaced or removed.
     // Linux and macOS: its manifests (files) are put back byte for byte at the end, so a lab
     // machine's (E2E_REPLACE_HOST=1) may be replaced while the run lasts. E2E_HOST_NAME never
     // touches the real name (testHost), so it runs beside an installed copy.
     const key = "HKCU\\Software\\Google\\Chrome\\NativeMessagingHosts\\com.zdownloader3.host";
     const installed = WIN ? spawnSync("reg", ["query", key], { stdio: "ignore" }).status === 0 : regSnapshot().some((m) => m.bytes) && process.env.E2E_REPLACE_HOST !== "1";
     if (installed && !process.env.E2E_HOST_NAME) {
-      throw new Error("ZDownloader3's host is already registered (an installed copy): not touching it (E2E_HOST_NAME runs beside it)");
+      throw new Error("zDownloader³'s host is already registered (an installed copy): not touching it (E2E_HOST_NAME runs beside it)");
     }
     regBefore = regSnapshot(path.join(work, "registry", "before"));
     if (process.env.E2E_HOST_NAME) {

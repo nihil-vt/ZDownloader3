@@ -24,7 +24,7 @@ To remove it, open the same window and untick **Limit all downloads together to*
 2. Click **OK**.
 3. Choose **Downloads → Speed Limiter → Turn on**.
 
-Each download is then held to that speed. **Downloads → Speed Limiter → Turn off** gives full speed again. Tick **Always turn on Speed Limiter on ZDownloader3 startup** to have it on every time.
+Each download is then held to that speed. **Downloads → Speed Limiter → Turn off** gives full speed again. Tick **Always turn on Speed Limiter on zDownloader³ startup** to have it on every time.
 
 ## Slow down one download only
 

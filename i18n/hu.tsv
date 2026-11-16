@@ -1,4 +1,4 @@
-# ZDownloader3 in Hungarian (Magyar): tools/i18n/translate.py
+# zDownloader³ in Hungarian (Magyar): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Magyar
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	Biztosan törölni szeretné a(z) {n} letöltést a ZDownloader3 letöltési listájáról?|Biztosan törölni szeretné ezt a(z) {n} letöltést a ZDownloader3 letöltési listájáról?
+@plural	Are you sure you want to delete {n} download from zDownloader³ list of downloads?|Are you sure you want to delete these {n} downloads from zDownloader³ list of downloads?	Biztosan törölni szeretné a(z) {n} letöltést a zDownloader³ letöltési listájáról?|Biztosan törölni szeretné ezt a(z) {n} letöltést a zDownloader³ letöltési listájáról?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	egy kötete hiányzik
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About ZDownloader3	Névjegy: ZDownloader3
+	About zDownloader³	Névjegy: zDownloader³
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add ZDownloader3 to your browser	A(z) ZDownloader3 hozzáadása a böngészőhöz
+	Add zDownloader³ to your browser	A(z) zDownloader³ hozzáadása a böngészőhöz
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	Mindig egy, a nevéről elnevezett mappába
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on ZDownloader3 startup	A sebességkorlátozó bekapcsolása a ZDownloader3 indításakor
+	Always turn on Speed Limiter on zDownloader³ startup	A sebességkorlátozó bekapcsolása a zDownloader³ indításakor
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	Biztosan törölni szeretné a(z) „{name}” fájlt a ZDownloader3 letöltési listájáról?
+	Are you sure you want to delete "{name}" from zDownloader³ list of downloads?	Biztosan törölni szeretné a(z) „{name}” fájlt a zDownloader³ letöltési listájáról?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	Tallózás...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	A böngészőintegráció nincs beállítva ezen a számítógépen, így egyetlen böngésző sem érheti el az ZDownloader3 alkalmazást.
+	Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.	A böngészőintegráció nincs beállítva ezen a számítógépen, így egyetlen böngésző sem érheti el az zDownloader³ alkalmazást.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Böngésző/rendszer-integráció
@@ -944,7 +944,7 @@
 	Choose a language	Válasszon nyelvet
 #. text in langpick.rs
 #, machine
-	Choose the language ZDownloader3 shows its windows in:	Válassza ki azt a nyelvet, amelyen a ZDownloader3 megjeleníti az ablakait:
+	Choose the language zDownloader³ shows its windows in:	Válassza ki azt a nyelvet, amelyen a zDownloader³ megjeleníti az ablakait:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	Kilépés
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit ZDownloader3 when done	Kilépés a(z) ZDownloader3 alkalmazásból, ha befejeződött
+	Exit zDownloader³ when done	Kilépés a(z) zDownloader³ alkalmazásból, ha befejeződött
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Várható ellenőrzőösszeg (MD5, SHA-1, SHA-256, SHA-512 vagy CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	Weboldalak elrejtése
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	Tartsa lenyomva az Alt billentyűt, miközben egy hivatkozásra kattint, hogy a böngésző töltse le azt az ZDownloader3 helyett.
+	Hold Alt while clicking a link to let the browser download it instead of zDownloader³.	Tartsa lenyomva az Alt billentyűt, miközben egy hivatkozásra kattint, hogy a böngésző töltse le azt az zDownloader³ helyett.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Kezdőlap
@@ -2127,7 +2127,7 @@
 	Hungary	Magyarország
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	A ZDownloader3rel töltök le: gyors, ingyenes, és úgy néz ki, mint az Ön által már ismert letöltéskezelő. {link}
+	I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}	A zDownloader³rel töltök le: gyors, ingyenes, és úgy néz ki, mint az Ön által már ismert letöltéskezelő. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	Lettország
 #. text in the Options window
 #, machine
-	Launch ZDownloader3 on startup	A(z) ZDownloader3 indítása a rendszer indításakor
+	Launch zDownloader³ on startup	A(z) zDownloader³ indítása a rendszer indításakor
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	Hiányzik
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	ZDownloader3	ZDownloader3
+	zDownloader³	zDownloader³
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	ZDownloader3 can't open its window: this system lacks {libraries}.	A(z) ZDownloader3 nem tudja megnyitni az ablakát: a rendszerből hiányoznak a(z) {libraries}.
+	zDownloader³ can't open its window: this system lacks {libraries}.	A(z) zDownloader³ nem tudja megnyitni az ablakát: a rendszerből hiányoznak a(z) {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	ZDownloader3 closed unexpectedly	ZDownloader3 váratlanul bezárult
+	zDownloader³ closed unexpectedly	zDownloader³ váratlanul bezárult
 #. window title in the Options window
 #, machine
-	ZDownloader3 Configuration	ZDownloader3 konfiguráció
+	zDownloader³ Configuration	zDownloader³ konfiguráció
 #. text in crashui.rs
 #, machine
-	ZDownloader3 crash report	ZDownloader3 hibajelentés
+	zDownloader³ crash report	zDownloader³ hibajelentés
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	ZDownloader3 hit an internal error	ZDownloader3 belső hibába ütközött
+	zDownloader³ hit an internal error	zDownloader³ belső hibába ütközött
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	ZDownloader3 is downloading	ZDownloader3 letöltés alatt
+	zDownloader³ is downloading	zDownloader³ letöltés alatt
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	ZDownloader3 is running the queue "{queue}"	ZDownloader3 futtatja a(z) „{queue}” várólistát
+	zDownloader³ is running the queue "{queue}"	zDownloader³ futtatja a(z) „{queue}” várólistát
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	ZDownloader3 stopped responding	ZDownloader3 nem válaszol
+	zDownloader³ stopped responding	zDownloader³ nem válaszol
 #. text in crashui.rs
 #, machine
-	ZDownloader3 stopped responding for a while	ZDownloader3 egy ideig nem válaszolt
+	zDownloader³ stopped responding for a while	zDownloader³ egy ideig nem válaszolt
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	A ZDownloader3 minden kapcsolatot közvetlenül a végső\nfájlba ír (egy ritka részfájl mellé), így nincs szükség ideiglenes könyvtárra és\nösszeállítási lépésre.
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	A zDownloader³ minden kapcsolatot közvetlenül a végső\nfájlba ír (egy ritka részfájl mellé), így nincs szükség ideiglenes könyvtárra és\nösszeállítási lépésre.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3 {version} is available (released {date}).	Elérhető a ZDownloader3 {version} (megjelent: {date}).
+	zDownloader³ {version} is available (released {date}).	Elérhető a zDownloader³ {version} (megjelent: {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3's own copy, version {version}	ZDownloader3 saját példánya, {version} verzió
+	zDownloader³'s own copy, version {version}	zDownloader³ saját példánya, {version} verzió
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	A(z) ZDownloader3 X11-es ablakának szüksége van a(z) {libraries} fájlokra, amelyek hiányoznak a rendszerből: ezért Wayland alatt nyílik meg, ahol a menük nem feltétlenül a címük alatt nyílnak meg.
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	A(z) zDownloader³ X11-es ablakának szüksége van a(z) {libraries} fájlokra, amelyek hiányoznak a rendszerből: ezért Wayland alatt nyílik meg, ahol a menük nem feltétlenül a címük alatt nyílnak meg.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	Megnyitás böngészőben
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with ZDownloader3	Magnet linkek és .torrent fájlok megnyitása a ZDownloader3rel
+	Open magnet links and .torrent files with zDownloader³	Magnet linkek és .torrent fájlok megnyitása a zDownloader³rel
 #. text in the tray icon's menu
 #, machine
-	Open ZDownloader3	ZDownloader3 megnyitása
+	Open zDownloader³	zDownloader³ megnyitása
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with ZDownloader3	Párosítás a következővel: ZDownloader3
+	Pair with zDownloader³	Párosítás a következővel: zDownloader³
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	A szaggatott körvonalú letöltés kijelölése vagy kijelölésének megszüntetése
 #. group box title in the Options window
 #, machine
-	Select sounds for ZDownloader3 events	Hangok kiválasztása a ZDownloader3 eseményeihez
+	Select sounds for zDownloader³ events	Hangok kiválasztása a zDownloader³ eseményeihez
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	A letöltések kijelölése a dobozban
@@ -4230,7 +4230,7 @@
 	Start download at	Letöltés indítása ekkor:
 #. checkbox in the Scheduler window
 #, machine
-	Start download on ZDownloader3 startup	Letöltés indítása a ZDownloader3 indításakor
+	Start download on zDownloader³ startup	Letöltés indítása a zDownloader³ indításakor
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Azonnali letöltés indítása a „Fájlinformációk letöltése” párbeszédpanel megjelenítése közben
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	A számítógéppel együtt indul, minimalizálva: az értesítési területen nem jelenik meg az ikonja
 #. text in the Options window
-#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch zDownloader³ on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	A számítógéppel együtt indul, és az értesítési területen várakozik
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find ZDownloader3	A böngészők megtalálják az ZDownloader3 alkalmazást
+	The browsers can find zDownloader³	A böngészők megtalálják az zDownloader³ alkalmazást
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	A számítógép egy perccel a kezdési idő előtt felébred, és ébren marad, amíg a várólista fut. Az ZDownloader3 programnak futnia kell (várhat az értesítési területen).
+	The computer is woken a minute before the start time and kept awake while the queue runs. zDownloader³ has to be running (it can wait in the notification area).	A számítógép egy perccel a kezdési idő előtt felébred, és ébren marad, amíg a várólista fut. Az zDownloader³ programnak futnia kell (várhat az értesítési területen).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	A kiválasztott letöltés nem fejeződött be. Biztosan törölni szeretné\na(z) ZDownloader3 letöltési listájáról?
+	The selected download is not complete. Are you sure you want to delete\nit from zDownloader³ list of downloads?	A kiválasztott letöltés nem fejeződött be. Biztosan törölni szeretné\na(z) zDownloader³ letöltési listájáról?
 #. text in errors.rs
 #, machine
 	the server answered {status}	a szerver {status} választ adott
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "ZDownloader3" and allow it on all websites.	Kapcsolja be a(z) „ZDownloader3” bővítményt, és engedélyezze minden webhelyen.
+	Turn on "zDownloader³" and allow it on all websites.	Kapcsolja be a(z) „zDownloader³” bővítményt, és engedélyezze minden webhelyen.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of ZDownloader3 ({version}).	A ZDownloader3 ({version}) legújabb verzióját használja.
+	You have the latest version of zDownloader³ ({version}).	A zDownloader³ ({version}) legújabb verzióját használja.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	Átviteli sebesség
 #, machine
 column	Upload speed	Feltöltési sebesség
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name zDownloader³ as it is
 #, machine
-extension	A list of videos: choose them in ZDownloader3	Videók listája: válassza ki őket a ZDownloader3 alkalmazásban
+extension	A list of videos: choose them in zDownloader³	Videók listája: válassza ki őket a zDownloader³ alkalmazásban
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	Hozzáadva a sorhoz
 #, machine
 extension	All qualities and subtitles...	Minden minőség és felirat...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name zDownloader³ as it is
 #, machine
-extension	Another ZDownloader3 (a server)	Másik ZDownloader3 (kiszolgáló)
+extension	Another zDownloader³ (a server)	Másik zDownloader³ (kiszolgáló)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	legjobb
 #, machine
 extension	Browser extension	Böngészőbővítmény
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in ZDownloader3
+#. menu command of the download button over a video: opens its settings in zDownloader³
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Gombbeállítások...
@@ -6108,14 +6108,14 @@ extension	can't be saved	nem menthető
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Nem állapítható meg, melyik videóról van szó: nyissa meg a saját oldalát, és próbálja ott
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app; keep the name zDownloader³ as it is
 #, machine
-extension	Connected to ZDownloader3	Csatlakoztatva az ZDownloader3 alkalmazáshoz
+extension	Connected to zDownloader³	Csatlakoztatva az zDownloader³ alkalmazáshoz
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name zDownloader³ as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to ZDownloader3 {version}	Csatlakoztatva az ZDownloader3 {version} alkalmazáshoz
+extension	Connected to zDownloader³ {version}	Csatlakoztatva az zDownloader³ {version} alkalmazáshoz
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	A keresés sikertelen
 #, machine
 extension	Download	Letöltés
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name zDownloader³ as it is
 #, machine
-extension	Download all links with ZDownloader3	Összes hivatkozás letöltése az ZDownloader3 alkalmazással
+extension	Download all links with zDownloader³	Összes hivatkozás letöltése az zDownloader³ alkalmazással
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	Legjobb letöltése
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name zDownloader³ as it is
 #, machine
-extension	Download selected links with ZDownloader3	Kijelölt hivatkozások letöltése az ZDownloader3 alkalmazással
+extension	Download selected links with zDownloader³	Kijelölt hivatkozások letöltése az zDownloader³ alkalmazással
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	A legjobb minőség letöltése
 #, machine
 extension	Download video	Videó letöltése
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name zDownloader³ as it is
 #, machine
-extension	Download with ZDownloader3	Letöltés a(z) ZDownloader3 alkalmazással
+extension	Download with zDownloader³	Letöltés a(z) zDownloader³ alkalmazással
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	Adja meg a https:// címét.
 #, machine
 extension	Get MDM	MDM beszerzése
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
+#. the extension's description in the browser's list of extensions; keep the name zDownloader³ as it is
 #, machine
-extension	Hands downloads from the browser to ZDownloader3.	Átadja a letöltéseket a böngészőből a(z) ZDownloader3 alkalmazásnak.
+extension	Hands downloads from the browser to zDownloader³.	Átadja a letöltéseket a böngészőből a(z) zDownloader³ alkalmazásnak.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	Nem sikerült. Próbálja újra.
 #, machine
 extension	It shows no code now: click Pair a device there first.	Most nem mutat kódot: először kattintson ott az Eszköz párosítása gombra.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with zDownloader³, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	Ez egy torrent, és a „Mágneshivatkozások és .torrent fájlok megnyitása a(z) ZDownloader3 alkalmazással” beállítás ki van kapcsolva a Torrent-beállításokban.
+extension	It's a torrent, and Open magnet links and .torrent files with zDownloader³ is off in Torrent settings.	Ez egy torrent, és a „Mágneshivatkozások és .torrent fájlok megnyitása a(z) zDownloader³ alkalmazással” beállítás ki van kapcsolva a Torrent-beállításokban.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	Az MDM nem válaszolt
 #, machine
 extension	Media on this page	Média ezen az oldalon
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3	ZDownloader3
+extension	zDownloader³	zDownloader³
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 didn't start in time	Az ZDownloader3 nem indult el időben
+extension	zDownloader³ didn't start in time	Az zDownloader³ nem indult el időben
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 doesn't accept this copy of the extension	Az ZDownloader3 nem fogadja el a bővítmény ezen másolatát
+extension	zDownloader³ doesn't accept this copy of the extension	Az zDownloader³ nem fogadja el a bővítmény ezen másolatát
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 is busy with other videos	A ZDownloader3 alkalmazás más videókkal van elfoglalva
+extension	zDownloader³ is busy with other videos	A zDownloader³ alkalmazás más videókkal van elfoglalva
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed or didn't start	Az ZDownloader3 nincs telepítve, vagy nem indult el
+extension	zDownloader³ isn't installed or didn't start	Az zDownloader³ nincs telepítve, vagy nem indult el
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed, or its browser integration isn't set up	Az ZDownloader3 nincs telepítve, vagy a böngészőintegrációja nincs beállítva
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	Az zDownloader³ nincs telepítve, vagy a böngészőintegrációja nincs beállítva
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 needs yt-dlp for this video	A ZDownloader3 alkalmazásnak szüksége van a yt-dlp eszközre ehhez a videóhoz
+extension	zDownloader³ needs yt-dlp for this video	A zDownloader³ alkalmazásnak szüksége van a yt-dlp eszközre ehhez a videóhoz
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Az ZDownloader3 ezután ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. A böngésző egyszer engedélyt kér erre; ennek kikapcsolásával visszavonhatja az engedélyt.
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Az zDownloader³ ezután ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. A böngésző egyszer engedélyt kér erre; ennek kikapcsolásával visszavonhatja az engedélyt.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Ekkor a(z) ZDownloader3 ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. Ha ez ki van kapcsolva, a bővítmény nem olvassa be a böngésző proxyját.
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Ekkor a(z) zDownloader³ ugyanazon a proxyn keresztül tölt le, mint ez a böngésző. Ha ez ki van kapcsolva, a bővítmény nem olvassa be a böngésző proxyját.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6325,9 +6325,9 @@ extension	Open it	Megnyitás
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	Nyissa meg egyszer a címét, és fogadja el a tanúsítványát, majd adja meg a kódot a Beállítások, Távoli, Eszköz párosítása (vagy zdownloader3-cli pair) menüpontból.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
 #, machine
-extension	Open ZDownloader3	Megnyitás: ZDownloader3
+extension	Open zDownloader³	Megnyitás: zDownloader³
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	Letölté
 #, machine
 extension	Send downloads to	Letöltések küldése ide
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is zDownloader³'s short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	Küldés az MDM-nek...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
+#. shown briefly on the download button after it was clicked; keep the name zDownloader³ as it is
 #, machine
-extension	Sent to ZDownloader3	Elküldve a következőnek: ZDownloader3
+extension	Sent to zDownloader³	Elküldve a következőnek: zDownloader³
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	Letöltések átvétele ebből a bön
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	A Chrome Internetes áruház szabályai távol tartják a bővítmény e példányát az oldal videóitól. A Súgó elmondja, mit tehet.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name zDownloader³ as it is
 #, machine
-extension	The connection to ZDownloader3 failed	Nem sikerült csatlakozni az ZDownloader3 alkalmazáshoz
+extension	The connection to zDownloader³ failed	Nem sikerült csatlakozni az zDownloader³ alkalmazáshoz
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	Az utolsó letöltés a bö
 #, machine
 extension	This browser isn't ticked in Options → General.	Ez a böngésző nincs bejelölve a Beállítások → Általános menüpontban.
 #. text in the browser extension
-#. choice under Send downloads to: the ZDownloader3 on this computer
+#. choice under Send downloads to: the zDownloader³ on this computer
 #, machine
 extension	This computer	Ez a számítógép
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	Bekapcsolás
 #, machine
 extension	Undo	Visszavonás
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name ZDownloader3 as it is
+#. status when the app is older than the extension; keep the name zDownloader³ as it is
 #, machine
-extension	Update ZDownloader3 to use everything this extension offers	Frissítse a(z) ZDownloader3 alkalmazást, hogy használhassa a bővítmény összes funkcióját
+extension	Update zDownloader³ to use everything this extension offers	Frissítse a(z) zDownloader³ alkalmazást, hogy használhassa a bővítmény összes funkcióját
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	Fel / Le
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About ZDownloader3	A &ZDownloader3 névjegye
+menu	&About zDownloader³	A &zDownloader³ névjegye
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6989,7 +6989,7 @@ menu	Metro	Metro
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	ZDownloader3 &Home Page	ZDownloader3 &kezdőlapja
+menu	zDownloader³ &Home Page	zDownloader³ &kezdőlapja
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Áthelyezés/átnevezés (Ctrl+M)
@@ -7122,7 +7122,7 @@ menu	Select &all	Összes ki&jelölése
 menu	Show &drop target	&Célterület megjelenítése
 #. menu command in the main window
 #, machine
-menu	Show ZDownloader3	ZDownloader3 megjelenítése
+menu	Show zDownloader³	zDownloader³ megjelenítése
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

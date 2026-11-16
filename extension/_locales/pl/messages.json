@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Przekazuje pobieranie z przeglądarki do ZDownloader3."
+    "message": "Przekazuje pobieranie z przeglądarki do zDownloader³."
   },
   "menu": {
-    "message": "Pobierz za pomocą ZDownloader3"
+    "message": "Pobierz za pomocą zDownloader³"
   },
   "video_download": {
     "message": "Pobierz wideo"
@@ -30,19 +30,19 @@
     "message": "Ustawienia przycisku..."
   },
   "video_sent": {
-    "message": "Wysłano do ZDownloader3"
+    "message": "Wysłano do zDownloader³"
   },
   "menu_selected": {
-    "message": "Pobierz wybrane łącza za pomocą ZDownloader3"
+    "message": "Pobierz wybrane łącza za pomocą zDownloader³"
   },
   "menu_all": {
-    "message": "Pobierz wszystkie łącza za pomocą ZDownloader3"
+    "message": "Pobierz wszystkie łącza za pomocą zDownloader³"
   },
   "status_connected": {
-    "message": "Połączono z ZDownloader3"
+    "message": "Połączono z zDownloader³"
   },
   "status_connected_version": {
-    "message": "Połączono z ZDownloader3 $version$",
+    "message": "Połączono z zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Wstrzymano: pobieranie pozostaje w przeglądarce"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 nie jest zainstalowany lub jego integracja z przeglądarką nie jest skonfigurowana"
+    "message": "zDownloader³ nie jest zainstalowany lub jego integracja z przeglądarką nie jest skonfigurowana"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 nie akceptuje tej kopii rozszerzenia"
+    "message": "zDownloader³ nie akceptuje tej kopii rozszerzenia"
   },
   "status_not_running": {
-    "message": "ZDownloader3 nie uruchomił się na czas"
+    "message": "zDownloader³ nie uruchomił się na czas"
   },
   "status_host_failed": {
-    "message": "Połączenie z ZDownloader3 nie powiodło się"
+    "message": "Połączenie z zDownloader³ nie powiodło się"
   },
   "status_too_large": {
     "message": "Szczegóły tego pobierania były zbyt duże, aby je przekazać"
   },
   "status_update_app": {
-    "message": "Zaktualizuj ZDownloader3, aby korzystać ze wszystkich funkcji oferowanych przez to rozszerzenie"
+    "message": "Zaktualizuj zDownloader³, aby korzystać ze wszystkich funkcji oferowanych przez to rozszerzenie"
   },
   "popup_take": {
     "message": "Pobieraj pliki z tej przeglądarki"
@@ -78,10 +78,10 @@
     "message": "Wysyłaj pobieranie przez serwer proxy lub rozszerzenie VPN tej przeglądarki"
   },
   "popup_proxy_title": {
-    "message": "Wtedy ZDownloader3 pobiera pliki przez ten sam serwer proxy, co przeglądarka. Przeglądarka raz poprosi o zezwolenie; wyłączenie tej opcji cofa to zezwolenie."
+    "message": "Wtedy zDownloader³ pobiera pliki przez ten sam serwer proxy, co przeglądarka. Przeglądarka raz poprosi o zezwolenie; wyłączenie tej opcji cofa to zezwolenie."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 pobiera wtedy pliki przez ten sam serwer proxy co przeglądarka. Gdy ta opcja jest wyłączona, rozszerzenie nie odczytuje serwera proxy przeglądarki."
+    "message": "zDownloader³ pobiera wtedy pliki przez ten sam serwer proxy co przeglądarka. Gdy ta opcja jest wyłączona, rozszerzenie nie odczytuje serwera proxy przeglądarki."
   },
   "popup_exclude_site": {
     "message": "Nigdy nie pobieraj plików z $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Otwórz ZDownloader3"
+    "message": "Otwórz zDownloader³"
   },
   "popup_options": {
     "message": "Opcje..."
@@ -150,7 +150,7 @@
     "message": "Opcja „Użyj zaawansowanej integracji z przeglądarką” jest wyłączona w Opcjach → Ogólne."
   },
   "declined_torrents": {
-    "message": "To jest torrent, a opcja Otwieraj linki magnet i pliki .torrent za pomocą ZDownloader3 jest wyłączona w ustawieniach torrentów."
+    "message": "To jest torrent, a opcja Otwieraj linki magnet i pliki .torrent za pomocą zDownloader³ jest wyłączona w ustawieniach torrentów."
   },
   "declined_site_access": {
     "message": "Rozszerzenie nie ma uprawnień do odczytu tej witryny (dostęp rozszerzenia do witryny w przeglądarce)."
@@ -195,16 +195,16 @@
     "message": "Brak wideo do pobrania w tym miejscu"
   },
   "video_playlist": {
-    "message": "Lista wideo: wybierz je w ZDownloader3"
+    "message": "Lista wideo: wybierz je w zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 potrzebuje yt-dlp dla tego wideo"
+    "message": "zDownloader³ potrzebuje yt-dlp dla tego wideo"
   },
   "video_too_long": {
     "message": "Wyszukiwanie trwało zbyt długo"
   },
   "video_busy": {
-    "message": "ZDownloader3 jest zajęty innymi wideo"
+    "message": "zDownloader³ jest zajęty innymi wideo"
   },
   "video_queued": {
     "message": "Dodano do kolejki"
@@ -228,7 +228,7 @@
     "message": "Ten komputer"
   },
   "popup_send_remote": {
-    "message": "Inny ZDownloader3 (serwer)"
+    "message": "Inny zDownloader³ (serwer)"
   },
   "popup_remote_code": {
     "message": "Kod parowania"
@@ -324,7 +324,7 @@
     "message": "Wszystkie jakości i napisy..."
   },
   "video_failed": {
-    "message": "ZDownloader3 nie jest zainstalowany lub nie uruchomił się"
+    "message": "zDownloader³ nie jest zainstalowany lub nie uruchomił się"
   },
   "video_download_best": {
     "message": "Pobierz najlepszą jakość"

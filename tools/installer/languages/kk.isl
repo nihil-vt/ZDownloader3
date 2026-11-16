@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Kazakh: tools/installer/languages.py
+﻿; zDownloader³'s installer in Kazakh: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=%1 жойылуда.
 
 [CustomMessages]
 TaskBrowser=Шолушы интеграциясын орнату (&Chrome, Edge, Brave, Firefox)
-TaskTorrents=.&torrent файлдарын және магниттік сілтемелерді ZDownloader3 арқылы ашу
-TaskStartup=&Windows іске қосылғанда ZDownloader3 іске қосу
+TaskTorrents=.&torrent файлдарын және магниттік сілтемелерді zDownloader³ арқылы ашу
+TaskStartup=&Windows іске қосылғанда zDownloader³ іске қосу
 TaskGroupOther=Басқа:
-Launch=ZDownloader3 іске қосу
+Launch=zDownloader³ іске қосу
 KeepData=Жүктеп алу тізіміңіз бен параметрлеріңізді де жою керек пе?%n%nЖүктеп алынған файлдарыңызға ешқандай жағдайда қол тигізілмейді.

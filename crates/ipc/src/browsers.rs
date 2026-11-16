@@ -1343,14 +1343,14 @@ mod tests {
             ("Rar$DIa1234.5678", true),
             ("7zO8A3B1C2D", true),
             ("7zE0F12AB34", true),
-            ("Temp1_ZDownloader3-0.5.2-x64.zip", true),
+            ("Temp1_zDownloader³-0.5.2-x64.zip", true),
             ("Temp12_x.zip", true),
             ("7-Zip", false),
             ("7zip", false),
             ("7zOops", false),
             ("Templates", false),
             ("Temp_x.zip", false),
-            ("ZDownloader3-0.5.2-x64", false),
+            ("zDownloader³-0.5.2-x64", false),
             ("Rar", false),
         ];
         for (name, archive) in names {
@@ -1363,7 +1363,7 @@ mod tests {
         };
         let temps = [PathBuf::from(temp)];
         let at = |p: &str| Path::new(p).join("zdownloader3.exe");
-        let rar = format!(r"{temp}/Rar$EXa34720.17029.rartemp/ZDownloader3-0.5.2-x64");
+        let rar = format!(r"{temp}/Rar$EXa34720.17029.rartemp/zDownloader³-0.5.2-x64");
         assert!(temporary(&at(&rar), &temps));
         assert!(temporary(&at(&format!("{temp}/mdm")), &temps));
         assert!(temporary(&at(temp), &temps));

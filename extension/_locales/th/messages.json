@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "ส่งการดาวน์โหลดจากเบราว์เซอร์ไปยัง ZDownloader3"
+    "message": "ส่งการดาวน์โหลดจากเบราว์เซอร์ไปยัง zDownloader³"
   },
   "menu": {
-    "message": "ดาวน์โหลดด้วย ZDownloader3"
+    "message": "ดาวน์โหลดด้วย zDownloader³"
   },
   "video_download": {
     "message": "ดาวน์โหลดวิดีโอ"
@@ -30,19 +30,19 @@
     "message": "การตั้งค่าปุ่ม..."
   },
   "video_sent": {
-    "message": "ส่งไปยัง ZDownloader3"
+    "message": "ส่งไปยัง zDownloader³"
   },
   "menu_selected": {
-    "message": "ดาวน์โหลดลิงก์ที่เลือกด้วย ZDownloader3"
+    "message": "ดาวน์โหลดลิงก์ที่เลือกด้วย zDownloader³"
   },
   "menu_all": {
-    "message": "ดาวน์โหลดลิงก์ทั้งหมดด้วย ZDownloader3"
+    "message": "ดาวน์โหลดลิงก์ทั้งหมดด้วย zDownloader³"
   },
   "status_connected": {
-    "message": "เชื่อมต่อกับ ZDownloader3 แล้ว"
+    "message": "เชื่อมต่อกับ zDownloader³ แล้ว"
   },
   "status_connected_version": {
-    "message": "เชื่อมต่อกับ ZDownloader3 $version$ แล้ว",
+    "message": "เชื่อมต่อกับ zDownloader³ $version$ แล้ว",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "หยุดชั่วคราว: การดาวน์โหลดจะยังคงอยู่ในเบราว์เซอร์"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 ไม่ได้ติดตั้ง หรือไม่ได้ตั้งค่าการรวมเบราว์เซอร์"
+    "message": "zDownloader³ ไม่ได้ติดตั้ง หรือไม่ได้ตั้งค่าการรวมเบราว์เซอร์"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 ไม่ยอมรับส่วนขยายนี้"
+    "message": "zDownloader³ ไม่ยอมรับส่วนขยายนี้"
   },
   "status_not_running": {
-    "message": "ZDownloader3 ไม่เริ่มทำงานทันเวลา"
+    "message": "zDownloader³ ไม่เริ่มทำงานทันเวลา"
   },
   "status_host_failed": {
-    "message": "การเชื่อมต่อกับ ZDownloader3 ล้มเหลว"
+    "message": "การเชื่อมต่อกับ zDownloader³ ล้มเหลว"
   },
   "status_too_large": {
     "message": "รายละเอียดการดาวน์โหลดนี้มีขนาดใหญ่เกินกว่าที่จะส่งมอบได้"
   },
   "status_update_app": {
-    "message": "อัปเดต ZDownloader3 เพื่อใช้ทุกสิ่งที่ส่วนขยายนี้มีให้"
+    "message": "อัปเดต zDownloader³ เพื่อใช้ทุกสิ่งที่ส่วนขยายนี้มีให้"
   },
   "popup_take": {
     "message": "รับการดาวน์โหลดจากเบราว์เซอร์นี้"
@@ -78,10 +78,10 @@
     "message": "ส่งการดาวน์โหลดผ่านพร็อกซีหรือส่วนขยาย VPN ของเบราว์เซอร์นี้"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ เบราว์เซอร์จะขออนุญาตคุณหนึ่งครั้ง การปิดตัวเลือกนี้จะยกเลิกการอนุญาตนั้น"
+    "message": "zDownloader³ จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ เบราว์เซอร์จะขออนุญาตคุณหนึ่งครั้ง การปิดตัวเลือกนี้จะยกเลิกการอนุญาตนั้น"
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ ขณะที่ปิดอยู่ ส่วนขยายจะไม่สามารถอ่านพร็อกซีของเบราว์เซอร์ได้"
+    "message": "zDownloader³ จะดาวน์โหลดผ่านพร็อกซีเดียวกับเบราว์เซอร์นี้ ขณะที่ปิดอยู่ ส่วนขยายจะไม่สามารถอ่านพร็อกซีของเบราว์เซอร์ได้"
   },
   "popup_exclude_site": {
     "message": "ห้ามดาวน์โหลดจาก $site$ อีก",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "เปิด ZDownloader3"
+    "message": "เปิด zDownloader³"
   },
   "popup_options": {
     "message": "ตัวเลือก..."
@@ -150,7 +150,7 @@
     "message": "การใช้การผสานรวมเบราว์เซอร์ขั้นสูงถูกปิดใน ตัวเลือก → ทั่วไป"
   },
   "declined_torrents": {
-    "message": "เป็นทอร์เรนต์ และ “เปิดลิงก์แม่เหล็กและไฟล์ .torrent ด้วย ZDownloader3” ปิดอยู่ในการตั้งค่าทอร์เรนต์"
+    "message": "เป็นทอร์เรนต์ และ “เปิดลิงก์แม่เหล็กและไฟล์ .torrent ด้วย zDownloader³” ปิดอยู่ในการตั้งค่าทอร์เรนต์"
   },
   "declined_site_access": {
     "message": "ส่วนขยายไม่ได้รับอนุญาตให้อ่านไซต์นี้ (การเข้าถึงไซต์ของเบราว์เซอร์)"
@@ -195,16 +195,16 @@
     "message": "ไม่มีวิดีโอให้ดาวน์โหลดที่นี่"
   },
   "video_playlist": {
-    "message": "รายการวิดีโอ: เลือกใน ZDownloader3"
+    "message": "รายการวิดีโอ: เลือกใน zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 ต้องใช้ yt-dlp สำหรับวิดีโอนี้"
+    "message": "zDownloader³ ต้องใช้ yt-dlp สำหรับวิดีโอนี้"
   },
   "video_too_long": {
     "message": "การค้นหาใช้เวลานานเกินไป"
   },
   "video_busy": {
-    "message": "ZDownloader3 กำลังยุ่งกับวิดีโออื่น"
+    "message": "zDownloader³ กำลังยุ่งกับวิดีโออื่น"
   },
   "video_queued": {
     "message": "เพิ่มลงในคิวแล้ว"
@@ -228,7 +228,7 @@
     "message": "คอมพิวเตอร์เครื่องนี้"
   },
   "popup_send_remote": {
-    "message": "ZDownloader3 อื่น (เซิร์ฟเวอร์)"
+    "message": "zDownloader³ อื่น (เซิร์ฟเวอร์)"
   },
   "popup_remote_code": {
     "message": "รหัสจับคู่"
@@ -324,7 +324,7 @@
     "message": "ทุกคุณภาพและคำบรรยาย..."
   },
   "video_failed": {
-    "message": "ZDownloader3 ไม่ได้ติดตั้งหรือไม่ได้เริ่มทำงาน"
+    "message": "zDownloader³ ไม่ได้ติดตั้งหรือไม่ได้เริ่มทำงาน"
   },
   "video_download_best": {
     "message": "ดาวน์โหลดคุณภาพดีที่สุด"

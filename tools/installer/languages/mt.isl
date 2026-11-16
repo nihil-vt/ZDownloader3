@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Maltese: tools/installer/languages.py
+﻿; zDownloader³'s installer in Maltese: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Qed tiddiżinstalla %1.
 
 [CustomMessages]
 TaskBrowser=Issettja l-integrazzjoni tal-&brawżer (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Iftaħ fajls .&torrent u links manjetiċi b'ZDownloader3
-TaskStartup=Ibda ZDownloader3 meta tibda l-&Windows
+TaskTorrents=Iftaħ fajls .&torrent u links manjetiċi b'zDownloader³
+TaskStartup=Ibda zDownloader³ meta tibda l-&Windows
 TaskGroupOther=Oħrajn:
-Launch=Ibda ZDownloader3
+Launch=Ibda zDownloader³
 KeepData=Tħassar ukoll il-lista tat-tniżżil u s-settings tiegħek?%n%nIl-fajls imniżżla tiegħek ma jintmessux fi kwalunkwe każ.

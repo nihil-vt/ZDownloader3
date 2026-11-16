@@ -1,4 +1,4 @@
-# ZDownloader3 in Georgian (ქართული): tools/i18n/translate.py
+# zDownloader³ in Georgian (ქართული): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	ქართული
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	გსურთ ZDownloader3-ის ჩამოტვირთვების სიიდან {n} ჩამოტვირთვის წაშლა?|გსურთ ZDownloader3-ის ჩამოტვირთვების სიიდან ამ {n} ჩამოტვირთვის წაშლა?
+@plural	Are you sure you want to delete {n} download from zDownloader³ list of downloads?|Are you sure you want to delete these {n} downloads from zDownloader³ list of downloads?	გსურთ zDownloader³-ის ჩამოტვირთვების სიიდან {n} ჩამოტვირთვის წაშლა?|გსურთ zDownloader³-ის ჩამოტვირთვების სიიდან ამ {n} ჩამოტვირთვის წაშლა?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	მას ერთი ტომი აკლია
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About ZDownloader3	ZDownloader3-ის შესახებ
+	About zDownloader³	zDownloader³-ის შესახებ
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add ZDownloader3 to your browser	ZDownloader3-ის დამატება თქვენს ბრაუზერში
+	Add zDownloader³ to your browser	zDownloader³-ის დამატება თქვენს ბრაუზერში
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	ყოველთვის მის სახელობის საქაღალდეში
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on ZDownloader3 startup	ყოველთვის ჩართეთ სიჩქარის შემზღუდველი ZDownloader3-ის გაშვებისას
+	Always turn on Speed Limiter on zDownloader³ startup	ყოველთვის ჩართეთ სიჩქარის შემზღუდველი zDownloader³-ის გაშვებისას
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	დარწმუნებული ხართ, რომ გსურთ „{name}“-ის წაშლა ZDownloader3-ის ჩამოტვირთვების სიიდან?
+	Are you sure you want to delete "{name}" from zDownloader³ list of downloads?	დარწმუნებული ხართ, რომ გსურთ „{name}“-ის წაშლა zDownloader³-ის ჩამოტვირთვების სიიდან?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	დათვალიერება...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	ბრაუზერის ინტეგრაცია ამ კომპიუტერზე არ არის დაყენებული, ამიტომ არცერთ ბრაუზერს არ შეუძლია ZDownloader3-თან დაკავშირება.
+	Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.	ბრაუზერის ინტეგრაცია ამ კომპიუტერზე არ არის დაყენებული, ამიტომ არცერთ ბრაუზერს არ შეუძლია zDownloader³-თან დაკავშირება.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	ბრაუზერის/სისტემის ინტეგრაცია
@@ -944,7 +944,7 @@
 	Choose a language	აირჩიეთ ენა
 #. text in langpick.rs
 #, machine
-	Choose the language ZDownloader3 shows its windows in:	აირჩიეთ ენა, რომელზეც ZDownloader3 აჩვენებს ფანჯრებს:
+	Choose the language zDownloader³ shows its windows in:	აირჩიეთ ენა, რომელზეც zDownloader³ აჩვენებს ფანჯრებს:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	გასვლა
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit ZDownloader3 when done	ZDownloader3-დან გასვლა დასრულების შემდეგ
+	Exit zDownloader³ when done	zDownloader³-დან გასვლა დასრულების შემდეგ
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	მოსალოდნელი საკონტროლო ჯამი (MD5, SHA-1, SHA-256, SHA-512 ან CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	ვებ გვერდების დამალვა
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	დააჭირეთ Alt-ს ბმულზე დაწკაპუნებისას, რათა ბრაუზერმა ჩამოტვირთოს ის ZDownloader3-ის ნაცვლად.
+	Hold Alt while clicking a link to let the browser download it instead of zDownloader³.	დააჭირეთ Alt-ს ბმულზე დაწკაპუნებისას, რათა ბრაუზერმა ჩამოტვირთოს ის zDownloader³-ის ნაცვლად.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	მთავარი გვერდი
@@ -2127,7 +2127,7 @@
 	Hungary	უნგრეთი
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	მე ვიწერ ZDownloader3-ით: სწრაფი, უფასო და ის ჰგავს ჩამოტვირთვის მენეჯერს, რომელიც უკვე იცით. {link}
+	I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}	მე ვიწერ zDownloader³-ით: სწრაფი, უფასო და ის ჰგავს ჩამოტვირთვის მენეჯერს, რომელიც უკვე იცით. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	ლატვია
 #. text in the Options window
 #, machine
-	Launch ZDownloader3 on startup	ZDownloader3-ის გაშვება Windows-ის გაშვებისას
+	Launch zDownloader³ on startup	zDownloader³-ის გაშვება Windows-ის გაშვებისას
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	ჩამოუტვირთავი
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	ZDownloader3	ZDownloader3
+	zDownloader³	zDownloader³
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3-ს არ შეუძლია ფანჯრის გახსნა: ამ სისტემას აკლია {libraries}.
+	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³-ს არ შეუძლია ფანჯრის გახსნა: ამ სისტემას აკლია {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	ZDownloader3 closed unexpectedly	ZDownloader3 მოულოდნელად დაიხურა
+	zDownloader³ closed unexpectedly	zDownloader³ მოულოდნელად დაიხურა
 #. window title in the Options window
 #, machine
-	ZDownloader3 Configuration	ZDownloader3-ის კონფიგურაცია
+	zDownloader³ Configuration	zDownloader³-ის კონფიგურაცია
 #. text in crashui.rs
 #, machine
-	ZDownloader3 crash report	ZDownloader3 ავარიის ანგარიში
+	zDownloader³ crash report	zDownloader³ ავარიის ანგარიში
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	ZDownloader3 hit an internal error	ZDownloader3-ში შიდა შეცდომა მოხდა
+	zDownloader³ hit an internal error	zDownloader³-ში შიდა შეცდომა მოხდა
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	ZDownloader3 is downloading	ZDownloader3 ჩამოტვირთვას ახორციელებს
+	zDownloader³ is downloading	zDownloader³ ჩამოტვირთვას ახორციელებს
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	ZDownloader3 is running the queue "{queue}"	ZDownloader3 ამუშავებს რიგს „{queue}“
+	zDownloader³ is running the queue "{queue}"	zDownloader³ ამუშავებს რიგს „{queue}“
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	ZDownloader3 stopped responding	ZDownloader3 აღარ პასუხობს
+	zDownloader³ stopped responding	zDownloader³ აღარ პასუხობს
 #. text in crashui.rs
 #, machine
-	ZDownloader3 stopped responding for a while	ZDownloader3 ცოტა ხნით აღარ პასუხობდა
+	zDownloader³ stopped responding for a while	zDownloader³ ცოტა ხნით აღარ პასუხობდა
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 ყოველ კავშირს პირდაპირ საბოლოო\nფაილში წერს (მის გვერდით არსებულ მეჩხერ ნაწილობრივ ფაილში), ამიტომ არ არის საჭირო დროებითი დირექტორია და აწყობის ეტაპი.
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ ყოველ კავშირს პირდაპირ საბოლოო\nფაილში წერს (მის გვერდით არსებულ მეჩხერ ნაწილობრივ ფაილში), ამიტომ არ არის საჭირო დროებითი დირექტორია და აწყობის ეტაპი.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} ხელმისაწვდომია (გამოვიდა {date}).
+	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} ხელმისაწვდომია (გამოვიდა {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3's own copy, version {version}	ZDownloader3-ის საკუთარი ასლი, ვერსია {version}
+	zDownloader³'s own copy, version {version}	zDownloader³-ის საკუთარი ასლი, ვერსია {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ZDownloader3-ის X11 ფანჯარას სჭირდება {libraries}, რომელიც ამ სისტემას აკლია: ის იხსნება Wayland-ზე, სადაც მისი მენიუები შეიძლება გაიხსნას მათი სათაურებისგან მოშორებით.
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	zDownloader³-ის X11 ფანჯარას სჭირდება {libraries}, რომელიც ამ სისტემას აკლია: ის იხსნება Wayland-ზე, სადაც მისი მენიუები შეიძლება გაიხსნას მათი სათაურებისგან მოშორებით.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	ბრაუზერში გახსნა
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with ZDownloader3	გახსენით მაგნიტური ბმულები და .torrent ფაილები ZDownloader3-ით
+	Open magnet links and .torrent files with zDownloader³	გახსენით მაგნიტური ბმულები და .torrent ფაილები zDownloader³-ით
 #. text in the tray icon's menu
 #, machine
-	Open ZDownloader3	გახსენით ZDownloader3
+	Open zDownloader³	გახსენით zDownloader³
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with ZDownloader3	ZDownloader3-თან დაწყვილება
+	Pair with zDownloader³	zDownloader³-თან დაწყვილება
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	წერტილოვანი მონახაზის მქონე ჩამოტვირთვის არჩევა ან მოხსნა
 #. group box title in the Options window
 #, machine
-	Select sounds for ZDownloader3 events	აირჩიეთ ხმები ZDownloader3-ის მოვლენებისთვის
+	Select sounds for zDownloader³ events	აირჩიეთ ხმები zDownloader³-ის მოვლენებისთვის
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	ჩამოტვირთვების არჩევა ველში
@@ -4230,7 +4230,7 @@
 	Start download at	ჩამოტვირთვის დაწყება
 #. checkbox in the Scheduler window
 #, machine
-	Start download on ZDownloader3 startup	ჩამოტვირთვის დაწყება ZDownloader3-ის გაშვებისას
+	Start download on zDownloader³ startup	ჩამოტვირთვის დაწყება zDownloader³-ის გაშვებისას
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	დაუყოვნებლივ დაიწყეთ ჩამოტვირთვა „ფაილის ინფორმაციის ჩამოტვირთვა“ დიალოგის ჩვენებისას
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	კომპიუტერის გაშვებისას, ის მინიმალურ რეჟიმში ირთვება: აქ მისი ხატულა შეტყობინებების ზონაში არ ჩანს
 #. text in the Options window
-#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch zDownloader³ on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	კომპიუტერის გაშვებისას, ის შეტყობინებების ზონაში ელოდება
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find ZDownloader3	ბრაუზერები ZDownloader3-ს პოულობენ
+	The browsers can find zDownloader³	ბრაუზერები zDownloader³-ს პოულობენ
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	კომპიუტერი გაღვიძდება დაწყების დრომდე ერთი წუთით ადრე და გაღვიძებული დარჩება, სანამ რიგი მუშაობს. ZDownloader3 უნდა მუშაობდეს (შესაძლებელია, ის შეტყობინებების არეში იყოს მინიმიზებული).
+	The computer is woken a minute before the start time and kept awake while the queue runs. zDownloader³ has to be running (it can wait in the notification area).	კომპიუტერი გაღვიძდება დაწყების დრომდე ერთი წუთით ადრე და გაღვიძებული დარჩება, სანამ რიგი მუშაობს. zDownloader³ უნდა მუშაობდეს (შესაძლებელია, ის შეტყობინებების არეში იყოს მინიმიზებული).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	არჩეული ჩამოტვირთვა არ არის დასრულებული. დარწმუნებული ხართ, რომ გსურთ მისი წაშლა\nZDownloader3-ის ჩამოტვირთვების სიიდან?
+	The selected download is not complete. Are you sure you want to delete\nit from zDownloader³ list of downloads?	არჩეული ჩამოტვირთვა არ არის დასრულებული. დარწმუნებული ხართ, რომ გსურთ მისი წაშლა\nzDownloader³-ის ჩამოტვირთვების სიიდან?
 #. text in errors.rs
 #, machine
 	the server answered {status}	სერვერმა უპასუხა {status}
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "ZDownloader3" and allow it on all websites.	ჩართეთ „ZDownloader3“ და დაუშვით ყველა ვებსაიტზე.
+	Turn on "zDownloader³" and allow it on all websites.	ჩართეთ „zDownloader³“ და დაუშვით ყველა ვებსაიტზე.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of ZDownloader3 ({version}).	თქვენ გაქვთ ZDownloader3-ის უახლესი ვერსია ({version}).
+	You have the latest version of zDownloader³ ({version}).	თქვენ გაქვთ zDownloader³-ის უახლესი ვერსია ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	გადაცემის სიჩქარე
 #, machine
 column	Upload speed	ატვირთვის სიჩქარე
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name zDownloader³ as it is
 #, machine
-extension	A list of videos: choose them in ZDownloader3	ვიდეოების სია: აირჩიეთ ისინი ZDownloader3-ში
+extension	A list of videos: choose them in zDownloader³	ვიდეოების სია: აირჩიეთ ისინი zDownloader³-ში
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	რიგში დაემატა
 #, machine
 extension	All qualities and subtitles...	ყველა ხარისხი და სუბტიტრები...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name zDownloader³ as it is
 #, machine
-extension	Another ZDownloader3 (a server)	სხვა ZDownloader3 (სერვერი)
+extension	Another zDownloader³ (a server)	სხვა zDownloader³ (სერვერი)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	საუკეთესო
 #, machine
 extension	Browser extension	ბრაუზერის გაფართოება
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in ZDownloader3
+#. menu command of the download button over a video: opens its settings in zDownloader³
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	ღილაკის პარამეტრები...
@@ -6108,14 +6108,14 @@ extension	can't be saved	ვერ შეინახება
 #, machine
 extension	Can't tell which video this is: open its own page and try there	ვერ დგინდება, რომელი ვიდეოა ეს: გახსენით მისი საკუთარი გვერდი და სცადეთ იქ
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app; keep the name zDownloader³ as it is
 #, machine
-extension	Connected to ZDownloader3	დაკავშირებულია ZDownloader3-თან
+extension	Connected to zDownloader³	დაკავშირებულია zDownloader³-თან
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name zDownloader³ as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to ZDownloader3 {version}	დაკავშირებულია ZDownloader3 {version}-თან
+extension	Connected to zDownloader³ {version}	დაკავშირებულია zDownloader³ {version}-თან
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	ვერ მოიძებნა
 #, machine
 extension	Download	ჩამოტვირთვა
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name zDownloader³ as it is
 #, machine
-extension	Download all links with ZDownloader3	ყველა ბმულის ჩამოტვირთვა ZDownloader3-ით
+extension	Download all links with zDownloader³	ყველა ბმულის ჩამოტვირთვა zDownloader³-ით
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	საუკეთესო ხარისხის ჩამოტვირთვა
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name zDownloader³ as it is
 #, machine
-extension	Download selected links with ZDownloader3	არჩეული ბმულების ჩამოტვირთვა ZDownloader3-ით
+extension	Download selected links with zDownloader³	არჩეული ბმულების ჩამოტვირთვა zDownloader³-ით
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	ჩამოტვირთეთ საუ�
 #, machine
 extension	Download video	ვიდეოს ჩამოტვირთვა
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name zDownloader³ as it is
 #, machine
-extension	Download with ZDownloader3	ჩამოტვირთვა ZDownloader3-ით
+extension	Download with zDownloader³	ჩამოტვირთვა zDownloader³-ით
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	შეიყვანეთ მისი h
 #, machine
 extension	Get MDM	მიიღეთ MDM
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
+#. the extension's description in the browser's list of extensions; keep the name zDownloader³ as it is
 #, machine
-extension	Hands downloads from the browser to ZDownloader3.	გადასცემს ჩამოტვირთვებს ბრაუზერიდან ZDownloader3-ს.
+extension	Hands downloads from the browser to zDownloader³.	გადასცემს ჩამოტვირთვებს ბრაუზერიდან zDownloader³-ს.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	არ იმუშავა. სცად�
 #, machine
 extension	It shows no code now: click Pair a device there first.	ახლა კოდს არ აჩვენებს: ჯერ დააწკაპუნეთ იქ „მოწყობილობის დაწყვილება“-ზე.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with zDownloader³, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	ეს არის ტორენტი, და „მაგნიტური ბმულების და .torrent ფაილების გახსნა ZDownloader3-ით“ გამორთულია ტორენტის პარამეტრებში.
+extension	It's a torrent, and Open magnet links and .torrent files with zDownloader³ is off in Torrent settings.	ეს არის ტორენტი, და „მაგნიტური ბმულების და .torrent ფაილების გახსნა zDownloader³-ით“ გამორთულია ტორენტის პარამეტრებში.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM-მა პასუხი არ გასცა
 #, machine
 extension	Media on this page	მედია ამ გვერდზე
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3	ZDownloader3
+extension	zDownloader³	zDownloader³
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 didn't start in time	ZDownloader3 დროულად არ დაიწყო
+extension	zDownloader³ didn't start in time	zDownloader³ დროულად არ დაიწყო
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 არ იღებს გაფართოების ამ ასლს
+extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ არ იღებს გაფართოების ამ ასლს
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 is busy with other videos	ZDownloader3 სხვა ვიდეოებითაა დაკავებული
+extension	zDownloader³ is busy with other videos	zDownloader³ სხვა ვიდეოებითაა დაკავებული
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 არ არის დაინსტალირებული ან არ დაიწყო
+extension	zDownloader³ isn't installed or didn't start	zDownloader³ არ არის დაინსტალირებული ან არ დაიწყო
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 არ არის დაინსტალირებული, ან მისი ბრაუზერის ინტეგრაცია არ არის დაყენებული
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ არ არის დაინსტალირებული, ან მისი ბრაუზერის ინტეგრაცია არ არის დაყენებული
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3-ს სჭირდება yt-dlp ამ ვიდეოსთვის
+extension	zDownloader³ needs yt-dlp for this video	zDownloader³-ს სჭირდება yt-dlp ამ ვიდეოსთვის
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 შემდეგ ჩამოტვირთავს ამ ბრაუზერის მსგავსი პროქსის მეშვეობით. ბრაუზერი ერთხელ გთხოვთ ამის დაშვებას; ამის გამორთვა გააუქმებს ამ ნებართვას.
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ შემდეგ ჩამოტვირთავს ამ ბრაუზერის მსგავსი პროქსის მეშვეობით. ბრაუზერი ერთხელ გთხოვთ ამის დაშვებას; ამის გამორთვა გააუქმებს ამ ნებართვას.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 შემდეგ ჩამოტვირთავს იმავე პროქსის მეშვეობით, როგორც ეს ბრაუზერი. სანამ ეს გამორთულია, გაფართოება არ კითხულობს ბრაუზერის პროქსის.
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ შემდეგ ჩამოტვირთავს იმავე პროქსის მეშვეობით, როგორც ეს ბრაუზერი. სანამ ეს გამორთულია, გაფართოება არ კითხულობს ბრაუზერის პროქსის.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6325,9 +6325,9 @@ extension	Open it	გახსნა
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	გახსენით მისი მისამართი ერთხელ და მიიღეთ მისი სერტიფიკატი, შემდეგ შეიყვანეთ კოდი მისი „პარამეტრები“, „დისტანციური“, „მოწყობილობის დაწყვილება“-დან (ან zdownloader3-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
 #, machine
-extension	Open ZDownloader3	ZDownloader3-ის გახსნა
+extension	Open zDownloader³	zDownloader³-ის გახსნა
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	ჩამ
 #, machine
 extension	Send downloads to	ჩამოტვირთვების გაგზავნა
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is zDownloader³'s short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	MDM-ში გაგზავნა...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
+#. shown briefly on the download button after it was clicked; keep the name zDownloader³ as it is
 #, machine
-extension	Sent to ZDownloader3	გაგზავნილია ZDownloader3-ში
+extension	Sent to zDownloader³	გაგზავნილია zDownloader³-ში
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	ჩამოტვირთვებ�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store-ის წესების გამო გაფართოების ეს ვერსია ამ საიტის ვიდეოებთან ვერ მუშაობს. რა შეგიძლიათ გააკეთოთ, იხილეთ დახმარებაში.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name zDownloader³ as it is
 #, machine
-extension	The connection to ZDownloader3 failed	კავშირი ZDownloader3-თან ვერ მოხერხდა
+extension	The connection to zDownloader³ failed	კავშირი zDownloader³-თან ვერ მოხერხდა
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	ბოლო ჩამო�
 #, machine
 extension	This browser isn't ticked in Options → General.	ეს ბრაუზერი არ არის მონიშნული პარამეტრებში → ზოგადი.
 #. text in the browser extension
-#. choice under Send downloads to: the ZDownloader3 on this computer
+#. choice under Send downloads to: the zDownloader³ on this computer
 #, machine
 extension	This computer	ეს კომპიუტერი
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	ჩართვა
 #, machine
 extension	Undo	გაუქმება
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name ZDownloader3 as it is
+#. status when the app is older than the extension; keep the name zDownloader³ as it is
 #, machine
-extension	Update ZDownloader3 to use everything this extension offers	განაახლეთ ZDownloader3, რათა გამოიყენოთ ყველაფერი, რასაც ეს გაფართოება გთავაზობთ
+extension	Update zDownloader³ to use everything this extension offers	განაახლეთ zDownloader³, რათა გამოიყენოთ ყველაფერი, რასაც ეს გაფართოება გთავაზობთ
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	ზემოთ / ქვემოთ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About ZDownloader3	ZDownloader3-ის &შესახებ
+menu	&About zDownloader³	zDownloader³-ის &შესახებ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6979,7 +6979,7 @@ menu	Metro	მეტრო
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	ZDownloader3 &Home Page	ZDownloader3-ის &მთავარი გვერდი
+menu	zDownloader³ &Home Page	zDownloader³-ის &მთავარი გვერდი
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	გადატანა/გადარქმევა (Ctrl-M)
@@ -7112,7 +7112,7 @@ menu	Select &all	ყველას &არჩევა
 menu	Show &drop target	&ჩამოგდების სამიზნის ჩვენება
 #. menu command in the main window
 #, machine
-menu	Show ZDownloader3	ZDownloader3-ის ჩვენება
+menu	Show zDownloader³	zDownloader³-ის ჩვენება
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

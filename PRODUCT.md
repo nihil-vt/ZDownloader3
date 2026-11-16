@@ -19,7 +19,7 @@ while using the app, and contributors (code, translations, bug reports) arriving
 
 ## Product Purpose
 
-ZDownloader3 (MDM) is a free, open-source (GPL-3.0) download manager for Windows and Linux,
+zDownloader³ (MDM) is a free, open-source (GPL-3.0) download manager for Windows and Linux,
 laid out the way IDM users expect: same windows, menus and workflow, rebuilt from scratch in
 Rust. The website's job is to get the right visitor to download it with confidence, then to
 help them use it (help pages, FAQ, tutorials).

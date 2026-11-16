@@ -1,4 +1,4 @@
-// ZDownloader3's link watcher (a content script, in every page and frame):
+// zDownloader³'s link watcher (a content script, in every page and frame):
 //  - a link clicked with Alt held (Option on a Mac) is the browser's to download (background.js
 //    leaves its download alone), the key the app's help names for it. The background hears of
 //    it as the button goes down, before the browser can start a download (Chromium and Safari

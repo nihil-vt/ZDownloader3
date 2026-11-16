@@ -1,6 +1,6 @@
 # Packagizer
 
-ZDownloader3's rule chain for the link grabber, mirroring JDownloader2's Packagizer (`org.jdownloader.controlling.packagizer`). Links are matched when they are added (and again on demand) and **have their names changed, their packages moved, or their destination changed** — in the order your rules are listed, each rule seeing what the ones before it did.
+zDownloader³'s rule chain for the link grabber, mirroring JDownloader2's Packagizer (`org.jdownloader.controlling.packagizer`). Links are matched when they are added (and again on demand) and **have their names changed, their packages moved, or their destination changed** — in the order your rules are listed, each rule seeing what the ones before it did.
 
 Open it: **Downloads → Packagize&r** (or `zdownloader3 --show packagizer`). The window's **Apply to list** re-runs the chain on the links already staged in the grabber.
 

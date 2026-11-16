@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Luxembourgish: tools/installer/languages.py
+﻿; zDownloader³'s installer in Luxembourgish: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Deinstalléieren %1.
 
 [CustomMessages]
 TaskBrowser=Browserintegratioun ariichten (&B) (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Maacht .&torrent-Fichieren a Magnet-Linke mat ZDownloader3 op
-TaskStartup=Start ZDownloader3, wann &Windows start
+TaskTorrents=Maacht .&torrent-Fichieren a Magnet-Linke mat zDownloader³ op
+TaskStartup=Start zDownloader³, wann &Windows start
 TaskGroupOther=Aneres:
-Launch=Start ZDownloader3
+Launch=Start zDownloader³
 KeepData=Och Är Downloadlëscht an Astellunge läschen?%n%nÄr erofgeluede Fichiere ginn souwisou net beréiert.

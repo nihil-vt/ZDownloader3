@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Uyghur: tools/installer/languages.py
+﻿; zDownloader³'s installer in Uyghur: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -292,8 +292,8 @@ ShutdownBlockReasonUninstallingApp=%1 چىقىرىۋاتىدۇ.
 
 [CustomMessages]
 TaskBrowser=كۆ&رسەتكۈچ بىر گەۋدىلەشتۈرۈش (Chrome, Edge, Brave, Firefox) تەڭشەش
-TaskTorrents=ZDownloader3 ئارقىلىق .&torrent ھۆججەتلىرى ۋە ماگنىت ئۇلىنىشلىرىنى ئېچىڭ
-TaskStartup=Windows ئى&جرا بولغاندا ZDownloader3 نى قوزغىتىڭ
+TaskTorrents=zDownloader³ ئارقىلىق .&torrent ھۆججەتلىرى ۋە ماگنىت ئۇلىنىشلىرىنى ئېچىڭ
+TaskStartup=Windows ئى&جرا بولغاندا zDownloader³ نى قوزغىتىڭ
 TaskGroupOther=باشقىلار:
-Launch=ZDownloader3 نى قوزغىتىش
+Launch=zDownloader³ نى قوزغىتىش
 KeepData=چۈشۈرۈش تىزىملىكىڭىز ۋە تەڭشەكلىرىڭىزنىمۇ ئۆچۈرەمسىز؟%n%nچۈشۈرۈلگەن ھۆججەتلىرىڭىزگە ھېچقانداق تەسىر يەتمەيدۇ.

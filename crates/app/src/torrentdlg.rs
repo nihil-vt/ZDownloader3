@@ -1168,7 +1168,7 @@ impl TorrentSettings {
                     ui,
                     pos2(o.x + 14.0, o.y + 108.0),
                     &mut self.assoc,
-                    "Open magnet links and .torrent files with ZDownloader3",
+                    "Open magnet links and .torrent files with zDownloader³",
                     true,
                 );
                 winui::fit(

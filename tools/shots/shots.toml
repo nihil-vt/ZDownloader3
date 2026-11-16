@@ -156,7 +156,7 @@ id = "browser-offer"
 page = "browser-integration.md"
 under = "Set it up"
 take = "extension"
-alt = "Add ZDownloader3 to your browser: each browser found, with a button to its store page"
+alt = "Add zDownloader³ to your browser: each browser found, with a button to its store page"
 caption = "MDM's own window opens each browser's store page for you."
 
 [[shot]]
@@ -392,7 +392,7 @@ id = "about-updates"
 page = "troubleshooting.md"
 under = "Updates"
 take = "about"
-alt = "About ZDownloader3: its version, licence and links"
+alt = "About zDownloader³: its version, licence and links"
 caption = "Help → About: the version you have."
 
 # ---- Options -------------------------------------------------------------------------------------

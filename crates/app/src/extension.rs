@@ -186,7 +186,7 @@ impl Extension {
             ctx,
             "extension",
             // i18n: title of the window that offers the browser extension
-            "Add ZDownloader3 to your browser",
+            "Add zDownloader³ to your browser",
             [W, h + extra],
             false,
             winui::BG(),
@@ -349,7 +349,7 @@ impl Extension {
             let why = match &refused {
                 Some(refused) => format!("{} {}", refused_line(refused), refused_how()),
                 None => crate::i18n::t(
-                    "Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.",
+                    "Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.",
                 )
                 .to_owned(),
             };
@@ -584,7 +584,7 @@ const STEPS: [&str; 8] = [
     // i18n: step 7 of turning on the Safari extension; the quoted tab name is what Safari's settings show in this language: use Apple's own word for it, or keep the English name when unsure
     "Switch to the \"Extensions\" tab (the puzzle piece).",
     // i18n: step 8 of turning on the Safari extension
-    "Turn on \"ZDownloader3\" and allow it on all websites.",
+    "Turn on \"zDownloader³\" and allow it on all websites.",
 ];
 
 /// The browsers whose extension reached the app, by Options' names.
@@ -721,11 +721,11 @@ fn refused_now(registration: &Registration) -> Option<Refused> {
 fn refused_line(refused: &Refused) -> String {
     if refused.browser.is_empty() {
         // i18n: a check of Test browser integration, and the browser extension's window (macOS): macOS refused to let MDM read or write a browser's folder (where the browser finds MDM's helper)
-        crate::i18n::t("macOS keeps ZDownloader3 out of a browser's folder.").to_owned()
+        crate::i18n::t("macOS keeps zDownloader³ out of a browser's folder.").to_owned()
     } else {
         crate::i18n::fmt(
             // i18n: a check of Test browser integration, and the browser extension's window (macOS): macOS refused to let MDM read or write {browser}'s folder (where the browser finds MDM's helper); {browser} is a browser's name
-            crate::i18n::t("macOS keeps ZDownloader3 out of {browser}'s folder."),
+            crate::i18n::t("macOS keeps zDownloader³ out of {browser}'s folder."),
             &[("browser", &refused.browser)],
         )
     }
@@ -736,9 +736,9 @@ fn refused_line(refused: &Refused) -> String {
 /// apps", Apple's Platform Support guide; the prompt macOS shows is "… would like to access data
 /// from other apps").
 fn refused_how() -> &'static str {
-    // i18n: under "macOS keeps ZDownloader3 out of …'s folder" (Test browser integration, the browser extension's window): how to allow it. The quoted words and System Settings → Privacy & Security → Full Disk Access are macOS's own: use Apple's words in this language, or keep the English ones when unsure
+    // i18n: under "macOS keeps zDownloader³ out of …'s folder" (Test browser integration, the browser extension's window): how to allow it. The quoted words and System Settings → Privacy & Security → Full Disk Access are macOS's own: use Apple's words in this language, or keep the English ones when unsure
     crate::i18n::t(
-        "If macOS asks whether it may access data from other apps, allow it. Or turn on ZDownloader3 in System Settings → Privacy & Security → Full Disk Access. Then press Set it up.",
+        "If macOS asks whether it may access data from other apps, allow it. Or turn on zDownloader³ in System Settings → Privacy & Security → Full Disk Access. Then press Set it up.",
     )
 }
 
@@ -974,7 +974,7 @@ pub fn checks(advanced: bool) -> Vec<Check> {
         Registration::Ready | Registration::Missing => check(
             registration == Registration::Ready,
             // i18n: a check of Test browser integration: the browsers find MDM's helper program
-            "The browsers can find ZDownloader3",
+            "The browsers can find zDownloader³",
             Some("not-installed"),
         ),
         Registration::NoBrowser => check(
@@ -1237,7 +1237,7 @@ mod tests {
     fn a_folder_macos_refused_is_named_with_its_browser() {
         let chrome = "/Users/a b/Library/Application Support/Google/Chrome/NativeMessagingHosts";
         let error = format!(
-            "/Applications/ZDownloader3.app/Contents/MacOS/zdownloader3-nmhost \
+            "/Applications/zDownloader³.app/Contents/MacOS/zdownloader3-nmhost \
              --repair: exit status: 1: registered com.zdownloader3.host in /Users/a b/\
              Library/Application Support/Vivaldi/NativeMessagingHosts zdownloader3-nmhost: \
              {chrome}: Operation not permitted (os error 1)"
@@ -1307,11 +1307,11 @@ mod tests {
         println!("{line}\n{unknown}\n{}", refused_how());
         assert_eq!(
             line,
-            "macOS keeps ZDownloader3 out of Google Chrome's folder."
+            "macOS keeps zDownloader³ out of Google Chrome's folder."
         );
         assert_eq!(
             unknown,
-            "macOS keeps ZDownloader3 out of a browser's folder."
+            "macOS keeps zDownloader³ out of a browser's folder."
         );
         assert!(refused_how().contains("Privacy & Security → Full Disk Access"));
         let check = refused_check(&chrome);

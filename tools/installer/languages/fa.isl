@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Persian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Persian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -292,8 +292,8 @@ ShutdownBlockReasonUninstallingApp=در حال حذف نصب %1.
 
 [CustomMessages]
 TaskBrowser=ادغام &مرورگر را تنظیم کنید (Chrome, Edge, Brave, Firefox)
-TaskTorrents=باز کردن فایل‌های &torrent. و پیوندهای آهنربایی با ZDownloader3
-TaskStartup=اجرای ZDownloader3 هنگام راه‌اندازی &Windows
+TaskTorrents=باز کردن فایل‌های &torrent. و پیوندهای آهنربایی با zDownloader³
+TaskStartup=اجرای zDownloader³ هنگام راه‌اندازی &Windows
 TaskGroupOther=سایر:
-Launch=اجرای ZDownloader3
+Launch=اجرای zDownloader³
 KeepData=آیا فهرست دانلود و تنظیمات شما نیز حذف شود؟%n%nفایل‌های دانلود شده شما در هر صورت دست‌نخورده باقی می‌مانند.

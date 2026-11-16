@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Albanian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Albanian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Po çinstalohet %1.
 
 [CustomMessages]
 TaskBrowser=Konfiguro integrimin e &shfletuesit (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Hapni skedarët .&torrent dhe lidhjet magnet me ZDownloader3
-TaskStartup=Nisni ZDownloader3 kur niset &Windows
+TaskTorrents=Hapni skedarët .&torrent dhe lidhjet magnet me zDownloader³
+TaskStartup=Nisni zDownloader³ kur niset &Windows
 TaskGroupOther=Të tjera:
-Launch=Nisni ZDownloader3
+Launch=Nisni zDownloader³
 KeepData=Të fshihet edhe lista e shkarkimeve dhe cilësimet?%n%nSkedarët tuaj të shkarkuar nuk preken në asnjë mënyrë.

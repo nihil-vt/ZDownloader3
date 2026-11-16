@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Sender nedlastinger fra nettleseren til ZDownloader3."
+    "message": "Sender nedlastinger fra nettleseren til zDownloader³."
   },
   "menu": {
-    "message": "Last ned med ZDownloader3"
+    "message": "Last ned med zDownloader³"
   },
   "video_download": {
     "message": "Last ned video"
@@ -30,19 +30,19 @@
     "message": "Knappeinnstillinger ..."
   },
   "video_sent": {
-    "message": "Sendt til ZDownloader3"
+    "message": "Sendt til zDownloader³"
   },
   "menu_selected": {
-    "message": "Last ned valgte koblinger med ZDownloader3"
+    "message": "Last ned valgte koblinger med zDownloader³"
   },
   "menu_all": {
-    "message": "Last ned alle koblinger med ZDownloader3"
+    "message": "Last ned alle koblinger med zDownloader³"
   },
   "status_connected": {
-    "message": "Tilkoblet ZDownloader3"
+    "message": "Tilkoblet zDownloader³"
   },
   "status_connected_version": {
-    "message": "Tilkoblet ZDownloader3 $version$",
+    "message": "Tilkoblet zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Pauset: nedlastingene blir i nettleseren"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 er ikke installert, eller nettleserintegrasjonen er ikke konfigurert"
+    "message": "zDownloader³ er ikke installert, eller nettleserintegrasjonen er ikke konfigurert"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 godtar ikke denne kopien av utvidelsen"
+    "message": "zDownloader³ godtar ikke denne kopien av utvidelsen"
   },
   "status_not_running": {
-    "message": "ZDownloader3 startet ikke i tide"
+    "message": "zDownloader³ startet ikke i tide"
   },
   "status_host_failed": {
-    "message": "Tilkoblingen til ZDownloader3 mislyktes"
+    "message": "Tilkoblingen til zDownloader³ mislyktes"
   },
   "status_too_large": {
     "message": "Detaljene for denne nedlastingen var for store til å overføre"
   },
   "status_update_app": {
-    "message": "Oppdater ZDownloader3 for å bruke alt denne utvidelsen tilbyr"
+    "message": "Oppdater zDownloader³ for å bruke alt denne utvidelsen tilbyr"
   },
   "popup_take": {
     "message": "Ta nedlastinger fra denne nettleseren"
@@ -78,10 +78,10 @@
     "message": "Send nedlastinger via denne nettleserens proxy- eller VPN-utvidelse"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 laster da ned via samme proxy som denne nettleseren. Nettleseren spør deg én gang om å tillate det; hvis du slår dette av, trekkes tillatelsen tilbake."
+    "message": "zDownloader³ laster da ned via samme proxy som denne nettleseren. Nettleseren spør deg én gang om å tillate det; hvis du slår dette av, trekkes tillatelsen tilbake."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 laster da ned via samme proxy som denne nettleseren. Når dette er slått av, leser ikke utvidelsen nettleserens proxy."
+    "message": "zDownloader³ laster da ned via samme proxy som denne nettleseren. Når dette er slått av, leser ikke utvidelsen nettleserens proxy."
   },
   "popup_exclude_site": {
     "message": "Aldri ta nedlastinger fra $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Åpne ZDownloader3"
+    "message": "Åpne zDownloader³"
   },
   "popup_options": {
     "message": "Alternativer..."
@@ -150,7 +150,7 @@
     "message": "Bruk avansert nettleserintegrasjon er deaktivert i Alternativer → Generelt."
   },
   "declined_torrents": {
-    "message": "Det er en torrent, og «Åpne magnetkoblinger og .torrent-filer med ZDownloader3» er slått av i torrentinnstillingene."
+    "message": "Det er en torrent, og «Åpne magnetkoblinger og .torrent-filer med zDownloader³» er slått av i torrentinnstillingene."
   },
   "declined_site_access": {
     "message": "Utvidelsen har ikke tillatelse til å lese dette nettstedet (nettleserens nettstedstilgang)."
@@ -195,16 +195,16 @@
     "message": "Ingen video å laste ned her"
   },
   "video_playlist": {
-    "message": "En liste med videoer: velg dem i ZDownloader3"
+    "message": "En liste med videoer: velg dem i zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 trenger yt-dlp for denne videoen"
+    "message": "zDownloader³ trenger yt-dlp for denne videoen"
   },
   "video_too_long": {
     "message": "Oppslaget tok for lang tid"
   },
   "video_busy": {
-    "message": "ZDownloader3 er opptatt med andre videoer"
+    "message": "zDownloader³ er opptatt med andre videoer"
   },
   "video_queued": {
     "message": "Lagt til i køen"
@@ -228,7 +228,7 @@
     "message": "Denne datamaskinen"
   },
   "popup_send_remote": {
-    "message": "En annen ZDownloader3 (en server)"
+    "message": "En annen zDownloader³ (en server)"
   },
   "popup_remote_code": {
     "message": "Paringskode"
@@ -324,7 +324,7 @@
     "message": "Alle kvaliteter og undertekster..."
   },
   "video_failed": {
-    "message": "ZDownloader3 er ikke installert eller startet ikke"
+    "message": "zDownloader³ er ikke installert eller startet ikke"
   },
   "video_download_best": {
     "message": "Last ned beste kvalitet"

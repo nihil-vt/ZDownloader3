@@ -5,14 +5,14 @@ Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 
 ## [Fork 0.5.2-zd3.1] - 2026-11-16
 
-First ZDownloader3 fork build. Imports upstream Mister Download Manager and re-identifies it natively Linux-first with a JDownloader2 look.
+First zDownloader³ fork build. Imports upstream Mister Download Manager and re-identifies it natively Linux-first with a JDownloader2 look.
 
 ### Added
 
 - **JDownloader2 look**: two-tab main window (`Downloads` / `Linkgrabber`), flat JD2-style theme (`View → Theme → JDownloader2`, default on Linux), toolbar with JD2-tinted icons (green Start/Resume, red Stop), dock panels on both tabs (`Download Overview`, `File Properties` / `Linkgrabber Overview`, `Package Properties`) with View-menu toggles
 - **Linkgrabber grouping**: packages form from the folder links share (across hosts, with a file-class constraint), or from archive volume names (host ignored), as JD2 packs
 - **Packagizer** (Downloads → Packagize&r): the rule chain (URL/name regexes, extensions, size bounds, stop-after-rule) to move/rename/redirect links, with variables `<filename>`, `<name>`, `<ext>`, `<packagename>`, `<index>`, `<simpledate:…>` and capture groups `$1…${name}`
-- Rename in-tree identity to ZDownloader3; Adwaita theme default replaced by JDownloader2 on Linux; settings migration adopts pre-fork data folders
+- Rename in-tree identity to zDownloader³; Adwaita theme default replaced by JDownloader2 on Linux; settings migration adopts pre-fork data folders
 - Fork documents: `NOTICE.md` (provenance), `docs/jd2-internals.md` (decompiled JD2 analysis), `docs/mdm-borrow.md` (borrowing ledger, GPL boundaries), `docs/gap-plan.md`, `docs/packagizer.md`
 
 ### Notes
@@ -41,7 +41,7 @@ First ZDownloader3 fork build. Imports upstream Mister Download Manager and re-i
 - **Fewer Download complete windows:** downloads added together (a playlist, **Add batch download**, a list from the clipboard, the links you add from **Link grabber**, the browser's page links among them) no longer open **Download complete** one by one. Once all of them are done, one **Downloads complete** window sums them up: **12 downloads finished · 1 failed**, their size together and their folder, the failed ones named with why, **Open folder** and **Show in list**, which selects them in the list. A download added alone keeps its own window, and so does a group of which only one finished ([#766](https://github.com/anefzaoui/misterdownloadmanager/issues/766)).
 - **Snooze** in **Download complete** (and in the summary): no such window for 30 minutes, 1 hour, 8 hours, or until MDM restarts, without unticking **Show download complete dialog**. The snooze ends by itself; meanwhile the tray icon's tip says how many downloads finished, and **Options → Downloads** says **Download complete is snoozed until 14:30** with **Resume now** ([#741](https://github.com/anefzaoui/misterdownloadmanager/issues/741)).
 - **The Download video button, redesigned** (building on the qualities' menu below): a small light tab at the video's top corner (dark in Windows' dark mode) with MDM's logo, a green **Download video** part, an arrow for its list and **✕** to hide it on this video. MDM looks the video up as soon as the button appears, or the pointer rests on it, so the button names the best quality before you click (**1080p**, **4K**; in a private window MDM looks a video up only once you click the button or open its list), and one click downloads it at once, even while MDM is still looking; a video that plays a plain file is downloaded as that file, with no look-up. Its list (the arrow) starts with **Download best**, then one numbered line per quality, video and sound apart, with its type, frame rate or bitrate and size, opens the Download video window for the rest (**All qualities and subtitles…**), and hides it or keeps it off the site. After a click it says what happened in its own colour, with the one action that helps: **Added to MDM** with **Show**, **Open the post to download it** with **Open post**, **MDM didn't answer** with **Get MDM** and **Retry**, **Off on this site** with **Turn on**, and **Protected video · can't be saved**. It mirrors in right-to-left languages, shows a ring around it for the keyboard, shrinks to its logo, arrow and ✕ on a small video or where its words wouldn't fit, and shows the edge and the spots it snaps to while you drag it ([#703](https://github.com/anefzaoui/misterdownloadmanager/issues/703)).
-- **The video's qualities in the page:** a click on the Download video button opens a menu over the video that lists its qualities with their sizes, video and audio in their own tabs (looked up by MDM with yt-dlp). The one you pick downloads at once with only its progress window; MDM's main window stays where it is. **Open in ZDownloader3…** in the same menu opens the Download video window as before. A stream the page plays (HLS) is listed at once, read by MDM itself; the same video asked again within 10 minutes opens at once; and the pick starts downloading without looking the video up a second time.
+- **The video's qualities in the page:** a click on the Download video button opens a menu over the video that lists its qualities with their sizes, video and audio in their own tabs (looked up by MDM with yt-dlp). The one you pick downloads at once with only its progress window; MDM's main window stays where it is. **Open in zDownloader³…** in the same menu opens the Download video window as before. A stream the page plays (HLS) is listed at once, read by MDM itself; the same video asked again within 10 minutes opens at once; and the pick starts downloading without looking the video up a second time.
 - **Deferred Rename** on a download's **Download status** tab: save a new name while a download runs (**Confirm**, **Enter**, or 3 seconds idle) to rename the finished file's stem (along with yt-dlp subtitle files) or an exclusive finished folder on completion, without touching the live stream or `.mdm.part` state; shared/save or pre-existing folders, split-archive volumes, and single-file torrents keep their original names ([#655](https://github.com/anefzaoui/misterdownloadmanager/pull/655)).
 - Helium: on Linux and macOS, MDM offers the extension to Helium, through Helium's own services: with them allowed, it arrives at Helium's next start (on macOS Helium asks first). It names the store as Helium does: Helium asks Google's update service without its version, and Google answers it "no update", which is why the offer MDM writes for Chrome on Windows, which Helium reads there too, never brought it the extension. On Windows MDM's window still opens the store's page in Helium. On Linux the .deb's and .rpm's helper files for everyone cover Helium too, so MDM writes none in its folder in your home. [Browser integration](docs/browser-integration.md#helium) says how to add the extension in Helium, and what to turn on when Helium says **Extension downloads are disabled** ([#685](https://github.com/anefzaoui/misterdownloadmanager/issues/685)).
 - Links you add by hand go with the User-Agent of your default browser, at the version you have installed (Chrome, Edge, Brave, Opera, Vivaldi, Firefox or Safari, on Windows, Linux and macOS), instead of the Internet Explorer 11 one MDM sent until now, which some sites no longer let through. MDM looks the browser up once as it starts. **Options → Downloads** shows it with **Automatic** ticked; untick it to type your own, and a User-Agent you had set stays yours. When MDM doesn't recognise your default browser, it sends a current Chrome's; when a site turns a browser's User-Agent away, it asks once more with its former one, as for downloads from the browser (part of [#668](https://github.com/anefzaoui/misterdownloadmanager/issues/668)).
@@ -87,7 +87,7 @@ First ZDownloader3 fork build. Imports upstream Mister Download Manager and re-i
 - Linux: logging out or shutting down while MDM runs saves it as **File → Exit** does. MDM didn't listen for the system's request to end (the SIGTERM logind sends every program at logout and shutdown), and when the desktop's X server went away first, as GNOME's does at logout, the X library ended MDM on the spot: either way the list kept its last save, each running download resumed from where it had last saved its progress (up to 30 seconds earlier, or tens of megabytes on a fast connection, downloaded again), and the crash monitor kept an "MDM closed unexpectedly" report. MDM now stops its downloads where they are, saves them and the list, and ends within a few seconds, without asking anything. Ctrl+C, or closing the terminal MDM was started from, ends it the same way.
 - Link grabber's **Status** column said a failed look-up in the sentence it was given, and cut it after about 21 characters: the part it cut was the remedy. The failures whose sentence ends in advice now say that advice in the column (**Alt+click the link**, **Open in browser**, **Refresh the address**, **Download it again**, and **Can't resume** where there is nothing to do), with the whole sentence on hover, and the column is as wide as its longest answer. The list, the progress window and Properties keep the whole sentence ([#1110](https://github.com/anefzaoui/misterdownloadmanager/issues/1110)).
 - Download video: a malformed stream playlist could stop the video downloader; such a download now fails with a message saying what was wrong with its playlist (thanks to [@riyazalsodie](https://github.com/riyazalsodie)).
-- **Exit ZDownloader3 when done** quits MDM. A queue whose Scheduler has it ticked, or a download whose progress window's **Options on completion** says to, only hid MDM in the notification area while **Options → General → Keep running when closing the window** was on, as it is by default: its exit was taken for a click on the window's close button. It now quits as **File → Exit** does, whether the window shows or is hidden in the notification area, with the list and settings saved; closing the window yourself still keeps MDM running as that option says.
+- **Exit zDownloader³ when done** quits MDM. A queue whose Scheduler has it ticked, or a download whose progress window's **Options on completion** says to, only hid MDM in the notification area while **Options → General → Keep running when closing the window** was on, as it is by default: its exit was taken for a click on the window's close button. It now quits as **File → Exit** does, whether the window shows or is hidden in the notification area, with the list and settings saved; closing the window yourself still keeps MDM running as that option says.
 - The browser's **Download video** button over a video in a feed, or on a site yt-dlp can't read (Douyin's recommended videos, which IDM downloads), no longer says the page has no video while the browser plays it: when MDM finds nothing on the page or in the post around the video, the button offers what the tab played for that very video, a file or a stream (a stream with its qualities), and MDM downloads it as any video, with the page as its Referer and your browser's cookies. The video is told apart from the feed's next one by its length, which the file's own header says; when more than one of what played could be it, the button says it can't tell which video this is rather than guess. A video Douyin plays as a picture and a sound apart isn't offered yet. On Douyin the button also names the post (its `/video/` address), so a yt-dlp that can read it looks it up first ([#1092](https://github.com/anefzaoui/misterdownloadmanager/issues/1092)).
 - No freeze when a video or an image gallery finishes on a slow or busy disk: the mark that says its files came from the internet (Windows' Mark of the Web) is written by the download itself, on its own thread, before it says it's done, instead of by MDM's window, which waited for the disk (8 seconds in the report). A new name given in the progress window's **Rename** is also put on the finished file beside the window ([#1103](https://github.com/anefzaoui/misterdownloadmanager/issues/1103)).
 - A crash while checking for updates, at start or from **Help → Check for updates**, on some computers. A check that goes wrong in any way now says why in the **Check for updates** window instead, and a release whose version MDM can't read is reported as such rather than taken for an older one ([#1123](https://github.com/anefzaoui/misterdownloadmanager/issues/1123)).
@@ -345,7 +345,7 @@ YouTube fixes for the Download video button, and the button in Chrome, Edge and 
 
 #### Themes Support
 
-Now you can change ZDownloader3's look and feel, and even its icons, with themes, and you can write your own.
+Now you can change zDownloader³'s look and feel, and even its icons, with themes, and you can write your own.
 
 - 9 built-in looks in **View → Theme**: Classic, Native, High contrast, Metro, Adwaita, Breeze, Luna, Aero, Aqua.
 - Write your own theme as a TOML or JSON file, or import a Base16 scheme or your pywal colours.
@@ -586,7 +586,7 @@ This release tightens what MDM accepts from torrents.
   shows MDM's icon.
 - **Started with the computer, MDM waits in the notification area**
   ([#226](https://github.com/anefzaoui/misterdownloadmanager/issues/226)): with **Options →
-  General → Launch ZDownloader3 on startup**, MDM no longer opens its window in front
+  General → Launch zDownloader³ on startup**, MDM no longer opens its window in front
   at every sign-in. It starts hidden, its icon in the notification area, with its downloads,
   queues, Scheduler and browser hand-overs running; its icon, or starting MDM again, shows the
   window as before. The same on Linux and macOS; where no notification area shows MDM's icon
@@ -801,10 +801,10 @@ This release tightens what MDM accepts from torrents.
 ##### The browser extension
 
 - **In the stores**: the Firefox add-on is on addons.mozilla.org,
-  [ZDownloader3](https://addons.mozilla.org/firefox/addon/mister-download-manager/),
+  [zDownloader³](https://addons.mozilla.org/firefox/addon/mister-download-manager/),
   installed with one click and kept up to date by Firefox (and by Zen and LibreWolf); the
   Chromium one is in the Chrome Web Store,
-  [ZDownloader3](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp),
+  [zDownloader³](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp),
   for Chrome, Edge, Brave, Opera and Vivaldi, installed with one click and kept up to date.
   Chrome offers it by itself once MDM is installed, and the website, the help and the README
   offer **Add to Firefox** and **Add to Chrome** first. The store's copy needs this release of
@@ -813,7 +813,7 @@ This release tightens what MDM accepts from torrents.
   store's copy shows no Download video button on YouTube, whose downloads the store's policy
   forbids; **Tasks → Download video from a page** still takes any page.
 - **MDM offers the browser extension**: until a browser's extension has reached MDM, each start
-  shows **Add ZDownloader3 to your browser**, with a button for every browser
+  shows **Add zDownloader³ to your browser**, with a button for every browser
   installed, which opens its store page (**Install it by hand** stays there for a browser that
   can't use its store). The window says when the extension is connected; **Don't ask again**
   stops it.
@@ -849,7 +849,7 @@ This release tightens what MDM accepts from torrents.
   this computer (localhost, 127.0.0.1) go straight to it, as the browser sends them.
 - **Zen, Helium and other browsers built on Firefox or Chromium** ([#41](https://github.com/anefzaoui/misterdownloadmanager/issues/41)):
   the extension reaches MDM in them, also when one is the only browser on Linux or macOS (Zen
-  reads Firefox's folder, which MDM now creates; Helium its own). **Add ZDownloader3
+  reads Firefox's folder, which MDM now creates; Helium its own). **Add zDownloader³
   to your browser** lists them, Zen, LibreWolf, Floorp and Waterfox by their own names (Options
   too), and sends Firefox's family to the right page. On Windows MDM lists the browsers Windows
   itself lists, so Helium is no longer taken for Chrome. Flatpak browsers can't start MDM's
@@ -927,7 +927,7 @@ This release tightens what MDM accepts from torrents.
   AppImageLauncher, Gear Lever and AppImageUpdate download only the parts that changed.
   **Update now** works as before.
 - **The Linux files are named without `-experimental`**: the AppImage, .deb, .rpm and .tar.gz
-  are `ZDownloader3-<version>-linux-x86_64.<ext>`, and the .deb's and .rpm's
+  are `zDownloader³-<version>-linux-x86_64.<ext>`, and the .deb's and .rpm's
   descriptions no longer call them an experimental build. Update now, the AppImage tools and the
   website find them by either name. The macOS .dmg files keep `-experimental`.
 
@@ -972,7 +972,7 @@ This release tightens what MDM accepts from torrents.
 - **Proxy auto-config scripts (PAC) run in QuickJS**, a much smaller JavaScript engine, with
   limits on memory and running time: a script that loops or grows forever now fails, as a broken
   script does (the download goes on with the default proxy settings), instead of holding it.
-- The extension is called **ZDownloader3**.
+- The extension is called **zDownloader³**.
 
 ##### Smaller and lighter
 
@@ -1248,10 +1248,10 @@ This release tightens what MDM accepts from torrents.
   ([#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): the line above the
   check box ("The symbols couldn't be fetched: …", an issue's title, a translation) ran past the
   window's right edge, or its left edge in Persian. It is now cut with "…" at the margin and shown
-  whole under the pointer. Its title ("ZDownloader3 crash report") is now in MDM's
+  whole under the pointer. Its title ("zDownloader³ crash report") is now in MDM's
   language too; it was always in the system's. On Windows that also gives its title bar MDM's
   light or dark again in every language: outside English it kept Windows' own mode.
-- **The extension's popup: Open ZDownloader3 shows whole**
+- **The extension's popup: Open zDownloader³ shows whole**
   ([#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): on Linux, whose fonts
   are wider, and in longer languages, the button was cut to "Open Mister Do…". Each button is now
   as wide as its text, and Options moves below it when both don't fit on one line.
@@ -1500,7 +1500,7 @@ This release tightens what MDM accepts from torrents.
 - **HLS and DASH videos from the browser, as their stream**
   ([#155](https://github.com/anefzaoui/misterdownloadmanager/issues/155)): a video played as a
   stream (most sites' long videos) failed with yt-dlp's "Unsupported URL" when the extension sent
-  the page instead of the stream. **Download with ZDownloader3** in the right-click
+  the page instead of the stream. **Download with zDownloader³** in the right-click
   menu on such a video now sends the stream its player loaded, as the button over videos and
   **Media on this page** do. In Firefox it did nothing at all. The cookies sent are those of the
   stream's own server, not the page's.

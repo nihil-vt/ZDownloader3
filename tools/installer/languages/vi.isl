@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Vietnamese: tools/installer/languages.py
+﻿; zDownloader³'s installer in Vietnamese: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Đang gỡ cài đặt %1.
 
 [CustomMessages]
 TaskBrowser=Thiết lập tích hợp &trình duyệt (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Mở tệp .&torrent và liên kết magnet bằng ZDownloader3
-TaskStartup=Khởi động ZDownloader3 khi &Windows khởi động
+TaskTorrents=Mở tệp .&torrent và liên kết magnet bằng zDownloader³
+TaskStartup=Khởi động zDownloader³ khi &Windows khởi động
 TaskGroupOther=Khác:
-Launch=Khởi động ZDownloader3
+Launch=Khởi động zDownloader³
 KeepData=Bạn cũng muốn xóa danh sách tải xuống và cài đặt của mình không?%n%nCác tệp đã tải xuống của bạn sẽ không bị ảnh hưởng.

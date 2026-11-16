@@ -42,10 +42,10 @@ zdownloader3-cli api on
 
 | You installed | The server |
 |---|---|
-| Windows, for you only (the installer's default) | `%LOCALAPPDATA%\Programs\ZDownloader3\zdownloader3-mcp.exe` |
-| Windows, for everyone | `C:\Program Files\ZDownloader3\zdownloader3-mcp.exe` |
+| Windows, for you only (the installer's default) | `%LOCALAPPDATA%\Programs\zDownloader³\zdownloader3-mcp.exe` |
+| Windows, for everyone | `C:\Program Files\zDownloader³\zdownloader3-mcp.exe` |
 | Windows, a zip or [portable copy](portable.md) | `zdownloader3-mcp.exe` in its folder |
-| macOS | `/Applications/ZDownloader3.app/Contents/MacOS/zdownloader3-mcp` |
+| macOS | `/Applications/zDownloader³.app/Contents/MacOS/zdownloader3-mcp` |
 | Linux, the .deb or .rpm | `/usr/bin/zdownloader3-mcp` |
 | Linux, the .tar.gz | `zdownloader3-mcp` in its folder (the AppImage doesn't expose it: use the .tar.gz) |
 
@@ -59,7 +59,7 @@ A portable copy's server finds the portable copy's MDM by itself, from its own f
 {
   "mcpServers": {
     "zdownloader3": {
-      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\ZDownloader3\\zdownloader3-mcp.exe"
+      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\zDownloader³\\zdownloader3-mcp.exe"
     }
   }
 }
@@ -68,7 +68,7 @@ A portable copy's server finds the portable copy's MDM by itself, from its own f
 **Claude Code**:
 
 ```
-claude mcp add zdownloader3 -- "C:\Users\you\AppData\Local\Programs\ZDownloader3\zdownloader3-mcp.exe"
+claude mcp add zdownloader3 -- "C:\Users\you\AppData\Local\Programs\zDownloader³\zdownloader3-mcp.exe"
 ```
 
 **Cursor**: the same `mcpServers` entry as Claude Desktop's, in `~/.cursor/mcp.json` (or add it in Cursor's MCP settings).
@@ -80,7 +80,7 @@ claude mcp add zdownloader3 -- "C:\Users\you\AppData\Local\Programs\ZDownloader3
   "servers": {
     "zdownloader3": {
       "type": "stdio",
-      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\ZDownloader3\\zdownloader3-mcp.exe"
+      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\zDownloader³\\zdownloader3-mcp.exe"
     }
   }
 }
@@ -96,7 +96,7 @@ MDM itself still sends nothing anywhere: the server talks only to the MDM on thi
 
 | The assistant says | What to do |
 |---|---|
-| ZDownloader3 isn't running | Start MDM. The server can't start it for you. |
+| zDownloader³ isn't running | Start MDM. The server can't start it for you. |
 | The automation API is off | Run `zdownloader3-cli api on` with MDM running. |
 | MDM didn't answer in time | A window in MDM may be waiting for you (a question, **Add torrent**); answer it and ask again. |
 | MDM refused the request | MDM's channel file is from an earlier start; restart MDM. |

@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Maori: tools/installer/languages.py
+﻿; zDownloader³'s installer in Maori: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=E tango ana i a %1.
 
 [CustomMessages]
 TaskBrowser=Whakaritea te whakauru &pūtirotiro (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Whakatuwheratia ngā kōnae .&torrent me ngā hononga autō ki te ZDownloader3
-TaskStartup=Tīmatahia te ZDownloader3 ina tīmata a &Windows
+TaskTorrents=Whakatuwheratia ngā kōnae .&torrent me ngā hononga autō ki te zDownloader³
+TaskStartup=Tīmatahia te zDownloader³ ina tīmata a &Windows
 TaskGroupOther=Ētahi atu:
-Launch=Tīmatahia te ZDownloader3
+Launch=Tīmatahia te zDownloader³
 KeepData=Mukua hoki tō rārangi tikiake me ngā tautuhinga?%n%nKāore ō kōnae i tikiakehia e pā ki tēnā.

@@ -1,4 +1,4 @@
-# ZDownloader3 in French (France) (Français (France)): tools/i18n/translate.py
+# zDownloader³ in French (France) (Français (France)): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Français (France)
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	Voulez-vous vraiment supprimer {n} téléchargement de la liste des téléchargements de ZDownloader3 ?|Voulez-vous vraiment supprimer ces {n} téléchargements de la liste des téléchargements de ZDownloader3 ?
+@plural	Are you sure you want to delete {n} download from zDownloader³ list of downloads?|Are you sure you want to delete these {n} downloads from zDownloader³ list of downloads?	Voulez-vous vraiment supprimer {n} téléchargement de la liste des téléchargements de zDownloader³ ?|Voulez-vous vraiment supprimer ces {n} téléchargements de la liste des téléchargements de zDownloader³ ?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -267,7 +267,7 @@
 	a volume of it is missing	il manque un de ses volumes
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About ZDownloader3	À propos de ZDownloader3
+	About zDownloader³	À propos de zDownloader³
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -330,7 +330,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add ZDownloader3 to your browser	Ajouter ZDownloader3 à votre navigateur
+	Add zDownloader³ to your browser	Ajouter zDownloader³ à votre navigateur
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -496,7 +496,7 @@
 	Always into a folder named after it	Toujours dans un dossier portant son nom
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on ZDownloader3 startup	Toujours activer le limiteur de vitesse au démarrage de ZDownloader3
+	Always turn on Speed Limiter on zDownloader³ startup	Toujours activer le limiteur de vitesse au démarrage de zDownloader³
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -562,7 +562,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	Voulez-vous vraiment supprimer « {name} » de la liste des téléchargements de ZDownloader3 ?
+	Are you sure you want to delete "{name}" from zDownloader³ list of downloads?	Voulez-vous vraiment supprimer « {name} » de la liste des téléchargements de zDownloader³ ?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -734,7 +734,7 @@
 	Browse...	Parcourir...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	L’intégration du navigateur n’est pas configurée sur cet ordinateur, donc aucun navigateur ne peut encore atteindre ZDownloader3.
+	Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.	L’intégration du navigateur n’est pas configurée sur cet ordinateur, donc aucun navigateur ne peut encore atteindre zDownloader³.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Intégration navigateur/système
@@ -939,7 +939,7 @@
 	Choose a language	Choisir une langue
 #. text in langpick.rs
 #, machine
-	Choose the language ZDownloader3 shows its windows in:	Choisissez la langue dans laquelle ZDownloader3 affiche ses fenêtres :
+	Choose the language zDownloader³ shows its windows in:	Choisissez la langue dans laquelle zDownloader³ affiche ses fenêtres :
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1615,7 +1615,7 @@
 	Exit	Quitter
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit ZDownloader3 when done	Quitter ZDownloader3 une fois terminé
+	Exit zDownloader³ when done	Quitter zDownloader³ une fois terminé
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Somme de contrôle attendue (MD5, SHA-1, SHA-256, SHA-512 ou CRC32) :
@@ -2080,7 +2080,7 @@
 	Hide web pages	Masquer les pages web
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	Maintenez Alt enfoncé en cliquant sur un lien pour laisser le navigateur le télécharger au lieu de ZDownloader3.
+	Hold Alt while clicking a link to let the browser download it instead of zDownloader³.	Maintenez Alt enfoncé en cliquant sur un lien pour laisser le navigateur le télécharger au lieu de zDownloader³.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Page d’accueil
@@ -2121,7 +2121,7 @@
 	Hungary	Hongrie
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	Je télécharge avec ZDownloader3 : rapide, gratuit, et il ressemble au gestionnaire de téléchargement que vous connaissez déjà. {link}
+	I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}	Je télécharge avec zDownloader³ : rapide, gratuit, et il ressemble au gestionnaire de téléchargement que vous connaissez déjà. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2414,7 +2414,7 @@
 	Latvia	Lettonie
 #. text in the Options window
 #, machine
-	Launch ZDownloader3 on startup	Lancer ZDownloader3 au démarrage
+	Launch zDownloader³ on startup	Lancer zDownloader³ au démarrage
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2729,58 +2729,58 @@
 	Missing	Manquant
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	ZDownloader3	ZDownloader3
+	zDownloader³	zDownloader³
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 ne peut pas ouvrir sa fenêtre : il manque {libraries} à ce système.
+	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³ ne peut pas ouvrir sa fenêtre : il manque {libraries} à ce système.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	ZDownloader3 closed unexpectedly	ZDownloader3 s’est fermé de manière inattendue
+	zDownloader³ closed unexpectedly	zDownloader³ s’est fermé de manière inattendue
 #. window title in the Options window
 #, machine
-	ZDownloader3 Configuration	Configuration de ZDownloader3
+	zDownloader³ Configuration	Configuration de zDownloader³
 #. text in crashui.rs
 #, machine
-	ZDownloader3 crash report	Rapport d’incident de ZDownloader3
+	zDownloader³ crash report	Rapport d’incident de zDownloader³
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	ZDownloader3 hit an internal error	ZDownloader3 a rencontré une erreur interne
+	zDownloader³ hit an internal error	zDownloader³ a rencontré une erreur interne
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	ZDownloader3 is downloading	ZDownloader3 télécharge
+	zDownloader³ is downloading	zDownloader³ télécharge
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	ZDownloader3 is running the queue "{queue}"	ZDownloader3 exécute la file d’attente « {queue} »
+	zDownloader³ is running the queue "{queue}"	zDownloader³ exécute la file d’attente « {queue} »
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	ZDownloader3 stopped responding	ZDownloader3 ne répond plus
+	zDownloader³ stopped responding	zDownloader³ ne répond plus
 #. text in crashui.rs
 #, machine
-	ZDownloader3 stopped responding for a while	ZDownloader3 n’a pas répondu pendant un certain temps
+	zDownloader³ stopped responding for a while	zDownloader³ n’a pas répondu pendant un certain temps
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 écrit chaque connexion directement dans le fichier\nfinal (un fichier de partie éparse à côté), de sorte qu’aucun répertoire\ntemporaire et aucune étape d’assemblage ne sont nécessaires.
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ écrit chaque connexion directement dans le fichier\nfinal (un fichier de partie éparse à côté), de sorte qu’aucun répertoire\ntemporaire et aucune étape d’assemblage ne sont nécessaires.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} est disponible (publiée le {date}).
+	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} est disponible (publiée le {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3's own copy, version {version}	Copie de ZDownloader3, version {version}
+	zDownloader³'s own copy, version {version}	Copie de zDownloader³, version {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	La fenêtre X11 de ZDownloader3 nécessite {libraries}, qui manquent à ce système : elle s’ouvre plutôt sur Wayland, où ses menus peuvent s’ouvrir loin de leurs titres.
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	La fenêtre X11 de zDownloader³ nécessite {libraries}, qui manquent à ce système : elle s’ouvre plutôt sur Wayland, où ses menus peuvent s’ouvrir loin de leurs titres.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3294,10 +3294,10 @@
 	Open in browser	Ouvrir dans le navigateur
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with ZDownloader3	Ouvrir les liens magnet et les fichiers .torrent avec ZDownloader3
+	Open magnet links and .torrent files with zDownloader³	Ouvrir les liens magnet et les fichiers .torrent avec zDownloader³
 #. text in the tray icon's menu
 #, machine
-	Open ZDownloader3	Ouvrir ZDownloader3
+	Open zDownloader³	Ouvrir zDownloader³
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3368,7 +3368,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with ZDownloader3	Jumeler avec ZDownloader3
+	Pair with zDownloader³	Jumeler avec zDownloader³
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3872,7 +3872,7 @@
 	Select or unselect the download with the dotted outline	Sélectionner ou désélectionner le téléchargement avec le contour en pointillés
 #. group box title in the Options window
 #, machine
-	Select sounds for ZDownloader3 events	Sélectionner les sons pour les événements de ZDownloader3
+	Select sounds for zDownloader³ events	Sélectionner les sons pour les événements de zDownloader³
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Sélectionner les téléchargements dans la zone
@@ -4219,7 +4219,7 @@
 	Start download at	Démarrer le téléchargement à
 #. checkbox in the Scheduler window
 #, machine
-	Start download on ZDownloader3 startup	Démarrer le téléchargement au démarrage de ZDownloader3
+	Start download on zDownloader³ startup	Démarrer le téléchargement au démarrage de zDownloader³
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Démarrer le téléchargement immédiatement tout en affichant la boîte de dialogue « Informations sur le fichier à télécharger »
@@ -4254,7 +4254,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Démarré avec l’ordinateur, il démarre en mode réduit : aucune zone de notification n’affiche son icône ici
 #. text in the Options window
-#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch zDownloader³ on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Démarré avec l’ordinateur, il attend dans la zone de notification
 #. message or event log entry in the main window
@@ -4416,7 +4416,7 @@
 	Tasks → Link grabber, or the browser's "Download all links": a split\narchive's volumes are one package, the other links of a page another.	Tâches → Récupérateur de liens, ou « Télécharger tous les liens » du navigateur : les volumes d’une archive fractionnée forment un seul paquet, et les autres liens d’une page en forment un autre.
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Tell a friend	Parler de ZDownloader3 à un ami
+	Tell a friend	Parler de zDownloader³ à un ami
 #. group box title in the Options window
 #, machine
 	Temporary directory	Dossier temporaire
@@ -4483,7 +4483,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find ZDownloader3	Les navigateurs peuvent trouver ZDownloader3
+	The browsers can find zDownloader³	Les navigateurs peuvent trouver zDownloader³
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4510,7 +4510,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	L’ordinateur est sorti de veille une minute avant l’heure de début et reste actif pendant l’exécution de la file d’attente. ZDownloader3 doit être en cours d’exécution (il peut attendre dans la zone de notification).
+	The computer is woken a minute before the start time and kept awake while the queue runs. zDownloader³ has to be running (it can wait in the notification area).	L’ordinateur est sorti de veille une minute avant l’heure de début et reste actif pendant l’exécution de la file d’attente. zDownloader³ doit être en cours d’exécution (il peut attendre dans la zone de notification).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4699,7 +4699,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	Le téléchargement sélectionné n’est pas terminé. Voulez-vous vraiment le supprimer\nde la liste des téléchargements de ZDownloader3 ?
+	The selected download is not complete. Are you sure you want to delete\nit from zDownloader³ list of downloads?	Le téléchargement sélectionné n’est pas terminé. Voulez-vous vraiment le supprimer\nde la liste des téléchargements de zDownloader³ ?
 #. text in errors.rs
 #, machine
 	the server answered {status}	le serveur a répondu {status}
@@ -5140,7 +5140,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "ZDownloader3" and allow it on all websites.	Activez « ZDownloader3 » et autorisez-la sur tous les sites web.
+	Turn on "zDownloader³" and allow it on all websites.	Activez « zDownloader³ » et autorisez-la sur tous les sites web.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5570,7 +5570,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of ZDownloader3 ({version}).	Vous avez la dernière version de ZDownloader3 ({version}).
+	You have the latest version of zDownloader³ ({version}).	Vous avez la dernière version de zDownloader³ ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6048,9 +6048,9 @@ column	Transfer rate	Taux de transfert
 #, machine
 column	Upload speed	Vitesse d'envoi
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name zDownloader³ as it is
 #, machine
-extension	A list of videos: choose them in ZDownloader3	Une liste de vidéos : choisissez-les dans ZDownloader3
+extension	A list of videos: choose them in zDownloader³	Une liste de vidéos : choisissez-les dans zDownloader³
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6065,9 +6065,9 @@ extension	Added to the queue	Ajouté à la file d’attente
 #, machine
 extension	All qualities and subtitles...	Toutes les qualités et les sous-titres...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name zDownloader³ as it is
 #, machine
-extension	Another ZDownloader3 (a server)	Un autre ZDownloader3 (un serveur)
+extension	Another zDownloader³ (a server)	Un autre zDownloader³ (un serveur)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6081,7 +6081,7 @@ extension	best	meilleure
 #, machine
 extension	Browser extension	Extension de navigateur
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in ZDownloader3
+#. menu command of the download button over a video: opens its settings in zDownloader³
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Paramètres du bouton...
@@ -6094,14 +6094,14 @@ extension	can't be saved	ne peut pas être enregistré
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Impossible de savoir de quelle vidéo il s'agit : ouvrez sa propre page et réessayez
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app; keep the name zDownloader³ as it is
 #, machine
-extension	Connected to ZDownloader3	Connecté à ZDownloader3
+extension	Connected to zDownloader³	Connecté à zDownloader³
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name zDownloader³ as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to ZDownloader3 {version}	Connecté à ZDownloader3 {version}
+extension	Connected to zDownloader³ {version}	Connecté à zDownloader³ {version}
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6111,17 +6111,17 @@ extension	Could not look it up	Recherche impossible
 #, machine
 extension	Download	Télécharger
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name zDownloader³ as it is
 #, machine
-extension	Download all links with ZDownloader3	Télécharger tous les liens avec ZDownloader3
+extension	Download all links with zDownloader³	Télécharger tous les liens avec zDownloader³
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	Télécharger la meilleure qualité
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name zDownloader³ as it is
 #, machine
-extension	Download selected links with ZDownloader3	Télécharger les liens sélectionnés avec ZDownloader3
+extension	Download selected links with zDownloader³	Télécharger les liens sélectionnés avec zDownloader³
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6131,9 +6131,9 @@ extension	Download the best quality	Télécharger la meilleure qualité
 #, machine
 extension	Download video	Télécharger la vidéo
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name zDownloader³ as it is
 #, machine
-extension	Download with ZDownloader3	Télécharger avec ZDownloader3
+extension	Download with zDownloader³	Télécharger avec zDownloader³
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6160,9 +6160,9 @@ extension	Enter its https:// address.	Entrez son adresse https://.
 #, machine
 extension	Get MDM	Obtenir MDM
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
+#. the extension's description in the browser's list of extensions; keep the name zDownloader³ as it is
 #, machine
-extension	Hands downloads from the browser to ZDownloader3.	Transfère les téléchargements du navigateur vers ZDownloader3.
+extension	Hands downloads from the browser to zDownloader³.	Transfère les téléchargements du navigateur vers zDownloader³.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6192,9 +6192,9 @@ extension	It didn't work. Try again.	Échec. Réessayez.
 #, machine
 extension	It shows no code now: click Pair a device there first.	Il n’affiche aucun code pour l’instant : cliquez d’abord sur Jumeler un appareil.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with zDownloader³, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	C’est un torrent, et « Ouvrir les liens magnet et les fichiers .torrent avec ZDownloader3 » est désactivé dans les paramètres Torrent.
+extension	It's a torrent, and Open magnet links and .torrent files with zDownloader³ is off in Torrent settings.	C’est un torrent, et « Ouvrir les liens magnet et les fichiers .torrent avec zDownloader³ » est désactivé dans les paramètres Torrent.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6237,41 +6237,41 @@ extension	MDM didn't answer	MDM n’a pas répondu
 #, machine
 extension	Media on this page	Contenu multimédia sur cette page
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3	ZDownloader3
+extension	zDownloader³	zDownloader³
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 didn't start in time	ZDownloader3 n’a pas démarré à temps
+extension	zDownloader³ didn't start in time	zDownloader³ n’a pas démarré à temps
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 n’accepte pas cette copie de l’extension
+extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ n’accepte pas cette copie de l’extension
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 is busy with other videos	ZDownloader3 est occupé avec d’autres vidéos
+extension	zDownloader³ is busy with other videos	zDownloader³ est occupé avec d’autres vidéos
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 n’est pas installé ou n’a pas démarré
+extension	zDownloader³ isn't installed or didn't start	zDownloader³ n’est pas installé ou n’a pas démarré
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 n’est pas installé, ou son intégration au navigateur n’est pas configurée
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ n’est pas installé, ou son intégration au navigateur n’est pas configurée
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 needs yt-dlp for this video	ZDownloader3 a besoin de yt-dlp pour cette vidéo
+extension	zDownloader³ needs yt-dlp for this video	zDownloader³ a besoin de yt-dlp pour cette vidéo
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 télécharge alors via le même proxy que ce navigateur. Le navigateur vous demande une fois de l’autoriser ; la désactivation de cette option annule cette autorisation.
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ télécharge alors via le même proxy que ce navigateur. Le navigateur vous demande une fois de l’autoriser ; la désactivation de cette option annule cette autorisation.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 télécharge alors via le même proxy que ce navigateur. Lorsque cette option est désactivée, l’extension ne lit pas le proxy du navigateur.
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ télécharge alors via le même proxy que ce navigateur. Lorsque cette option est désactivée, l’extension ne lit pas le proxy du navigateur.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6311,9 +6311,9 @@ extension	Open it	Ouvrir
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	Ouvrez son adresse une fois et acceptez son certificat, puis entrez un code depuis ses Options, Distant, Jumeler un appareil (ou zdownloader3-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
 #, machine
-extension	Open ZDownloader3	Ouvrir ZDownloader3
+extension	Open zDownloader³	Ouvrir zDownloader³
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6368,14 +6368,14 @@ extension	Send downloads through this browser's proxy or VPN extension	Envoyer l
 #, machine
 extension	Send downloads to	Envoyer les téléchargements vers
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is zDownloader³'s short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	Envoi vers MDM...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
+#. shown briefly on the download button after it was clicked; keep the name zDownloader³ as it is
 #, machine
-extension	Sent to ZDownloader3	Envoyé à ZDownloader3
+extension	Sent to zDownloader³	Envoyé à zDownloader³
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6393,9 +6393,9 @@ extension	Take downloads from this browser	Prendre les téléchargements de ce n
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Les règles du Chrome Web Store tiennent cette copie du module à l'écart des vidéos de ce site. L'aide indique ce que vous pouvez faire.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name zDownloader³ as it is
 #, machine
-extension	The connection to ZDownloader3 failed	La connexion à ZDownloader3 a échoué
+extension	The connection to zDownloader³ failed	La connexion à zDownloader³ a échoué
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6409,7 +6409,7 @@ extension	The last download was left to the browser.	Le dernier téléchargement
 #, machine
 extension	This browser isn't ticked in Options → General.	Ce navigateur n’est pas coché dans Options → Général.
 #. text in the browser extension
-#. choice under Send downloads to: the ZDownloader3 on this computer
+#. choice under Send downloads to: the zDownloader³ on this computer
 #, machine
 extension	This computer	Cet ordinateur
 #. text in the browser extension
@@ -6429,9 +6429,9 @@ extension	Turn on	Activer
 #, machine
 extension	Undo	Annuler
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name ZDownloader3 as it is
+#. status when the app is older than the extension; keep the name zDownloader³ as it is
 #, machine
-extension	Update ZDownloader3 to use everything this extension offers	Mettez à jour ZDownloader3 pour utiliser toutes les fonctionnalités de cette extension
+extension	Update zDownloader³ to use everything this extension offers	Mettez à jour zDownloader³ pour utiliser toutes les fonctionnalités de cette extension
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6559,7 +6559,7 @@ key	Up / Down	Haut / Bas
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About ZDownloader3	À &propos de ZDownloader3
+menu	&About zDownloader³	À &propos de zDownloader³
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6974,7 +6974,7 @@ menu	Metro	Metro
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	ZDownloader3 &Home Page	&Page d’accueil de ZDownloader3
+menu	zDownloader³ &Home Page	&Page d’accueil de zDownloader³
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Déplacer/Renommer (Ctrl+M)
@@ -7107,7 +7107,7 @@ menu	Select &all	Sélectionner &tout
 menu	Show &drop target	Afficher la &cible de dépôt
 #. menu command in the main window
 #, machine
-menu	Show ZDownloader3	Afficher ZDownloader3
+menu	Show zDownloader³	Afficher zDownloader³
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

@@ -1,12 +1,12 @@
 {
   "name": {
-    "message": "ZDownloader3"
+    "message": "zDownloader³"
   },
   "description": {
-    "message": "Menyerahkan muat turun daripada pelayar kepada ZDownloader3."
+    "message": "Menyerahkan muat turun daripada pelayar kepada zDownloader³."
   },
   "menu": {
-    "message": "Muat turun dengan ZDownloader3"
+    "message": "Muat turun dengan zDownloader³"
   },
   "video_download": {
     "message": "Muat turun video"
@@ -30,19 +30,19 @@
     "message": "Tetapan butang..."
   },
   "video_sent": {
-    "message": "Dihantar ke ZDownloader3"
+    "message": "Dihantar ke zDownloader³"
   },
   "menu_selected": {
-    "message": "Muat turun pautan terpilih dengan ZDownloader3"
+    "message": "Muat turun pautan terpilih dengan zDownloader³"
   },
   "menu_all": {
-    "message": "Muat turun semua pautan dengan ZDownloader3"
+    "message": "Muat turun semua pautan dengan zDownloader³"
   },
   "status_connected": {
-    "message": "Bersambung ke ZDownloader3"
+    "message": "Bersambung ke zDownloader³"
   },
   "status_connected_version": {
-    "message": "Bersambung ke ZDownloader3 $version$",
+    "message": "Bersambung ke zDownloader³ $version$",
     "placeholders": {
       "version": {
         "content": "$1",
@@ -54,22 +54,22 @@
     "message": "Dijeda: muat turun kekal bersama penyemak imbas"
   },
   "status_not_installed": {
-    "message": "ZDownloader3 tidak dipasang, atau penyepaduan penyemak imbasnya tidak disediakan"
+    "message": "zDownloader³ tidak dipasang, atau penyepaduan penyemak imbasnya tidak disediakan"
   },
   "status_forbidden": {
-    "message": "ZDownloader3 tidak menerima salinan sambungan ini"
+    "message": "zDownloader³ tidak menerima salinan sambungan ini"
   },
   "status_not_running": {
-    "message": "ZDownloader3 tidak bermula tepat pada masanya"
+    "message": "zDownloader³ tidak bermula tepat pada masanya"
   },
   "status_host_failed": {
-    "message": "Sambungan ke ZDownloader3 gagal"
+    "message": "Sambungan ke zDownloader³ gagal"
   },
   "status_too_large": {
     "message": "Butiran muat turun ini terlalu besar untuk diserahkan"
   },
   "status_update_app": {
-    "message": "Kemas kini ZDownloader3 untuk menggunakan semua yang ditawarkan oleh sambungan ini"
+    "message": "Kemas kini zDownloader³ untuk menggunakan semua yang ditawarkan oleh sambungan ini"
   },
   "popup_take": {
     "message": "Ambil muat turun daripada penyemak imbas ini"
@@ -78,10 +78,10 @@
     "message": "Hantar muat turun melalui proksi atau sambungan VPN pelayar ini"
   },
   "popup_proxy_title": {
-    "message": "ZDownloader3 kemudian memuat turun melalui proksi yang sama seperti pelayar ini. Pelayar meminta anda sekali untuk membenarkannya; mematikan ini akan menarik balik kebenaran itu."
+    "message": "zDownloader³ kemudian memuat turun melalui proksi yang sama seperti pelayar ini. Pelayar meminta anda sekali untuk membenarkannya; mematikan ini akan menarik balik kebenaran itu."
   },
   "popup_proxy_title_chromium": {
-    "message": "ZDownloader3 kemudian memuat turun melalui proksi yang sama dengan pelayar ini. Apabila pilihan ini dimatikan, sambungan tidak membaca proksi pelayar."
+    "message": "zDownloader³ kemudian memuat turun melalui proksi yang sama dengan pelayar ini. Apabila pilihan ini dimatikan, sambungan tidak membaca proksi pelayar."
   },
   "popup_exclude_site": {
     "message": "Jangan sekali-kali mengambil muat turun daripada $site$",
@@ -105,7 +105,7 @@
     }
   },
   "popup_open": {
-    "message": "Buka ZDownloader3"
+    "message": "Buka zDownloader³"
   },
   "popup_options": {
     "message": "Pilihan..."
@@ -150,7 +150,7 @@
     "message": "Guna penyepaduan penyemak imbas lanjutan dimatikan dalam Pilihan → Umum."
   },
   "declined_torrents": {
-    "message": "Ia adalah torrent, dan Buka pautan magnet dan fail .torrent dengan ZDownloader3 dimatikan dalam Tetapan Torrent."
+    "message": "Ia adalah torrent, dan Buka pautan magnet dan fail .torrent dengan zDownloader³ dimatikan dalam Tetapan Torrent."
   },
   "declined_site_access": {
     "message": "Sambungan tidak dibenarkan membaca tapak ini (akses tapak penyemak imbas)."
@@ -195,16 +195,16 @@
     "message": "Tiada video untuk dimuat turun di sini"
   },
   "video_playlist": {
-    "message": "Senarai video: pilih video dalam ZDownloader3"
+    "message": "Senarai video: pilih video dalam zDownloader³"
   },
   "video_no_ytdlp": {
-    "message": "ZDownloader3 memerlukan yt-dlp untuk video ini"
+    "message": "zDownloader³ memerlukan yt-dlp untuk video ini"
   },
   "video_too_long": {
     "message": "Pencarian mengambil masa terlalu lama"
   },
   "video_busy": {
-    "message": "ZDownloader3 sedang sibuk dengan video lain"
+    "message": "zDownloader³ sedang sibuk dengan video lain"
   },
   "video_queued": {
     "message": "Ditambah pada giliran"
@@ -228,7 +228,7 @@
     "message": "Komputer ini"
   },
   "popup_send_remote": {
-    "message": "ZDownloader3 lain (pelayan)"
+    "message": "zDownloader³ lain (pelayan)"
   },
   "popup_remote_code": {
     "message": "Kod pasangan"
@@ -324,7 +324,7 @@
     "message": "Semua kualiti dan sari kata..."
   },
   "video_failed": {
-    "message": "ZDownloader3 tidak dipasang atau tidak bermula"
+    "message": "zDownloader³ tidak dipasang atau tidak bermula"
   },
   "video_download_best": {
     "message": "Muat turun terbaik"

@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Greek: tools/installer/languages.py
+﻿; zDownloader³'s installer in Greek: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Απεγκατάσταση %1.
 
 [CustomMessages]
 TaskBrowser=Ρύθμιση ενσωμάτωσης &προγράμματος περιήγησης (Chrome, Edge, Brave, Firefox)
-TaskTorrents=Άνοιγμα αρχείων .&torrent και συνδέσεων magnet με το ZDownloader3
-TaskStartup=Εκκίνηση του ZDownloader3 όταν ξεκινά το &Windows
+TaskTorrents=Άνοιγμα αρχείων .&torrent και συνδέσεων magnet με το zDownloader³
+TaskStartup=Εκκίνηση του zDownloader³ όταν ξεκινά το &Windows
 TaskGroupOther=Άλλα:
-Launch=Εκκίνηση του ZDownloader3
+Launch=Εκκίνηση του zDownloader³
 KeepData=Να διαγραφεί επίσης η λίστα λήψεων και οι ρυθμίσεις σας;%n%nΤα αρχεία που έχετε κατεβάσει δεν επηρεάζονται σε καμία περίπτωση.

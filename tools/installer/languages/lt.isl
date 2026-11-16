@@ -1,4 +1,4 @@
-﻿; ZDownloader3's installer in Lithuanian: tools/installer/languages.py
+﻿; zDownloader³'s installer in Lithuanian: tools/installer/languages.py
 ; (machine-translated; a native speaker may correct any line).
 
 [LangOptions]
@@ -291,8 +291,8 @@ ShutdownBlockReasonUninstallingApp=Šalinama %1.
 
 [CustomMessages]
 TaskBrowser=Nustatyti naršyklės integravimą (&Chrome, Edge, Brave, Firefox)
-TaskTorrents=Atidaryti .&torrent failus ir magnet nuorodas naudojant „ZDownloader3“
-TaskStartup=Paleisti „ZDownloader3“, kai paleidžiama „&Windows“
+TaskTorrents=Atidaryti .&torrent failus ir magnet nuorodas naudojant „zDownloader³“
+TaskStartup=Paleisti „zDownloader³“, kai paleidžiama „&Windows“
 TaskGroupOther=Kita:
-Launch=Paleisti „ZDownloader3“
+Launch=Paleisti „zDownloader³“
 KeepData=Ar taip pat ištrinti atsisiuntimų sąrašą ir nustatymus?%n%nJūsų atsisiųsti failai nebus paliesti.

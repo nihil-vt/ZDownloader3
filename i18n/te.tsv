@@ -1,4 +1,4 @@
-# ZDownloader3 in Telugu (తెలుగు): tools/i18n/translate.py
+# zDownloader³ in Telugu (తెలుగు): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	తెలుగు
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from ZDownloader3 list of downloads?|Are you sure you want to delete these {n} downloads from ZDownloader3 list of downloads?	ZDownloader3 డౌన్‌లోడ్‌ల జాబితా నుండి {n} డౌన్‌లోడ్‌ను తొలగించాలా?|ZDownloader3 డౌన్‌లోడ్‌ల జాబితా నుండి ఈ {n} డౌన్‌లోడ్‌లను తొలగించాలా?
+@plural	Are you sure you want to delete {n} download from zDownloader³ list of downloads?|Are you sure you want to delete these {n} downloads from zDownloader³ list of downloads?	zDownloader³ డౌన్‌లోడ్‌ల జాబితా నుండి {n} డౌన్‌లోడ్‌ను తొలగించాలా?|zDownloader³ డౌన్‌లోడ్‌ల జాబితా నుండి ఈ {n} డౌన్‌లోడ్‌లను తొలగించాలా?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -270,7 +270,7 @@
 	a volume of it is missing	దాని వాల్యూమ్ లేదు
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About ZDownloader3	ZDownloader3 గురించి
+	About zDownloader³	zDownloader³ గురించి
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -333,7 +333,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add ZDownloader3 to your browser	ZDownloader3ని మీ బ్రౌజర్‌కు జోడించండి
+	Add zDownloader³ to your browser	zDownloader³ని మీ బ్రౌజర్‌కు జోడించండి
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -500,7 +500,7 @@
 	Always into a folder named after it	ఎల్లప్పుడూ దాని పేరుతో ఉన్న ఫోల్డర్‌లోకి
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on ZDownloader3 startup	ZDownloader3 ప్రారంభంలో స్పీడ్ లిమిటర్‌ను ఎల్లప్పుడూ ఆన్ చేయండి
+	Always turn on Speed Limiter on zDownloader³ startup	zDownloader³ ప్రారంభంలో స్పీడ్ లిమిటర్‌ను ఎల్లప్పుడూ ఆన్ చేయండి
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -566,7 +566,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from ZDownloader3 list of downloads?	ZDownloader3 డౌన్‌లోడ్‌ల జాబితా నుండి "{name}"ని తొలగించాలనుకుంటున్నారా?
+	Are you sure you want to delete "{name}" from zDownloader³ list of downloads?	zDownloader³ డౌన్‌లోడ్‌ల జాబితా నుండి "{name}"ని తొలగించాలనుకుంటున్నారా?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -739,7 +739,7 @@
 	Browse...	బ్రౌజ్ చేయండి...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach ZDownloader3 yet.	ఈ కంప్యూటర్‌లో బ్రౌజర్ అనుసంధానం సెటప్ చేయబడలేదు, కాబట్టి ఏ బ్రౌజర్ కూడా ఇంకా ZDownloader3ని చేరుకోలేదు.
+	Browser integration isn't set up on this computer, so no browser can reach zDownloader³ yet.	ఈ కంప్యూటర్‌లో బ్రౌజర్ అనుసంధానం సెటప్ చేయబడలేదు, కాబట్టి ఏ బ్రౌజర్ కూడా ఇంకా zDownloader³ని చేరుకోలేదు.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	బ్రౌజర్/సిస్టమ్ ఇంటిగ్రేషన్
@@ -944,7 +944,7 @@
 	Choose a language	భాషను ఎంచుకోండి
 #. text in langpick.rs
 #, machine
-	Choose the language ZDownloader3 shows its windows in:	ZDownloader3 దాని విండోలను చూపించే భాషను ఎంచుకోండి:
+	Choose the language zDownloader³ shows its windows in:	zDownloader³ దాని విండోలను చూపించే భాషను ఎంచుకోండి:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1621,7 +1621,7 @@
 	Exit	నిష్క్రమించు
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit ZDownloader3 when done	పూర్తయినప్పుడు ZDownloader3 నుండి నిష్క్రమించండి
+	Exit zDownloader³ when done	పూర్తయినప్పుడు zDownloader³ నుండి నిష్క్రమించండి
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	ఆశించిన చెక్‌సమ్ (MD5, SHA-1, SHA-256, SHA-512 లేదా CRC32):
@@ -2086,7 +2086,7 @@
 	Hide web pages	వెబ్ పేజీలను దాచు
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of ZDownloader3.	ZDownloader3కి బదులుగా బ్రౌజర్ లింక్‌ను డౌన్‌లోడ్ చేయడానికి, లింక్‌ను క్లిక్ చేస్తున్నప్పుడు Alt కీని నొక్కి ఉంచండి.
+	Hold Alt while clicking a link to let the browser download it instead of zDownloader³.	zDownloader³కి బదులుగా బ్రౌజర్ లింక్‌ను డౌన్‌లోడ్ చేయడానికి, లింక్‌ను క్లిక్ చేస్తున్నప్పుడు Alt కీని నొక్కి ఉంచండి.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	హోమ్ పేజీ
@@ -2127,7 +2127,7 @@
 	Hungary	హంగేరీ
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with ZDownloader3: fast, free, and it looks like the download manager you already know. {link}	నేను ZDownloader3తో డౌన్‌లోడ్ చేస్తాను: వేగంగా, ఉచితంగా, మీకు ఇప్పటికే తెలిసిన డౌన్‌లోడ్ మేనేజర్‌లా ఉంటుంది. {link}
+	I download with zDownloader³: fast, free, and it looks like the download manager you already know. {link}	నేను zDownloader³తో డౌన్‌లోడ్ చేస్తాను: వేగంగా, ఉచితంగా, మీకు ఇప్పటికే తెలిసిన డౌన్‌లోడ్ మేనేజర్‌లా ఉంటుంది. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2421,7 +2421,7 @@
 	Latvia	లాట్వియా
 #. text in the Options window
 #, machine
-	Launch ZDownloader3 on startup	Windows ప్రారంభమైనప్పుడు ZDownloader3ను అమలు చేయి
+	Launch zDownloader³ on startup	Windows ప్రారంభమైనప్పుడు zDownloader³ను అమలు చేయి
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2736,58 +2736,58 @@
 	Missing	మిస్సింగ్
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	ZDownloader3	ZDownloader3
+	zDownloader³	zDownloader³
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	ZDownloader3 can't open its window: this system lacks {libraries}.	ZDownloader3 విండోను తెరవలేకపోయింది: ఈ సిస్టమ్‌లో {libraries} లేవు.
+	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³ విండోను తెరవలేకపోయింది: ఈ సిస్టమ్‌లో {libraries} లేవు.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	ZDownloader3 closed unexpectedly	ZDownloader3 అనుకోకుండా మూసివేయబడింది
+	zDownloader³ closed unexpectedly	zDownloader³ అనుకోకుండా మూసివేయబడింది
 #. window title in the Options window
 #, machine
-	ZDownloader3 Configuration	ZDownloader3 కాన్ఫిగరేషన్
+	zDownloader³ Configuration	zDownloader³ కాన్ఫిగరేషన్
 #. text in crashui.rs
 #, machine
-	ZDownloader3 crash report	ZDownloader3 క్రాష్ నివేదిక
+	zDownloader³ crash report	zDownloader³ క్రాష్ నివేదిక
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	ZDownloader3 hit an internal error	ZDownloader3 అంతర్గత లోపాన్ని ఎదుర్కొంది
+	zDownloader³ hit an internal error	zDownloader³ అంతర్గత లోపాన్ని ఎదుర్కొంది
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
 #, machine
-	ZDownloader3 is downloading	ZDownloader3 డౌన్‌లోడ్ అవుతోంది
+	zDownloader³ is downloading	zDownloader³ డౌన్‌లోడ్ అవుతోంది
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	ZDownloader3 is running the queue "{queue}"	ZDownloader3 "{queue}" క్యూను నడుపుతోంది
+	zDownloader³ is running the queue "{queue}"	zDownloader³ "{queue}" క్యూను నడుపుతోంది
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	ZDownloader3 stopped responding	ZDownloader3 స్పందించడం ఆపివేసింది
+	zDownloader³ stopped responding	zDownloader³ స్పందించడం ఆపివేసింది
 #. text in crashui.rs
 #, machine
-	ZDownloader3 stopped responding for a while	ZDownloader3 కొంతకాలం స్పందించడం ఆపివేసింది
+	zDownloader³ stopped responding for a while	zDownloader³ కొంతకాలం స్పందించడం ఆపివేసింది
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	ZDownloader3 writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	ZDownloader3 ప్రతి కనెక్షన్‌ను నేరుగా తుది ఫైల్‌లోకి వ్రాస్తుంది (దాని పక్కన ఒక స్పార్స్ పార్ట్ ఫైల్), కాబట్టి తాత్కాలిక డైరెక్టరీ మరియు అసెంబ్లింగ్ దశ అవసరం లేదు.
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ ప్రతి కనెక్షన్‌ను నేరుగా తుది ఫైల్‌లోకి వ్రాస్తుంది (దాని పక్కన ఒక స్పార్స్ పార్ట్ ఫైల్), కాబట్టి తాత్కాలిక డైరెక్టరీ మరియు అసెంబ్లింగ్ దశ అవసరం లేదు.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3 {version} is available (released {date}).	ZDownloader3 {version} అందుబాటులో ఉంది ({date}న విడుదలైంది).
+	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} అందుబాటులో ఉంది ({date}న విడుదలైంది).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	ZDownloader3's own copy, version {version}	ZDownloader3 స్వంత కాపీ, వెర్షన్ {version}
+	zDownloader³'s own copy, version {version}	zDownloader³ స్వంత కాపీ, వెర్షన్ {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	ZDownloader3's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	ZDownloader3 X11 విండోకు {libraries} అవసరం, అవి ఈ సిస్టమ్‌లో లేవు: బదులుగా అది Waylandలో తెరుచుకుంటుంది, అక్కడ దాని మెనూలు వాటి శీర్షికలకు దూరంగా తెరుచుకోవచ్చు.
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	zDownloader³ X11 విండోకు {libraries} అవసరం, అవి ఈ సిస్టమ్‌లో లేవు: బదులుగా అది Waylandలో తెరుచుకుంటుంది, అక్కడ దాని మెనూలు వాటి శీర్షికలకు దూరంగా తెరుచుకోవచ్చు.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -3305,10 +3305,10 @@
 	Open in browser	బ్రౌజర్‌లో తెరవండి
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with ZDownloader3	ZDownloader3తో మాగ్నెట్ లింక్‌లు మరియు .torrent ఫైల్‌లను తెరవండి
+	Open magnet links and .torrent files with zDownloader³	zDownloader³తో మాగ్నెట్ లింక్‌లు మరియు .torrent ఫైల్‌లను తెరవండి
 #. text in the tray icon's menu
 #, machine
-	Open ZDownloader3	ZDownloader3ని తెరవండి
+	Open zDownloader³	zDownloader³ని తెరవండి
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3379,7 +3379,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with ZDownloader3	ZDownloader3తో జత చేయి
+	Pair with zDownloader³	zDownloader³తో జత చేయి
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3883,7 +3883,7 @@
 	Select or unselect the download with the dotted outline	చుక్కల గీతతో ఉన్న డౌన్‌లోడ్‌ను ఎంచుకోండి లేదా దాని ఎంపికను తీసివేయండి
 #. group box title in the Options window
 #, machine
-	Select sounds for ZDownloader3 events	ZDownloader3 ఈవెంట్‌ల కోసం శబ్దాలను ఎంచుకోండి
+	Select sounds for zDownloader³ events	zDownloader³ ఈవెంట్‌ల కోసం శబ్దాలను ఎంచుకోండి
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	బాక్స్‌లోని డౌన్‌లోడ్‌లను ఎంచుకోండి
@@ -4230,7 +4230,7 @@
 	Start download at	డౌన్‌లోడ్‌ను ప్రారంభించే సమయం
 #. checkbox in the Scheduler window
 #, machine
-	Start download on ZDownloader3 startup	ZDownloader3 ప్రారంభమైనప్పుడు డౌన్‌లోడ్‌ను ప్రారంభించు
+	Start download on zDownloader³ startup	zDownloader³ ప్రారంభమైనప్పుడు డౌన్‌లోడ్‌ను ప్రారంభించు
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	"డౌన్‌లోడ్ ఫైల్ సమాచారం" డైలాగ్‌ను ప్రదర్శిస్తున్నప్పుడు వెంటనే డౌన్‌లోడ్ చేయడం ప్రారంభించు
@@ -4265,7 +4265,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	కంప్యూటర్‌తో ప్రారంభించబడింది, ఇది కనిష్టీకరించబడింది: ఇక్కడ నోటిఫికేషన్ ప్రాంతం దాని చిహ్నాన్ని చూపదు
 #. text in the Options window
-#. tooltip of "Launch ZDownloader3 on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch zDownloader³ on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	కంప్యూటర్‌తో ప్రారంభించబడింది, ఇది నోటిఫికేషన్ ప్రాంతంలో వేచి ఉంటుంది
 #. message or event log entry in the main window
@@ -4494,7 +4494,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find ZDownloader3	బ్రౌజర్‌లు ZDownloader3ని కనుగొనగలవు
+	The browsers can find zDownloader³	బ్రౌజర్‌లు zDownloader³ని కనుగొనగలవు
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4521,7 +4521,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. ZDownloader3 has to be running (it can wait in the notification area).	ప్రారంభ సమయానికి ఒక నిమిషం ముందు కంప్యూటర్ మేల్కొంటుంది, క్యూ నడుస్తున్నంతసేపు మేల్కొని ఉంటుంది. ZDownloader3 తప్పనిసరిగా నడుస్తూ ఉండాలి (అది నోటిఫికేషన్ ప్రాంతంలో వేచి ఉండవచ్చు).
+	The computer is woken a minute before the start time and kept awake while the queue runs. zDownloader³ has to be running (it can wait in the notification area).	ప్రారంభ సమయానికి ఒక నిమిషం ముందు కంప్యూటర్ మేల్కొంటుంది, క్యూ నడుస్తున్నంతసేపు మేల్కొని ఉంటుంది. zDownloader³ తప్పనిసరిగా నడుస్తూ ఉండాలి (అది నోటిఫికేషన్ ప్రాంతంలో వేచి ఉండవచ్చు).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4711,7 +4711,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from ZDownloader3 list of downloads?	ఎంచుకున్న డౌన్‌లోడ్ పూర్తి కాలేదు. మీరు దీన్ని ZDownloader3 డౌన్‌లోడ్‌ల జాబితా నుండి తొలగించాలనుకుంటున్నారని ఖచ్చితంగా అనుకుంటున్నారా?
+	The selected download is not complete. Are you sure you want to delete\nit from zDownloader³ list of downloads?	ఎంచుకున్న డౌన్‌లోడ్ పూర్తి కాలేదు. మీరు దీన్ని zDownloader³ డౌన్‌లోడ్‌ల జాబితా నుండి తొలగించాలనుకుంటున్నారని ఖచ్చితంగా అనుకుంటున్నారా?
 #. text in errors.rs
 #, machine
 	the server answered {status}	సర్వర్ {status} అని సమాధానం ఇచ్చింది
@@ -5154,7 +5154,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "ZDownloader3" and allow it on all websites.	"ZDownloader3"ను ఆన్ చేసి, అన్ని వెబ్‌సైట్‌లలో అనుమతించండి.
+	Turn on "zDownloader³" and allow it on all websites.	"zDownloader³"ను ఆన్ చేసి, అన్ని వెబ్‌సైట్‌లలో అనుమతించండి.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -5584,7 +5584,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of ZDownloader3 ({version}).	మీరు ZDownloader3 ({version}) యొక్క తాజా వెర్షన్‌ను కలిగి ఉన్నారు.
+	You have the latest version of zDownloader³ ({version}).	మీరు zDownloader³ ({version}) యొక్క తాజా వెర్షన్‌ను కలిగి ఉన్నారు.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -6062,9 +6062,9 @@ column	Transfer rate	బదిలీ రేటు
 #, machine
 column	Upload speed	అప్‌లోడ్ వేగం
 #. text in the browser extension
-#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the page is a list of videos (a playlist), whose videos are chosen in the app's window; keep the name zDownloader³ as it is
 #, machine
-extension	A list of videos: choose them in ZDownloader3	వీడియోల జాబితా: వాటిని ZDownloader3లో ఎంచుకోండి
+extension	A list of videos: choose them in zDownloader³	వీడియోల జాబితా: వాటిని zDownloader³లో ఎంచుకోండి
 #. text in the browser extension
 #. on the download button (green) over a video after the app added and started the download; a quality may follow ('· 1080p') and a 'Show' button; MDM is the app's short name, keep it; short
 #, machine
@@ -6079,9 +6079,9 @@ extension	Added to the queue	క్యూకి జోడించబడిం�
 #, machine
 extension	All qualities and subtitles...	అన్ని నాణ్యతలు మరియు ఉపశీర్షికలు...
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name ZDownloader3 as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name zDownloader³ as it is
 #, machine
-extension	Another ZDownloader3 (a server)	మరొక ZDownloader3 (ఒక సర్వర్)
+extension	Another zDownloader³ (a server)	మరొక zDownloader³ (ఒక సర్వర్)
 #. text in the browser extension
 #. tab above the list of qualities in the menu under the download button over a video: the choices that are sound only (MP3, Opus and the like); short, one word
 #, machine
@@ -6095,7 +6095,7 @@ extension	best	ఉత్తమమైనది
 #, machine
 extension	Browser extension	బ్రౌజర్ పొడిగింపు
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in ZDownloader3
+#. menu command of the download button over a video: opens its settings in zDownloader³
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	బటన్ సెట్టింగ్‌లు...
@@ -6108,14 +6108,14 @@ extension	can't be saved	సేవ్ చేయడం సాధ్యం కా�
 #, machine
 extension	Can't tell which video this is: open its own page and try there	ఇది ఏ వీడియోనో తెలియడం లేదు: దాని స్వంత పేజీని తెరిచి అక్కడ ప్రయత్నించండి
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app; keep the name zDownloader³ as it is
 #, machine
-extension	Connected to ZDownloader3	ZDownloader3కి కనెక్ట్ చేయబడింది
+extension	Connected to zDownloader³	zDownloader³కి కనెక్ట్ చేయబడింది
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name ZDownloader3 as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name zDownloader³ as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to ZDownloader3 {version}	ZDownloader3 {version}కి కనెక్ట్ చేయబడింది
+extension	Connected to zDownloader³ {version}	zDownloader³ {version}కి కనెక్ట్ చేయబడింది
 #. text in the browser extension
 #. in the menu under the download button over a video: finding the video's qualities failed; the app's own explanation follows on the next line
 #, machine
@@ -6125,17 +6125,17 @@ extension	Could not look it up	వెతకడం సాధ్యం కాల�
 #, machine
 extension	Download	డౌన్‌లోడ్ చేయండి
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name zDownloader³ as it is
 #, machine
-extension	Download all links with ZDownloader3	ZDownloader3తో అన్ని లింక్‌లను డౌన్‌లోడ్ చేయండి
+extension	Download all links with zDownloader³	zDownloader³తో అన్ని లింక్‌లను డౌన్‌లోడ్ చేయండి
 #. text in the browser extension
 #. first line of the list under the download button over a video: downloads the best quality at once; the quality, its file type and size follow on the same line; short
 #, machine
 extension	Download best	ఉత్తమమైనది డౌన్‌లోడ్ చేయండి
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name zDownloader³ as it is
 #, machine
-extension	Download selected links with ZDownloader3	ZDownloader3తో ఎంచుకున్న లింక్‌లను డౌన్‌లోడ్ చేయండి
+extension	Download selected links with zDownloader³	zDownloader³తో ఎంచుకున్న లింక్‌లను డౌన్‌లోడ్ చేయండి
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video while the app is still finding its qualities
 #, machine
@@ -6145,9 +6145,9 @@ extension	Download the best quality	ఉత్తమ నాణ్యతను డ
 #, machine
 extension	Download video	వీడియోను డౌన్‌లోడ్ చేయండి
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name ZDownloader3 as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name zDownloader³ as it is
 #, machine
-extension	Download with ZDownloader3	ZDownloader3తో డౌన్‌లోడ్ చేయండి
+extension	Download with zDownloader³	zDownloader³తో డౌన్‌లోడ్ చేయండి
 #. text in the browser extension
 #. first line of the tooltip of the download button over a video: what one click downloads; $what$ is a quality, a file type and a size, e.g. '1080p MP4 · 412 MB'
 #, machine
@@ -6174,9 +6174,9 @@ extension	Enter its https:// address.	దాని https:// చిరునా�
 #, machine
 extension	Get MDM	MDMని పొందండి
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name ZDownloader3 as it is
+#. the extension's description in the browser's list of extensions; keep the name zDownloader³ as it is
 #, machine
-extension	Hands downloads from the browser to ZDownloader3.	బ్రౌజర్ నుండి ZDownloader3కి డౌన్‌లోడ్‌లను అందిస్తుంది.
+extension	Hands downloads from the browser to zDownloader³.	బ్రౌజర్ నుండి zDownloader³కి డౌన్‌లోడ్‌లను అందిస్తుంది.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -6206,9 +6206,9 @@ extension	It didn't work. Try again.	ఇది పని చేయలేదు. 
 #, machine
 extension	It shows no code now: click Pair a device there first.	ఇది ఇప్పుడు కోడ్‌ను చూపడం లేదు: ముందుగా అక్కడ పరికరాన్ని జత చేయి క్లిక్ చేయండి.
 #. text in the browser extension
-#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with ZDownloader3, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
+#. why a download stayed with the browser: it is a .torrent file and the app's Torrent settings don't open torrents with zDownloader³, so the browser keeps it for the user's own torrent program; keep the setting's name as the app shows it
 #, machine
-extension	It's a torrent, and Open magnet links and .torrent files with ZDownloader3 is off in Torrent settings.	ఇది టొరెంట్, మరియు టొరెంట్ సెట్టింగ్‌లలో ZDownloader3తో మాగ్నెట్ లింక్‌లు మరియు .torrent ఫైల్‌లను తెరవండి ఆఫ్ చేయబడింది.
+extension	It's a torrent, and Open magnet links and .torrent files with zDownloader³ is off in Torrent settings.	ఇది టొరెంట్, మరియు టొరెంట్ సెట్టింగ్‌లలో zDownloader³తో మాగ్నెట్ లింక్‌లు మరియు .torrent ఫైల్‌లను తెరవండి ఆఫ్ చేయబడింది.
 #. text in the browser extension
 #. why a download stayed with the browser: the file is smaller than the app's minimum size setting
 #, machine
@@ -6251,41 +6251,41 @@ extension	MDM didn't answer	MDM స్పందించలేదు
 #, machine
 extension	Media on this page	ఈ పేజీలోని మీడియా
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name ZDownloader3 as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3	ZDownloader3
+extension	zDownloader³	zDownloader³
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name ZDownloader3 as it is
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 didn't start in time	ZDownloader3 సమయానికి ప్రారంభం కాలేదు
+extension	zDownloader³ didn't start in time	zDownloader³ సమయానికి ప్రారంభం కాలేదు
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name ZDownloader3 as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 doesn't accept this copy of the extension	ZDownloader3 పొడిగింపు యొక్క ఈ కాపీని అంగీకరించదు
+extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ పొడిగింపు యొక్క ఈ కాపీని అంగీకరించదు
 #. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 is busy with other videos	ZDownloader3 ఇతర వీడియోలతో బిజీగా ఉంది
+extension	zDownloader³ is busy with other videos	zDownloader³ ఇతర వీడియోలతో బిజీగా ఉంది
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name ZDownloader3 as it is
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed or didn't start	ZDownloader3 ఇన్‌స్టాల్ చేయబడలేదు లేదా ప్రారంభం కాలేదు
+extension	zDownloader³ isn't installed or didn't start	zDownloader³ ఇన్‌స్టాల్ చేయబడలేదు లేదా ప్రారంభం కాలేదు
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name ZDownloader3 as it is
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 isn't installed, or its browser integration isn't set up	ZDownloader3 ఇన్‌స్టాల్ చేయబడలేదు లేదా దాని బ్రౌజర్ అనుసంధానం సెటప్ చేయబడలేదు
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ ఇన్‌స్టాల్ చేయబడలేదు లేదా దాని బ్రౌజర్ అనుసంధానం సెటప్ చేయబడలేదు
 #. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name ZDownloader3 as it is
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 needs yt-dlp for this video	ఈ వీడియో కోసం ZDownloader3కి yt-dlp అవసరం
+extension	zDownloader³ needs yt-dlp for this video	ఈ వీడియో కోసం zDownloader³కి yt-dlp అవసరం
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	ZDownloader3 ఈ బ్రౌజర్ వలె అదే ప్రాక్సీ ద్వారా డౌన్‌లోడ్ చేస్తుంది. బ్రౌజర్ దీన్ని అనుమతించమని మిమ్మల్ని ఒకసారి అడుగుతుంది; దీన్ని ఆఫ్ చేయడం ద్వారా అది తిరిగి తీసుకోబడుతుంది.
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ ఈ బ్రౌజర్ వలె అదే ప్రాక్సీ ద్వారా డౌన్‌లోడ్ చేస్తుంది. బ్రౌజర్ దీన్ని అనుమతించమని మిమ్మల్ని ఒకసారి అడుగుతుంది; దీన్ని ఆఫ్ చేయడం ద్వారా అది తిరిగి తీసుకోబడుతుంది.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name ZDownloader3 as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
 #, machine
-extension	ZDownloader3 then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	ZDownloader3 ఈ బ్రౌజర్ వలె అదే ప్రాక్సీ ద్వారా డౌన్‌లోడ్ చేస్తుంది. ఇది ఆఫ్ చేయబడినప్పుడు, పొడిగింపు బ్రౌజర్ ప్రాక్సీని చదవదు.
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ ఈ బ్రౌజర్ వలె అదే ప్రాక్సీ ద్వారా డౌన్‌లోడ్ చేస్తుంది. ఇది ఆఫ్ చేయబడినప్పుడు, పొడిగింపు బ్రౌజర్ ప్రాక్సీని చదవదు.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -6325,9 +6325,9 @@ extension	Open it	దీన్ని తెరవండి
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	దాని చిరునామాను ఒకసారి తెరిచి, దాని సర్టిఫికేట్‌ను ఆమోదించండి, ఆపై దాని ఎంపికలు, రిమోట్, పరికరాన్ని జత చేయి (లేదా zdownloader3-cli pair) నుండి కోడ్‌ను నమోదు చేయండి.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name ZDownloader3 as it is
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
 #, machine
-extension	Open ZDownloader3	ZDownloader3ని తెరవండి
+extension	Open zDownloader³	zDownloader³ని తెరవండి
 #. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 #, machine
@@ -6382,14 +6382,14 @@ extension	Send downloads through this browser's proxy or VPN extension	ఈ బ�
 #, machine
 extension	Send downloads to	డౌన్‌లోడ్‌లను దీనికి పంపండి
 #. text in the browser extension
-#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is ZDownloader3's short name, keep it as it is; short
+#. on the download button over a video right after it was clicked, while the download goes to the app; MDM is zDownloader³'s short name, keep it as it is; short
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Sending to MDM...	MDMకు పంపుతోంది...
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name ZDownloader3 as it is
+#. shown briefly on the download button after it was clicked; keep the name zDownloader³ as it is
 #, machine
-extension	Sent to ZDownloader3	ZDownloader3కు పంపబడింది
+extension	Sent to zDownloader³	zDownloader³కు పంపబడింది
 #. text in the browser extension
 #. button on the download button over a video after a download was added: shows that download in the app's window; verb; very short
 #, machine
@@ -6407,9 +6407,9 @@ extension	Take downloads from this browser	ఈ బ్రౌజర్ నుం�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store నియమాలు ఈ యాడ్-ఆన్ కాపీని ఈ సైట్ వీడియోలకు దూరంగా ఉంచుతాయి. మీరు ఏమి చేయగలరో «సహాయం» చెబుతుంది.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name ZDownloader3 as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name zDownloader³ as it is
 #, machine
-extension	The connection to ZDownloader3 failed	ZDownloader3కి కనెక్షన్ విఫలమైంది
+extension	The connection to zDownloader³ failed	zDownloader³కి కనెక్షన్ విఫలమైంది
 #. text in the browser extension
 #. why a download stayed with the browser: the user limited the extension's access to web sites in the browser, so it can't pass the sign-in on
 #, machine
@@ -6423,7 +6423,7 @@ extension	The last download was left to the browser.	చివరి డౌన�
 #, machine
 extension	This browser isn't ticked in Options → General.	ఈ బ్రౌజర్ ఎంపికలు → సాధారణలో టిక్ చేయబడలేదు.
 #. text in the browser extension
-#. choice under Send downloads to: the ZDownloader3 on this computer
+#. choice under Send downloads to: the zDownloader³ on this computer
 #, machine
 extension	This computer	ఈ కంప్యూటర్
 #. text in the browser extension
@@ -6443,9 +6443,9 @@ extension	Turn on	ఆన్ చేయి
 #, machine
 extension	Undo	రద్దు చేయి
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name ZDownloader3 as it is
+#. status when the app is older than the extension; keep the name zDownloader³ as it is
 #, machine
-extension	Update ZDownloader3 to use everything this extension offers	ఈ పొడిగింపు అందించే ప్రతిదాన్ని ఉపయోగించడానికి ZDownloader3ని అప్‌డేట్ చేయండి
+extension	Update zDownloader³ to use everything this extension offers	ఈ పొడిగింపు అందించే ప్రతిదాన్ని ఉపయోగించడానికి zDownloader³ని అప్‌డేట్ చేయండి
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -6573,7 +6573,7 @@ key	Up / Down	పైకి / క్రిందికి
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About ZDownloader3	ZDownloader3 గు&రించి
+menu	&About zDownloader³	zDownloader³ గు&రించి
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6984,7 +6984,7 @@ menu	Metro	మెట్రో
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	ZDownloader3 &Home Page	ZDownloader3 &హోమ్ పేజీ
+menu	zDownloader³ &Home Page	zDownloader³ &హోమ్ పేజీ
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	తరలించు/పేరు మార్చు (Ctrl-M)
@@ -7117,7 +7117,7 @@ menu	Select &all	అన్నింటినీ ఎంచుకో(&a)
 menu	Show &drop target	డ్రాప్ లక్ష్యాన్ని చూపండి(&d)
 #. menu command in the main window
 #, machine
-menu	Show ZDownloader3	ZDownloader3ను చూపించు
+menu	Show zDownloader³	zDownloader³ను చూపించు
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

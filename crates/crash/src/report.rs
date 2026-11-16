@@ -40,7 +40,7 @@ const SORRY: &[&str] = &[
 pub fn text(input: &Input, home: Option<&Path>) -> String {
     let kind = input.kind.unwrap_or(Kind::Crash);
     let mut s = String::new();
-    let _ = writeln!(s, "---- ZDownloader3 crash report ----");
+    let _ = writeln!(s, "---- zDownloader³ crash report ----");
     let n = input.time.bytes().map(usize::from).sum::<usize>();
     let _ = writeln!(s, "// {}", SORRY[n % SORRY.len()]);
     let _ = writeln!(s);
