@@ -9575,9 +9575,16 @@ impl App {
         if self.tab == MainTab::Linkgrabber {
             // The Linkgrabber pane: the grabber drawn inline, centred in the pane (its canvas
             // is fixed, as the grabber window's; JD2's linkgrabber tab is one view, too).
+            let dock_h = if self.settings.dock_overview || self.settings.dock_properties {
+                crate::dock::DOCK_H
+            } else {
+                0.0
+            };
+            let dock_bottom = o.y + h - STRIP_H - 4.0;
+            let pane_bottom = dock_bottom - dock_h;
             let pane = egui::Rect::from_min_max(
                 pos2(o.x + 6.0, panes_y + 2.0),
-                pos2(o.x + w - 7.0, o.y + h - STRIP_H - 3.0),
+                pos2(o.x + w - 7.0, pane_bottom - 2.0),
             );
             let gw = 640.0f32;
             let gx = pane.min.x + ((pane.width() - gw).max(0.0)) / 2.0;
@@ -9608,6 +9615,29 @@ impl App {
                     self.tab = MainTab::Downloads;
                 }
                 Outcome::Open => {}
+            }
+            // The grabber's own dock: same toggles as the downloads dock, different data.
+            if dock_h > 0.0
+                && let Some(g) = self.grabber.as_ref()
+            {
+                let summary = g.dock_summary();
+                let current = g.current_summary();
+                if let Some(action) = crate::dock::grabber_dock(
+                    ui,
+                    o,
+                    w,
+                    dock_bottom - dock_h,
+                    dock_bottom,
+                    &summary,
+                    current.as_ref(),
+                    self.settings.dock_overview,
+                    self.settings.dock_properties,
+                ) {
+                    match action {
+                        crate::dock::Action::HideOverview => self.settings.dock_overview = false,
+                        crate::dock::Action::HideProperties => self.settings.dock_properties = false,
+                    }
+                }
             }
         } else {
         // JD2's bottom dock sits above the strip; the panes above it lose its height.

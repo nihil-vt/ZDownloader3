@@ -285,6 +285,30 @@ struct View {
     packages: Vec<Shown>,
 }
 
+/// Aggregates the dock shows for the link grabber.
+#[derive(Clone, Debug, Default, PartialEq, Eq)]
+pub struct GrabberSummary {
+    pub packages: usize,
+    pub links: usize,
+    pub online: usize,
+    pub failed: usize,
+    pub queued: usize,
+    pub ticked: usize,
+    pub size: Option<u64>,
+}
+
+/// The properties panel's data: the package the user is editing in the box under the list.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct PackageSummary {
+    pub name: String,
+    pub folder: String,
+    pub password_set: bool,
+    pub extract: bool,
+    pub delete_archives: bool,
+    pub links: usize,
+    pub ticked: usize,
+}
+
 pub struct Grabber {
     pub packages: Vec<Package>,
     pub links: Vec<Link>,
@@ -298,6 +322,7 @@ pub struct Grabber {
     delete_default: bool,
     /// The package the box under the list edits.
     current: usize,
+
     /// One of that box's text boxes had the keys (last frame).
     editing: bool,
     /// Each package's place in `packages`, by its origin's key: a long list's links found theirs
@@ -1506,6 +1531,43 @@ impl Grabber {
             pk.extract_set |= was != extract_now;
         }
     }
+    /// What the bottom dock shows for the link grabber (JD2's linkgrabber overview, one line
+    /// of aggregates); cheap to compute every frame.
+    pub fn dock_summary(&self) -> GrabberSummary {
+        let mut s = GrabberSummary::default();
+        s.packages = self.packages.len();
+        s.links = self.links.len();
+        for l in &self.links {
+            match l.state {
+                LinkState::Online => s.online += 1,
+                LinkState::Offline(_) | LinkState::Failed { .. } => s.failed += 1,
+                _ => s.queued += 1,
+            }
+            s.size = s.size.zip(l.size).map(|(a, b)| a + b).or(l.size);
+            if l.on {
+                s.ticked += 1;
+            }
+        }
+        s
+    }
+
+    /// The package the box under the list edits — enough for the dock's properties panel.
+    pub fn current_summary(&self) -> Option<PackageSummary> {
+        let p = self.packages.get(self.current)?;
+        let links = self.links.iter().filter(|l| l.pkg == self.current).count();
+        let ticked = self.links.iter().filter(|l| l.pkg == self.current && l.on).count();
+        Some(PackageSummary {
+            name: p.name.clone(),
+            folder: p.folder.clone(),
+            password_set: !p.password.is_empty(),
+            extract: p.extract,
+            delete_archives: p.delete,
+            links,
+            ticked,
+        })
+    }
+
+
 }
 
 /// A link's address as Link grabber tells links apart: without its `#fragment` (the same file);

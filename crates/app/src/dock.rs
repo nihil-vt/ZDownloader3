@@ -244,3 +244,101 @@ fn properties(item: &Item) -> Vec<(String, String)> {
     ]
 }
 
+
+// ---------------------------------------------------------------------------
+// The link grabber's own dock (JD2's linkgrabber overview + package properties).
+
+/// The link grabber's dock: applies the same two toggles (View → Download overview / File
+/// properties) the downloads dock uses, showing the grabber's aggregates instead.
+#[allow(clippy::too_many_arguments)]
+pub fn grabber_dock(
+    ui: &mut Ui,
+    o: Pos2,
+    w: f32,
+    top: f32,
+    bottom: f32,
+    summary: &crate::grabber::GrabberSummary,
+    current: Option<&crate::grabber::PackageSummary>,
+    show_overview: bool,
+    show_properties: bool,
+) -> Option<Action> {
+    let p = ui.painter().clone();
+    let mut action = None;
+    let (ov_left, ov_right, prop_left) = match (show_overview, show_properties) {
+        (true, true) => {
+            let mid = o.x + (w) * 0.44 + 6.0;
+            (o.x + 6.0, mid - 3.0, mid + 3.0)
+        }
+        (true, false) => (o.x + 6.0, o.x + w - 7.0, 0.0),
+        (false, true) => (0.0, 0.0, o.x + 6.0),
+        (false, false) => return None,
+    };
+    if show_overview {
+        let rc = Rect::from_min_max(pos2(ov_left, top), pos2(ov_right, bottom));
+        panel(&p, rc, "Linkgrabber Overview", Action::HideOverview, &mut action, ui);
+        let s = summary;
+        let size = s.size.map(crate::dialogs::dialog_size).unwrap_or_else(|| "—".to_owned());
+        let rows: [(&str, String); 8] = [
+            ("Packages", crate::i18n::integer(s.packages as u64)),
+            ("Links", crate::i18n::integer(s.links as u64)),
+            ("Online", crate::i18n::integer(s.online as u64)),
+            ("Failed", crate::i18n::integer(s.failed as u64)),
+            ("Queued", crate::i18n::integer(s.queued as u64)),
+            ("Ticked", crate::i18n::integer(s.ticked as u64)),
+            ("Total size", size),
+            ("Package", current.map(|c| c.name.clone()).unwrap_or_else(|| "—".to_owned())),
+        ];
+        let col_w = (rc.width() - 8.0) / 2.0;
+        for (i, (label, value)) in rows.iter().enumerate() {
+            let col = i % 2;
+            let row = i / 2;
+            let x = rc.left() + 10.0 + col as f32 * col_w;
+            let y = rc.top() + 26.0 + row as f32 * 21.0;
+            winui::text(&p, x, y, label, MUTED());
+            let wlabel = winui::text_width(&p, label) + 6.0;
+            winui::fit(
+                ui,
+                &p,
+                x + wlabel,
+                y,
+                value,
+                LIGHT_TEXT(),
+                rc.right() - 10.0,
+                ("grabberdock-ov", i),
+            );
+        }
+    }
+    if show_properties {
+        let rc = Rect::from_min_max(pos2(prop_left, top), pos2(o.x + w - 7.0, bottom));
+        panel(&p, rc, "Package Properties", Action::HideProperties, &mut action, ui);
+        let rows: Vec<(String, String)> = match current {
+            Some(c) => vec![
+                ("Package".to_owned(), c.name.clone()),
+                ("Save to".to_owned(), if c.folder.is_empty() { "—".to_owned() } else { c.folder.clone() }),
+                ("Password".to_owned(), if c.password_set { "•••".to_owned() } else { "—".to_owned() }),
+                ("Extract when done".to_owned(), if c.extract { "Yes".to_owned() } else { "No".to_owned() }),
+                ("Delete archives".to_owned(), if c.delete_archives { "Yes".to_owned() } else { "No".to_owned() }),
+                ("Links".to_owned(), format!("{} ({} ticked)", c.links, c.ticked)),
+            ],
+            None => vec![("Selection".to_owned(), "—".to_owned())],
+        };
+        let x = rc.left() + 10.0;
+        let mut y = rc.top() + 26.0;
+        for (label, value) in rows {
+            winui::text(&p, x, y, &label, MUTED());
+            let wlabel = winui::text_width(&p, &label) + 6.0;
+            winui::fit(
+                ui,
+                &p,
+                x + wlabel,
+                y,
+                &value,
+                LIGHT_TEXT(),
+                rc.right() - 10.0,
+                ("grabberdock-prop", label),
+            );
+            y += 21.0;
+        }
+    }
+    action
+}
