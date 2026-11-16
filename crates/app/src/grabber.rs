@@ -759,6 +759,27 @@ impl Grabber {
         // After the check box's caption, however long it is in this language.
         let after = 11.0 + 18.0 + winui::text_width(&p, crate::i18n::t("Hide web pages")) + 24.0;
         text(&p, o.x + after, o.y + 310.0, &count, LIGHT_TEXT());
+        // JD2's linkgrabber overview, one line: packages and total size of what shows.
+        let view = self.view();
+        let shown = &view.packages;
+        let pkg_n = shown.iter().filter(|s| s.links > 0).count();
+        let pkg_size: u64 = shown.iter().filter_map(|s| s.size).sum();
+        let pkg_size_known = shown.iter().any(|s| s.size.is_some());
+        let stat = if pkg_size_known {
+            format!(
+                "{} {} · {}",
+                crate::i18n::integer(pkg_n as u64),
+                crate::i18n::mark("packages"),
+                crate::dialogs::dialog_size(pkg_size)
+            )
+        } else {
+            format!(
+                "{} {}",
+                crate::i18n::integer(pkg_n as u64),
+                crate::i18n::mark("packages")
+            )
+        };
+        winui::text_right(&p, o.x + 629.0, o.y + 310.0, &stat, winui::MUTED());
         let picks = winui::buttons_light_right(
             ui,
             o,

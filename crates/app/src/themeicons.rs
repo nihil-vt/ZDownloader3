@@ -425,8 +425,8 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
             "st-complete-symbolic.svg", "st-downloading-symbolic.svg", "st-error-symbolic.svg",
             "st-paused-symbolic.svg", "st-queued-symbolic.svg", "st-seeding-symbolic.svg",
             "tb-add-url-symbolic.svg", "tb-delete-completed-symbolic.svg", "tb-delete.svg",
-            "tb-options-symbolic.svg", "tb-resume-symbolic.svg", "tb-scheduler-symbolic.svg",
-            "tb-stop-symbolic.svg", "ui-close-symbolic.svg", "ui-maximize-symbolic.svg",
+            "tb-options-symbolic.svg", "tb-resume.svg", "tb-scheduler-symbolic.svg",
+            "tb-stop.svg", "ui-close-symbolic.svg", "ui-maximize-symbolic.svg",
             "ui-minimize-symbolic.svg", "ui-restore-symbolic.svg", "ui-to-tray-symbolic.png"];
         24: ["cat-all-symbolic.svg", "cat-compressed.svg", "cat-documents.svg",
             "cat-finished-symbolic.svg", "cat-folder-open-symbolic.svg", "cat-folder-symbolic.svg",
@@ -440,8 +440,8 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
             "st-error-symbolic.svg", "st-paused-symbolic.svg", "st-queued-symbolic.svg",
             "st-seeding-symbolic.svg", "tb-add-torrent-symbolic.svg", "tb-add-url-symbolic.svg",
             "tb-delete-completed-symbolic.svg", "tb-delete.svg", "tb-options-symbolic.svg",
-            "tb-resume-symbolic.svg", "tb-scheduler-symbolic.svg", "tb-start-queue-symbolic.svg",
-            "tb-stop-all-symbolic.svg", "tb-stop-queue-symbolic.svg", "tb-stop-symbolic.svg",
+            "tb-resume.svg", "tb-scheduler-symbolic.svg", "tb-start-queue.svg",
+            "tb-stop-all.svg", "tb-stop-queue.svg", "tb-stop.svg",
             "ui-close-symbolic.svg", "ui-maximize-symbolic.svg", "ui-minimize-symbolic.svg",
             "ui-restore-symbolic.svg", "ui-to-tray-symbolic.png"];
         32: ["ft-pdf.png", "ui-to-tray-symbolic.png"];

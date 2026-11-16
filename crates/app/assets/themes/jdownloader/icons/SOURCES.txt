@@ -7,7 +7,10 @@ Placeholder set for the JD2-style look; icons are being redrawn as ZDownloader3 
 Licence: GNU LGPL v3 or later, with KDE's clarification for artwork (LICENSE, beside this file;
 the GNU GPL v3 it builds on is MDM's own LICENSE, at the top of the repository).
 
-Each file is one of the theme's icons, unchanged, renamed to the need MDM uses it for
+tb-resume.svg, tb-stop.svg, tb-start-queue.svg, tb-stop-queue.svg and tb-stop-all.svg
+are original flat drawings for this set (green start / red stop, JD2-style).
+
+The remaining files are one of breeze-icons' icons, unchanged, renamed to the need MDM uses it for
 (crates/app/src/themeicons.rs lists them):
 - 16/: icons/<context>/16/<icon>.svg, drawn for 16 pixels.
 - 24/: icons/<context>/22/ or 32/<icon>.svg, drawn at 24 pixels and up.
