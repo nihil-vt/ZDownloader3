@@ -1,52 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-label="ZDownloader3 — JDownloader2-shaped downloads for the Linux desktop">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="zdownloader3 terminal">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1a0e0a"/>
-      <stop offset="1" stop-color="#0d0807"/>
-    </linearGradient>
-    <radialGradient id="glow-red" cx="0" cy="1" r="0.8">
-      <stop offset="0" stop-color="#8a2414" stop-opacity="0.65"/>
-      <stop offset="1" stop-color="#8a2414" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow-gold" cx="0.85" cy="0" r="0.7">
-      <stop offset="0" stop-color="#e8b23e" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#e8b23e" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="zdrop" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffe27a"/>
-      <stop offset="0.5" stop-color="#e8b23e"/>
-      <stop offset="1" stop-color="#c9481f"/>
-    </linearGradient>
-    <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="#e8c88a" stop-opacity="0.6"/>
-    </linearGradient>
-    <linearGradient id="mark-bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3a1410"/>
-      <stop offset="0.5" stop-color="#57200f"/>
-      <stop offset="1" stop-color="#1a0e0a"/>
+    <linearGradient id="pane" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#121212"/>
     </linearGradient>
   </defs>
 
-  <rect width="1280" height="320" fill="url(#sky)"/>
-  <rect width="1280" height="320" fill="url(#glow-red)"/>
-  <rect width="1280" height="320" fill="url(#glow-gold)"/>
+  <rect width="1280" height="360" fill="#0d0d0d"/>
 
-  <!-- fork mark -->
-  <g transform="translate(56, 56)">
-    <rect x="0" y="0" width="208" height="208" rx="24" fill="url(#mark-bg)" stroke="#3a2418" stroke-width="2"/>
-    <path fill="url(#badge)" d="M104 42 L150 96 L128 96 L128 150 L104 128 L80 150 L80 96 L58 96 Z" opacity="0.95"/>
-    <path fill="url(#zdrop)" d="M76 66 L148 66 L148 76 L110 76 L148 112 L76 112 L76 103 L111 103 L76 103 Z" transform="translate(0,-4)"/>
+  <!-- left: mark + wordmark -->
+  <g transform="translate(48,88)" stroke="#f5efe8" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="46" cy="46" r="38"/>
+    <ellipse cx="46" cy="46" rx="16.5" ry="38"/>
+    <line x1="8" y1="46" x2="84" y2="46" stroke-width="4.5"/>
+    <path d="M14.5 24.5 Q46 46 77.5 24.5"/>
+    <path d="M14.5 67.5 Q46 46 77.5 67.5"/>
   </g>
+  <text x="196" y="122" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="40" font-weight="700" fill="#f5efe8">ZDownloader<tspan baseline-shift="super" font-size="0.5em" fill="#e8b23e">3</tspan></text>
+  <text x="196" y="152" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15" fill="#a89a85">JD2-shaped downloads for Linux</text>
 
-  <!-- wordmark with subscript 3 -->
-  <text x="290" y="140" fill="#f5efe8" font-family="Georgia, 'Iowan Old Style', serif" font-size="80" font-weight="700" letter-spacing="-2">ZDownloader<tspan baseline-shift="sub" font-size="0.55em" fill="#e8b23e">3</tspan></text>
-  <text x="290" y="184" fill="#c8beb2" font-family="Georgia, serif" font-size="20" font-weight="400">JDownloader2-shaped downloads, native to the Linux desktop.</text>
+  <!-- right: terminal pane -->
+  <rect x="640" y="44" width="592" height="272" rx="14" fill="url(#pane)" stroke="#2a2a2a" stroke-width="1.5"/>
+  <circle cx="664" cy="64" r="5.5" fill="#e8613c"/>
+  <circle cx="682" cy="64" r="5.5" fill="#e8b23e"/>
+  <circle cx="700" cy="64" r="5.5" fill="#4fd07d"/>
+  <text x="720" y="70" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="#8a8a8a">zdownloader3 — zsh</text>
 
-  <!-- callouts -->
-  <g font-family="Georgia, serif" font-size="19" font-weight="600" fill="#ffe27a">
-    <text x="290" y="240">▼  fast engine</text>
-    <text x="490" y="240">▼  JD2 link grabber</text>
-    <text x="740" y="240">▼  packagizer rules</text>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15" font-weight="600" fill="#e8b23e">
+    <text x="664" y="108"><tspan fill="#a89a85">$</tspan> zdownloader3</text>
   </g>
+  <text x="664" y="133" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#f5efe8">adding 5 links…</text>
+  <text x="664" y="153" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#f5efe8"><tspan fill="#a89a85">  [check]</tspan> thesis.pdf <tspan fill="#8a8a8a">· 88 MB · mirror.example.com</tspan></text>
+  <text x="664" y="173" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#f5efe8"><tspan fill="#a89a85">  [check]</tspan> appendix.pdf <tspan fill="#8a8a8a">· 4 MB</tspan></text>
+  <text x="664" y="193" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#f5efe8"><tspan fill="#a89a85">  [grab ]</tspan> Documents (2 files)</text>
+  <text x="664" y="213" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#f5efe8"><tspan fill="#a89a85">  [grab ]</tspan> Videos (3 files)</text>
+
+  <text x="664" y="250" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#f5efe8"><tspan fill="#a89a85">  [done ]</tspan> thesis.pdf <tspan fill="#4fd07d">✓</tspan></text>
 </svg>

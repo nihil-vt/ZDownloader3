@@ -1,21 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ZDownloader3">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2a0f0a"/><stop offset="0.5" stop-color="#57200f"/>
-      <stop offset="1" stop-color="#16090a"/>
-    </linearGradient>
-    <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0.55"/>
-    </linearGradient>
-    <linearGradient id="zdrop" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffe27a"/>
-      <stop offset="0.5" stop-color="#e8b23e"/>
-      <stop offset="1" stop-color="#c9481f"/>
-    </linearGradient>
-  </defs>
-
-  <path fill="url(#bg)" d="M8 4h48a4 4 0 0 1 4 4v40a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"/>
-  <path fill="url(#badge)" d="M32 12 L52 32 L44 32 L44 52 L32 44 L20 52 L20 32 L12 32 Z" opacity="0.9"/>
-  <path fill="url(#zdrop)" d="M19 22 L43 22 L43 28 L32 28 L43 42 L19 42 L19 36 L31 28 L19 28 Z"/>
+  <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="26" cy="32" r="16"/>
+    <ellipse cx="26" cy="32" rx="7" ry="16"/>
+    <line x1="10" y1="32" x2="42" y2="32" stroke-width="3.5"/>
+    <path d="M12.5 22.5 Q26 32 39.5 22.5"/>
+    <path d="M12.5 41.5 Q26 32 39.5 41.5"/>
+  </g>
+  <text x="43" y="20" font-family="Georgia, 'Iowan Old Style', serif" font-size="16" font-weight="900" fill="currentColor" stroke="none">3</text>
 </svg>

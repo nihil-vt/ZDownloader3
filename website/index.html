@@ -3,75 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ZDownloader3 is a native Linux download manager with a JDownloader2-shaped UI: a tabbed Downloads/Linkgrabber view, package-grouped links, a packagizer rule chain, and a fast multi-connection engine. Open source, GPL-3.0.">
+<meta name="description" content="ZDownloader3 — JD2-shaped downloads for Linux. Open source, GPL-3.0, no account, no ads.">
 <link rel="shortcut icon" href="assets/icon.svg">
-<title>ZDownloader3</title>
+<title>zdownloader3</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
 
-<picture>
-  <img src="assets/banner.svg" alt="ZDownloader3" class="brand">
-</picture>
+<img class="brand" src="assets/banner.svg" alt="zdownloader3">
 
-<h1 class="product">ZDownloader<sub>3</sub></h1>
+<h1 class="product">zdownloader<sub>3</sub></h1>
+<p class="tagline">JD2-shaped downloads for Linux. Open source. No ads.</p>
 
-<p class="audible">The JD2-shaped download manager for Linux — open-source, fast.</p>
+<div class="toc"><ol>
+  <li><a href="#features">what it does</a></li>
+  <li><a href="#grab">the link grabber</a></li>
+  <li><a href="#install">install</a></li>
+  <li><a href="#license">license</a></li>
+  <li><a href="why.html">why this fork</a></li>
+  <li><a href="docs.html">docs</a></li>
+  <li><a href="roadmap.html">roadmap</a></li>
+  <li><a href="changelog.html">changelog</a></li>
+</ol></div>
 
-<nav class="toc">
-  <strong>On this page</strong>
-  <ul>
-    <li><a href="#features">What it does</a></li>
-    <li><a href="#why">Why this exists</a></li>
-    <li><a href="#status">Fork status</a></li>
-    <li><a href="#install">Build &amp; install</a></li>
-    <li><a href="why.html">Why JD2-shaped</a></li>
-    <li><a href="docs.html">Docs &amp; help</a></li>
-    <li><a href="changelog.html">What's done</a></li>
-  </ul>
-</nav>
-
-<p>ZDownloader3 is a download manager for <strong>Linux</strong> — one list, a link-grabber tab that turns a pile of pasted URLs into tickable packages, a rule chain (the “Packagizer”) that reorders, renames and re-routes files by regex, and an engine that splits files across connections, resumes, and checks checksums.</p>
-
-<blockquote><img src="assets/main.svg" alt="The main window (illustrated mockup)" style="width:100%;border:1px solid var(--line);border-radius:20px"><br>
-<figcaption>A picture of the main window. It's an illustration, not a screenshot — prefer the mockup over a stale capture.</figcaption></blockquote>
-
-<h2 id="features">What it does</h2>
-<ul class="features">
-  <li><strong>JD2-shaped link grabber.</strong> Paste links, drop a batch, or let the browser hand them over; they land in packages, ready to tick.</li>
-  <li><strong>Package grouping.</strong> Split archives across mirror hosts, folders at the same path on the same site, packs of the same file family — grouped and labeled without server-side APIs.</li>
-  <li><strong>Packagizer.</strong> Ordered rules — move to package, rename, set destination — with variables <code>&lt;name&gt;</code>, <code>&lt;ext&gt;</code>, <code>&lt;index&gt;</code>, <code>&lt;simpledate:…&gt;</code>, <code>$1…${name}</code>, size and regex conditions, stop-after-rule.</li>
-  <li><strong>Multi-connection engine.</strong> Segmented HTTP/1.1 with resume, mirror-aware chunking, per-host limits, checksum verification, FTP/FTPS.</li>
-  <li><strong>Debrid and torrent.</strong> Real-Debrid / AllDebrid / Premiumize / TorBox / Mega-Debrid sidebars; magnet and .torrent handling.</li>
-  <li><strong>The way IDM is laid out.</strong> Sidebar categories, one flat list, per-file speed, progress, today/tomorrow queues, tray with silent mode — the shape you already know.</li>
+<h2 id="features">features</h2>
+<ul>
+  <li><strong>link grabber</strong> — paste or drop a pile of links, get packages with tickboxes</li>
+  <li><strong>packagizer</strong> — rename / move / set destination by regex, variable, index; stop-after-rule</li>
+  <li><strong>segmented engine</strong> — chunked HTTP/1.1, resume across restarts, per-host cap, checksums</li>
+  <li><strong>debrid</strong> — Real-Debrid, AllDebrid, Premiumize, TorBox, Mega-Debrid sidebars</li>
+  <li><strong>torrents</strong> — magnet + .torrent, piece selection</li>
+  <li><strong>linux-first</strong> — XDG paths, fontconfig, native tray, one Rust binary</li>
 </ul>
 
-<h2 id="why">Why this exists</h2>
-<p>JDownloader2 is a good download manager and a closed one. This is an MIT/GPL reimplementation with the bits Linux desktops actually need — plain-text config, native fonts, XDG paths, no Java, one binary.</p>
-<p>Read more: <a href="why.html">why JD2-shaped</a></p>
+<h2 id="grab">the link grabber</h2>
+<p>What you just saw in the terminal above: 5 links land in two packages, <code>Documents (2 files)</code> and <code>Videos (3 files)</code>. Tick them, press <span class="kbd">Enter</span>, and the queue starts.</p>
+<p>Rules for collapsing by folder, by archive part, by filename pattern — that's the Packagizer. You write it once, it applies on every add.</p>
 
-<h2 id="status">Fork status</h2>
+<h2 id="install">install</h2>
+<pre><code><span class="g">$</span> git clone https://github.com/anefzaoui/misterdownloadmanager zdownloader3
+<span class="g">$</span> cd zdownloader3
+<span class="g">$</span> cargo install --path crates/app
+<span class="g">$</span> zdownloader3
+</code></pre>
+<p>Requirements: <span class="kbd">rustc ≥ 1.79</span>, a C compiler. Packages (<code>.deb</code> / <code>.rpm</code> / <code>AppImage</code>) come from <code>tools/installer/build-linux.sh</code> — needs <code>rpmbuild</code> and <code>dpkg-deb</code> on PATH.</p>
 
-<p>ZDownloader3 is a fork of <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a>, adapted toward JDownloader2's workflow and Linux packaging. Expect rough edges. The fork's own status lives in <a href="roadmap.html">roadmap</a> and <a href="changelog.html">changelog</a>; upstream changes ship upstream first.</p>
-
-<h2 id="install">Build &amp; install</h2>
-
-<p>Rust and a C compiler are required. On a Debian/Ubuntu/CachyOS-family box:</p>
-<pre><code>$ git clone &lt;repo&gt; zdownloader3
-$ cd zdownloader3
-$ cargo install --path crates/app
-$ zdownloader3</code></pre>
-<p><code>cargo build --release</code> produces a single binary under <code>target/release/zdownloader3</code>. Packages (<code>.deb</code> / <code>.rpm</code> / AppImage) are built from <code>tools/installer/build-linux.sh</code>; see that script for the toolchain checklist.</p>
-<p><span class="badges"><span>GPL-3.0</span><span>Linux-first</span><span>egui/winit</span><span>Rust</span></span></p>
+<h2 id="license">license</h2>
+<p><strong>GPL-3.0</strong>. This fork descends from <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a> and keeps their license. Not affiliated with <a href="https://www.jdownloader.org/">jdownloader.org</a>, appwork, or misterdownloadmanager.com.</p>
 
 <p class="footer">
-  <a href="why.html">Why</a> ·
-  <a href="docs.html">Docs</a> ·
-  <a href="roadmap.html">Roadmap</a> ·
-  <a href="changelog.html">Changelog</a> ·
-  License: <a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/LICENSE">GPL-3.0</a> ·
-  Attribution: <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a>
+  forked from <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a><br>
+  <a href="why.html">why</a> · <a href="docs.html">docs</a> · <a href="roadmap.html">roadmap</a> · <a href="changelog.html">changelog</a>
 </p>
 
 </main>
