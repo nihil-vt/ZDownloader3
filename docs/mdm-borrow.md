@@ -66,7 +66,7 @@ MDM exposes everything (list/add/start/stop/queues/settings) as one "automation 
 
 ## Decision points this raises
 
-1. **aria2 vs own engine.** Borrow MDM's architecture only if we outgrow aria2's limits (per-host start intervals, mirror dedup across hosts, browser-like TLS fingerprinting for hostile sites). Not now.
+1. **aria2 vs own engine — DECIDED 2026-11-16 (fork):** keep MDM's segmented HTTP engine; aria2 dropped. Next: learn its HostLimits/planner; port JD2-side ideas (typed skip reasons, mirror dedup) onto it as needed.
 2. **CNL2 spec above is the security baseline** — `zd-cnl` implements it before any GUI polish on the grabber.
 3. **Command bus** becomes the integration seam for CLI, remote, MCP, and future extension host — design `zd-core::Command` from day one.
 

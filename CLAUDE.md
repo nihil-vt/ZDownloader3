@@ -1,3 +1,5 @@
+> **Fork context (2026-11-16):** This tree is now ZDownloader3, a GPL-3.0 fork of upstream Mister Download Manager (see NOTICE.md). Upstream docs/CLAUDE.md apply with renamed identity (ZDownloader3, Linux-native first). Pre-fork scaffold: attic/. Analysis: docs/jd2-internals.md, docs/mdm-borrow.md.
+
 # Mister Download Manager (MDM) — agent guide
 
 Mister Download Manager (MDM) is a download manager for Windows in Rust (egui + storytold
