@@ -3,7 +3,7 @@
 A native Linux-first download manager with a JDownloader2-shaped UI, forked from
 **Mister Download Manager** (GPL-3.0, upstream `main` @ `1d151be`, 2026-11-16; see `NOTICE.md`).
 
-![The main window](docs/images/main-light.webp)
+<p align="center"><img src="docs/assets/brand/banner.svg" alt="ZDownloader3" width="100%" /></p>
 
 ## What works in the fork so far
 

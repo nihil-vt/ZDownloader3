@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=ZDownloader3
-Comment=Native Linux download manager
-Exec=zdownloader3
-Icon=zdownloader3
-Categories=Network;FileTransfer;
-Terminal=false
