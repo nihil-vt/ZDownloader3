@@ -3,6 +3,23 @@
 Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 `.github/workflows/release.yml`).
 
+## [Fork 0.5.2-zd3.1] - 2026-11-16
+
+First ZDownloader3 fork build. Imports upstream Mister Download Manager and re-identifies it natively Linux-first with a JDownloader2 look.
+
+### Added
+
+- **JDownloader2 look**: two-tab main window (`Downloads` / `Linkgrabber`), flat JD2-style theme (`View → Theme → JDownloader2`, default on Linux), toolbar with JD2-tinted icons (green Start/Resume, red Stop), dock panels on both tabs (`Download Overview`, `File Properties` / `Linkgrabber Overview`, `Package Properties`) with View-menu toggles
+- **Linkgrabber grouping**: packages form from the folder links share (across hosts, with a file-class constraint), or from archive volume names (host ignored), as JD2 packs
+- **Packagizer** (Downloads → Packagize&r): the rule chain (URL/name regexes, extensions, size bounds, stop-after-rule) to move/rename/redirect links, with variables `<filename>`, `<name>`, `<ext>`, `<packagename>`, `<index>`, `<simpledate:…>` and capture groups `$1…${name}`
+- Rename in-tree identity to ZDownloader3; Adwaita theme default replaced by JDownloader2 on Linux; settings migration adopts pre-fork data folders
+- Fork documents: `NOTICE.md` (provenance), `docs/jd2-internals.md` (decompiled JD2 analysis), `docs/mdm-borrow.md` (borrowing ledger, GPL boundaries), `docs/gap-plan.md`, `docs/packagizer.md`
+
+### Notes
+
+- Upstream features kept: engine with IDM-beating speed, torrents, Click'n'Load, extraction (zip/7z/rar), debrid services, browser extension + remote control + automation API + MCP, 86 languages, Linux .deb/.rpm/AppImage packaging
+- JD2 assets are never copied; analysis informed layout/behavior only
+
 ## [Unreleased]
 
 ### Added

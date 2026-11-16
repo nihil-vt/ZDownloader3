@@ -1,4 +1,28 @@
-> **ZDownloader3** is a fork of ZDownloader3 (see `NOTICE.md`). Goal: a JDownloader2-class download manager with native Linux experience. Pre-fork GTK4/aria2 scaffold archived in `attic/`. Upstream README below.
+> **ZDownloader3** is a fork of **Mister Download Manager** (see `NOTICE.md`), aiming for a JDownloader2-class download manager with a native Linux-first experience. Pre-fork GTK4/aria2 scaffold archived in `attic/`. Upstream README below.
+
+## ZDownloader3 (fork notes)
+
+Fork of Mister Download Manager (GPL-3.0, imported from upstream `main` @ `1d151be`, 2026-11-16).
+
+**What works in the fork so far:**
+
+- JDownloader2-like UI: `Downloads` / `Linkgrabber` tabs, package-grouped list, flat JD2-style theming (`View → Theme → JDownloader2`, default on Linux)
+- **Linkgrabber**: packages grouped by folder (same folder leaf, same file class, mirrors included) and by archive volumes (host ignored); `Name | Hoster | Size | Status` columns; `Check/Uncheck all`, look-up status, Add to queue / Start
+- **Packagizer** (Downloads → Packagize&r): JDownloader2's rule chain (URL/name regexes, extension, size bounds, variables like `<name>`, `<index>`, `<simpledate:…>`, `$1…`, `${name}`) moving links between packages, renaming them, or retargeting destinations
+- **Download Overview / File Properties** bottom dock (View → toggles): download statistics and the selected download's identity at a glance
+- Known downloads flow: Add URL, batch add, drag-and-drop, Click'n'Load into Linkgrabber (ask-once per site), browser extension integration (Firefox/Chrome), tray icon, silent mode
+
+**Build and run:**
+
+```sh
+cargo run -p mdm-app   # or: cargo install --path crates/app
+```
+
+Linux: native XDG paths, fontconfig, portal accent/contrast, .deb / .rpm / AppImage installers in `tools/installer/build-linux.sh` (needs rpmbuild/dpkg-deb/pwsh, see the script's header).
+
+Fork roadmap: `docs/fork-roadmap.md` (JD2 parity items in progress and planned).
+
+Upstream (Mister Download Manager) remains the base: GPL-3.0, same LICENSE applies.
 
 ---
 

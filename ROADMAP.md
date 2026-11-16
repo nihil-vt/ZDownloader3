@@ -1,3 +1,5 @@
+> **This is the fork's roadmap.** It overrides the upstream Mister Download Manager roadmap below, which describes upstream's plans. ZDownloader3's own track: `docs/fork-roadmap.md`. Upstream changes worth adopting are reviewed before merge.
+
 # Roadmap
 
 What's done for version 0.5.2, what's being built, and what's planned. Each item links to its
