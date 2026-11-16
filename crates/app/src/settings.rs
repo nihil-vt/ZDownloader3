@@ -111,6 +111,9 @@ pub struct Settings {
     pub show_categories: bool,
     /// The JD2 bottom dock in the Downloads tab: "Download Overview" on the left of it,
     /// "File Properties" on the right (each behind View → its own toggle).
+    /// The Packagizer rules (#37): an ordered chain of linkgrabber rules, applied
+    /// when links are added and on demand from the Packagizer window.
+    pub packagizer_rules: Vec<crate::packagizer::Rule>,
     pub dock_overview: bool,
     pub dock_properties: bool,
     pub branches: [bool; 4],
@@ -430,6 +433,7 @@ impl Default for Settings {
             show_categories: true,
             dock_overview: true,
             dock_properties: true,
+            packagizer_rules: Vec::new(),
             branches: [true, false, false, false],
             view: None,
             dark_mode_support: true,

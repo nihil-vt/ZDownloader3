@@ -60,9 +60,9 @@ pub enum LinkState {
 /// else "Various files".
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Origin {
-    /// Volumes of one archive on one host (`movie.part1.rar`, `movie.part2.rar`).
+    /// Volumes of one archive (`movie.part1.rar`, `movie.part2.rar`), grouped by their
+    /// base name — mirror hosts of the same split archive pack together, as JD2 does.
     Volumes {
-        host: String,
         base: String,
     },
     /// The page the links were on (its host and path).
@@ -72,12 +72,44 @@ pub enum Origin {
     Known,
     /// Packed by its site (Click'n'Load): the site's package name.
     Site(String),
-    /// Several links beside each other in one folder on one host (a mirror, a listing):
-    /// packed under the folder's name, as JD2 packs by folder.
-    Folder { host: String, dir: String },
+    /// Several links beside one another in a folder the same across mirrors (a directory
+    /// listing, a mirror tree): packed under the folder's name, as JD2 packs by folder.
+    /// The key adds the file class so mixed files of the same name don't merge.
+    Folder { leaf: String, class: String },
+}
+
+fn is_foldable_leaf(leaf: &str) -> bool {
+    if leaf.len() < 2 || leaf.bytes().all(|b| b.is_ascii_digit()) {
+        return false;
+    }
+    const GENERIC: &[&str] = &[
+        "files", "file", "download", "downloads", "pub", "releases", "software", "tmp",
+        "temp", "mirror", "mirrors", "iso", "images", "www", "http", "content", "static",
+        "assets", "data", "share", "pool", "stable",
+    ];
+    !GENERIC.contains(&leaf.to_ascii_lowercase().as_str())
+}
+
+/// The extension family a name belongs to — folder grouping needs it so mixed files of the
+/// same name don't merge ("ubuntu-24.04" with ISOs vs notes.txt).
+fn file_class(name: &str) -> &'static str {
+    let ext = name.rsplit('.').next().unwrap_or("").to_ascii_lowercase();
+    match ext.as_str() {
+        "zip" | "rar" | "7z" | "tar" | "gz" | "bz2" | "xz" | "z" | "001" | "002" | "r00" | "r01" => "archive",
+        "mp4" | "mkv" | "avi" | "mov" | "webm" | "m4v" | "flv" | "ts" | "m2ts" => "video",
+        "mp3" | "flac" | "aac" | "ogg" | "opus" | "m4a" | "wav" | "wma" => "audio",
+        "pdf" | "epub" | "mobi" | "djvu" | "doc" | "docx" | "xls" | "xlsx" | "ppt" | "pptx" | "txt" | "md" | "html" | "rtf" => "document",
+        "iso" | "img" | "bin" | "cue" | "vhd" | "vhdx" => "disc-image",
+        "exe" | "msi" | "dmg" | "deb" | "rpm" | "apk" | "pkg" | "appx" | "jar" | "appimage" => "installer",
+        "jpg" | "jpeg" | "png" | "gif" | "webp" | "svg" | "bmp" | "tiff" | "heic" => "image",
+        "7z.001" => "archive",
+        _ => "other",
+    }
 }
 
 impl Origin {
+/// A directory leaf worth a package: at least four characters, not all digits, and not one of
+/// the generic names every mirror tree shares ("pub", "files", "releases"...).
     /// The directory a link sits in ("/a/b/" for "/a/b/c.iso"); "/" for one at the root.
     fn directory_of(url: &Url) -> String {
         let path = url.path();
@@ -89,9 +121,9 @@ impl Origin {
 
     /// Where the link `url` named `name` (found on page `referer`) belongs.
     pub fn of(url: &Url, name: &str, referer: Option<&str>) -> Origin {
-        let host = url.host_str().unwrap_or_default().to_ascii_lowercase();
+        let _ = url.host_str(); // (folder grouping no longer uses the host)
         if let Some(v) = mdm_extract::volume_key(name) {
-            return Origin::Volumes { host, base: v.base };
+            return Origin::Volumes { base: v.base };
         }
         if let Some(page) = referer.and_then(|r| Url::parse(r).ok())
             && let Some(h) = page.host_str()
@@ -106,8 +138,7 @@ impl Origin {
     /// are in.
     fn key(&self) -> Origin {
         match self {
-            Origin::Volumes { host, base } => Origin::Volumes {
-                host: host.clone(),
+            Origin::Volumes { base } => Origin::Volumes {
                 base: base.to_lowercase(),
             },
             o => o.clone(),
@@ -116,13 +147,11 @@ impl Origin {
 
     fn name(&self) -> String {
         match self {
-            Origin::Volumes { base, .. } => base.clone(),
+            Origin::Volumes { base } => base.clone(),
             Origin::Page(p) => p.clone(),
             // i18n: Link grabber: the package of links that belong to no other
             Origin::Various => crate::i18n::t("Various files").to_owned(),
-            Origin::Folder { dir, .. } => {
-                dir.trim_end_matches('/').rsplit('/').next().unwrap_or(dir).to_owned()
-            }
+            Origin::Folder { leaf, .. } => leaf.clone(),
             // i18n: Link grabber: the package of links the download list has already
             Origin::Known => crate::i18n::t("Already in the list").to_owned(),
             Origin::Site(name) => name.clone(),
@@ -276,6 +305,8 @@ pub struct Grabber {
     origins: std::collections::HashMap<Origin, usize>,
     /// `model::categories_changed` when the links' categories were worked out.
     categories: u64,
+    /// The Packagizer rules (Options → Packagizer), a snapshot; applied at add time and on demand.
+    packagizer: Vec<crate::packagizer::Rule>,
 }
 
 impl Grabber {
@@ -298,7 +329,14 @@ impl Grabber {
             editing: false,
             origins: Default::default(),
             categories: crate::model::categories_changed(),
+            packagizer: Vec::new(),
         }
+    }
+
+    /// The Packagizer rules this grabber works with; the app calls this when the rules
+    /// change (Options → Packagizer) and before any links are added.
+    pub fn set_packagizer(&mut self, rules: Vec<crate::packagizer::Rule>) {
+        self.packagizer = rules;
     }
 
     /// More links, from `source` ("Links from the browser", a file's name): each in its
@@ -335,35 +373,40 @@ impl Grabber {
             };
             batch.push((d, url, magnet, name, known, origin));
         }
-        // JD2 packs by folder: several links beside one another in a directory on one host
-        // are one package under that folder's name — how a pasted list of files from a mirror
-        // or a file-listing page arrives. Two or more in the same folder; the rest stay
+        // JD2 packs by folder across mirrors: same folder leaf on any host, same file class
+        // (archive / media / document / image / disc image / installer), grouped per mirror
+        // tree. Two or more in one folder; lone files and generic folder names stay
         // "Various files".
         let mut by_dir: std::collections::HashMap<(String, String), Vec<usize>> =
             std::collections::HashMap::new();
-        for (i, (_, url, _, _, known, origin)) in batch.iter().enumerate() {
+        for (i, (_, url, _, name, known, origin)) in batch.iter().enumerate() {
             if *known || !matches!(origin, Origin::Various) {
                 continue;
             }
-            let Some(h) = url.host_str() else { continue };
             let dir = Origin::directory_of(&url);
-            if dir == "/" {
+            let leaf = dir.trim_end_matches('/').rsplit('/').next().unwrap_or("");
+            if !is_foldable_leaf(leaf) {
                 continue;
             }
-            by_dir.entry((h.to_ascii_lowercase(), dir)).or_default().push(i);
+            let class = file_class(&name);
+            by_dir
+                .entry((leaf.to_ascii_lowercase(), class.to_owned()))
+                .or_default()
+                .push(i);
         }
-        for ((host, dir), members) in by_dir {
+        for ((leaf, class), members) in by_dir {
             if members.len() < 2 {
                 continue;
             }
             for i in members {
                 batch[i].5 = Origin::Folder {
-                    host: host.clone(),
-                    dir: dir.clone(),
+                    leaf: leaf.clone(),
+                    class: class.clone(),
                 };
             }
         }
         // Second pass: the packages are made, the links pushed.
+        let before = self.links.len();
         for (d, url, magnet, name, known, origin) in batch {
             let pkg = self.package_for(origin);
             // The site's archive password, unless one is typed already.
@@ -389,6 +432,8 @@ impl Grabber {
             });
             settle.insert(pkg);
         }
+        let packed = self.apply_packagizer(before);
+        settle.extend(packed);
         self.settle(&settle.into_iter().collect::<Vec<_>>());
         if !source.is_empty() && !self.source.split(", ").any(|s| s == source) {
             self.source = if self.source.is_empty() {
@@ -397,6 +442,87 @@ impl Grabber {
                 format!("{}, {source}", self.source)
             };
         }
+    }
+
+    /// The Packagizer, run over the links added in `start..` (add time). Renames, moves and
+    /// destinations all take effect before the settle pass; the packages they touch come back
+    /// for it. Links not in `start..` are untouched.
+    fn apply_packagizer(&mut self, start: usize) -> Vec<usize> {
+        self.packagizer_run(start, self.links.len())
+    }
+
+    /// The Packagizer, on demand over every link ("Apply rules" in the Packagizer window).
+    pub fn apply_packagizer_all(&mut self) -> usize {
+        self.packagizer_run(0, self.links.len()).into_iter().count()
+    }
+
+    fn packagizer_run(&mut self, start: usize, end: usize) -> Vec<usize> {
+        let mut touched = std::collections::BTreeSet::new();
+        if self.packagizer.is_empty() || start >= end {
+            return Vec::new();
+        }
+        // Each new link's 1-based index within its package, as the rules see it at this point
+        // in the chain (the chain may rename and move; the index holds for this pass).
+        let mut index = vec![0usize; self.links.len()];
+        let mut per_pkg: std::collections::HashMap<usize, usize> =
+            std::collections::HashMap::new();
+        for (i, l) in self.links.iter().enumerate() {
+            if i < start {
+                continue;
+            }
+            let n = per_pkg.entry(l.pkg).or_insert(0);
+            *n += 1;
+            index[i] = *n;
+        }
+        let now = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .map(|d| d.as_secs() as i64)
+            .unwrap_or(0);
+        let mut moves: Vec<(usize, String)> = Vec::new();
+        let mut dests: Vec<(usize, String)> = Vec::new();
+        for i in start..end {
+            let url = self.links[i].url.to_string();
+            let name = self.links[i].name.clone();
+            let size = self.links[i].size;
+            let package = self.packages[self.links[i].pkg].name.clone();
+            let change = crate::packagizer::apply(
+                &self.packagizer,
+                &url,
+                &name,
+                size,
+                &package,
+                index[i],
+                now,
+            );
+            if let Some(n) = change.name {
+                let l = &mut self.links[i];
+                l.category = category_of(l.magnet, &n);
+                l.name = n;
+            }
+            if let Some(p) = change.package {
+                moves.push((i, p));
+            }
+            if let Some(d) = change.destination {
+                dests.push((i, d));
+            }
+        }
+        for (i, p) in moves {
+            let pkg = self.package_for(Origin::Site(p));
+            if pkg != self.links[i].pkg {
+                touched.insert(self.links[i].pkg);
+                self.links[i].pkg = pkg;
+                touched.insert(pkg);
+            }
+        }
+        for (i, d) in dests {
+            let pkg = self.links[i].pkg;
+            if self.packages[pkg].folder != d {
+                self.packages[pkg].folder = d;
+                self.packages[pkg].folder_set = true;
+            }
+            touched.insert(pkg);
+        }
+        touched.into_iter().collect()
     }
 
     /// `/show grabber`: a page's links as looked up (the docs' screenshots), nothing asked of
@@ -1556,6 +1682,56 @@ mod tests {
     }
 
     #[test]
+    #[test]
+    fn packagizer_rules_run_at_add_time() {
+        let mut g = grabber();
+        g.set_packagizer(vec![
+            crate::packagizer::Rule {
+                id: 1,
+                enabled: true,
+                name: "ISOs to Distros".into(),
+                url: String::new(),
+                filename: String::new(),
+                exts: "iso".into(),
+                min_size: 0,
+                max_size: 0,
+                action: crate::packagizer::Action::MoveToPackage,
+                payload: "Distros".into(),
+            },
+            crate::packagizer::Rule {
+                id: 2,
+                enabled: true,
+                name: "RAR parts renamed".into(),
+                url: String::new(),
+                filename: r"(.*)\.part([0-9]+)\.rar$".into(),
+                exts: "rar".into(),
+                min_size: 0,
+                max_size: 0,
+                action: crate::packagizer::Action::RenameFile,
+                payload: "<name>.part<index>.rar".into(),
+            },
+        ]);
+        g.add(
+            vec![
+                link("https://a.example.com/ubuntu.iso", None),
+                link("https://b.example.org/debian.iso", None),
+                link("https://f.example.net/movie.part7.rar", None),
+            ],
+            "".into(),
+            |_| false,
+        );
+        let names: Vec<&str> = g.packages.iter().map(|p| p.name.as_str()).collect();
+        assert!(names.contains(&"Distros"), "ISOs moved to Distros: {names:?}");
+        let dist = g.packages.iter().find(|p| p.name == "Distros").unwrap();
+        assert_eq!(g.links.iter().filter(|l| l.pkg == g.packages.iter().position(|p| p.name == "Distros").unwrap()).count(), 2);
+        let _ = dist;
+        let renamed = g.links.iter().find(|l| l.url.to_string().ends_with("movie.part7.rar")).unwrap();
+        // The .rar splits out as its own "movie" archive volume package; the rename rule's
+        // <index> is its 1-based index in that package.
+        assert_eq!(renamed.name, "movie.part7.part1.rar");
+    }
+
+    #[test]
     fn packages_by_folder() {
         let mut g = grabber();
         g.add(
@@ -1670,8 +1846,10 @@ mod tests {
         assert_ne!(various.folder, PathBuf::new());
     }
 
+    /// Archive volumes are packed by base name alone, mirror hosts included: the same
+    /// split archive mirrored to two hosts is one package, and case doesn't matter.
     #[test]
-    fn same_name_on_two_hosts_is_two_packages() {
+    fn same_name_on_two_hosts_is_one_package() {
         let a = Origin::of(
             &"https://a.org/x.part1.rar".parse().unwrap(),
             "x.part1.rar",
@@ -1682,7 +1860,7 @@ mod tests {
             "x.part2.rar",
             None,
         );
-        assert_ne!(a.key(), b.key());
+        assert_eq!(a.key(), b.key(), "mirror hosts pack as one archive");
         let c = Origin::of(
             &"https://A.org/X.part2.rar".parse().unwrap(),
             "X.part2.rar",

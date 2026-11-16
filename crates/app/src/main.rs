@@ -10,6 +10,7 @@ mod clipboard;
 mod clock;
 mod cnl;
 mod dock;
+mod packagizer;
 mod countries;
 mod crash;
 mod crashui;

@@ -353,6 +353,8 @@ enum Cmd {
     AddToQueue(usize),
     RemoveFromQueue,
     ToggleCategories,
+    /// Downloads → Packagizer: JDownloader2's rule chain window.
+    Packagizer,
     /// View → Download Overview (the JD2 dock's left panel).
     ToggleOverview,
     /// View → File Properties (the JD2 dock's right panel).
@@ -1152,6 +1154,8 @@ pub struct App {
     /// Link grabber (#37): links from the browser, Tasks → Import, drops and pastes, in
     /// packages to tick before adding.
     grabber: Option<crate::grabber::Grabber>,
+    /// The Packagizer window (Downloads → Packagizer); open while it is Some.
+    packagizer: Option<crate::packagizer::Packagizer>,
     /// A page's links from the browser that came in parts, until the last one is in.
     link_parts: crate::linkparts::LinkParts,
     /// When `follow_assistive_technology` last asked (#131).
@@ -1887,6 +1891,7 @@ impl App {
             category_for_file_info: false,
             tab: MainTab::Downloads,
             grabber: None,
+            packagizer: None,
             link_parts: Default::default(),
             assistive_checked: None,
             extracts: Default::default(),
@@ -7692,6 +7697,13 @@ impl App {
             // Read now, off the window's thread; what it holds opens a window when it comes
             // (`batch_from_clipboard`).
             Cmd::BatchClipboard => self.batch_clip = Some(crate::clipboard::Prefill::ask()),
+            Cmd::Packagizer => {
+                if self.packagizer.is_none() {
+                    self.packagizer = Some(crate::packagizer::Packagizer::new(
+                        self.settings.packagizer_rules.clone(),
+                    ));
+                }
+            }
             Cmd::Options => {
                 if self.options.is_none() {
                     self.options = Some(
@@ -8268,6 +8280,7 @@ impl App {
                     ],
                 ),
                 Sep,
+                I("Packagize&r...", Cmd::Packagizer, true, false),
                 I("&Options", Cmd::Options, true, false),
             ],
             3 => vec![
@@ -9575,6 +9588,7 @@ impl App {
                     self.settings.extract_delete,
                 )
             });
+            grabber.set_packagizer(self.settings.packagizer_rules.clone());
             grabber.follow_categories();
             grabber.take_answers();
             if grabber.links.iter().any(|l| l.state == crate::grabber::LinkState::Checking) {
@@ -10647,6 +10661,7 @@ impl App {
                 s.extract_delete,
             )
         });
+        grabber.set_packagizer(self.settings.packagizer_rules.clone());
         grabber.add(found, source, |u| known.contains(u.as_str()));
     }
 
@@ -11714,6 +11729,25 @@ impl App {
             .is_some_and(|d| std::mem::take(&mut d.resume_snooze))
         {
             self.resume_snooze();
+        }
+        if let Some(d) = &mut self.packagizer {
+            match d.show(ctx) {
+                Outcome::Open => {}
+                Outcome::Closed => {
+                    self.packagizer = None;
+                }
+                Outcome::Done(crate::packagizer::Changes { rules, apply }) => {
+                    self.settings.packagizer_rules = rules;
+                    self.dirty = true;
+                    if let Some(g) = &mut self.grabber {
+                        g.set_packagizer(self.settings.packagizer_rules.clone());
+                        if apply {
+                            g.apply_packagizer_all();
+                        }
+                    }
+                    self.packagizer = None;
+                }
+            }
         }
         if let Some(d) = &mut self.options {
             d.snoozed_until = self.snooze.until(unix_now());
