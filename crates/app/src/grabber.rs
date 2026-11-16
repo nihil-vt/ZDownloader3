@@ -1923,9 +1923,9 @@ mod tests {
             let frame = |g: &mut Grabber| {
                 let t = Instant::now();
                 let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
-                    // What the app asks of Link grabber at each frame, then its window.
+                // What the app asks of Link grabber at each frame, then its body (the tab).
                     let _ = (g.pages_read(), g.to_read(), g.to_check());
-                    let _ = g.show(ui.ctx());
+                    let _ = g.body(ui, egui::pos2(0.0, 0.0));
                 });
                 out.textures_delta.clear();
                 t.elapsed()
