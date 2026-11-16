@@ -1040,10 +1040,10 @@
 <ul>
 <li><strong>Run MDM on a server</strong> (<a href="https://github.com/anefzaoui/misterdownloadmanager/issues/157">#157</a>):</li>
 </ul>
-<p>  <code>zdownloader3 --headless</code> runs MDM without a window (a home server, a NAS, Docker,</p>
+<p>  <code>zDownloader³ --headless</code> runs MDM without a window (a home server, a NAS, Docker,</p>
 <p>  Unraid), its folders and port set by flags or the environment; a <code>Dockerfile</code>, a Compose file</p>
 <p>  and an Unraid template come with it. Phones pair with the code it prints (or</p>
-<p>  <code>zdownloader3-cli pair</code>), and the browser extension can **send downloads to another</p>
+<p>  <code>zDownloader³-cli pair</code>), and the browser extension can **send downloads to another</p>
 <p>  MDM**. <a href="docs/server.md">Guide</a>.</p>
 <ul>
 <li>The automation API&#x27;s list also gives the queues, the categories and the free space; it starts</li>
@@ -1164,7 +1164,7 @@
 <ul>
 <li><strong>MDM&#x27;s programs and downloads are much smaller</strong> (<a href="https://github.com/anefzaoui/misterdownloadmanager/issues/25">#25</a>):</li>
 </ul>
-<p>  on Windows, the programs went from 93 MB to 41 MB (<code>zdownloader3.exe</code> from 61 MB to</p>
+<p>  on Windows, the programs went from 93 MB to 41 MB (<code>zDownloader³.exe</code> from 61 MB to</p>
 <p>  38 MB, the command line from 28 MB to a 0.2 MB launcher), and setup.exe from 23 MB to 16 MB.</p>
 <p>  On Linux the AppImage went from 36 MB to 20 MB, the .deb from 27 MB to 17 MB.</p>
 <p>  - The command line runs in the app&#x27;s own program, so the download engine ships once. Every</p>
@@ -2287,13 +2287,13 @@
 <p>  from their arrows; <strong>...</strong> beside Save As chooses a folder, <strong>+</strong> beside Category makes one.</p>
 <ul>
 <li>Help → Keyboard shortcuts shows the Mac&#x27;s keys on a Mac.</li>
-<li><strong>AI assistants</strong>: <code>zdownloader3-mcp</code>, an MCP server that comes with MDM, lets Claude,</li>
+<li><strong>AI assistants</strong>: <code>zDownloader³-mcp</code>, an MCP server that comes with MDM, lets Claude,</li>
 </ul>
 <p>  Cursor, VS Code and other MCP assistants list, add, pause, resume and remove the running</p>
 <p>  app&#x27;s downloads and start its queue, through the automation API</p>
 <p>  (<a href="docs/ai-assistants.md">how to set it up</a>).</p>
 <ul>
-<li><strong><code>--json</code></strong> for <code>zdownloader3-cli</code>: every command prints JSON for scripts and AI</li>
+<li><strong><code>--json</code></strong> for <code>zDownloader³-cli</code>: every command prints JSON for scripts and AI</li>
 </ul>
 <p>  agents, downloads as one <code>progress</code> line per half second and then <code>done</code> or <code>paused</code></p>
 <p>  (<a href="docs/command-line.md#json-for-scripts-and-programs">the formats</a>).</p>
@@ -2309,7 +2309,7 @@
 <h4>Changed</h4>
 
 <ul>
-<li><code>zdownloader3-cli status</code>, <code>pause</code>, <code>start</code>, <code>remove</code>, <code>delete</code> and <code>api</code> exit with</li>
+<li><code>zDownloader³-cli status</code>, <code>pause</code>, <code>start</code>, <code>remove</code>, <code>delete</code> and <code>api</code> exit with</li>
 </ul>
 <p>  code 1 when the app answers with an error (the API is off, an unknown action), as they do when</p>
 <p>  the app isn&#x27;t running.</p>
@@ -2359,7 +2359,7 @@
 <ul>
 <li><strong><a href="docs/command-line.md">Command line and automation</a></strong>: IDM&#x27;s switches (<code>/d /p /f /a /n /s</code>),</li>
 </ul>
-<p>  <code>zdownloader3-cli</code> (files, videos, torrents) and a local, token-protected automation</p>
+<p>  <code>zDownloader³-cli</code> (files, videos, torrents) and a local, token-protected automation</p>
 <p>  API that lists, pauses, starts, removes and deletes downloads.</p>
 <ul>
 <li><strong>Downloads</strong>: the Windows installer, a portable zip and a plain zip, the browser extension on</li>

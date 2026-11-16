@@ -1,6 +1,6 @@
 # zDownloader³
 
-<p align="center"><img src="docs/assets/brand/banner.svg" alt="zDownloader³" width="100%" /></p>
+<p align="center"><img src="website/assets/banner.svg" alt="zDownloader³" width="100%" /></p>
 
 A native Linux-first download manager with a JDownloader2-shaped UI: a category sidebar, a
 `Downloads`/`Linkgrabber` tab pair, a package-grouped link list, and a flat, fast-darkmed
