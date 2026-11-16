@@ -72,9 +72,21 @@ pub enum Origin {
     Known,
     /// Packed by its site (Click'n'Load): the site's package name.
     Site(String),
+    /// Several links beside each other in one folder on one host (a mirror, a listing):
+    /// packed under the folder's name, as JD2 packs by folder.
+    Folder { host: String, dir: String },
 }
 
 impl Origin {
+    /// The directory a link sits in ("/a/b/" for "/a/b/c.iso"); "/" for one at the root.
+    fn directory_of(url: &Url) -> String {
+        let path = url.path();
+        match path.rfind('/') {
+            Some(0) | None => "/".to_owned(),
+            Some(i) => path[..=i].to_owned(),
+        }
+    }
+
     /// Where the link `url` named `name` (found on page `referer`) belongs.
     pub fn of(url: &Url, name: &str, referer: Option<&str>) -> Origin {
         let host = url.host_str().unwrap_or_default().to_ascii_lowercase();
@@ -108,6 +120,9 @@ impl Origin {
             Origin::Page(p) => p.clone(),
             // i18n: Link grabber: the package of links that belong to no other
             Origin::Various => crate::i18n::t("Various files").to_owned(),
+            Origin::Folder { dir, .. } => {
+                dir.trim_end_matches('/').rsplit('/').next().unwrap_or(dir).to_owned()
+            }
             // i18n: Link grabber: the package of links the download list has already
             Origin::Known => crate::i18n::t("Already in the list").to_owned(),
             Origin::Site(name) => name.clone(),
@@ -295,6 +310,8 @@ impl Grabber {
         let mut here: std::collections::HashSet<Url> =
             self.links.iter().map(|l| address_key(&l.url)).collect();
         let mut settle = std::collections::BTreeSet::new();
+        // First pass: the links themselves, and their origins.
+        let mut batch: Vec<(Imported, Url, bool, String, bool, Origin)> = Vec::new();
         for d in found {
             let Ok(url) = Url::parse(&d.url) else {
                 continue;
@@ -316,6 +333,38 @@ impl Grabber {
             } else {
                 Origin::of(&url, &name, d.referer.as_deref())
             };
+            batch.push((d, url, magnet, name, known, origin));
+        }
+        // JD2 packs by folder: several links beside one another in a directory on one host
+        // are one package under that folder's name — how a pasted list of files from a mirror
+        // or a file-listing page arrives. Two or more in the same folder; the rest stay
+        // "Various files".
+        let mut by_dir: std::collections::HashMap<(String, String), Vec<usize>> =
+            std::collections::HashMap::new();
+        for (i, (_, url, _, _, known, origin)) in batch.iter().enumerate() {
+            if *known || !matches!(origin, Origin::Various) {
+                continue;
+            }
+            let Some(h) = url.host_str() else { continue };
+            let dir = Origin::directory_of(&url);
+            if dir == "/" {
+                continue;
+            }
+            by_dir.entry((h.to_ascii_lowercase(), dir)).or_default().push(i);
+        }
+        for ((host, dir), members) in by_dir {
+            if members.len() < 2 {
+                continue;
+            }
+            for i in members {
+                batch[i].5 = Origin::Folder {
+                    host: host.clone(),
+                    dir: dir.clone(),
+                };
+            }
+        }
+        // Second pass: the packages are made, the links pushed.
+        for (d, url, magnet, name, known, origin) in batch {
             let pkg = self.package_for(origin);
             // The site's archive password, unless one is typed already.
             if let Some(pw) = d.password.as_deref().filter(|p| !p.is_empty())
@@ -442,16 +491,33 @@ impl Grabber {
             }
             s.archives = s.archives || (!l.magnet && crate::extractq::archive_name(&l.name));
         }
+        // JD2 packs by folder: a package made from one folder on one host keeps its files
+        // together in a subfolder of their category's folder, named after the package.
+        let folder_pkgs: Vec<usize> = self
+            .origins
+            .iter()
+            .filter(|(o, _)| matches!(o, Origin::Folder { .. }))
+            .map(|(_, &k)| k)
+            .collect();
         for (k, s) in seen.into_iter().enumerate() {
             let Some(s) = s else { continue };
             let first = s.first.unwrap_or(Category::General);
-            let folder = if s.one {
+            let mut folder = if s.one {
                 category_folder(first, &self.downloads, &self.dirs)
                     .display()
                     .to_string()
             } else {
                 String::new()
             };
+            if !folder.is_empty() && folder_pkgs.contains(&k) {
+                let sub = mdm_engine::naming::sanitize(&self.packages[k].name);
+                if !sub.is_empty() {
+                    folder = std::path::Path::new(&folder)
+                        .join(&sub)
+                        .display()
+                        .to_string();
+                }
+            }
             let p = &mut self.packages[k];
             if !p.folder_set {
                 p.folder = folder;
@@ -1490,6 +1556,35 @@ mod tests {
     }
 
     #[test]
+    fn packages_by_folder() {
+        let mut g = grabber();
+        g.add(
+            vec![
+                link("https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-amd64.iso", None),
+                link("https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-arm64.iso", None),
+                link("https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-i386.iso", None),
+                // A folder of its own with one link: not worth a package, stays Various.
+                link("https://mirror.example.com/debian-12/debian-12-amd64.iso", None),
+                link("https://root.example.com/lone.iso", None),
+            ],
+            "Pasted".into(),
+            |_| false,
+        );
+        let names: Vec<(&str, usize)> = g
+            .packages
+            .iter()
+            .enumerate()
+            .map(|(k, p)| {
+                (
+                    p.name.as_str(),
+                    g.links.iter().filter(|l| l.pkg == k).count(),
+                )
+            })
+            .collect();
+        assert_eq!(names, [("ubuntu-24.04", 3), ("Various files", 2)]);
+    }
+
+    #[test]
     fn packages_by_volumes_then_page_then_various() {
         let page = Some("https://site.org/files/?sort=1");
         let mut g = grabber();
@@ -1780,9 +1875,12 @@ mod tests {
         g.add(found, "Clipboard".into(), |_| false);
         assert_eq!(g.links.len(), 16);
         assert!(g.links.iter().all(|l| l.on), "every row ticked");
+        // JD2 packs by folder: the fifteen episodes in .../s1/ are one package under that
+        // folder's name; the magnet keeps "Various files".
         let rows = g.visible_rows();
-        assert_eq!(rows.len(), 16 + 1, "one package: Various files");
-        assert_eq!(g.packages[0].name, "Various files");
+        assert_eq!(rows.len(), 16 + 2, "a package for the folder, one for the rest");
+        let names: Vec<&str> = g.packages.iter().map(|p| p.name.as_str()).collect();
+        assert_eq!(names, ["s1", "Various files"]);
         let magnet = g.links.iter().find(|l| l.magnet).unwrap();
         assert_eq!(magnet.name, "Season 1");
         assert_eq!(magnet.category(), Category::Torrents);
