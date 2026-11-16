@@ -32,6 +32,9 @@ crate::theme::themed! {
     // The lists' header colour (winui::LIST_HEADER), as Add torrent's file list.
     LIST_HEAD => header;
     LIST_LINE => table_line;
+    // JD2 tints a package's rows a shade off the list's white ("packages background highlight");
+    // the unselected tab's grey reads the same here.
+    PKG_ROW => tab;
 }
 
 /// What looking a link up found.
@@ -839,9 +842,18 @@ impl Grabber {
             .iter()
             .map(|source| winui::text_width(&p, crate::i18n::t(source)))
             .fold(0.0_f32, f32::max);
-        let room = head.width() - NAME_LEDGE - NAME_FLOOR - 70.0 - 14.0;
+        let room = head.width() - NAME_LEDGE - NAME_FLOOR - 70.0 - 14.0 - 100.0;
         let state_w = (widest + 10.0).clamp(118.0, 260.0).min(room.max(118.0));
         let (size_x, state_x) = (head.right() - state_w - 14.0, head.right() - state_w - 6.0);
+        let hoster_right = size_x - 78.0;
+        // i18n: column title: the web site a link comes from
+        winui::text_right(
+            &p,
+            hoster_right,
+            head.top() + 14.0,
+            crate::i18n::t("Hoster"),
+            winui::TEXT(),
+        );
         // i18n: column title: file name
         text(
             &p,
@@ -904,6 +916,11 @@ impl Grabber {
                     let top = row.top();
                     match rows[k] {
                         Row::Pkg(n) => {
+                            if !look.selected {
+                                // JD2's package-row tint (its "packages background
+                                // highlight"): the row is a package, not a link.
+                                clip.rect_filled(winui::rect(row), 0.0, PKG_ROW());
+                            }
                             let pk = &packages[n];
                             let x = row.left() + 6.0;
                             let arrow = Rect::from_min_size(pos2(x, top), vec2(14.0, ROW));
@@ -1030,9 +1047,24 @@ impl Grabber {
                                 top + 13.0,
                                 &name,
                                 look.ink,
-                                size_x - 70.0,
+                                hoster_right - 100.0,
                                 ("grabber-name", i),
                             );
+                            // JD2's hoster column: the site's name, WWW prefix dropped.
+                            let host = l.url.host_str().unwrap_or("");
+                            let host = host.strip_prefix("www.").unwrap_or(host);
+                            if !host.is_empty() {
+                                winui::fit(
+                                    ui,
+                                    clip,
+                                    hoster_right - 100.0,
+                                    top + 13.0,
+                                    host,
+                                    if look.selected { look.ink } else { winui::MUTED() },
+                                    hoster_right,
+                                    ("grabber-host", i),
+                                );
+                            }
                             winui::text_right(clip, size_x, top + 13.0, &size, look.ink);
                             let ink = if look.selected {
                                 look.ink
