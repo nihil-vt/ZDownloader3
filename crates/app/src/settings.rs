@@ -428,9 +428,9 @@ impl Default for Settings {
             view: None,
             dark_mode_support: true,
             always_dark: false,
-            // ZDownloader3 fork default: the Adwaita style on Linux (GTK-adjacent);
+            // ZDownloader3 fork default: the JDownloader2 style on Linux (our look);
             // classic stays the default elsewhere, matching upstream's look there.
-            theme: if cfg!(target_os = "linux") { "adwaita".into() } else { "classic".into() },
+            theme: if cfg!(target_os = "linux") { "jdownloader".into() } else { "classic".into() },
             renderer: None,
             window_system: None,
             interface_size: 100,

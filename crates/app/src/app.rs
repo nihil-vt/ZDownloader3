@@ -8344,6 +8344,13 @@ impl App {
         let mut files = false;
         let on = |id: &str| chosen == id;
         // i18n: View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
+        // i18n: View → Theme: a style theme's name (JDownloader2's look, our fork's default on Linux), a name: keep "JDownloader2" as written
+        items.push(Radio(
+            "JDownloader2",
+            Cmd::Theme("jdownloader"),
+            true,
+            on("jdownloader"),
+        ));
         items.push(Radio("Classic", Cmd::Theme("classic"), true, on("classic")));
         // i18n: View → Theme: the system's own colours (its accent colour, its high contrast)
         items.push(Radio("Native", Cmd::Theme("native"), true, on("native")));

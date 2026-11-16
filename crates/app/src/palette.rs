@@ -623,7 +623,7 @@ pub static CLASSIC: Theme = Theme {
 /// (written out above), then the ones shipped as theme files (`assets/themes/`, in the format
 /// users write, so they double as examples). Native follows the system and is made when chosen
 /// (`crate::native`).
-pub fn builtins() -> [&'static Theme; 9] {
+pub fn builtins() -> [&'static Theme; 10] {
     static HIGH_CONTRAST: std::sync::LazyLock<Theme> = std::sync::LazyLock::new(|| {
         crate::themefile::builtin(
             "high-contrast",
@@ -639,6 +639,9 @@ pub fn builtins() -> [&'static Theme; 9] {
     });
     static BREEZE: std::sync::LazyLock<Theme> = std::sync::LazyLock::new(|| {
         crate::themefile::builtin("breeze", include_str!("../assets/themes/breeze.toml"))
+    });
+    static JDOWNLOADER: std::sync::LazyLock<Theme> = std::sync::LazyLock::new(|| {
+        crate::themefile::builtin("jdownloader", include_str!("../assets/themes/jdownloader.toml"))
     });
     static LUNA: std::sync::LazyLock<Theme> = std::sync::LazyLock::new(|| {
         crate::themefile::builtin("luna", include_str!("../assets/themes/luna.toml"))
@@ -658,6 +661,7 @@ pub fn builtins() -> [&'static Theme; 9] {
         &METRO,
         &ADWAITA,
         &BREEZE,
+        &JDOWNLOADER,
         &LUNA,
         &AERO,
         &AQUA,
@@ -899,10 +903,15 @@ mod tests {
         assert_eq!(breeze.controls.check, CheckLook::Breeze);
         assert_eq!(breeze.controls.button, ButtonLook::Breeze);
         assert_eq!(breeze.controls.field_focus, FieldFocus::Border);
+        let jdownloader = builtins()[5];
+        assert_eq!(jdownloader.icon_set.as_deref(), Some("jdownloader"));
+        assert_eq!(jdownloader.controls.caption, CaptionLook::Breeze);
+        assert_eq!(jdownloader.controls.check, CheckLook::Adwaita);
+        assert_eq!(jdownloader.controls.focus, FocusLook::Ring);
         // The era themes: their own buttons, boxes, bars and title bars, and icon sets.
         for (i, id, button, check, progress, caption) in [
             (
-                5,
+                6,
                 "luna",
                 ButtonLook::Luna,
                 CheckLook::Luna,
@@ -910,7 +919,7 @@ mod tests {
                 CaptionLook::Luna,
             ),
             (
-                6,
+                7,
                 "aero",
                 ButtonLook::Aero,
                 CheckLook::Aero,
@@ -918,7 +927,7 @@ mod tests {
                 CaptionLook::Aero,
             ),
             (
-                7,
+                8,
                 "aqua",
                 ButtonLook::Aqua,
                 CheckLook::Aqua,
@@ -940,12 +949,12 @@ mod tests {
         }
         // Aqua's keyboard focus is a ring, as Mac OS X draws it; Luna's and Aero's Windows'
         // dotted rectangle.
-        assert_eq!(builtins()[7].controls.focus, FocusLook::Ring);
-        assert_eq!(builtins()[5].controls.focus, FocusLook::Dotted);
+        assert_eq!(builtins()[8].controls.focus, FocusLook::Ring);
         assert_eq!(builtins()[6].controls.focus, FocusLook::Dotted);
+        assert_eq!(builtins()[7].controls.focus, FocusLook::Dotted);
         // Emerald: flat 6-point corners, ring focus, and its chips inked rather than lettered
         // in white — the soft fill carries the near-black text in both variants.
-        let emerald = builtins()[8];
+        let emerald = builtins()[9];
         assert_eq!(emerald.metrics.control_radius, 6.0);
         assert_eq!(emerald.controls.field_focus, FieldFocus::Ring);
         assert_eq!(emerald.controls.focus, FocusLook::Ring);

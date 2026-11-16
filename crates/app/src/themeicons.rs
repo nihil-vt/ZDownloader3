@@ -412,6 +412,44 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
         "breeze".to_owned(),
         Arc::new(Set::from_files(breeze, false)),
     );
+    let jdownloader = builtin_files!("jdownloader";
+        16: ["cat-all-symbolic.svg", "cat-compressed.svg", "cat-documents.svg",
+            "cat-finished-symbolic.svg", "cat-folder-open-symbolic.svg", "cat-folder-symbolic.svg",
+            "cat-music.svg", "cat-programs-symbolic.svg", "cat-queues-symbolic.svg",
+            "cat-torrents.svg", "cat-unfinished-symbolic.svg", "cat-video.svg", "ft-archive.svg",
+            "ft-audio.svg", "ft-code.svg", "ft-disk-image-symbolic.svg", "ft-document.svg",
+            "ft-executable-symbolic.svg", "ft-font.svg", "ft-generic.svg", "ft-image.svg",
+            "ft-pdf.png", "ft-presentation.svg", "ft-spreadsheet.svg", "ft-text.svg",
+            "ft-torrent.svg", "ft-video.svg", "misc-down-symbolic.svg",
+            "misc-emblem-ok-symbolic.svg", "misc-remove.svg", "misc-up-symbolic.svg",
+            "st-complete-symbolic.svg", "st-downloading-symbolic.svg", "st-error-symbolic.svg",
+            "st-paused-symbolic.svg", "st-queued-symbolic.svg", "st-seeding-symbolic.svg",
+            "tb-add-url-symbolic.svg", "tb-delete-completed-symbolic.svg", "tb-delete.svg",
+            "tb-options-symbolic.svg", "tb-resume-symbolic.svg", "tb-scheduler-symbolic.svg",
+            "tb-stop-symbolic.svg", "ui-close-symbolic.svg", "ui-maximize-symbolic.svg",
+            "ui-minimize-symbolic.svg", "ui-restore-symbolic.svg", "ui-to-tray-symbolic.png"];
+        24: ["cat-all-symbolic.svg", "cat-compressed.svg", "cat-documents.svg",
+            "cat-finished-symbolic.svg", "cat-folder-open-symbolic.svg", "cat-folder-symbolic.svg",
+            "cat-music.svg", "cat-programs.svg", "cat-queues-symbolic.svg", "cat-torrents.svg",
+            "cat-unfinished-symbolic.svg", "cat-video.svg", "ft-archive.svg", "ft-audio.svg",
+            "ft-code.svg", "ft-disk-image.svg", "ft-document.svg", "ft-executable.svg",
+            "ft-font.svg", "ft-generic.svg", "ft-image.svg", "ft-pdf.png", "ft-presentation.svg",
+            "ft-spreadsheet.svg", "ft-text.svg", "ft-torrent.svg", "ft-video.svg",
+            "misc-down-symbolic.svg", "misc-emblem-ok-symbolic.svg", "misc-remove.svg",
+            "misc-up-symbolic.svg", "st-complete-symbolic.svg", "st-downloading-symbolic.svg",
+            "st-error-symbolic.svg", "st-paused-symbolic.svg", "st-queued-symbolic.svg",
+            "st-seeding-symbolic.svg", "tb-add-torrent-symbolic.svg", "tb-add-url-symbolic.svg",
+            "tb-delete-completed-symbolic.svg", "tb-delete.svg", "tb-options-symbolic.svg",
+            "tb-resume-symbolic.svg", "tb-scheduler-symbolic.svg", "tb-start-queue-symbolic.svg",
+            "tb-stop-all-symbolic.svg", "tb-stop-queue-symbolic.svg", "tb-stop-symbolic.svg",
+            "ui-close-symbolic.svg", "ui-maximize-symbolic.svg", "ui-minimize-symbolic.svg",
+            "ui-restore-symbolic.svg", "ui-to-tray-symbolic.png"];
+        32: ["ft-pdf.png", "ui-to-tray-symbolic.png"];
+        48: ["ft-pdf.png", "ui-to-tray-symbolic.png"]);
+    sets.insert(
+        "jdownloader".to_owned(),
+        Arc::new(Set::from_files(jdownloader, false)),
+    );
     // The era themes' sets (#45): pictures drawn for MDM in the manner of Windows XP, Windows 7
     // and Mac OS X, in colour, at 16, 24, 32 and 48 pixels. The title bar's buttons are MDM's own
     // vector glyphs (drawn by `winui::caption`), but for Hide to the notification area.
@@ -838,7 +876,7 @@ mod tests {
     #[test]
     fn every_built_in_icon_file_is_a_need_and_carried() {
         let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("assets/themes");
-        for name in ["metro", "adwaita", "breeze", "luna", "aero", "aqua"] {
+        for name in ["metro", "adwaita", "breeze", "jdownloader", "luna", "aero", "aqua"] {
             let carried = set(name).unwrap();
             let mut n = 0;
             for px in SIZES {
@@ -870,7 +908,7 @@ mod tests {
     /// drawing's largest scales cleanly), so no picture is stretched.
     #[test]
     fn pictures_come_in_every_size_the_loader_asks_for() {
-        for name in ["metro", "adwaita", "breeze", "luna", "aero", "aqua"] {
+        for name in ["metro", "adwaita", "breeze", "jdownloader", "luna", "aero", "aqua"] {
             let set = set(name).unwrap();
             for (need, _) in NEEDS {
                 let sizes: Vec<u32> = SIZES

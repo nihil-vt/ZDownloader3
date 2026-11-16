@@ -1,0 +1,131 @@
+# JDownloader2: ZDownloader3's built-in style theme, after the JD2 look (FlatLaf on
+# most installs). Light and dark, flat toolbar glyphs, dense table, soft-blue
+# selection, two tabs (Linkgrabber / Downloads) on top — see docs/jd2-look-reference.md.
+#
+# It inherits the classic look and names only what it changes. Nothing of JD2's is
+# copied: palette values are observed/conventional FlatLaf values; icons are drawn for
+# this theme's purposes (this set currently derives from breeze-icons, LGPL v3 —
+# see icons/SOURCES.txt).
+
+name = "JDownloader2"
+icon-set = "jdownloader"
+icons = "mono"
+
+[controls]
+field-focus = "ring"
+check = "adwaita"
+focus = "ring"
+caption = "breeze"
+
+[sizes]
+radius = 2
+"radius.part" = 2
+"radius.check" = 2
+"radius.flyout" = 4
+"radius.menu-item" = 2
+"radius.popup" = 2
+"radius.egui" = 2
+
+[seeds.light]
+background = "#eceff3"
+surface = "#ffffff"
+header = "#eceff3"
+text = "#24292f"
+accent = "#3d6db5"
+selection = "#c9dcef"
+error = "#c4351c"
+warning = "#c47b12"
+success = "#4f9c06"
+
+[seeds.dark]
+background = "#2e3136"
+surface = "#24272b"
+header = "#33363b"
+text = "#dde1e6"
+accent = "#6aa3e0"
+selection = "#2f4a6b"
+error = "#ff8a80"
+warning = "#e0af68"
+success = "#7ee787"
+
+[light]
+# Flat buttons on the chrome grey; edges only on hover/press.
+button = "#d9dce0"
+"button.hot" = "#cdd1d5"
+"button.pressed" = "#b9bec4"
+"button.border" = "#d9dce0"
+"button.bottom" = "#d9dce0"
+"button.default.border" = "#3d6db5"
+"button.default.bottom" = "#3d6db5"
+"button.accent" = "#3d6db5"
+"button.accent.hot" = "#4879c2"
+"button.accent.pressed" = "#2f5580"
+"button.accent.bottom" = "#3d6db5"
+"button.accent.text" = "#ffffff"
+"button.accent.text.pressed" = "#eaf1f8"
+# Boxes: white with a light grey edge.
+"field.border" = "#c8ccd1"
+"field.bottom" = "#c8ccd1"
+# Check boxes and radios.
+check = "#ffffff"
+"check.hot" = "#f4f5f7"
+"check.pressed" = "#e3e6e9"
+"check.border" = "#aeb2b8"
+"check.border.hot" = "#95999f"
+"check.border.pressed" = "#7e8289"
+"check.on" = "#3d6db5"
+"check.on.hot" = "#4879c2"
+"check.on.pressed" = "#2f5580"
+"check.mark" = "#ffffff"
+"focus.ring" = "#4879c2"
+# Caption (title bar) and menu bar: the chrome grey.
+caption = "#e6e9ed"
+"caption.text" = "#24292f"
+"caption.text.inactive" = "#7a818a"
+"caption.button" = "#24292f14"
+"caption.hot" = "#24292f29"
+"caption.pressed" = "#24292f47"
+"caption.close" = "#24292f14"
+"caption.close.text" = "#24292f"
+menubar = "#e6e9ed"
+"menubar.bottom" = "#e6e9ed"
+"menubar.line" = "#d2d6da"
+
+[dark]
+button = "#3b3e44"
+"button.hot" = "#464a51"
+"button.pressed" = "#565b63"
+"button.border" = "#3b3e44"
+"button.bottom" = "#3b3e44"
+"button.default.border" = "#6aa3e0"
+"button.default.bottom" = "#6aa3e0"
+"button.accent" = "#3d6db5"
+"button.accent.hot" = "#4879c2"
+"button.accent.pressed" = "#2f5580"
+"button.accent.bottom" = "#6aa3e0"
+"button.accent.text" = "#ffffff"
+"button.accent.text.pressed" = "#eaf1f8"
+"field.border" = "#4a4e55"
+"field.bottom" = "#4a4e55"
+check = "#24272b"
+"check.hot" = "#2c2f34"
+"check.pressed" = "#33373d"
+"check.border" = "#5b6068"
+"check.border.hot" = "#6d727b"
+"check.border.pressed" = "#828790"
+"check.on" = "#3d6db5"
+"check.on.hot" = "#4879c2"
+"check.on.pressed" = "#2f5580"
+"check.mark" = "#ffffff"
+"focus.ring" = "#6aa3e0"
+caption = "#33363b"
+"caption.text" = "#dde1e6"
+"caption.text.inactive" = "#8b9098"
+"caption.button" = "#dde1e614"
+"caption.hot" = "#dde1e629"
+"caption.pressed" = "#dde1e647"
+"caption.close" = "#dde1e614"
+"caption.close.text" = "#dde1e6"
+menubar = "#33363b"
+"menubar.bottom" = "#33363b"
+"menubar.line" = "#202327"
