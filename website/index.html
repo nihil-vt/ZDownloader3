@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ZDownloader3 is a native Linux download manager with a JDownloader2-shaped UI: a tabbed Downloads/Linkgrabber view, package-grouped links, a packagizer rule chain, and a fast multi-connection engine. Open source, GPL-3.0.">
+<link rel="shortcut icon" href="assets/icon.svg">
+<title>ZDownloader3</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<picture>
+  <img src="assets/banner.svg" alt="ZDownloader3" class="brand">
+</picture>
+
+<h1 class="product">ZDownloader<sub>3</sub></h1>
+
+<p class="audible">The JD2-shaped download manager for Linux — open-source, fast.</p>
+
+<nav class="toc">
+  <strong>On this page</strong>
+  <ul>
+    <li><a href="#features">What it does</a></li>
+    <li><a href="#why">Why this exists</a></li>
+    <li><a href="#status">Fork status</a></li>
+    <li><a href="#install">Build &amp; install</a></li>
+    <li><a href="why.html">Why JD2-shaped</a></li>
+    <li><a href="docs.html">Docs &amp; help</a></li>
+    <li><a href="changelog.html">What's done</a></li>
+  </ul>
+</nav>
+
+<p>ZDownloader3 is a download manager for <strong>Linux</strong> — one list, a link-grabber tab that turns a pile of pasted URLs into tickable packages, a rule chain (the “Packagizer”) that reorders, renames and re-routes files by regex, and an engine that splits files across connections, resumes, and checks checksums.</p>
+
+<blockquote><img src="assets/main-light.webp" alt="The main window" style="width:100%;border:1px solid var(--line);border-radius:4px"><br>
+<figcaption>Main window — Downloads tab with categories, the JD2-shaped flat theme.</figcaption></blockquote>
+
+<h2 id="features">What it does</h2>
+<ul class="features">
+  <li><strong>JD2-shaped link grabber.</strong> Paste links, drop a batch, or let the browser hand them over; they land in packages, ready to tick.</li>
+  <li><strong>Package grouping.</strong> Split archives across mirror hosts, folders at the same path on the same site, packs of the same file family — grouped and labeled without server-side APIs.</li>
+  <li><strong>Packagizer.</strong> Ordered rules — move to package, rename, set destination — with variables <code>&lt;name&gt;</code>, <code>&lt;ext&gt;</code>, <code>&lt;index&gt;</code>, <code>&lt;simpledate:…&gt;</code>, <code>$1…${name}</code>, size and regex conditions, stop-after-rule.</li>
+  <li><strong>Multi-connection engine.</strong> Segmented HTTP/1.1 with resume, mirror-aware chunking, per-host limits, checksum verification, FTP/FTPS.</li>
+  <li><strong>Debrid and torrent.</strong> Real-Debrid / AllDebrid / Premiumize / TorBox / Mega-Debrid sidebars; magnet and .torrent handling.</li>
+  <li><strong>The way IDM is laid out.</strong> Sidebar categories, one flat list, per-file speed, progress, today/tomorrow queues, tray with silent mode — the shape you already know.</li>
+</ul>
+
+<h2 id="why">Why this exists</h2>
+<p>JDownloader2 is a good download manager and a closed one. This is an MIT/GPL reimplementation with the bits Linux desktops actually need — plain-text config, native fonts, XDG paths, no Java, one binary.</p>
+<p>Read more: <a href="why.html">why JD2-shaped</a></p>
+
+<h2 id="status">Fork status</h2>
+
+<p>ZDownloader3 is a fork of <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a>, adapted toward JDownloader2's workflow and Linux packaging. Expect rough edges. The fork's own status lives in <a href="roadmap.html">roadmap</a> and <a href="changelog.html">changelog</a>; upstream changes ship upstream first.</p>
+
+<h2 id="install">Build &amp; install</h2>
+
+<p>Rust and a C compiler are required. On a Debian/Ubuntu/CachyOS-family box:</p>
+<pre><code>$ git clone &lt;repo&gt; zdownloader3
+$ cd zdownloader3
+$ cargo install --path crates/app
+$ zdownloader3</code></pre>
+<p><code>cargo build --release</code> produces a single binary under <code>target/release/zdownloader3</code>. Packages (<code>.deb</code> / <code>.rpm</code> / AppImage) are built from <code>tools/installer/build-linux.sh</code>; see that script for the toolchain checklist.</p>
+<p><span class="badges"><span>GPL-3.0</span><span>Linux-first</span><span>egui/winit</span><span>Rust</span></span></p>
+
+<p class="footer">
+  <a href="why.html">Why</a> ·
+  <a href="docs.html">Docs</a> ·
+  <a href="roadmap.html">Roadmap</a> ·
+  <a href="changelog.html">Changelog</a> ·
+  License: <a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/LICENSE">GPL-3.0</a> ·
+  Attribution: <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a>
+</p>
+
+</main>
+</body>
+</html>

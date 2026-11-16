@@ -35,6 +35,7 @@ packages `.deb` / `.rpm` / AppImage (see its header for tooling).
 ## Documentation
 
 - `docs/README.md` — the user guide (most pages describe what upstream ships; fork differences are noted there)
+- `website/` — the fork's website (`website/index.html`; `python website/build.py` re-renders the roadmap/changelog pages)
 - `docs/fork-roadmap.md` — fork plans and status
 - `CONTRIBUTING.md` — how to send patches
 

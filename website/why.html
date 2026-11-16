@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="assets/icon.svg">
+<title>Why ZDownloader3?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<h1 class="product">Why</h1>
+
+<p class="audible">Why a JD2-shaped, Linux-native download manager — and why not just…</p>
+
+<h2>Because JDownloader2 is good, and closed</h2>
+<p>JDownloader2 earned its user base: the grabber that turns a pile of links into tickable packages, the pack-by-folder rules, the way the same archive appears once on every mirror and the same page is never downloaded twice by mistake, the tiny toolbars that do exactly half a job each and do it well.</p>
+<p>On Windows, the trade is reasonable: pay the Java tax, live in the UI. On Linux the tax is higher — a Java runtime, a second set of permissions, a container that doesn't trust your filesystem — for a program you use every day.</p>
+
+<h2>What we didn't want</h2>
+<ul>
+  <li>Java. One binary, system libraries, a browser-engine-like client.</li>
+  <li>An updater that silently replaces the running binary from a third-party CDN.</li>
+  <li>A wall of upsell and "paid features" for a download manager.</li>
+  <li>A website that looks generated and doesn't tell you what the program does.</li>
+</ul>
+
+<h2>What we kept</h2>
+<ul>
+  <li>The two-tab shape (Downloads / Linkgrabber).</li>
+  <li>Packages with a parent path — group by shared folder, not by "best effort" CDN-name heuristics.</li>
+  <li>A packagizer that does the boring part: sort this into that folder, rename that thing, stop after three rules.</li>
+  <li>Features exposed as configuration you can read, not as oracle magic.</li>
+</ul>
+
+<h2>What we didn't do</h2>
+<ul>
+  <li>No AI features. No "smart" suggestions. No privacy policy generator. No MCP server (for now).</li>
+  <li>No cloud account requirement for anything.</li>
+  <li>No phone-home tracking. There is nothing to phone home with (Rust binary, open source).</li>
+  <li>No ads. No sponsored "fastest mirror" recommendations.</li>
+</ul>
+
+<h2>Relationship to Mister Download Manager</h2>
+<p>ZDownloader3 is a fork of <a href="https://github.com/anefzaoui/misterdownloadmanager">Mister Download Manager</a> by Ahmed Nefzaoui. The fork pivots the project from "the IDM clone" toward "the JD2 clone on Linux", keeps the upstream engine and its guarantees, and collects JDownloader2-shaped behavior from the upstream roadmap.</p>
+<p>Upstream's licensing stands; this fork keeps GPL-3.0. Attribution is kept, not buried.</p>
+
+<p class="footer"><a href="index.html">← Home</a> · <a href="docs.html">Docs</a> · <a href="changelog.html">Changelog</a></p>
+
+</main>
+</body>
+</html>
