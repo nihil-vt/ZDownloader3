@@ -19,6 +19,8 @@ verifies checksums.
   Linkgrabber Overview and Package Properties on the grabber tab
 - **Tray + silent mode**, close-to-tray, show/hide hotkey, sounds, starter of downloaded
   archives, Click'n'Load with per-site consent, browser extension for Firefox and Chromium
+- **Headless / scriptable** — `zdownloader3-cli get` downloads without the window; the automation
+  API (`api on` → `status`/`pause`/`start`/...) exposes the running app to scripts
 - **Torrents** (magnets + files), **debrid account** routing, extraction of zip / 7z / rar
   (when 7-Zip is installed)
 

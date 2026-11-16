@@ -35,6 +35,16 @@
   <li><strong>debrid</strong> — Real-Debrid, AllDebrid, Premiumize, TorBox, Mega-Debrid sidebars</li>
   <li><strong>torrents</strong> — magnet + .torrent, piece selection</li>
   <li><strong>linux-first</strong> — XDG paths, fontconfig, native tray, one Rust binary</li>
+  <li><strong>CLI / automation</strong> — a headless downloader: <code>zdownloader3-cli get https://…</code> downloads without the window; a small automation API (<code>api on</code> → <code>status</code>, <code>start</code>, <code>pause</code>, <code>remove</code>, <code>delete</code>) for scripts</li>
+</ul>
+
+<h2>cli, no window</h2>
+<ul>
+  <li><code>zdownloader3-cli get https://…</code> — direct download, progress bar, exit code</li>
+  <li><code>zdownloader3-cli resume .state</code> — continue an interrupted download</li>
+  <li><code>zdownloader3-cli video-get / video-info</code> — yt-dlp video with verified install</li>
+  <li><code>zdownloader3-cli torrent-get / torrent-info</code> — magnet + .torrent</li>
+  <li><code>zdownloader3-cli api on &amp;&amp; zdownloader3-cli status</code> — the running app's JSON view (status, pause, start, remove, delete)</li>
 </ul>
 
 <h2 id="grab">the link grabber</h2>
