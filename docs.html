@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="assets/icon.svg">
+<title>docs — zDownloader³</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<h1 class="product">docs</h1>
+<p class="tagline">fork differences first; everything upstream still applies.</p>
+
+<h2>fork-specific documentation</h2>
+<ul>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/NOTICE.md">NOTICE</a> — provenance and attribution</li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/fork-roadmap.md">fork roadmap</a> — what this fork owns vs what it inherits</li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/gap-plan.md">gap plan</a> — JD2 vs MDM: what we port, what we skip</li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/packagizer.md">packagizer</a> — rules and variables</li>
+</ul>
+
+<h2>from upstream (verbatim applies)</h2>
+<ul>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/getting-started.md">getting started</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/adding-downloads.md">adding downloads</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/link-grabber.md">link grabber</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/queues-and-scheduler.md">queues &amp; scheduler</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/download-list.md">the list</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/keyboard-shortcuts.md">keyboard shortcuts</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/troubleshooting.md">troubleshooting</a></li>
+  <li><a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/command-line.md">command line</a></li>
+</ul>
+
+<h2>known fork gaps vs upstream docs</h2>
+<ul>
+  <li>The browser extension is unpacked-only; install <code>zDownloader³-nmhost</code> + the browser's <code>Set up browser integration</code> toggle by hand until fork-hosted .xpi/.crx exists.</li>
+  <li><code>zdownloader3-cli</code> — the headless downloader; see upstream's <a href="https://github.com/anefzaoui/misterdownloadmanager/blob/master/docs/command-line.md">command line</a> (the CLI surface is upstream's, unchanged).</li>
+  <li><code>cargo install --path crates/app</code> — that's all you get; no <code>.deb</code>/<code>.rpm</code>/<code>AppImage</code> yet in fork releases.</li>
+  <li>Self-update is disabled. <code>cargo install --path crates/app</code> again after each merge.</li>
+</ul>
+
+<p class="footer"><a href="index.html">← home</a> · <a href="why.html">why</a> · <a href="roadmap.html">roadmap</a> · <a href="changelog.html">changelog</a></p>
+
+</main>
+</body>
+</html>

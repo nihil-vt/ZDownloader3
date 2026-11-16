@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="assets/icon.svg">
+<title>Roadmap — zDownloader³</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1 class="product">Roadmap</h1>
+<p class="audible">What the fork owns, what it inherits, what ships when.</p>
+<h2>zDownloader³ — fork roadmap</h2>
+
+<p>Overrides the upstream <code>ROADMAP.md</code> (kept as reference). Guiding principle: <strong>JDownloader2 functionality and look, Linux-native, GPL-3.0 fork hygiene</strong> — upstream-compatible changes stay mergeable.</p>
+
+<p>Legend: ✅ done in fork · 🔄 in progress · 📋 planned · ⚠️ blocked / needs a decision</p>
+
+<h3>UI/UX parity with JD2</h3>
+
+<ul>
+<li>✅ Two tabs: <code>Downloads</code> / <code>Linkgrabber</code>, flat tabs under the toolbar</li>
+<li>✅ JD2-style theme (light/dark) — default on Linux; toolbar icons JD2-tinted (green/red)</li>
+<li>✅ Package-grouped list with tickboxes, look-up status, <code>Check/Uncheck all</code></li>
+<li>✅ <code>Name | Hoster | Size | Status</code> columns; package-row tint like JD2&#x27;s &quot;packages background highlight&quot;</li>
+<li>✅ Linkgrabber packages auto-grouped by folder across hosts, and by archive volume names (JD2 packs by folder; JD2&#x27;s archive rule likewise ignores host)</li>
+<li>✅ Packagizer: ordered rule chain (move/rename/destination; regex/extensions/size; <code>&lt;name&gt;</code>,<code>&lt;ext&gt;</code>,<code>&lt;index&gt;</code>,<code>&lt;min/max-size&gt;</code>, stop-after-rule) with the JD2 variable set (<code>&lt;packagename&gt;</code>, <code>&lt;simpledate:…&gt;</code>) and capture groups <code>$1..$9</code>,<code>${name}</code></li>
+<li>✅ Bottom docks both tabs: Download Overview + File Properties (downloads); Linkgrabber Overview + Package Properties (grabber)</li>
+<li>✅ Status strip: count/speed/debrid premium chips</li>
+<li>🔄 Property editors in the grabber package box (name, folder, password, extract/delete — present; parity polish pending)</li>
+<li>📋 Linkgrabber context menu JD2-flavored; column filter funnels in header (JD2&#x27;s filter drop-downs)</li>
+<li>📋 JD2-style caption (title bar: icon + title center, flat buttons) instead of the Breeze-style one</li>
+<li>📋 Speed meter as a real line graph (JD2&#x27;s meter), not just text</li>
+</ul>
+
+<h3>Engine &amp; download workflow</h3>
+
+<ul>
+<li>✅ Real engine (upstream): segmented HTTP/1.1, resume, per-host limits, speed limiter, checksums, FTP/FTPS, mirrors</li>
+<li>✅ aria2 idea set aside — engine kept native</li>
+<li>✅ End-to-end happy path verified: <code>http://127.0.0.1:8123/notes.pdf</code> → 6 MB → correct category dir, correct bytes</li>
+<li>📋 Multi-mirror list handling UI (JD2 shows &quot;all mirrors&quot; per download)</li>
+<li>📋 Reconnect (router IP change) — low demand; scoped out until a user asks (options → Reconnect analog absent)</li>
+</ul>
+
+<h3>Packagizer roadmap</h3>
+
+<ul>
+<li>✅ Rules engine, dialog, persistence (<code>settings.packagizer_rules</code>)</li>
+<li>✅ Apply-at-add-time in the grabber + &quot;Apply to list&quot;</li>
+<li>📋 Priority action (needs engine support: ordering by priority)</li>
+<li>📋 Destination regex variable groups across rules (e.g., move renamed archive to subfolder named by group)</li>
+<li>📋 Built-in starter rule packs (archives → <code>Archives</code>, videos → <code>Videos</code>, …) as templates in the dialog</li>
+</ul>
+
+<h3>Trust &amp; safety</h3>
+
+<ul>
+<li>✅ Packagizer regexes are inert-on-compile-fail; no panic paths; rename never produces empty name</li>
+<li>✅ &quot;..&quot; refused in destination payloads</li>
+<li>🔄 Credential handling: debrid/site logins already <code>keychain:</code>-backed; audit AD-hoc logging for leaks of cookies/passwords in UI/log outputs</li>
+<li>📋 Plugin sandbox (in-process, untrusted) — if and when a plugin system lands, it must not be JVM-in-process like JD2&#x27;s</li>
+<li>📋 SubConfiguration-style obfuscation deliberately not carried forward</li>
+</ul>
+
+<h3>Packaging &amp; release</h3>
+
+<ul>
+<li>✅ <code>tools/installer/build-linux.sh</code> in place (script), not yet run locally (no <code>pwsh</code>/<code>rpmbuild</code>/<code>dpkg-deb</code> on this host without sudo)</li>
+<li>📋 <code>.deb</code> / <code>.rpm</code> / AppImage built by CI, not by hand (GitHub Actions)</li>
+<li>📋 Nightlies (<code>nightly</code> branch) built automatically</li>
+<li>📋 Snap/Flatpak community packaging</li>
+<li>🔄 Fork prebuilt binaries via GitHub releases (once CI green)</li>
+</ul>
+
+<h3>Upstream maintenance</h3>
+
+<ul>
+<li>📋 Periodic upstream merge (every minor release): verify fork keeps compiling; fork-only files: <code>crates/app/assets/themes/jdownloader*</code>, <code>crates/app/assets/themes/jdownloader/icons/</code>, fork-added modules (<code>packagizer.rs</code>, <code>dock.rs</code>), <code>docs/fork-roadmap.md</code>, <code>NOTICE.md</code></li>
+<li>📋 Mirror test: every upstream test still passes (fork commits <code>g</code> must not break existing tests)</li>
+</ul>
+
+<h3>Guardrails</h3>
+
+<ul>
+<li>Never copy JD2 binary/assets/strings for the look; analysis may inform structure only (see <code>NOTICE.md</code>)</li>
+<li>Never copy MDM GPL code into permissively-licensed projects we ship (none currently)</li>
+<li>Upstream GPL-3.0 compliance: <code>LICENSE</code> remains GPL-3.0, attribution kept</li>
+</ul>
+
+<p class="footer"><a href="index.html">← Home</a> · <a href="why.html">Why</a> · <a href="docs.html">Docs</a> · <a href="roadmap.html">Roadmap</a> · <a href="changelog.html">Changelog</a></p>
+</main>
+</body>
+</html>
