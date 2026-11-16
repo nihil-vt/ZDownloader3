@@ -167,7 +167,7 @@ fn fill_captures<'a>(rule: &Rule, url: &'a str, name: &'a str, v: &mut Vars<'a>)
             v.captures.insert(i, m.as_str());
         }
     }
-    for (i, cap) in names.into_iter().enumerate().skip(1) {
+    for (_i, cap) in names.into_iter().enumerate().skip(1) {
         if let Some(nm) = cap
             && !nm.is_empty()
             && let Some(m) = caps.name(&nm)
@@ -529,7 +529,7 @@ impl Packagizer {
         );
         let inner = list.shrink(2.0);
         p.rect_filled(winui::rect(inner), 0.0, winui::FIELD());
-        let view = inner.size();
+        let _view = inner.size();
         let sel = self.selected;
         let rules_snapshot: Vec<Rule> = self.rules.clone();
         for (k, rule) in rules_snapshot.iter().enumerate() {
