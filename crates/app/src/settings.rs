@@ -1605,3 +1605,26 @@ pub(crate) mod sealed {
         }
     }
 }
+
+#[test]
+fn packagizer_rules_round_trip() {
+    let mut s = Settings::default();
+    s.packagizer_rules = vec![crate::packagizer::Rule {
+        id: 1,
+        enabled: true,
+        name: "ISOs".into(),
+        url: String::new(),
+        filename: String::new(),
+        exts: "iso".into(),
+        min_size: 0,
+        max_size: 0,
+        action: crate::packagizer::Action::MoveToPackage,
+        payload: "Distros".into(),
+    }];
+    let text = serde_json::to_string(&s).unwrap();
+    println!("serialized packagizer_rules: {}", &text[text.find("packagizer_rules").unwrap_or(0)..][..80]);
+    let back: Settings = serde_json::from_str(&text).unwrap();
+    assert_eq!(back.packagizer_rules.len(), 1);
+    assert_eq!(back.packagizer_rules[0].payload, "Distros");
+}
+

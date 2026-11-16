@@ -2,7 +2,7 @@
 
 ZDownloader3's rule chain for the link grabber, mirroring JDownloader2's Packagizer (`org.jdownloader.controlling.packagizer`). Links are matched when they are added (and again on demand) and **have their names changed, their packages moved, or their destination changed** — in the order your rules are listed, each rule seeing what the ones before it did.
 
-Open it: **Downloads → Packagize&r**. "Apply to list" re-runs the chain on the links already staged in the grabber.
+Open it: **Downloads → Packagize&r** (or `zdownloader3 --show packagizer`). The window's **Apply to list** re-runs the chain on the links already staged in the grabber.
 
 ## Rule fields
 
@@ -38,7 +38,14 @@ In the payload pattern:
 - `<index>` — its 1-based index in that package
 - `<simpledate:FORMAT>` — today, e.g. `<simpledate:yyyy-MM-dd>` (subset: yyyy MM dd HH mm ss)
 
-Unknown variables are carried through untouched.
+Unknown variables are carried through untouched. Capture groups from the **filename regex** when it has any, else from the **URL regex**, are available as `$1`, `$2`, …, `$10`…, and named groups as `${name}`:
+
+```
+File name: ([a-z]+)([0-9]+)      Action: Rename file      Payload: $2-$1      → ep12 → 12-ep
+File name: (?<author>[a-z]+)     Action: Rename file      Payload: ${author}   → alice
+```
+
+A rename replaces the **whole** name (extension included); use `<name>`/`<ext>` explicitly if you want the extension kept.
 
 ## Notes and safety
 
@@ -64,6 +71,6 @@ Unknown variables are carried through untouched.
 
 ## Known limits (vs JD2's Packagizer)
 
-- No regex capture groups in variables (`$1`-style); combine rules instead.
+- Capture groups exist (see above); no `${name}` rename across rules yet (a rule's groups are per-rule).
 - No "priority" action yet (JD2 can set download priority per rule).
 - No "disable this download" action (needs a global-enable action, not per-download).

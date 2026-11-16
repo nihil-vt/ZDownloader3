@@ -140,6 +140,41 @@ pub struct Vars<'a> {
     pub packagename: &'a str,
     pub index: usize,
     pub simpledate: String,
+    /// Capture groups from the filename regex (or the URL regex when the filename has none);
+    /// `$1`-`$9`/`$10`... and `${name}` substitute from these.
+    pub captures: std::collections::HashMap<usize, &'a str>,
+    pub captures_named: std::collections::HashMap<String, &'a str>,
+}
+
+/// Fill `v`'s capture groups from the filename regex when it has groups (JD2's variables
+/// `{1}`..`{n}`, reached here as `$1`..`$n`), else from the URL regex. Empty patterns and
+/// regexes that fail to compile give no captures; a rule that matched already compiles.
+fn fill_captures<'a>(rule: &Rule, url: &'a str, name: &'a str, v: &mut Vars<'a>) {
+    let captures_of = |text: &'a str, pattern: &str| -> Option<(regex::Captures<'a>, Vec<Option<String>>)> {
+        if pattern.is_empty() {
+            return None;
+        }
+        let re = regex::RegexBuilder::new(pattern).case_insensitive(true).build().ok()?;
+        let names: Vec<Option<String>> = re.capture_names().map(|n| n.map(str::to_owned)).collect();
+        let caps = re.captures(text)?;
+        (caps.len() > 1).then_some((caps, names))
+    };
+    let Some((caps, names)) = captures_of(name, &rule.filename).or_else(|| captures_of(url, &rule.url)) else {
+        return;
+    };
+    for i in 1..caps.len() {
+        if let Some(m) = caps.get(i) {
+            v.captures.insert(i, m.as_str());
+        }
+    }
+    for (i, cap) in names.into_iter().enumerate().skip(1) {
+        if let Some(nm) = cap
+            && !nm.is_empty()
+            && let Some(m) = caps.name(&nm)
+        {
+            v.captures_named.insert(nm, m.as_str());
+        }
+    }
 }
 
 /// The variables' values for one link (`now` as unix seconds).
@@ -155,6 +190,8 @@ pub fn vars<'a>(name: &'a str, packagename: &'a str, index: usize, now: i64) -> 
         packagename,
         index,
         simpledate: chrono_now(now),
+        captures: std::collections::HashMap::new(),
+        captures_named: std::collections::HashMap::new(),
     }
 }
 
@@ -189,6 +226,39 @@ pub fn subst(pattern: &str, v: &Vars) -> String {
     let bytes = pattern.as_bytes();
     let mut i = 0;
     while i < bytes.len() {
+        if bytes[i] == b'$' {
+            // ${name} or $N (one or more digits): capture-group substitutions
+            if bytes.get(i + 1) == Some(&b'{') {
+                if let Some(end) = pattern[i + 2..].find('}').map(|e| i + 2 + e) {
+                    if let Some(val) = v.captures_named.get(&pattern[i + 2..end]) {
+                        out.push_str(val);
+                    } else {
+                        out.push_str(&pattern[i..=end]);
+                    }
+                    i = end + 1;
+                    continue;
+                }
+            } else {
+                let mut j = i + 1;
+                while j < bytes.len() && bytes[j].is_ascii_digit() {
+                    j += 1;
+                }
+                if j > i + 1 {
+                    if let Ok(n) = pattern[i + 1..j].parse::<usize>() {
+                        if let Some(val) = v.captures.get(&n) {
+                            out.push_str(val);
+                        } else {
+                            out.push_str(&pattern[i..j]);
+                        }
+                        i = j;
+                        continue;
+                    }
+                }
+            }
+            out.push('$');
+            i += 1;
+            continue;
+        }
         if bytes[i] != b'<' {
             out.push(bytes[i] as char);
             i += 1;
@@ -268,7 +338,8 @@ pub fn apply(
         if !rule.enabled || !matches(rule, url, &current_name, size) {
             continue;
         }
-        let v = vars(&current_name, &current_package, index, now);
+        let mut v = vars(&current_name, &current_package, index, now);
+        fill_captures(rule, url, &current_name, &mut v);
         match rule.action {
             Action::MoveToPackage => {
                 if let Some(p) = sanitize_name(&subst(&rule.payload, &v)) {
@@ -646,4 +717,56 @@ impl Packagizer {
 
 fn label(p: &egui::Painter, x: f32, y: f32, s: &str) {
     text(p, x, y, s, crate::winui::MUTED());
+}
+
+#[cfg(test)]
+mod capture_tests {
+    use super::*;
+
+    fn rule(action: Action, payload: &str) -> Rule {
+        Rule {
+            id: 1,
+            enabled: true,
+            name: "t".into(),
+            url: String::new(),
+            filename: String::new(),
+            exts: String::new(),
+            min_size: 0,
+            max_size: 0,
+            action,
+            payload: payload.into(),
+        }
+    }
+
+    #[test]
+    fn filename_groups_feed_dollar_n() {
+        let mut r = rule(Action::RenameFile, "$2-$1");
+        r.filename = r"([a-z]+)([0-9]+)".into();
+        let c = apply(&[r], "https://a/1", "ep12.mp4", None, "p", 1, 0);
+        assert_eq!(c.name.as_deref(), Some("12-ep"));
+    }
+
+    #[test]
+    fn url_groups_feed_dollar_n_when_filename_has_none() {
+        let mut r = rule(Action::RenameFile, "book-$2");
+        r.url = r"books/([a-z]+)/([0-9]+)".into();
+        let c = apply(&[r], "https://a/books/epub/7", "a file.epub", None, "p", 1, 0);
+        assert_eq!(c.name.as_deref(), Some("book-7"));
+    }
+
+    #[test]
+    fn named_groups() {
+        let mut r = rule(Action::RenameFile, "${author}-$3");
+        r.filename = r"(?<author>[a-z]+)\.(?<series>[a-z]+)([0-9]+)".into();
+        let c = apply(&[r], "https://a", "alice.witch2001.mp4", None, "p", 1, 0);
+        assert_eq!(c.name.as_deref(), Some("alice-2001"));
+    }
+
+    #[test]
+    fn unknown_group_is_kept_as_written() {
+        let mut r = rule(Action::RenameFile, "$9-${nope}");
+        r.filename = r"([a-z]+)".into();
+        let c = apply(&[r], "https://a", "alice.mp4", None, "p", 1, 0);
+        assert_eq!(c.name.as_deref(), Some("$9-${nope}"));
+    }
 }
