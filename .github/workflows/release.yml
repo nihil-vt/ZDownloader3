@@ -432,6 +432,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           MDM_RELEASE_KEY: ${{ secrets.MDM_RELEASE_KEY }}
+          IS_PRERELEASE: ${{ contains(github.ref_name, '-alpha') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-rc') }}
         shell: pwsh
         run: |
           # The release waits for x64 Windows (the names every copy before had): its files or none.
@@ -486,16 +487,22 @@ jobs:
           }
           if ($thanks) { $thanks = "`n`n" + $thanks }
           $all = (Get-ChildItem dist -File).FullName
+          $releaseFlags = @("--title", $title)
+          if ($env:IS_PRERELEASE) {
+            # This fork's pre-releases are unsigned (no MDM_RELEASE_KEY here) and marked as such;
+            # they are for early testing, not for reliable self-update (which is disabled anyway).
+            $releaseFlags += "--prerelease"
+          } else {
+            $releaseFlags += "--latest"
+          }
           if ($m.Success -and $m.Groups[1].Value.Trim()) {
             # Links into the repository (docs/x.md) would resolve against the release's page:
             # point them at the tagged files.
             $notes = $m.Groups[1].Value.Trim() -replace '\]\((?![a-z]+:|#)([^)\s]+)\)', '](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/$1)'
             Set-Content -Encoding utf8 notes.md ($invite + $notes + $thanks)
-            gh release create "${{ github.ref_name }}" --latest --title $title --notes-file notes.md $all
+            gh release create "${{ github.ref_name }}" @releaseFlags --notes-file notes.md $all
           } else {
             Set-Content -Encoding utf8 notes.md ($invite + $thanks.Trim())
-            gh release create "${{ github.ref_name }}" --latest --title $title --notes-file notes.md --generate-notes $all
+            gh release create "${{ github.ref_name }}" @releaseFlags --generate-notes --title $title $all
           }
-          # The website links to the latest published release: rebuild it now that the files are
-          # there (a release made with this token starts no workflow by itself).
-          gh workflow run pages.yml --ref main
+          Write-Warning "Fork: no website to rebuild (the fork publishes no site workflow)."

@@ -20,6 +20,24 @@ First zDownloader³ fork build. Imports upstream Mister Download Manager and re-
 - Upstream features kept: engine with IDM-beating speed, torrents, Click'n'Load, extraction (zip/7z/rar), debrid services, browser extension + remote control + automation API + MCP, 86 languages, Linux .deb/.rpm/AppImage packaging
 - JD2 assets are never copied; analysis informed layout/behavior only
 
+## [0.6.0-alpha.1] - 2026-11-16
+
+First ZDownloader³ fork pre-release. **Alpha — for testing only. Do not trust for important downloads. Expect crash reports, missing icons in places and unfinished packaging. Bug reports welcome.**
+
+### Added
+
+- **zDownloader³**: JD2-style link grabber (package grouping, look-ups, untick failed links), folder-class grouping across mirrors, archive-volume grouping (host ignored)
+- **Packagizer**: JDownloader2-style ordered rule chain (`rename`, `move to package`, `set destination`), variables (`<name>`, `<ext>`, `<index>`, `<simpledate:…>`, `$1…$9`, `${name}`), `stop after rule`
+- **Bottom docks**: Download Overview + File Properties (downloads tab), Linkgrabber Overview + Package Properties (grabber tab); View → toggles
+- **CLI**: `zdownloader3-cli get/resume/api on/status/pause/start/...`, plus `/show <window>` for screenshots
+- **Fork website**: landing, docs, why, roadmap, changelog under `website/` (gh-pages branch serves it)
+
+### Notes
+
+- Inherits everything from upstream **Mister Download Manager** (GPL-3.0, see `NOTICE.md`) — engine, categories sidebar, torrents, debrid, Click'n'Load (ask-once per site), tray/silent-mode, browser extension, command line
+- Self-update disabled in the fork; use package manager or `cargo install --path crates/app`
+- The JDownloader2 parser of JD2 itself (plugins/hosts) is not part of this release — see `docs/gap-plan.md`
+
 ## [Unreleased]
 
 ### Added

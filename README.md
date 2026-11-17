@@ -2,6 +2,11 @@
 
 <p align="center"><img src="website/assets/banner.svg" alt="zDownloader³" width="100%" /></p>
 
+> **Alpha builds are for testing only.** This is a pre-release fork of upstream's
+> Mister Download Manager. Expect crashes, missing pieces and rough edges. **Do not trust it
+> for downloads you cannot afford to lose.** Bug reports on the [issue tracker](https://github.com/nihil-vt/ZDownloader3/issues) welcome
+> — attach the `zdownloader3 --help` output and `logs/mdm.log` when filing one.
+
 A native Linux-first download manager with a JDownloader2-shaped UI: a category sidebar, a
 `Downloads`/`Linkgrabber` tab pair, a package-grouped link list, and a flat, fast-darkmed
 theme. Built in Rust on egui, with an engine that splits across connections, resumes, and
