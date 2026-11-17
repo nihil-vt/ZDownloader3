@@ -12,6 +12,11 @@ const root = new URL("../../", import.meta.url);
 const out = new URL("target/extension/", root);
 const cargo = readFileSync(new URL("Cargo.toml", root), "utf8");
 const version = cargo.match(/^version\s*=\s*"([^"]+)"/m)[1];
+
+// The browsers take only dot-separated numbers, so the manifest carries the numeric core of a
+// pre-release (e.g. Cargo.toml 0.6.0-alpha.3 lays out as 0.6.0 in the stores). Allow either.
+const CORE_VERSION = version.split('-')[0];
+const ALLOWED = new Set([version, CORE_VERSION]);
 const ipc = readFileSync(new URL("crates/ipc/src/extension.rs", root), "utf8");
 const unpackedId = ipc.match(/UNPACKED_ID: &str = "([a-p]{32})"/)[1];
 const firefoxId = ipc.match(/FIREFOX_ID: &str = "([^"]+)"/)[1];
@@ -25,7 +30,7 @@ const idOf = (key) =>
 for (const kind of ["chromium", "chrome-store", "firefox", "safari"]) {
   const dir = new URL(`${kind}/`, out);
   const m = JSON.parse(readFileSync(new URL("manifest.json", dir), "utf8"));
-  assert.equal(m.version, version, `${kind}: the app's version`);
+  assert.ok(ALLOWED.has(m.version), `${kind}: the app's version (got ${m.version}, want ${version} or ${CORE_VERSION})`);
   const files = [
     m.background.service_worker,
     ...(m.background.scripts || []),
