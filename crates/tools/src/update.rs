@@ -416,8 +416,10 @@ Connection: close
 
     #[tokio::test]
     async fn a_release_file_is_taken_only_from_a_list_signed_by_mdm() {
-        let zip = "zDownloader³-9.9.9-x64.zip";
-        let setup = "zDownloader³-9.9.9-setup.exe";
+        // The signed fixture keeps upstream's names: the fork has no private key to re-sign a
+        // re-named list, and this test proves fetch-only-from-a-signed-list, not the branding.
+        let zip = "MisterDownloadManager-9.9.9-x64.zip";
+        let setup = "MisterDownloadManager-9.9.9-setup.exe";
         let assets = |base: &str| -> Vec<(String, String)> {
             ["SHA256SUMS.txt", "SHA256SUMS.txt.sig", zip, setup]
                 .iter()
@@ -444,7 +446,7 @@ Connection: close
         let out = dir.path().join("out");
         unzip(&file, &out).unwrap();
         assert_eq!(
-            std::fs::read(single_folder(&out).join("zdownloader3.exe")).unwrap(),
+            std::fs::read(single_folder(&out).join("misterdownloadmanager.exe")).unwrap(),
             b"new program"
         );
         // A file that isn't the one the signed list names is refused, and not kept.

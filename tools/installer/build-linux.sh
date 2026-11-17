@@ -127,12 +127,19 @@ EOF
 dpkg-deb --root-owner-group --build "$deb" "$dist/$name.deb"
 
 # .rpm, from the same tree (nothing is compiled by rpmbuild).
+# rpmbuild refuses a '-' in Version ("Illegal char '-'"): the pre-release suffix rides in
+# Release as 0.<suffix>.1 so 0.6.0-alpha.3 becomes Version: 0.6.0, Release: 0.alpha.3.1.
+rpm_version="${version%%-*}"
+case "$version" in
+  *-*) rpm_release="0.$(echo "${version#*-}" | sed 's/[^a-zA-Z0-9]/./g' | sed 's/^\.*//;s/\.*$//').1" ;;
+  *)   rpm_release="1" ;;
+esac
 rpm="$stage/rpm"
 mkdir -p "$rpm"/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 cat > "$rpm/SPECS/mdm.spec" <<EOF
 Name: zdownloader3
-Version: $version
-Release: 1
+Version: $rpm_version
+Release: $rpm_release
 Summary: Download manager
 License: GPL-3.0-or-later
 URL: https://nihil-vt.github.io/ZDownloader3/
