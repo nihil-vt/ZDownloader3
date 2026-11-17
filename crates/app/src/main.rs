@@ -9,8 +9,6 @@ mod clipbatch;
 mod clipboard;
 mod clock;
 mod cnl;
-mod dock;
-mod packagizer;
 mod countries;
 mod crash;
 mod crashui;
@@ -20,6 +18,7 @@ mod deferred_rename;
 mod deleter;
 mod derive;
 mod dialogs;
+mod dock;
 mod droptarget;
 mod errors;
 mod extension;
@@ -45,6 +44,7 @@ mod native;
 mod netwatch;
 mod options;
 mod pacfetch;
+mod packagizer;
 mod palette;
 mod playlistdlg;
 mod progress;
@@ -477,11 +477,7 @@ fn app() -> eframe::Result {
     // The log (release builds too) and the crash monitor.
     if let Some(data) = mdm_ipc::data_dir() {
         mdm_crash::logs::init(&data, mdm_crash::logs::APP);
-        tracing::info!(
-            "zDownloader³ {} ({}) starting",
-            help::VERSION,
-            help::COMMIT
-        );
+        tracing::info!("zDownloader³ {} ({}) starting", help::VERSION, help::COMMIT);
     }
     // The default browser, looked for once on a thread of its own (logged): its User-Agent is
     // the one links added by hand go with (#668).

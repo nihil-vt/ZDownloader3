@@ -169,8 +169,7 @@ pub struct DeviceCode {
 pub(crate) async fn device_start(http: &Http) -> Result<DeviceCode, Fault> {
     let mut u = url(http, "user/auth/device/start");
     // Letters and digits only, as the docs ask: shown on TorBox's page.
-    u.query_pairs_mut()
-        .append_pair("app", "zDownloader³");
+    u.query_pairs_mut().append_pair("app", "zDownloader³");
     data(call(http, http.get(&u)).await?)
 }
 

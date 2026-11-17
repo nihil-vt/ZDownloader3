@@ -696,17 +696,12 @@ Connection: close
 
     #[test]
     fn bundles_on_a_mac() {
-        let exe = Path::new(
-            "/Applications/zDownloader³.app/Contents/MacOS/zdownloader3",
-        );
+        let exe = Path::new("/Applications/zDownloader³.app/Contents/MacOS/zdownloader3");
         assert_eq!(
             app_bundle(exe).as_deref(),
             Some(Path::new("/Applications/zDownloader³.app"))
         );
-        assert_eq!(
-            app_bundle(Path::new("/usr/bin/zdownloader3")),
-            None
-        );
+        assert_eq!(app_bundle(Path::new("/usr/bin/zdownloader3")), None);
     }
 
     #[test]

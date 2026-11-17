@@ -8,8 +8,8 @@
 //! package the link is in (as it is *before* this rule runs), `<index>` its 1-based index
 //! within that package, `<simpledate:yyyy-MM-dd>` today's date in the given format.
 
-use serde::{Deserialize, Serialize};
 use egui::{Pos2, Rect, pos2};
+use serde::{Deserialize, Serialize};
 
 /// What a matching rule does to its link.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -100,7 +100,12 @@ fn matches(rule: &Rule, url: &str, name: &str, size: Option<u64>) -> bool {
         let exts: Vec<String> = rule
             .exts
             .split([',', ' ', ';', '\t'])
-            .map(|e| e.trim().to_ascii_lowercase().trim_start_matches('.').to_owned())
+            .map(|e| {
+                e.trim()
+                    .to_ascii_lowercase()
+                    .trim_start_matches('.')
+                    .to_owned()
+            })
             .filter(|e| !e.is_empty())
             .collect();
         let ext = name
@@ -150,16 +155,23 @@ pub struct Vars<'a> {
 /// `{1}`..`{n}`, reached here as `$1`..`$n`), else from the URL regex. Empty patterns and
 /// regexes that fail to compile give no captures; a rule that matched already compiles.
 fn fill_captures<'a>(rule: &Rule, url: &'a str, name: &'a str, v: &mut Vars<'a>) {
-    let captures_of = |text: &'a str, pattern: &str| -> Option<(regex::Captures<'a>, Vec<Option<String>>)> {
+    let captures_of = |text: &'a str,
+                       pattern: &str|
+     -> Option<(regex::Captures<'a>, Vec<Option<String>>)> {
         if pattern.is_empty() {
             return None;
         }
-        let re = regex::RegexBuilder::new(pattern).case_insensitive(true).build().ok()?;
+        let re = regex::RegexBuilder::new(pattern)
+            .case_insensitive(true)
+            .build()
+            .ok()?;
         let names: Vec<Option<String>> = re.capture_names().map(|n| n.map(str::to_owned)).collect();
         let caps = re.captures(text)?;
         (caps.len() > 1).then_some((caps, names))
     };
-    let Some((caps, names)) = captures_of(name, &rule.filename).or_else(|| captures_of(url, &rule.url)) else {
+    let Some((caps, names)) =
+        captures_of(name, &rule.filename).or_else(|| captures_of(url, &rule.url))
+    else {
         return;
     };
     for i in 1..caps.len() {
@@ -243,16 +255,16 @@ pub fn subst(pattern: &str, v: &Vars) -> String {
                 while j < bytes.len() && bytes[j].is_ascii_digit() {
                     j += 1;
                 }
-                if j > i + 1 {
-                    if let Ok(n) = pattern[i + 1..j].parse::<usize>() {
-                        if let Some(val) = v.captures.get(&n) {
-                            out.push_str(val);
-                        } else {
-                            out.push_str(&pattern[i..j]);
-                        }
-                        i = j;
-                        continue;
+                if j > i + 1
+                    && let Ok(n) = pattern[i + 1..j].parse::<usize>()
+                {
+                    if let Some(val) = v.captures.get(&n) {
+                        out.push_str(val);
+                    } else {
+                        out.push_str(&pattern[i..j]);
                     }
+                    i = j;
+                    continue;
                 }
             }
             out.push('$');
@@ -434,9 +446,47 @@ mod tests {
     fn extension_filter_matches() {
         let mut r = rule(Action::RenameFile, "x.pdf");
         r.exts = "pdf, epub".into();
-        assert_eq!(apply(std::slice::from_ref(&r), "https://a", "a.PDF", None, "p", 1, 0).name.as_deref(), Some("x.pdf"));
-        assert_eq!(apply(std::slice::from_ref(&r), "https://a", "a.epub", None, "p", 1, 0).name.as_deref(), Some("x.pdf"));
-        assert_eq!(apply(std::slice::from_ref(&r), "https://a", "a.mp4", None, "p", 1, 0).name, None);
+        assert_eq!(
+            apply(
+                std::slice::from_ref(&r),
+                "https://a",
+                "a.PDF",
+                None,
+                "p",
+                1,
+                0
+            )
+            .name
+            .as_deref(),
+            Some("x.pdf")
+        );
+        assert_eq!(
+            apply(
+                std::slice::from_ref(&r),
+                "https://a",
+                "a.epub",
+                None,
+                "p",
+                1,
+                0
+            )
+            .name
+            .as_deref(),
+            Some("x.pdf")
+        );
+        assert_eq!(
+            apply(
+                std::slice::from_ref(&r),
+                "https://a",
+                "a.mp4",
+                None,
+                "p",
+                1,
+                0
+            )
+            .name,
+            None
+        );
     }
 
     #[test]
@@ -444,8 +494,16 @@ mod tests {
         let mut r = rule(Action::MoveToPackage, "big");
         r.min_size = 1_000;
         let one = std::slice::from_ref(&r);
-        assert_eq!(apply(one, "https://a", "f", Some(500), "p", 1, 0).package, None);
-        assert_eq!(apply(one, "https://a", "f", Some(2_000), "p", 1, 0).package.as_deref(), Some("big"));
+        assert_eq!(
+            apply(one, "https://a", "f", Some(500), "p", 1, 0).package,
+            None
+        );
+        assert_eq!(
+            apply(one, "https://a", "f", Some(2_000), "p", 1, 0)
+                .package
+                .as_deref(),
+            Some("big")
+        );
         assert_eq!(apply(one, "https://a", "f", None, "p", 1, 0).package, None);
     }
 
@@ -489,7 +547,7 @@ pub struct Packagizer {
 impl Packagizer {
     pub fn new(rules: Vec<Rule>) -> Self {
         let next_id = rules.iter().map(|r| r.id).max().unwrap_or(0) + 1;
-        let selected = Some(0).filter(|_| !rules.is_empty());
+        let selected = (!rules.is_empty()).then_some(0);
         Packagizer {
             rules,
             next_id,
@@ -521,7 +579,13 @@ impl Packagizer {
     fn body(&mut self, ui: &mut egui::Ui, o: Pos2) -> Outcome<bool> {
         let p = ui.painter().clone();
         let top = o.y + 12.0;
-        text(&p, o.x + 11.0, top + 12.0, "&Rule chain — first match wins, in this order:", LIGHT_TEXT());
+        text(
+            &p,
+            o.x + 11.0,
+            top + 12.0,
+            "&Rule chain — first match wins, in this order:",
+            LIGHT_TEXT(),
+        );
         // --- the rules list ---
         let list = egui::Rect::from_min_max(
             pos2(o.x + 11.0, top + 20.0),
@@ -544,14 +608,9 @@ impl Packagizer {
             }
             let check_x = inner.left() + 6.0;
             let mut on = rule.enabled;
-            let changed = winui::checkbox_light(
-                ui,
-                pos2(check_x, y + 2.0),
-                &mut on,
-                &rule.name,
-                true,
-            )
-            .changed();
+            let changed =
+                winui::checkbox_light(ui, pos2(check_x, y + 2.0), &mut on, &rule.name, true)
+                    .changed();
             if changed {
                 self.rules[k].enabled = on;
             }
@@ -562,7 +621,8 @@ impl Packagizer {
             if y + ROW_H > inner.bottom() {
                 break;
             }
-            let row = Rect::from_min_max(pos2(inner.left() + 26.0, y), pos2(inner.right(), y + ROW_H));
+            let row =
+                Rect::from_min_max(pos2(inner.left() + 26.0, y), pos2(inner.right(), y + ROW_H));
             let resp = ui.interact(
                 row,
                 egui::Id::unique(("packagizer-row", k)),
@@ -574,7 +634,13 @@ impl Packagizer {
         }
         // --- list buttons ---
         let btop = inner.bottom() + 4.0;
-        let add = winui::button_light(ui, r(o, 11.0, btop, 96.0, 21.0), "Add rule", ButtonKind::Normal, false);
+        let add = winui::button_light(
+            ui,
+            r(o, 11.0, btop, 96.0, 21.0),
+            "Add rule",
+            ButtonKind::Normal,
+            false,
+        );
         if add.clicked() {
             self.rules.push(Rule {
                 id: self.next_id,
@@ -583,8 +649,16 @@ impl Packagizer {
             self.next_id += 1;
             self.selected = Some(self.rules.len() - 1);
         }
-        let dup_i = self.selected.and_then(|i| self.rules.get(i).map(|r| (i, r.clone())));
-        let dup = winui::button_light(ui, r(o, 111.0, btop, 96.0, 21.0), "Duplicate", ButtonKind::Normal, false);
+        let dup_i = self
+            .selected
+            .and_then(|i| self.rules.get(i).map(|r| (i, r.clone())));
+        let dup = winui::button_light(
+            ui,
+            r(o, 111.0, btop, 96.0, 21.0),
+            "Duplicate",
+            ButtonKind::Normal,
+            false,
+        );
         if dup.clicked()
             && let Some((at, mut r)) = dup_i
         {
@@ -594,7 +668,13 @@ impl Packagizer {
             self.rules.insert(at + 1, r);
             self.selected = Some(at + 1);
         }
-        let del = winui::button_light(ui, r(o, 211.0, btop, 96.0, 21.0), "Remove", ButtonKind::Normal, false);
+        let del = winui::button_light(
+            ui,
+            r(o, 211.0, btop, 96.0, 21.0),
+            "Remove",
+            ButtonKind::Normal,
+            false,
+        );
         if del.clicked()
             && let Some(i) = self.selected
             && i < self.rules.len()
@@ -603,15 +683,29 @@ impl Packagizer {
             self.selected = None;
         }
         let up_i = self.selected.and_then(|i| (i > 0).then_some(i));
-        let up = winui::button_light(ui, r(o, 311.0, btop, 44.0, 21.0), "↑", ButtonKind::Normal, false);
+        let up = winui::button_light(
+            ui,
+            r(o, 311.0, btop, 44.0, 21.0),
+            "↑",
+            ButtonKind::Normal,
+            false,
+        );
         if up.clicked()
             && let Some(i) = up_i
         {
             self.rules.swap(i - 1, i);
             self.selected = Some(i - 1);
         }
-        let dn_i = self.selected.and_then(|i| (i + 1 < self.rules.len()).then_some(i));
-        let dn = winui::button_light(ui, r(o, 359.0, btop, 44.0, 21.0), "↓", ButtonKind::Normal, false);
+        let dn_i = self
+            .selected
+            .and_then(|i| (i + 1 < self.rules.len()).then_some(i));
+        let dn = winui::button_light(
+            ui,
+            r(o, 359.0, btop, 44.0, 21.0),
+            "↓",
+            ButtonKind::Normal,
+            false,
+        );
         if dn.clicked()
             && let Some(i) = dn_i
         {
@@ -626,20 +720,56 @@ impl Packagizer {
             let ex = o.x + LIST_W + 22.0;
             let w = r(o, ex - o.x, 0.0, DIALOG_W - LIST_W - 33.0, 21.0).width();
             label(&p, ex, top + 30.0, "Name:");
-            winui::edit_light(ui, r(o, ex - o.x, top + 44.0, w, 21.0), &mut self.rules[i].name, true, false);
+            winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 44.0, w, 21.0),
+                &mut self.rules[i].name,
+                true,
+                false,
+            );
             label(&p, ex, top + 72.0, "URL (regex, empty = any):");
-            winui::edit_light(ui, r(o, ex - o.x, top + 86.0, w, 21.0), &mut self.rules[i].url, true, false);
+            winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 86.0, w, 21.0),
+                &mut self.rules[i].url,
+                true,
+                false,
+            );
             label(&p, ex, top + 114.0, "File name (regex, empty = any):");
-            winui::edit_light(ui, r(o, ex - o.x, top + 128.0, w, 21.0), &mut self.rules[i].filename, true, false);
+            winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 128.0, w, 21.0),
+                &mut self.rules[i].filename,
+                true,
+                false,
+            );
             label(&p, ex, top + 156.0, "Extensions (rar, 7z…; empty = any):");
-            winui::edit_light(ui, r(o, ex - o.x, top + 170.0, w, 21.0), &mut self.rules[i].exts, true, false);
+            winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 170.0, w, 21.0),
+                &mut self.rules[i].exts,
+                true,
+                false,
+            );
             label(&p, ex, top + 198.0, "Minimum size, bytes (0 = any):");
             let mut min_s = self.rules[i].min_size.to_string();
-            winui::edit_light(ui, r(o, ex - o.x, top + 212.0, 140.0, 21.0), &mut min_s, true, false);
+            winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 212.0, 140.0, 21.0),
+                &mut min_s,
+                true,
+                false,
+            );
             self.rules[i].min_size = min_s.trim().parse().unwrap_or(0);
             label(&p, ex, top + 240.0, "Maximum size, bytes (0 = any):");
             let mut max_s = self.rules[i].max_size.to_string();
-            winui::edit_light(ui, r(o, ex - o.x, top + 254.0, 140.0, 21.0), &mut max_s, true, false);
+            winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 254.0, 140.0, 21.0),
+                &mut max_s,
+                true,
+                false,
+            );
             self.rules[i].max_size = max_s.trim().parse().unwrap_or(0);
             label(&p, ex, top + 282.0, "Action:");
             let actions = [
@@ -654,9 +784,14 @@ impl Packagizer {
                 Action::SetDestination => 2,
                 Action::StopAfterRule => 3,
             };
-            if let Some(picked) =
-                winui::combo_light(ui, r(o, ex - o.x, top + 296.0, w, 21.0), &actions, cur, true, "packagizer-action")
-            {
+            if let Some(picked) = winui::combo_light(
+                ui,
+                r(o, ex - o.x, top + 296.0, w, 21.0),
+                &actions,
+                cur,
+                true,
+                "packagizer-action",
+            ) {
                 self.rules[i].action = match picked {
                     0 => Action::MoveToPackage,
                     1 => Action::RenameFile,
@@ -667,12 +802,23 @@ impl Packagizer {
             let (payload_label, payload_enabled) = match self.rules[i].action {
                 Action::MoveToPackage => ("Package's name:", true),
                 Action::RenameFile => ("New file name:", true),
-                Action::SetDestination => ("Destination (absolute, or relative to the download folder):", true),
+                Action::SetDestination => (
+                    "Destination (absolute, or relative to the download folder):",
+                    true,
+                ),
                 Action::StopAfterRule => ("(This rule only stops the chain)", false),
             };
             label(&p, ex, top + 324.0, payload_label);
             let mut payload = self.rules[i].payload.clone();
-            if winui::edit_light(ui, r(o, ex - o.x, top + 338.0, w, 21.0), &mut payload, payload_enabled, false).changed() {
+            if winui::edit_light(
+                ui,
+                r(o, ex - o.x, top + 338.0, w, 21.0),
+                &mut payload,
+                payload_enabled,
+                false,
+            )
+            .changed()
+            {
                 self.rules[i].payload = payload;
             }
             if self.status.is_none() {
@@ -687,7 +833,13 @@ impl Packagizer {
         }
         // --- bottom row ---
         let bbottom = o.y + DIALOG_H - 30.0;
-        let apply = winui::button_light(ui, r(o, 11.0, bbottom, 150.0, 22.0), "&Apply to list", ButtonKind::Normal, false);
+        let apply = winui::button_light(
+            ui,
+            r(o, 11.0, bbottom, 150.0, 22.0),
+            "&Apply to list",
+            ButtonKind::Normal,
+            false,
+        );
         if apply.clicked() {
             return Outcome::Done(true);
         }
@@ -696,7 +848,10 @@ impl Packagizer {
             o,
             DIALOG_W - 11.0,
             bbottom,
-            &[(crate::i18n::mark("OK"), ButtonKind::Default), (crate::i18n::mark("Cancel"), ButtonKind::Normal)],
+            &[
+                (crate::i18n::mark("OK"), ButtonKind::Default),
+                (crate::i18n::mark("Cancel"), ButtonKind::Normal),
+            ],
         );
         if buttons[0].clicked() {
             return Outcome::Done(false);
@@ -712,7 +867,6 @@ impl Packagizer {
         }
         Outcome::Open
     }
-
 }
 
 fn label(p: &egui::Painter, x: f32, y: f32, s: &str) {
@@ -750,7 +904,15 @@ mod capture_tests {
     fn url_groups_feed_dollar_n_when_filename_has_none() {
         let mut r = rule(Action::RenameFile, "book-$2");
         r.url = r"books/([a-z]+)/([0-9]+)".into();
-        let c = apply(&[r], "https://a/books/epub/7", "a file.epub", None, "p", 1, 0);
+        let c = apply(
+            &[r],
+            "https://a/books/epub/7",
+            "a file.epub",
+            None,
+            "p",
+            1,
+            0,
+        );
         assert_eq!(c.name.as_deref(), Some("book-7"));
     }
 

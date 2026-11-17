@@ -85,7 +85,9 @@ pub fn is_playlist_page(url: &Url) -> bool {
                     segs.as_slice(),
                     ["channel", _, ..] | ["c", _, ..] | ["user", _, ..]
                 )
-                || segs.first().is_some_and(|h| h.starts_with('@') && h.len() > 1)
+                || segs
+                    .first()
+                    .is_some_and(|h| h.starts_with('@') && h.len() > 1)
         }
         "youtu.be" => query("list"),
         "vimeo.com" => matches!(
@@ -95,6 +97,28 @@ pub fn is_playlist_page(url: &Url) -> bool {
         "twitch.tv" => matches!(segs.as_slice(), [_, "videos", ..] | [_, "clips", ..]),
         "soundcloud.com" => matches!(segs.as_slice(), [_, "sets", _, ..]),
         _ => false,
+    }
+}
+
+/// A short, filesystem-safe stem for a video/list link (shown as its provisional file name
+/// until yt-dlp renames the file from the site's title at download time): the id in `v=` or the
+/// last path segment.
+pub fn video_stem(url: &Url) -> String {
+    let from_query = url
+        .query_pairs()
+        .find(|(k, v)| k == "v" && !v.is_empty())
+        .map(|(_, v)| v.into_owned());
+    let last = url
+        .path()
+        .split('/')
+        .rfind(|s| !s.is_empty())
+        .unwrap_or("")
+        .to_owned();
+    let stem = mdm_engine::naming::sanitize(&from_query.filter(|s| !s.is_empty()).unwrap_or(last));
+    if stem.is_empty() {
+        "video".to_owned()
+    } else {
+        stem
     }
 }
 
@@ -194,19 +218,25 @@ mod tests {
 
     #[test]
     fn list_pages_are_recognised() {
-        assert!(playlist("https://www.youtube.com/playlist?list=PL1234567890abcdef"));
+        assert!(playlist(
+            "https://www.youtube.com/playlist?list=PL1234567890abcdef"
+        ));
         assert!(playlist("https://m.youtube.com/playlist?list=PL123"));
         assert!(playlist(
             "https://music.youtube.com/playlist?list=RDAMVM1234567890"
         ));
         // A video whose page carries the list: yt-dlp lists the list (Add URL hands it the
         // window, which opens its checklist).
-        assert!(playlist("https://www.youtube.com/watch?v=Tg6byXUo8RU&list=RD_1234567"));
+        assert!(playlist(
+            "https://www.youtube.com/watch?v=Tg6byXUo8RU&list=RD_1234567"
+        ));
         assert!(playlist("https://youtu.be/Tg6byXUo8RU?list=RD_1234567"));
         assert!(playlist(
             "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxxxxxxxxx/videos"
         ));
-        assert!(playlist("https://www.youtube.com/@SteveHoffmanMusic/videos"));
+        assert!(playlist(
+            "https://www.youtube.com/@SteveHoffmanMusic/videos"
+        ));
         assert!(playlist("https://www.youtube.com/c/SomeChannel/videos"));
         assert!(playlist("https://www.youtube.com/user/SomeUser/videos"));
         assert!(playlist("https://vimeo.com/album/123456/video/7890"));

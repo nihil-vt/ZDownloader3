@@ -5663,10 +5663,7 @@ mod default_apps_tests {
             [
                 (r"Software\Classes\magnet\shell\open\command", ""),
                 (r"Software\Classes\.torrent", ""),
-                (
-                    r"Software\Classes\zDownloader³.Magnet",
-                    "URL Protocol",
-                ),
+                (r"Software\Classes\zDownloader³.Magnet", "URL Protocol"),
                 (
                     r"Software\Classes\zDownloader³.Magnet\shell\open\command",
                     "",
@@ -5869,10 +5866,7 @@ mod startup_tests {
         assert!(!startup_outdated(&format!("\"{EXE}\" /startup"), exe));
         assert!(!startup_outdated(&format!("\"{EXE}\" /STARTUP"), exe));
         // Another copy's (a portable one, a build elsewhere).
-        assert!(!startup_outdated(
-            r#""D:\mdm\zdownloader3.exe""#,
-            exe
-        ));
+        assert!(!startup_outdated(r#""D:\mdm\zdownloader3.exe""#, exe));
         assert!(!startup_outdated("", exe));
     }
 
@@ -5880,9 +5874,9 @@ mod startup_tests {
     #[test]
     fn the_installer_writes_the_same_entry() {
         let iss = include_str!("../../../tools/installer/mdm.iss");
-        assert!(iss.contains(
-            r#"ValueName: "zDownloader³"; ValueData: """{app}\{#AppExe}"" /startup""#
-        ));
+        assert!(
+            iss.contains(r#"ValueName: "zDownloader³"; ValueData: """{app}\{#AppExe}"" /startup""#)
+        );
     }
 }
 

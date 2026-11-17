@@ -75,7 +75,10 @@ pub enum Origin {
     /// Several links beside one another in a folder the same across mirrors (a directory
     /// listing, a mirror tree): packed under the folder's name, as JD2 packs by folder.
     /// The key adds the file class so mixed files of the same name don't merge.
-    Folder { leaf: String, class: String },
+    Folder {
+        leaf: String,
+        class: String,
+    },
 }
 
 fn is_foldable_leaf(leaf: &str) -> bool {
@@ -83,9 +86,28 @@ fn is_foldable_leaf(leaf: &str) -> bool {
         return false;
     }
     const GENERIC: &[&str] = &[
-        "files", "file", "download", "downloads", "pub", "releases", "software", "tmp",
-        "temp", "mirror", "mirrors", "iso", "images", "www", "http", "content", "static",
-        "assets", "data", "share", "pool", "stable",
+        "files",
+        "file",
+        "download",
+        "downloads",
+        "pub",
+        "releases",
+        "software",
+        "tmp",
+        "temp",
+        "mirror",
+        "mirrors",
+        "iso",
+        "images",
+        "www",
+        "http",
+        "content",
+        "static",
+        "assets",
+        "data",
+        "share",
+        "pool",
+        "stable",
     ];
     !GENERIC.contains(&leaf.to_ascii_lowercase().as_str())
 }
@@ -95,12 +117,16 @@ fn is_foldable_leaf(leaf: &str) -> bool {
 fn file_class(name: &str) -> &'static str {
     let ext = name.rsplit('.').next().unwrap_or("").to_ascii_lowercase();
     match ext.as_str() {
-        "zip" | "rar" | "7z" | "tar" | "gz" | "bz2" | "xz" | "z" | "001" | "002" | "r00" | "r01" => "archive",
+        "zip" | "rar" | "7z" | "tar" | "gz" | "bz2" | "xz" | "z" | "001" | "002" | "r00"
+        | "r01" => "archive",
         "mp4" | "mkv" | "avi" | "mov" | "webm" | "m4v" | "flv" | "ts" | "m2ts" => "video",
         "mp3" | "flac" | "aac" | "ogg" | "opus" | "m4a" | "wav" | "wma" => "audio",
-        "pdf" | "epub" | "mobi" | "djvu" | "doc" | "docx" | "xls" | "xlsx" | "ppt" | "pptx" | "txt" | "md" | "html" | "rtf" => "document",
+        "pdf" | "epub" | "mobi" | "djvu" | "doc" | "docx" | "xls" | "xlsx" | "ppt" | "pptx"
+        | "txt" | "md" | "html" | "rtf" => "document",
         "iso" | "img" | "bin" | "cue" | "vhd" | "vhdx" => "disc-image",
-        "exe" | "msi" | "dmg" | "deb" | "rpm" | "apk" | "pkg" | "appx" | "jar" | "appimage" => "installer",
+        "exe" | "msi" | "dmg" | "deb" | "rpm" | "apk" | "pkg" | "appx" | "jar" | "appimage" => {
+            "installer"
+        }
         "jpg" | "jpeg" | "png" | "gif" | "webp" | "svg" | "bmp" | "tiff" | "heic" => "image",
         "7z.001" => "archive",
         _ => "other",
@@ -108,8 +134,8 @@ fn file_class(name: &str) -> &'static str {
 }
 
 impl Origin {
-/// A directory leaf worth a package: at least four characters, not all digits, and not one of
-/// the generic names every mirror tree shares ("pub", "files", "releases"...).
+    /// A directory leaf worth a package: at least four characters, not all digits, and not one of
+    /// the generic names every mirror tree shares ("pub", "files", "releases"...).
     /// The directory a link sits in ("/a/b/" for "/a/b/c.iso"); "/" for one at the root.
     fn directory_of(url: &Url) -> String {
         let path = url.path();
@@ -243,27 +269,7 @@ fn category_of(magnet: bool, name: &str) -> Category {
     }
 }
 
-/// A short, filesystem-safe stem for a video/list link (shown as its name until yt-dlp renames
-/// the file from the site's title at download time): the id in `v=` or the last path segment.
-fn video_stem(url: &Url) -> String {
-    let from_query = url
-        .query_pairs()
-        .find(|(k, v)| k == "v" && !v.is_empty())
-        .map(|(_, v)| v.into_owned());
-    let last = url
-        .path()
-        .split('/')
-        .filter(|s| !s.is_empty())
-        .next_back()
-        .unwrap_or("")
-        .to_owned();
-    let stem = mdm_engine::naming::sanitize(&from_query.filter(|s| !s.is_empty()).unwrap_or(last));
-    if stem.is_empty() {
-        "video".to_owned()
-    } else {
-        stem
-    }
-}
+use mdm_tools::pages::video_stem;
 
 /// A magnet link's name: the one it gives (`dn=`), else its torrent's hash.
 fn magnet_name(url: &Url) -> String {
@@ -276,6 +282,10 @@ fn magnet_name(url: &Url) -> String {
 }
 
 type Check = Arc<Mutex<Option<Result<mdm_engine::ProbeInfo, LinkState>>>>;
+/// What `Grabber::add` collects before the packages are made: the link, its address (parsed),
+/// whether it's a magnet, its provisional name, whether it's known, whether it's a video or a
+/// list page, and its origin.
+type BatchItem = (Imported, Url, bool, String, bool, bool, bool, Origin);
 /// A page's links as they were read (`None` until then; empty when it had none or couldn't be
 /// read).
 type Read = Arc<Mutex<Option<Vec<Imported>>>>;
@@ -410,8 +420,7 @@ impl Grabber {
             self.links.iter().map(|l| address_key(&l.url)).collect();
         let mut settle = std::collections::BTreeSet::new();
         // First pass: the links themselves, and their origins.
-        let mut batch: Vec<(Imported, Url, bool, String, bool, bool, bool, Origin)> =
-            Vec::new();
+        let mut batch: Vec<BatchItem> = Vec::new();
         for d in found {
             let Ok(url) = Url::parse(&d.url) else {
                 continue;
@@ -453,12 +462,12 @@ impl Grabber {
             if *known || *video || *list || !matches!(origin, Origin::Various) {
                 continue;
             }
-            let dir = Origin::directory_of(&url);
+            let dir = Origin::directory_of(url);
             let leaf = dir.trim_end_matches('/').rsplit('/').next().unwrap_or("");
             if !is_foldable_leaf(leaf) {
                 continue;
             }
-            let class = file_class(&name);
+            let class = file_class(name);
             by_dir
                 .entry((leaf.to_ascii_lowercase(), class.to_owned()))
                 .or_default()
@@ -529,7 +538,7 @@ impl Grabber {
 
     /// The Packagizer, on demand over every link ("Apply rules" in the Packagizer window).
     pub fn apply_packagizer_all(&mut self) -> usize {
-        self.packagizer_run(0, self.links.len()).into_iter().count()
+        self.packagizer_run(0, self.links.len()).len()
     }
 
     fn packagizer_run(&mut self, start: usize, end: usize) -> Vec<usize> {
@@ -540,8 +549,7 @@ impl Grabber {
         // Each new link's 1-based index within its package, as the rules see it at this point
         // in the chain (the chain may rename and move; the index holds for this pass).
         let mut index = vec![0usize; self.links.len()];
-        let mut per_pkg: std::collections::HashMap<usize, usize> =
-            std::collections::HashMap::new();
+        let mut per_pkg: std::collections::HashMap<usize, usize> = std::collections::HashMap::new();
         for (i, l) in self.links.iter().enumerate() {
             if i < start {
                 continue;
@@ -556,7 +564,7 @@ impl Grabber {
             .unwrap_or(0);
         let mut moves: Vec<(usize, String)> = Vec::new();
         let mut dests: Vec<(usize, String)> = Vec::new();
-        for i in start..end {
+        for (i, n) in (start..end).zip(index.iter().skip(start).take(end - start)) {
             let url = self.links[i].url.to_string();
             let name = self.links[i].name.clone();
             let size = self.links[i].size;
@@ -567,7 +575,7 @@ impl Grabber {
                 &name,
                 size,
                 &package,
-                index[i],
+                *n,
                 now,
             );
             if let Some(n) = change.name {
@@ -987,7 +995,6 @@ impl Grabber {
 
     /// `Done((start, packages))`: Start (`true`) or Add to queue (`false`) with the ticked
     /// links of each package.
-
     pub(crate) fn body(&mut self, ui: &mut Ui, o: Pos2) -> Outcome<bool> {
         let p = ui.painter().clone();
         // Ctrl+V: the addresses in the pasted text, as Import finds them in a file.
@@ -1404,7 +1411,11 @@ impl Grabber {
                                     hoster_right - 100.0,
                                     top + 13.0,
                                     host,
-                                    if look.selected { look.ink } else { winui::MUTED() },
+                                    if look.selected {
+                                        look.ink
+                                    } else {
+                                        winui::MUTED()
+                                    },
                                     hoster_right,
                                     ("grabber-host", i),
                                 );
@@ -1642,9 +1653,11 @@ impl Grabber {
     /// What the bottom dock shows for the link grabber (JD2's linkgrabber overview, one line
     /// of aggregates); cheap to compute every frame.
     pub fn dock_summary(&self) -> GrabberSummary {
-        let mut s = GrabberSummary::default();
-        s.packages = self.packages.len();
-        s.links = self.links.len();
+        let mut s = GrabberSummary {
+            packages: self.packages.len(),
+            links: self.links.len(),
+            ..Default::default()
+        };
         for l in &self.links {
             match l.state {
                 LinkState::Online => s.online += 1,
@@ -1663,7 +1676,11 @@ impl Grabber {
     pub fn current_summary(&self) -> Option<PackageSummary> {
         let p = self.packages.get(self.current)?;
         let links = self.links.iter().filter(|l| l.pkg == self.current).count();
-        let ticked = self.links.iter().filter(|l| l.pkg == self.current && l.on).count();
+        let ticked = self
+            .links
+            .iter()
+            .filter(|l| l.pkg == self.current && l.on)
+            .count();
         Some(PackageSummary {
             name: p.name.clone(),
             folder: p.folder.clone(),
@@ -1674,8 +1691,6 @@ impl Grabber {
             ticked,
         })
     }
-
-
 }
 
 /// A link's address as Link grabber tells links apart: without its `#fragment` (the same file);
@@ -1852,7 +1867,6 @@ mod tests {
     }
 
     #[test]
-    #[test]
     fn packagizer_rules_run_at_add_time() {
         let mut g = grabber();
         g.set_packagizer(vec![
@@ -1891,11 +1905,24 @@ mod tests {
             |_| false,
         );
         let names: Vec<&str> = g.packages.iter().map(|p| p.name.as_str()).collect();
-        assert!(names.contains(&"Distros"), "ISOs moved to Distros: {names:?}");
+        assert!(
+            names.contains(&"Distros"),
+            "ISOs moved to Distros: {names:?}"
+        );
         let dist = g.packages.iter().find(|p| p.name == "Distros").unwrap();
-        assert_eq!(g.links.iter().filter(|l| l.pkg == g.packages.iter().position(|p| p.name == "Distros").unwrap()).count(), 2);
+        assert_eq!(
+            g.links
+                .iter()
+                .filter(|l| l.pkg == g.packages.iter().position(|p| p.name == "Distros").unwrap())
+                .count(),
+            2
+        );
         let _ = dist;
-        let renamed = g.links.iter().find(|l| l.url.to_string().ends_with("movie.part7.rar")).unwrap();
+        let renamed = g
+            .links
+            .iter()
+            .find(|l| l.url.to_string().ends_with("movie.part7.rar"))
+            .unwrap();
         // The .rar splits out as its own "movie" archive volume package; the rename rule's
         // <index> is its 1-based index in that package.
         assert_eq!(renamed.name, "movie.part7.part1.rar");
@@ -1906,11 +1933,23 @@ mod tests {
         let mut g = grabber();
         g.add(
             vec![
-                link("https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-amd64.iso", None),
-                link("https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-arm64.iso", None),
-                link("https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-i386.iso", None),
+                link(
+                    "https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-amd64.iso",
+                    None,
+                ),
+                link(
+                    "https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-arm64.iso",
+                    None,
+                ),
+                link(
+                    "https://mirror.example.com/ubuntu-24.04/ubuntu-24.04-desktop-i386.iso",
+                    None,
+                ),
                 // A folder of its own with one link: not worth a package, stays Various.
-                link("https://mirror.example.com/debian-12/debian-12-amd64.iso", None),
+                link(
+                    "https://mirror.example.com/debian-12/debian-12-amd64.iso",
+                    None,
+                ),
                 link("https://root.example.com/lone.iso", None),
             ],
             "Pasted".into(),
@@ -2226,7 +2265,11 @@ mod tests {
         // JD2 packs by folder: the fifteen episodes in .../s1/ are one package under that
         // folder's name; the magnet keeps "Various files".
         let rows = g.visible_rows();
-        assert_eq!(rows.len(), 16 + 2, "a package for the folder, one for the rest");
+        assert_eq!(
+            rows.len(),
+            16 + 2,
+            "a package for the folder, one for the rest"
+        );
         let names: Vec<&str> = g.packages.iter().map(|p| p.name.as_str()).collect();
         assert_eq!(names, ["s1", "Various files"]);
         let magnet = g.links.iter().find(|l| l.magnet).unwrap();
@@ -2422,7 +2465,7 @@ mod tests {
             let frame = |g: &mut Grabber| {
                 let t = Instant::now();
                 let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
-                // What the app asks of Link grabber at each frame, then its body (the tab).
+                    // What the app asks of Link grabber at each frame, then its body (the tab).
                     let _ = (g.pages_read(), g.to_read(), g.to_check());
                     let _ = g.body(ui, egui::pos2(0.0, 0.0));
                 });

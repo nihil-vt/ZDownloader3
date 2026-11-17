@@ -2158,13 +2158,19 @@ impl App {
             let (dot, tip) = if a.state.is_empty() {
                 (winui::MUTED(), a.service.name().to_owned())
             } else {
-                (winui::SUCCESS(), format!("{} — {} ({})", name, a.user, a.state))
+                (
+                    winui::SUCCESS(),
+                    format!("{} — {} ({})", name, a.user, a.state),
+                )
             };
             let dot_x = o.x + 8.0 + chips_w;
             p.circle_filled(pos2(dot_x + 4.0, baseline - 3.5), 3.5, dot);
             // The chip's text with a hover tip (JD2 shows the account's state there).
             let chip = ui.interact(
-                egui::Rect::from_min_max(pos2(dot_x, top), pos2(dot_x + 10.0 + winui::text_width(p, name), o.y + h)),
+                egui::Rect::from_min_max(
+                    pos2(dot_x, top),
+                    pos2(dot_x + 10.0 + winui::text_width(p, name), o.y + h),
+                ),
                 egui::Id::unique(("chip", name)),
                 egui::Sense::hover(),
             );
@@ -2180,7 +2186,16 @@ impl App {
             true,
             None,
         );
-        winui::fit(ui, p, left_x, baseline, &left, winui::MUTED(), o.x + w / 2.0, "strip-left");
+        winui::fit(
+            ui,
+            p,
+            left_x,
+            baseline,
+            &left,
+            winui::MUTED(),
+            o.x + w / 2.0,
+            "strip-left",
+        );
         if let Some(right) = right {
             winui::text_right(p, o.x + w - 10.0, baseline, &right, winui::MUTED());
         }
@@ -7434,9 +7449,7 @@ impl App {
             }
             Cmd::ToggleCategories => self.show_categories = !self.show_categories,
             Cmd::ToggleOverview => self.settings.dock_overview = !self.settings.dock_overview,
-            Cmd::ToggleProperties => {
-                self.settings.dock_properties = !self.settings.dock_properties
-            }
+            Cmd::ToggleProperties => self.settings.dock_properties = !self.settings.dock_properties,
             Cmd::ChooseLanguage => {
                 if self.lang_picker.is_none() {
                     self.lang_picker = Some(crate::langpick::Picker::new(
@@ -8357,12 +8370,7 @@ impl App {
                 I("&Video downloads", Cmd::HelpPage("video.md"), true, false),
                 I("&Keyboard shortcuts", Cmd::Shortcuts, true, false),
                 Sep,
-                I(
-                    "zDownloader³ &Home Page",
-                    Cmd::HelpPage(""),
-                    true,
-                    false,
-                ),
+                I("zDownloader³ &Home Page", Cmd::HelpPage(""), true, false),
                 I("&Report a problem", Cmd::ReportProblem, true, false),
                 Sep,
                 I("Check for &updates...", Cmd::CheckUpdates, true, false),
@@ -9564,11 +9572,18 @@ impl App {
                     x + 15.0,
                     tabs_y + TAB_H - 8.0,
                     label,
-                    if active { crate::winui::LIGHT_TEXT() } else { winui::MUTED() },
+                    if active {
+                        crate::winui::LIGHT_TEXT()
+                    } else {
+                        winui::MUTED()
+                    },
                 );
                 if active {
                     p.rect_filled(
-                        egui::Rect::from_min_max(pos2(x, tabs_y + TAB_H - 2.0), pos2(x + width, tabs_y + TAB_H)),
+                        egui::Rect::from_min_max(
+                            pos2(x, tabs_y + TAB_H - 2.0),
+                            pos2(x + width, tabs_y + TAB_H),
+                        ),
                         0.0,
                         winui::accent(),
                     );
@@ -9607,7 +9622,11 @@ impl App {
             grabber.set_packagizer(self.settings.packagizer_rules.clone());
             grabber.follow_categories();
             grabber.take_answers();
-            if grabber.links.iter().any(|l| l.state == crate::grabber::LinkState::Checking) {
+            if grabber
+                .links
+                .iter()
+                .any(|l| l.state == crate::grabber::LinkState::Checking)
+            {
                 ctx.request_repaint_after(std::time::Duration::from_millis(250));
             }
             let outcome = grabber.body(ui, pos2(gx, pane.min.y + 2.0));
@@ -9661,341 +9680,345 @@ impl App {
                 ) {
                     match action {
                         crate::dock::Action::HideOverview => self.settings.dock_overview = false,
-                        crate::dock::Action::HideProperties => self.settings.dock_properties = false,
-                    }
-                }
-            }
-        } else {
-        // JD2's bottom dock sits above the strip; the panes above it lose its height.
-        let dock_h = if self.settings.dock_overview || self.settings.dock_properties {
-            crate::dock::DOCK_H
-        } else {
-            0.0
-        };
-        let dock_top = o.y + h - STRIP_H - 4.0 - dock_h;
-        // Categories pane.
-        let list_left = if self.show_categories {
-            let rows = self.tree_rows();
-            let tree: Vec<TreeRow<'_>> = rows.iter().map(|(r, ..)| r.clone()).collect();
-            // The splitter: the 4 px gap between the pane and the list, dragged sideways.
-            let max_w = (w * 0.6).max(100.0);
-            let cat_w = (self.settings.categories_width as f32).clamp(100.0, max_w);
-            let right = o.x + 6.0 + cat_w;
-            let split = winui::rect(egui::Rect::from_min_max(
-                pos2(right, panes_y),
-                pos2(right + 4.0, dock_top),
-            ));
-            let sr = ui.interact(
-                split,
-                egui::Id::unique("cat-splitter"),
-                winui::pointer_drag(),
-            );
-            if sr.hovered() || sr.dragged() {
-                ctx.set_cursor_icon(egui::CursorIcon::ResizeHorizontal);
-            }
-            if sr.dragged()
-                && let Some(p) = sr.interact_pointer_pos()
-            {
-                // The pointer stays on the splitter's middle (the pane's width from its leading
-                // edge: the right in RTL).
-                let nw = (winui::mx(p.x) - o.x - 6.0 - 2.0)
-                    .round()
-                    .clamp(100.0, max_w);
-                self.settings.categories_width = nw as u32;
-            }
-            if sr.drag_stopped() {
-                self.dirty = true;
-            }
-            // The tree's keys while it has them (Tab reaches it, above): Up / Down through the
-            // nodes, Left / Right close and open a branch, Home / End. Not while a menu the
-            // toolbar's keys just opened is.
-            let free = free && self.popup.is_none();
-            let mut tree_event = None;
-            if free && self.tree_keys {
-                let at = rows
-                    .iter()
-                    .position(|(_, v, _)| *v == Some(self.view))
-                    .unwrap_or(0);
-                let with_view: Vec<usize> =
-                    (0..rows.len()).filter(|k| rows[*k].1.is_some()).collect();
-                let pos = with_view.iter().position(|k| *k == at).unwrap_or(0);
-                let key = |k| ctx.input_mut(|i| i.consume_key(egui::Modifiers::NONE, k));
-                let to = if key(egui::Key::ArrowDown) {
-                    with_view.get(pos + 1).copied()
-                } else if key(egui::Key::ArrowUp) {
-                    pos.checked_sub(1).and_then(|p| with_view.get(p).copied())
-                } else if key(egui::Key::Home) {
-                    with_view.first().copied()
-                } else if key(egui::Key::End) {
-                    with_view.last().copied()
-                } else {
-                    None
-                };
-                if let Some(k) = to {
-                    tree_event = Some(TreeEvent::Select(k));
-                }
-                let open = rows[at].0.expander;
-                let (left, right) = if winui::rtl() {
-                    (egui::Key::ArrowRight, egui::Key::ArrowLeft)
-                } else {
-                    (egui::Key::ArrowLeft, egui::Key::ArrowRight)
-                };
-                if (open == Some(true) && key(left)) || (open == Some(false) && key(right)) {
-                    tree_event = Some(TreeEvent::Toggle(at));
-                }
-            }
-            if let Some(ev) = chrome::categories(
-                ui,
-                &mut self.icons,
-                pos2(o.x, panes_y),
-                dock_top + 5.0,
-                right,
-                &tree,
-                self.tree_keys && free,
-            )
-            .or(tree_event)
-            {
-                // A click in the tree gives it the keys.
-                self.give_keys(Pane::Tree);
-                match ev {
-                    // The pane gone, its keys go to the list.
-                    TreeEvent::Close => {
-                        self.show_categories = false;
-                        self.give_keys(Pane::List);
-                    }
-                    TreeEvent::Keys(k) => {
-                        if let Some(v) = k.and_then(|k| rows[k].1) {
-                            self.view = v;
-                        }
-                    }
-                    TreeEvent::Select(k) => match rows[k].1 {
-                        Some(v) => self.view = v,
-                        None => self.toggle(rows[k].2),
-                    },
-                    TreeEvent::Toggle(k) => self.toggle(rows[k].2),
-                    TreeEvent::Context(k, at) => {
-                        // Leaves and nodes with a view; "Queues" (a branch without one) has
-                        // the queue menu, all greyed.
-                        let node = rows[k].1;
-                        if node.is_some() || rows[k].2 == Branch::Queues {
-                            self.open_popup_asked(Popup::Node(node), at, &ctx);
+                        crate::dock::Action::HideProperties => {
+                            self.settings.dock_properties = false
                         }
                     }
                 }
             }
-            6.0 + cat_w + 4.0
         } else {
-            6.0
-        };
-
-        // Download list.
-        let (ids, rows) = self.list_rows();
-        self.selection.retain(&ids);
-        let (selected, focus) = self.selection.rows(&ids);
-        let outer = egui::Rect::from_min_max(
-            pos2(o.x + list_left, panes_y),
-            pos2(o.x + w - 7.0, dock_top),
-        );
-        self.list.menu_open = self.popup.is_some() || self.open_menu.is_some();
-        // Another node shows from its top (its rows aren't the last one's).
-        if self.list_view != self.view {
-            self.list.scroll = 0.0;
-            self.list_view = self.view;
-        }
-        // The Status cell's tip, the download's recent events: made for the row under the
-        // pointer only (twelve dated lines for every row, every frame, before).
-        let items = &self.items;
-        let tip = |i: usize| {
-            ids.get(i)
-                .and_then(|id| items.iter().find(|it| it.id == *id))
-                .map_or(String::new(), |it| it.log_lines(12))
-        };
-        let r = list::show(
-            ui,
-            outer,
-            &mut self.list,
-            &rows,
-            &selected,
-            focus,
-            &mut self.icons,
-            &tip,
-        );
-        if self.list.has_keys() {
-            self.tree_keys = false;
-            self.toolbar_keys = false;
-        }
-        if let Some(pick) = r.pick {
-            self.selection.apply(pick, &ids);
-        }
-        if let Some(i) = r.properties {
-            self.properties(ids[i]);
-        }
-        // A finished download: Open or Properties (IDM's default), as the context menu sets.
-        if let Some(i) = r.double_clicked {
-            let id = ids[i];
-            let complete = self
-                .items
-                .iter()
-                .any(|it| it.id == id && it.status == Status::Complete);
-            if complete && !self.settings.double_click_open {
-                self.properties(id);
+            // JD2's bottom dock sits above the strip; the panes above it lose its height.
+            let dock_h = if self.settings.dock_overview || self.settings.dock_properties {
+                crate::dock::DOCK_H
             } else {
-                self.open_item(id);
+                0.0
+            };
+            let dock_top = o.y + h - STRIP_H - 4.0 - dock_h;
+            // Categories pane.
+            let list_left = if self.show_categories {
+                let rows = self.tree_rows();
+                let tree: Vec<TreeRow<'_>> = rows.iter().map(|(r, ..)| r.clone()).collect();
+                // The splitter: the 4 px gap between the pane and the list, dragged sideways.
+                let max_w = (w * 0.6).max(100.0);
+                let cat_w = (self.settings.categories_width as f32).clamp(100.0, max_w);
+                let right = o.x + 6.0 + cat_w;
+                let split = winui::rect(egui::Rect::from_min_max(
+                    pos2(right, panes_y),
+                    pos2(right + 4.0, dock_top),
+                ));
+                let sr = ui.interact(
+                    split,
+                    egui::Id::unique("cat-splitter"),
+                    winui::pointer_drag(),
+                );
+                if sr.hovered() || sr.dragged() {
+                    ctx.set_cursor_icon(egui::CursorIcon::ResizeHorizontal);
+                }
+                if sr.dragged()
+                    && let Some(p) = sr.interact_pointer_pos()
+                {
+                    // The pointer stays on the splitter's middle (the pane's width from its leading
+                    // edge: the right in RTL).
+                    let nw = (winui::mx(p.x) - o.x - 6.0 - 2.0)
+                        .round()
+                        .clamp(100.0, max_w);
+                    self.settings.categories_width = nw as u32;
+                }
+                if sr.drag_stopped() {
+                    self.dirty = true;
+                }
+                // The tree's keys while it has them (Tab reaches it, above): Up / Down through the
+                // nodes, Left / Right close and open a branch, Home / End. Not while a menu the
+                // toolbar's keys just opened is.
+                let free = free && self.popup.is_none();
+                let mut tree_event = None;
+                if free && self.tree_keys {
+                    let at = rows
+                        .iter()
+                        .position(|(_, v, _)| *v == Some(self.view))
+                        .unwrap_or(0);
+                    let with_view: Vec<usize> =
+                        (0..rows.len()).filter(|k| rows[*k].1.is_some()).collect();
+                    let pos = with_view.iter().position(|k| *k == at).unwrap_or(0);
+                    let key = |k| ctx.input_mut(|i| i.consume_key(egui::Modifiers::NONE, k));
+                    let to = if key(egui::Key::ArrowDown) {
+                        with_view.get(pos + 1).copied()
+                    } else if key(egui::Key::ArrowUp) {
+                        pos.checked_sub(1).and_then(|p| with_view.get(p).copied())
+                    } else if key(egui::Key::Home) {
+                        with_view.first().copied()
+                    } else if key(egui::Key::End) {
+                        with_view.last().copied()
+                    } else {
+                        None
+                    };
+                    if let Some(k) = to {
+                        tree_event = Some(TreeEvent::Select(k));
+                    }
+                    let open = rows[at].0.expander;
+                    let (left, right) = if winui::rtl() {
+                        (egui::Key::ArrowRight, egui::Key::ArrowLeft)
+                    } else {
+                        (egui::Key::ArrowLeft, egui::Key::ArrowRight)
+                    };
+                    if (open == Some(true) && key(left)) || (open == Some(false) && key(right)) {
+                        tree_event = Some(TreeEvent::Toggle(at));
+                    }
+                }
+                if let Some(ev) = chrome::categories(
+                    ui,
+                    &mut self.icons,
+                    pos2(o.x, panes_y),
+                    dock_top + 5.0,
+                    right,
+                    &tree,
+                    self.tree_keys && free,
+                )
+                .or(tree_event)
+                {
+                    // A click in the tree gives it the keys.
+                    self.give_keys(Pane::Tree);
+                    match ev {
+                        // The pane gone, its keys go to the list.
+                        TreeEvent::Close => {
+                            self.show_categories = false;
+                            self.give_keys(Pane::List);
+                        }
+                        TreeEvent::Keys(k) => {
+                            if let Some(v) = k.and_then(|k| rows[k].1) {
+                                self.view = v;
+                            }
+                        }
+                        TreeEvent::Select(k) => match rows[k].1 {
+                            Some(v) => self.view = v,
+                            None => self.toggle(rows[k].2),
+                        },
+                        TreeEvent::Toggle(k) => self.toggle(rows[k].2),
+                        TreeEvent::Context(k, at) => {
+                            // Leaves and nodes with a view; "Queues" (a branch without one) has
+                            // the queue menu, all greyed.
+                            let node = rows[k].1;
+                            if node.is_some() || rows[k].2 == Branch::Queues {
+                                self.open_popup_asked(Popup::Node(node), at, &ctx);
+                            }
+                        }
+                    }
+                }
+                6.0 + cat_w + 4.0
+            } else {
+                6.0
+            };
+
+            // Download list.
+            let (ids, rows) = self.list_rows();
+            self.selection.retain(&ids);
+            let (selected, focus) = self.selection.rows(&ids);
+            let outer = egui::Rect::from_min_max(
+                pos2(o.x + list_left, panes_y),
+                pos2(o.x + w - 7.0, dock_top),
+            );
+            self.list.menu_open = self.popup.is_some() || self.open_menu.is_some();
+            // Another node shows from its top (its rows aren't the last one's).
+            if self.list_view != self.view {
+                self.list.scroll = 0.0;
+                self.list_view = self.view;
             }
-        }
-        // Enter while files are dragged out is the drag's (#561), not the list's.
-        #[cfg(windows)]
-        let dragging_out = crate::win32::dragging_out();
-        #[cfg(not(windows))]
-        let dragging_out = false; // no drag out there (dialogs::drag_downloads_out)
-        if let Some(i) = r.enter
-            && !dragging_out
-        {
-            self.open_item(ids[i]);
-        }
-        // Rows dragged (#1210): the finished ones' files go out, as Explorer's do. Windows only:
-        // Linux and macOS have no drag of files out of a window yet (dialogs::drag_downloads_out),
-        // so a drag from a row there does nothing.
-        #[cfg(windows)]
-        if r.drag_out.is_some() {
-            let files = drag_carries(&self.items, &ids, |id| self.selection.contains(id));
-            if !files.is_empty() {
-                dialogs::drag_downloads_out(
-                    &ctx,
-                    crate::MAIN_TITLE,
-                    files,
-                    dialogs::DraggedFrom::List,
+            // The Status cell's tip, the download's recent events: made for the row under the
+            // pointer only (twelve dated lines for every row, every frame, before).
+            let items = &self.items;
+            let tip = |i: usize| {
+                ids.get(i)
+                    .and_then(|id| items.iter().find(|it| it.id == *id))
+                    .map_or(String::new(), |it| it.log_lines(12))
+            };
+            let r = list::show(
+                ui,
+                outer,
+                &mut self.list,
+                &rows,
+                &selected,
+                focus,
+                &mut self.icons,
+                &tip,
+            );
+            if self.list.has_keys() {
+                self.tree_keys = false;
+                self.toolbar_keys = false;
+            }
+            if let Some(pick) = r.pick {
+                self.selection.apply(pick, &ids);
+            }
+            if let Some(i) = r.properties {
+                self.properties(ids[i]);
+            }
+            // A finished download: Open or Properties (IDM's default), as the context menu sets.
+            if let Some(i) = r.double_clicked {
+                let id = ids[i];
+                let complete = self
+                    .items
+                    .iter()
+                    .any(|it| it.id == id && it.status == Status::Complete);
+                if complete && !self.settings.double_click_open {
+                    self.properties(id);
+                } else {
+                    self.open_item(id);
+                }
+            }
+            // Enter while files are dragged out is the drag's (#561), not the list's.
+            #[cfg(windows)]
+            let dragging_out = crate::win32::dragging_out();
+            #[cfg(not(windows))]
+            let dragging_out = false; // no drag out there (dialogs::drag_downloads_out)
+            if let Some(i) = r.enter
+                && !dragging_out
+            {
+                self.open_item(ids[i]);
+            }
+            // Rows dragged (#1210): the finished ones' files go out, as Explorer's do. Windows only:
+            // Linux and macOS have no drag of files out of a window yet (dialogs::drag_downloads_out),
+            // so a drag from a row there does nothing.
+            #[cfg(windows)]
+            if r.drag_out.is_some() {
+                let files = drag_carries(&self.items, &ids, |id| self.selection.contains(id));
+                if !files.is_empty() {
+                    dialogs::drag_downloads_out(
+                        &ctx,
+                        crate::MAIN_TITLE,
+                        files,
+                        dialogs::DraggedFrom::List,
+                    );
+                }
+            }
+            // Something droppable over the window: the list is where it goes.
+            let dragging = self.drops.over() || ctx.input(|i| !i.raw.hovered_files.is_empty());
+            if dragging {
+                ui.painter().rect_stroke(
+                    winui::rect(outer),
+                    0.0,
+                    egui::Stroke::new(2.0, winui::accent()),
+                    egui::StrokeKind::Inside,
                 );
             }
-        }
-        // Something droppable over the window: the list is where it goes.
-        let dragging = self.drops.over() || ctx.input(|i| !i.raw.hovered_files.is_empty());
-        if dragging {
-            ui.painter().rect_stroke(
-                winui::rect(outer),
-                0.0,
-                egui::Stroke::new(2.0, winui::accent()),
-                egui::StrokeKind::Inside,
-            );
-        }
-        if ids.is_empty()
-            && let Some(cmd) = self.empty_state(ui, r.body.unwrap_or(outer))
-        {
-            chosen = Some((cmd, None));
-        }
-        if dock_h > 0.0 {
-            let items = &self.items;
-            let dock_bottom = o.y + h - STRIP_H - 4.0;
-            let selected_ids = self.selection.ids();
-            let selected_count = selected_ids.len();
-            let selected = selected_ids
-                .first()
-                .and_then(|id| items.iter().find(|it| it.id == *id));
-            if let Some(action) = crate::dock::dock(
-                ui,
-                o,
-                w,
-                dock_top,
-                dock_bottom,
-                items,
-                selected,
-                selected_count,
-                self.settings.dock_overview,
-                self.settings.dock_properties,
-            ) {
-                match action {
-                    crate::dock::Action::HideOverview => self.settings.dock_overview = false,
-                    crate::dock::Action::HideProperties => self.settings.dock_properties = false,
+            if ids.is_empty()
+                && let Some(cmd) = self.empty_state(ui, r.body.unwrap_or(outer))
+            {
+                chosen = Some((cmd, None));
+            }
+            if dock_h > 0.0 {
+                let items = &self.items;
+                let dock_bottom = o.y + h - STRIP_H - 4.0;
+                let selected_ids = self.selection.ids();
+                let selected_count = selected_ids.len();
+                let selected = selected_ids
+                    .first()
+                    .and_then(|id| items.iter().find(|it| it.id == *id));
+                if let Some(action) = crate::dock::dock(
+                    ui,
+                    o,
+                    w,
+                    dock_top,
+                    dock_bottom,
+                    items,
+                    selected,
+                    selected_count,
+                    self.settings.dock_overview,
+                    self.settings.dock_properties,
+                ) {
+                    match action {
+                        crate::dock::Action::HideOverview => self.settings.dock_overview = false,
+                        crate::dock::Action::HideProperties => {
+                            self.settings.dock_properties = false
+                        }
+                    }
                 }
             }
-        }
-        self.status_strip(ui, o, w, h, ids.len());
-        if let Some((i, pos)) = r.context {
-            self.open_popup_asked(Popup::Item(i.map(|i| ids[i])), pos, &ctx);
-        }
-        let layout = self.list.layout();
-        if self.last_layout.as_ref() != Some(&layout) {
-            self.dirty |= self.last_layout.is_some();
-            self.last_layout = Some(layout);
-        }
-        if let Some(pos) = r.header_context {
-            self.open_popup(Popup::Columns, pos);
-        }
-        if let Some((kind, pos, serial)) = self.popup {
-            let (entries, target) = self.popup_entries(kind);
-            match chrome::popup(
-                &ctx,
-                MenuKind::Context,
-                &format!("popup-{serial}"),
-                pos,
-                &entries,
-                &|c: &Cmd| c.hint(),
-            ) {
-                PopupResult::Open | PopupResult::Neighbor(_) => {}
-                PopupResult::Chosen(c) => {
-                    chosen = Some((c, target));
-                    self.popup = None;
+            self.status_strip(ui, o, w, h, ids.len());
+            if let Some((i, pos)) = r.context {
+                self.open_popup_asked(Popup::Item(i.map(|i| ids[i])), pos, &ctx);
+            }
+            let layout = self.list.layout();
+            if self.last_layout.as_ref() != Some(&layout) {
+                self.dirty |= self.last_layout.is_some();
+                self.last_layout = Some(layout);
+            }
+            if let Some(pos) = r.header_context {
+                self.open_popup(Popup::Columns, pos);
+            }
+            if let Some((kind, pos, serial)) = self.popup {
+                let (entries, target) = self.popup_entries(kind);
+                match chrome::popup(
+                    &ctx,
+                    MenuKind::Context,
+                    &format!("popup-{serial}"),
+                    pos,
+                    &entries,
+                    &|c: &Cmd| c.hint(),
+                ) {
+                    PopupResult::Open | PopupResult::Neighbor(_) => {}
+                    PopupResult::Chosen(c) => {
+                        chosen = Some((c, target));
+                        self.popup = None;
+                    }
+                    PopupResult::Dismissed => self.popup = None,
                 }
-                PopupResult::Dismissed => self.popup = None,
             }
-        }
-        // Ctrl+F finds, F3 finds the next match (Downloads menu); Ctrl+N adds a download and
-        // Ctrl+B the links in the clipboard (#709), neither in IDM. Not Ctrl+Shift+V for that: the
-        // windowing library answers the paste keys by reading the clipboard on the window's
-        // thread (#418). The full list: Help → Keyboard shortcuts (`help.rs`).
-        if chosen.is_none() && self.popup.is_none() && self.open_menu.is_none() {
-            let (find, next, add, clip) = ctx.input_mut(|i| {
-                (
-                    i.consume_key(egui::Modifiers::COMMAND, egui::Key::F),
-                    i.consume_key(egui::Modifiers::NONE, egui::Key::F3),
-                    i.consume_key(egui::Modifiers::COMMAND, egui::Key::N),
-                    i.consume_key(egui::Modifiers::COMMAND, egui::Key::B),
-                )
-            });
-            // Ctrl+M as IDM; F2 as renaming in Explorer.
-            if ctx.input_mut(|i| {
-                i.consume_key(egui::Modifiers::COMMAND, egui::Key::M)
-                    || i.consume_key(egui::Modifiers::NONE, egui::Key::F2)
-            }) {
-                chosen = Some((Cmd::MoveRename, None));
+            // Ctrl+F finds, F3 finds the next match (Downloads menu); Ctrl+N adds a download and
+            // Ctrl+B the links in the clipboard (#709), neither in IDM. Not Ctrl+Shift+V for that: the
+            // windowing library answers the paste keys by reading the clipboard on the window's
+            // thread (#418). The full list: Help → Keyboard shortcuts (`help.rs`).
+            if chosen.is_none() && self.popup.is_none() && self.open_menu.is_none() {
+                let (find, next, add, clip) = ctx.input_mut(|i| {
+                    (
+                        i.consume_key(egui::Modifiers::COMMAND, egui::Key::F),
+                        i.consume_key(egui::Modifiers::NONE, egui::Key::F3),
+                        i.consume_key(egui::Modifiers::COMMAND, egui::Key::N),
+                        i.consume_key(egui::Modifiers::COMMAND, egui::Key::B),
+                    )
+                });
+                // Ctrl+M as IDM; F2 as renaming in Explorer.
+                if ctx.input_mut(|i| {
+                    i.consume_key(egui::Modifiers::COMMAND, egui::Key::M)
+                        || i.consume_key(egui::Modifiers::NONE, egui::Key::F2)
+                }) {
+                    chosen = Some((Cmd::MoveRename, None));
+                }
+                if find {
+                    chosen = Some((Cmd::Find, None));
+                } else if next {
+                    chosen = Some((Cmd::FindNext, None));
+                } else if add {
+                    chosen = Some((Cmd::AddUrl, None));
+                } else if clip {
+                    chosen = Some((Cmd::BatchClipboard, None));
+                }
             }
-            if find {
-                chosen = Some((Cmd::Find, None));
-            } else if next {
-                chosen = Some((Cmd::FindNext, None));
-            } else if add {
-                chosen = Some((Cmd::AddUrl, None));
-            } else if clip {
-                chosen = Some((Cmd::BatchClipboard, None));
+            // Delete removes the selected downloads, Shift+Delete with their files (both ask first);
+            // not while a text box (Find, a filter) has the keys.
+            if chosen.is_none()
+                && self.popup.is_none()
+                && self.open_menu.is_none()
+                && ctx.memory(|m| m.focused().is_none())
+            {
+                // On Windows egui reports Shift+Delete as Cut (Ctrl+X is Cut too, without Shift).
+                let (del, shift_del) = ctx.input(|i| {
+                    (
+                        i.key_pressed(egui::Key::Delete) && !i.modifiers.shift,
+                        // Windows reports it as Cut; macOS and Linux as the key.
+                        i.modifiers.shift
+                            && !i.modifiers.command
+                            && (i.events.iter().any(|e| matches!(e, egui::Event::Cut))
+                                || i.key_pressed(egui::Key::Delete)),
+                    )
+                });
+                if shift_del {
+                    chosen = Some((Cmd::RemoveWithFiles, None));
+                } else if del {
+                    chosen = Some((Cmd::Remove, None));
+                }
             }
-        }
-        // Delete removes the selected downloads, Shift+Delete with their files (both ask first);
-        // not while a text box (Find, a filter) has the keys.
-        if chosen.is_none()
-            && self.popup.is_none()
-            && self.open_menu.is_none()
-            && ctx.memory(|m| m.focused().is_none())
-        {
-            // On Windows egui reports Shift+Delete as Cut (Ctrl+X is Cut too, without Shift).
-            let (del, shift_del) = ctx.input(|i| {
-                (
-                    i.key_pressed(egui::Key::Delete) && !i.modifiers.shift,
-                    // Windows reports it as Cut; macOS and Linux as the key.
-                    i.modifiers.shift
-                        && !i.modifiers.command
-                        && (i.events.iter().any(|e| matches!(e, egui::Event::Cut))
-                            || i.key_pressed(egui::Key::Delete)),
-                )
-            });
-            if shift_del {
-                chosen = Some((Cmd::RemoveWithFiles, None));
-            } else if del {
-                chosen = Some((Cmd::Remove, None));
+            if let Some((c, target)) = chosen {
+                self.run(c, target, &ctx);
             }
-        }
-        if let Some((c, target)) = chosen {
-            self.run(c, target, &ctx);
-        }
         }
     }
 
@@ -10726,28 +10749,6 @@ impl App {
         grabber.add(found, source, |u| known.contains(u.as_str()));
     }
 
-    /// A short stem for a video page's provisional file name (yt-dlp renames the file from the
-    /// site's title once it runs): the id in `v=` or the last path segment.
-    fn video_stem(url: &url::Url) -> String {
-        let from_query = url
-            .query_pairs()
-            .find(|(k, v)| k == "v" && !v.is_empty())
-            .map(|(_, v)| v.into_owned());
-        let last = url
-            .path()
-            .split('/')
-            .filter(|s| !s.is_empty())
-            .next_back()
-            .unwrap_or("")
-            .to_owned();
-        let stem = mdm_engine::naming::sanitize(&from_query.filter(|s| !s.is_empty()).unwrap_or(last));
-        if stem.is_empty() {
-            "video".to_owned()
-        } else {
-            stem
-        }
-    }
-
     /// Link grabber's ticked links: each package's to its folder, tagged with the package (its
     /// archives are extracted when all are in), into the main queue; started too on Start (else
     /// only queued, as IDM's import). A magnet link's torrent is added once its files are known
@@ -10798,10 +10799,8 @@ impl App {
                     continue;
                 };
                 let is_video = mdm_tools::pages::is_video_page(&url);
-                let video_sound_only = is_video
-                    && video
-                        .as_ref()
-                        .is_some_and(|(_, _, sound_only)| *sound_only);
+                let video_sound_only =
+                    is_video && video.as_ref().is_some_and(|(_, _, sound_only)| *sound_only);
                 let category = if is_video {
                     if video_sound_only {
                         Category::Music
@@ -10822,7 +10821,7 @@ impl App {
                 // each of thousands of links.
                 let dest = if is_video {
                     let ext = video.as_ref().map(|(_, ext, _)| *ext).unwrap_or("mp4");
-                    mdm_engine::naming::guess(&dir, &format!("{}.{}", Self::video_stem(&url), ext))
+                    mdm_engine::naming::guess(&dir, &format!("{}.{}", mdm_tools::pages::video_stem(&url), ext))
                 } else {
                     mdm_engine::naming::guess(&dir, &name)
                 };
@@ -10849,7 +10848,9 @@ impl App {
                     i.package = Some(tag.clone());
                     i.number_at_start = true;
                     if is_video {
-                        let (selector, ..) = video.clone().unwrap_or_else(|| ("bv*+ba/b".into(), "mp4", false));
+                        let (selector, ..) = video
+                            .clone()
+                            .unwrap_or_else(|| ("bv*+ba/b".into(), "mp4", false));
                         i.video = Some(model::VideoSpec {
                             selector,
                             subs: Default::default(),
@@ -11795,11 +11796,10 @@ impl App {
         }
         // One playlist after another, as the torrent dialogs go (#1097): when the one that was
         // open is done (or cancelled), the next playlist picked in Link grabber opens.
-        if self.video_dlg.is_none() {
-            while let Some((url, command)) = self.video_waiting.pop_front() {
-                self.video_dlg = Some(self.video_dialog(Some((&url, command))));
-                break;
-            }
+        if self.video_dlg.is_none()
+            && let Some((url, command)) = self.video_waiting.pop_front()
+        {
+            self.video_dlg = Some(self.video_dialog(Some((&url, command))));
         }
         if let Some(g) = &mut self.gallery_dlg {
             match g.show(ctx, &self.rt) {

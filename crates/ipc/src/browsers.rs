@@ -1433,10 +1433,7 @@ mod tests {
         // The AppImage's copy of the helper, whose AppImage was deleted.
         #[cfg(unix)]
         {
-            let copy = d
-                .path()
-                .join("browser-host")
-                .join("zdownloader3-nmhost");
+            let copy = d.path().join("browser-host").join("zdownloader3-nmhost");
             program(&copy);
             let image = d.path().join("MDM.AppImage");
             program(&image);

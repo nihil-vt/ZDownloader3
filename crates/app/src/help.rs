@@ -154,15 +154,13 @@ pub type Slot = Arc<Mutex<Option<Result<Found, String>>>>;
 /// package manager that installed it, or to the fork's (future) releases page. The old code
 /// pointed the check and the SHA256SUMS verification at upstream Mister Download Manager, which
 /// would have silently replaced the fork with upstream's build.
-pub const FORK_UPDATE_DISABLED: &str =
-    "Self-update is disabled in zDownloader³. Use your package manager, or the fork's releases page.";
+pub const FORK_UPDATE_DISABLED: &str = "Self-update is disabled in zDownloader³. Use your package manager, or the fork's releases page.";
 
 pub fn check(_rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
     let slot: Slot = Arc::new(Mutex::new(Some(Err(FORK_UPDATE_DISABLED.to_owned()))));
     ctx.request_repaint();
     slot
 }
-
 
 #[cfg(test)]
 /// The check's task ended: its answer, or a failed check (test-only, used by the unit tests).
@@ -1316,5 +1314,4 @@ mod tests {
             assert!(named(option), "{option}");
         }
     }
-
 }

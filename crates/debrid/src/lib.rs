@@ -1141,13 +1141,7 @@ pub mod signin {
             }
             assert!(own_page(ad, "https://real-debrid.com/device").is_err());
             let tb = ServiceKind::TorBox;
-            assert!(
-                own_page(
-                    tb,
-                    "https://torbox.app/oauth/device?app=zDownloader³"
-                )
-                .is_ok()
-            );
+            assert!(own_page(tb, "https://torbox.app/oauth/device?app=zDownloader³").is_ok());
             assert!(own_page(tb, "https://real-debrid.com/device").is_err());
         }
     }

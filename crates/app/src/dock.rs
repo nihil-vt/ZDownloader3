@@ -78,6 +78,9 @@ fn eta_text(secs: f64) -> String {
 }
 
 /// What the dock shows; none of its drawing can fail (a zero-height dock is just not called).
+// The 10 arguments are the window's own, split between its two panels; allowing rather than
+// wrapping them in a struct to satisfy a lint.
+#[allow(clippy::too_many_arguments)]
 pub fn dock(
     ui: &mut Ui,
     o: Pos2,
@@ -107,7 +110,14 @@ pub fn dock(
     };
     if show_overview {
         let rc = Rect::from_min_max(pos2(ov_left, top), pos2(ov_right, bottom));
-        panel(&p, rc, "Download Overview", Action::HideOverview, &mut action, ui);
+        panel(
+            &p,
+            rc,
+            "Download Overview",
+            Action::HideOverview,
+            &mut action,
+            ui,
+        );
         let ov = overview(items);
         // The grid: two label+value columns, in English point offsets.
         let rows: [(&str, String); 10] = [
@@ -117,10 +127,7 @@ pub fn dock(
             ("Failed", crate::i18n::integer(ov.failed as u64)),
             ("Stopped", crate::i18n::integer(ov.stopped as u64)),
             ("Total size", crate::dialogs::dialog_size(ov.bytes_total)),
-            (
-                "Bytes loaded",
-                crate::dialogs::dialog_size(ov.bytes_done),
-            ),
+            ("Bytes loaded", crate::dialogs::dialog_size(ov.bytes_done)),
             (
                 "Remaining",
                 crate::dialogs::dialog_size(ov.bytes_total.saturating_sub(ov.bytes_done)),
@@ -141,7 +148,14 @@ pub fn dock(
     }
     if show_properties {
         let rc = Rect::from_min_max(pos2(prop_left, top), pos2(right, bottom));
-        panel(&p, rc, "File Properties", Action::HideProperties, &mut action, ui);
+        panel(
+            &p,
+            rc,
+            "File Properties",
+            Action::HideProperties,
+            &mut action,
+            ui,
+        );
         let rows: Vec<(String, String)> = match selected {
             Some(item) => properties(item),
             None if selected_count > 1 => vec![(
@@ -234,16 +248,21 @@ fn properties(item: &Item) -> Vec<(String, String)> {
     vec![
         ("File name".to_owned(), item.file_name.clone()),
         ("From".to_owned(), host),
-        ("Save to".to_owned(), item.dest.to_string_lossy().into_owned()),
+        (
+            "Save to".to_owned(),
+            item.dest.to_string_lossy().into_owned(),
+        ),
         ("Size".to_owned(), size),
         ("Status".to_owned(), item.status_text()),
         ("Category".to_owned(), item.category.key().into_owned()),
-        ("Added".to_owned(), item.added.clone().unwrap_or_else(|| "—".to_owned())),
+        (
+            "Added".to_owned(),
+            item.added.clone().unwrap_or_else(|| "—".to_owned()),
+        ),
         ("Checksum".to_owned(), checksum),
         ("Package".to_owned(), package),
     ]
 }
-
 
 // ---------------------------------------------------------------------------
 // The link grabber's own dock (JD2's linkgrabber overview + package properties).
@@ -275,9 +294,19 @@ pub fn grabber_dock(
     };
     if show_overview {
         let rc = Rect::from_min_max(pos2(ov_left, top), pos2(ov_right, bottom));
-        panel(&p, rc, "Linkgrabber Overview", Action::HideOverview, &mut action, ui);
+        panel(
+            &p,
+            rc,
+            "Linkgrabber Overview",
+            Action::HideOverview,
+            &mut action,
+            ui,
+        );
         let s = summary;
-        let size = s.size.map(crate::dialogs::dialog_size).unwrap_or_else(|| "—".to_owned());
+        let size = s
+            .size
+            .map(crate::dialogs::dialog_size)
+            .unwrap_or_else(|| "—".to_owned());
         let rows: [(&str, String); 8] = [
             ("Packages", crate::i18n::integer(s.packages as u64)),
             ("Links", crate::i18n::integer(s.links as u64)),
@@ -286,7 +315,12 @@ pub fn grabber_dock(
             ("Queued", crate::i18n::integer(s.queued as u64)),
             ("Ticked", crate::i18n::integer(s.ticked as u64)),
             ("Total size", size),
-            ("Package", current.map(|c| c.name.clone()).unwrap_or_else(|| "—".to_owned())),
+            (
+                "Package",
+                current
+                    .map(|c| c.name.clone())
+                    .unwrap_or_else(|| "—".to_owned()),
+            ),
         ];
         let col_w = (rc.width() - 8.0) / 2.0;
         for (i, (label, value)) in rows.iter().enumerate() {
@@ -310,15 +344,53 @@ pub fn grabber_dock(
     }
     if show_properties {
         let rc = Rect::from_min_max(pos2(prop_left, top), pos2(o.x + w - 7.0, bottom));
-        panel(&p, rc, "Package Properties", Action::HideProperties, &mut action, ui);
+        panel(
+            &p,
+            rc,
+            "Package Properties",
+            Action::HideProperties,
+            &mut action,
+            ui,
+        );
         let rows: Vec<(String, String)> = match current {
             Some(c) => vec![
                 ("Package".to_owned(), c.name.clone()),
-                ("Save to".to_owned(), if c.folder.is_empty() { "—".to_owned() } else { c.folder.clone() }),
-                ("Password".to_owned(), if c.password_set { "•••".to_owned() } else { "—".to_owned() }),
-                ("Extract when done".to_owned(), if c.extract { "Yes".to_owned() } else { "No".to_owned() }),
-                ("Delete archives".to_owned(), if c.delete_archives { "Yes".to_owned() } else { "No".to_owned() }),
-                ("Links".to_owned(), format!("{} ({} ticked)", c.links, c.ticked)),
+                (
+                    "Save to".to_owned(),
+                    if c.folder.is_empty() {
+                        "—".to_owned()
+                    } else {
+                        c.folder.clone()
+                    },
+                ),
+                (
+                    "Password".to_owned(),
+                    if c.password_set {
+                        "•••".to_owned()
+                    } else {
+                        "—".to_owned()
+                    },
+                ),
+                (
+                    "Extract when done".to_owned(),
+                    if c.extract {
+                        "Yes".to_owned()
+                    } else {
+                        "No".to_owned()
+                    },
+                ),
+                (
+                    "Delete archives".to_owned(),
+                    if c.delete_archives {
+                        "Yes".to_owned()
+                    } else {
+                        "No".to_owned()
+                    },
+                ),
+                (
+                    "Links".to_owned(),
+                    format!("{} ({} ticked)", c.links, c.ticked),
+                ),
             ],
             None => vec![("Selection".to_owned(), "—".to_owned())],
         };

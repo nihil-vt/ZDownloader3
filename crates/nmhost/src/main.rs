@@ -1083,9 +1083,7 @@ fn deliver(cmd: &mdm_ipc::Command) -> Result<(), Undelivered> {
             break;
         }
     }
-    Err(Undelivered::NotRunning(
-        "zDownloader³ did not start".into(),
-    ))
+    Err(Undelivered::NotRunning("zDownloader³ did not start".into()))
 }
 
 /// Start the app outside the browser's reach: browsers end a host's whole process tree (on

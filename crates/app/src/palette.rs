@@ -641,7 +641,10 @@ pub fn builtins() -> [&'static Theme; 10] {
         crate::themefile::builtin("breeze", include_str!("../assets/themes/breeze.toml"))
     });
     static JDOWNLOADER: std::sync::LazyLock<Theme> = std::sync::LazyLock::new(|| {
-        crate::themefile::builtin("jdownloader", include_str!("../assets/themes/jdownloader.toml"))
+        crate::themefile::builtin(
+            "jdownloader",
+            include_str!("../assets/themes/jdownloader.toml"),
+        )
     });
     static LUNA: std::sync::LazyLock<Theme> = std::sync::LazyLock::new(|| {
         crate::themefile::builtin("luna", include_str!("../assets/themes/luna.toml"))

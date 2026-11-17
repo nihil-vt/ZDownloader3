@@ -459,10 +459,7 @@ mod tests {
         );
         // No isolate: untouched, in any direction.
         for rtl in [false, true] {
-            assert_eq!(
-                os_text_in("zDownloader³", rtl),
-                "zDownloader³"
-            );
+            assert_eq!(os_text_in("zDownloader³", rtl), "zDownloader³");
             assert_eq!(os_text_in("مدير التنزيل", rtl), "مدير التنزيل");
         }
         let cases: &[(String, bool)] = &[

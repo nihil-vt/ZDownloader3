@@ -326,8 +326,8 @@ impl std::error::Error for Reported {}
 /// Ask the running app (automation API) and print its answer, which is JSON already; an
 /// `{"error"}` answer fails the command.
 fn ask(cmd: mdm_ipc::Command) -> anyhow::Result<()> {
-    let answer = mdm_ipc::request(&cmd)
-        .map_err(|e| anyhow::anyhow!("zDownloader³ isn't running ({e})"))?;
+    let answer =
+        mdm_ipc::request(&cmd).map_err(|e| anyhow::anyhow!("zDownloader³ isn't running ({e})"))?;
     println!("{answer}");
     if serde_json::from_str::<mdm_ipc::api::ErrorAnswer>(&answer).is_ok() {
         return Err(Reported.into());

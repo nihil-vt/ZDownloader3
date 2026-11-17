@@ -6,13 +6,13 @@
 # out of the repository's 10 GB. A pull request never saves their caches, as it never runs them.
 name: CI
 
-# Pushes to main only: a pull request's branch is tested once as the pull request (a bare push:
+# Pushes to main and fork only: a pull request's branch is tested once as the pull request (a bare push:
 # ran everything twice), and a release tag's commit was already tested on main.
 # A docs-only change builds nothing here (the app embeds none of the docs; the app's own
 # catalogs, i18n/*.tsv, still run everything).
 on:
   push:
-    branches: [main]
+    branches: [main, fork]
     paths-ignore:
       - "docs/**"
       - "**/*.md"

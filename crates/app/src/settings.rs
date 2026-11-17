@@ -440,7 +440,11 @@ impl Default for Settings {
             always_dark: false,
             // zDownloader³ fork default: the JDownloader2 style on Linux (our look);
             // classic stays the default elsewhere, matching upstream's look there.
-            theme: if cfg!(target_os = "linux") { "jdownloader".into() } else { "classic".into() },
+            theme: if cfg!(target_os = "linux") {
+                "jdownloader".into()
+            } else {
+                "classic".into()
+            },
             renderer: None,
             window_system: None,
             interface_size: 100,
@@ -1608,23 +1612,27 @@ pub(crate) mod sealed {
 
 #[test]
 fn packagizer_rules_round_trip() {
-    let mut s = Settings::default();
-    s.packagizer_rules = vec![crate::packagizer::Rule {
-        id: 1,
-        enabled: true,
-        name: "ISOs".into(),
-        url: String::new(),
-        filename: String::new(),
-        exts: "iso".into(),
-        min_size: 0,
-        max_size: 0,
-        action: crate::packagizer::Action::MoveToPackage,
-        payload: "Distros".into(),
-    }];
+    let s = Settings {
+        packagizer_rules: vec![crate::packagizer::Rule {
+            id: 1,
+            enabled: true,
+            name: "ISOs".into(),
+            url: String::new(),
+            filename: String::new(),
+            exts: "iso".into(),
+            min_size: 0,
+            max_size: 0,
+            action: crate::packagizer::Action::MoveToPackage,
+            payload: "Distros".into(),
+        }],
+        ..Default::default()
+    };
     let text = serde_json::to_string(&s).unwrap();
-    println!("serialized packagizer_rules: {}", &text[text.find("packagizer_rules").unwrap_or(0)..][..80]);
+    println!(
+        "serialized packagizer_rules: {}",
+        &text[text.find("packagizer_rules").unwrap_or(0)..][..80]
+    );
     let back: Settings = serde_json::from_str(&text).unwrap();
     assert_eq!(back.packagizer_rules.len(), 1);
     assert_eq!(back.packagizer_rules[0].payload, "Distros");
 }
-

@@ -132,6 +132,9 @@
 #. verb: save the changes
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 	&Apply	&Apply
+#. button in packagizer.rs
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+	&Apply to list	&Apply to list
 #. text in the Scheduler window
 #. verb: close the window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
@@ -275,12 +278,11 @@
 #. text in playlistdlg.rs
 #. title of the question asked before a playlist adds many downloads
 	Add many downloads	Add many downloads
-#. window title in extension.rs
-#. title of the window that offers the browser extension
-	Add zDownloader³ to your browser	Add zDownloader³ to your browser
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 	Add new download	Add new download
+#. button in packagizer.rs
+	Add rule	Add rule
 #. text in the Options window
 	Add the duplicate and overwrite the existing file	Add the duplicate and overwrite the existing file
 #. text in the Options window
@@ -305,6 +307,9 @@
 	Add torrent	Add torrent
 #. window title in the Add torrent window
 	Add trackers	Add trackers
+#. window title in extension.rs
+#. title of the window that offers the browser extension
+	Add zDownloader³ to your browser	Add zDownloader³ to your browser
 #. text in playlistdlg.rs
 #. asked before a playlist adds many downloads at once; {n} is how many
 #. {n} = a number (keep the braces as they are)
@@ -630,7 +635,7 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Canada	Canada
-#. button in the Batch download window; button in categories.rs; text in the Checksum window; button in a dialog box; button in extracting archives (a download's log, the Archive password window); button in the Find window; button in gallerydlg.rs; text in the Link grabber window; text in the Help menu's windows (About, updates, shortcuts, Tell a friend); button in langpick.rs; button in the Options window; button in a download's progress window; text in remote.rs; button in the Scheduler window; button in the Add torrent window; button in the Download video window
+#. button in the Batch download window; button in categories.rs; text in the Checksum window; button in a dialog box; button in extracting archives (a download's log, the Archive password window); button in the Find window; button in gallerydlg.rs; text in the Link grabber window; text in the Help menu's windows (About, updates, shortcuts, Tell a friend); button in langpick.rs; button in the Options window; text in packagizer.rs; button in a download's progress window; text in remote.rs; button in the Scheduler window; button in the Add torrent window; button in the Download video window
 #. button: stop downloading the update
 	Cancel	Cancel
 #. text in errors.rs
@@ -1169,6 +1174,8 @@
 #. message or event log entry in the main window
 #. in Import, where the addresses came from: dragged onto the window
 	Dropped links	Dropped links
+#. button in packagizer.rs
+	Duplicate	Duplicate
 #. window title in a dialog box
 	Duplicate download link	Duplicate download link
 #. text in the Options window
@@ -1631,6 +1638,8 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Hong Kong	Hong Kong
+#. text in the Link grabber window
+	Hoster	Hoster
 #. text in extension.rs
 #. button in the browser extension's window, on Safari's row: open the steps that turn the extension on
 	How to Add	How to Add
@@ -1918,7 +1927,7 @@
 #. text in the Add torrent window
 #. Torrent settings: an upload speed limit for all torrents together, followed by a box with the speed and "KBytes/sec"
 	Limit uploading for all torrents to	Limit uploading for all torrents to
-#. message or event log entry in the main window; window title in the Link grabber window; group box title in the Options window
+#. message or event log entry in the main window; group box title in the Options window
 #. Options → Archives: group box title
 	Link grabber	Link grabber
 #. text in the Link grabber window
@@ -2129,46 +2138,6 @@
 #. text in a download's progress window
 #. legend: pieces not downloaded yet
 	Missing	Missing
-#. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	zDownloader³	zDownloader³
-#. text in unix.rs
-#. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
-	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³ can't open its window: this system lacks {libraries}.
-#. text in crashui.rs
-#. crash report window heading: MDM crashed and is gone
-	zDownloader³ closed unexpectedly	zDownloader³ closed unexpectedly
-#. window title in the Options window
-	zDownloader³ Configuration	zDownloader³ Configuration
-#. text in crashui.rs
-	zDownloader³ crash report	zDownloader³ crash report
-#. text in crashui.rs; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. crash report window heading: an internal error, MDM still running
-	zDownloader³ hit an internal error	zDownloader³ hit an internal error
-#. text in wake.rs
-#. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
-	zDownloader³ is downloading	zDownloader³ is downloading
-#. text in wake.rs
-#. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
-#. {queue} = a queue name such as "Main queue" (keep the braces as they are)
-	zDownloader³ is running the queue "{queue}"	zDownloader³ is running the queue "{queue}"
-#. text in crashui.rs
-#. crash report window heading: MDM's window doesn't answer (frozen)
-	zDownloader³ stopped responding	zDownloader³ stopped responding
-#. text in crashui.rs
-	zDownloader³ stopped responding for a while	zDownloader³ stopped responding for a while
-#. text in the Options window
-#. \\n starts a new line: break lines where they fit the translation
-	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. {version} = a version number (keep the braces as they are)
-	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} is available (released {date}).
-#. text in helpers.rs
-#. Video helpers: {version} = the version of MDM's own copy
-#. {version} = a version number (keep the braces as they are)
-	zDownloader³'s own copy, version {version}	zDownloader³'s own copy, version {version}
-#. text in unix.rs
-#. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
-	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 	Mo	Mo
@@ -2481,7 +2450,7 @@
 #. text in the Link grabber window
 #. Link grabber, a link's status: the server hasn't the file; {status} is the HTTP code (404)
 	Offline ({status})	Offline ({status})
-#. button in the Batch download window; button in categories.rs; text in the Checksum window; button in a dialog box; text in extracting archives (a download's log, the Archive password window); text in the Help menu's windows (About, updates, shortcuts, Tell a friend); button in the Help menu's windows (About, updates, shortcuts, Tell a friend); button in langpick.rs; button in the Options window; button in a download's Properties window; button in the Scheduler window; button in the Add torrent window
+#. button in the Batch download window; button in categories.rs; text in the Checksum window; button in a dialog box; text in extracting archives (a download's log, the Archive password window); text in the Help menu's windows (About, updates, shortcuts, Tell a friend); button in the Help menu's windows (About, updates, shortcuts, Tell a friend); button in langpick.rs; button in the Options window; text in packagizer.rs; button in a download's Properties window; button in the Scheduler window; button in the Add torrent window
 	OK	OK
 #. text in countries.rs
 #. a country's name (where a download's server is)
@@ -2554,8 +2523,6 @@
 	Open in browser	Open in browser
 #. checkbox in the Add torrent window
 	Open magnet links and .torrent files with zDownloader³	Open magnet links and .torrent files with zDownloader³
-#. text in the tray icon's menu
-	Open zDownloader³	Open zDownloader³
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 	Open Safari's settings (Cmd+,).	Open Safari's settings (Cmd+,).
@@ -2582,6 +2549,8 @@
 #. the trailing ... means it opens a window: keep it
 	Open with...	Open with...
 #. text in the tray icon's menu
+	Open zDownloader³	Open zDownloader³
+#. text in the tray icon's menu
 #. plural noun: opens the Options window (settings)
 	Options	Options
 #. text in a download's progress window
@@ -2596,6 +2565,10 @@
 #. text in the Link grabber window
 #. Link grabber: the box that edits the selected package
 	Package	Package
+#. text in the Link grabber window
+	packages	packages
+#. window title in packagizer.rs
+	Packagizer	Packagizer
 #. text in gallerydlg.rs; text in the Download video window
 	Page address	Page address
 #. text in remote.rs
@@ -2691,6 +2664,9 @@
 #. button in the Options window
 #. verb: plays the sound
 	Play	Play
+#. text in the Link grabber window
+#. Link grabber, a link's status: a playlist's or channel's page (yt-dlp lists its videos when added)
+	Playlist (yt-dlp)	Playlist (yt-dlp)
 #. text in regional.rs; text in the Scheduler window
 #. after noon, after a time of day (12-hour clock). Its pair is "AM": write both the same way (this language's own short marks, or both kept as AM and PM)
 	PM	PM
@@ -2838,7 +2814,7 @@
 #. text in the Options window
 #. Options page title: control MDM from a phone or another computer on the local network
 	Remote control	Remote control
-#. button in the Options window; text in remote.rs; button in rssdlg.rs
+#. button in the Options window; button in packagizer.rs; text in remote.rs; button in rssdlg.rs
 #. verb: remove the item
 #. remote control page (on a phone): button: remove a download from the list
 #. RSS feeds window: unsubscribe from the selected feed
@@ -3629,7 +3605,6 @@
 #. why a download failed (#1102): the folder and file name together are longer than Windows allows ({limit} characters, 259), counting the temporary files saved beside the file while it downloads (their names are longer). {path} = the path
 	the path is too long for Windows: at most {limit} characters with the files saved while it downloads. Choose a shorter file name or folder ({path})	the path is too long for Windows: at most {limit} characters with the files saved while it downloads. Choose a shorter file name or folder ({path})
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. why updates could not be checked: the newest release on the site has no number
 	the release has no version	the release has no version
 #. text in errors.rs
 #. error installing yt-dlp or ffmpeg; {what} = what its release lacks (a file name, or e.g. "LGPL Windows build")
@@ -3988,11 +3963,11 @@
 #. step 6 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 	Turn on "Allow unsigned extensions".	Turn on "Allow unsigned extensions".
 #. text in extension.rs
-#. step 8 of turning on the Safari extension
-	Turn on "zDownloader³" and allow it on all websites.	Turn on "zDownloader³" and allow it on all websites.
-#. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 	Turn on "Show features for web developers".	Turn on "Show features for web developers".
+#. text in extension.rs
+#. step 8 of turning on the Safari extension
+	Turn on "zDownloader³" and allow it on all websites.	Turn on "zDownloader³" and allow it on all websites.
 #. text in extension.rs
 #. the headline of the window that shows how to turn on the Safari extension
 	Turn on the extension in Safari	Turn on the extension in Safari
@@ -4182,8 +4157,13 @@
 #. text in the download list (sizes, speeds, status)
 #. category name: video files
 	Video	Video
+#. text in the Link grabber window
+#. Link grabber, a link's status: a video's page (yt-dlp downloads it; the quality is chosen in the window)
+	Video (yt-dlp)	Video (yt-dlp)
 #. text in the Download video window
 	Video lookups use yt-dlp (about 23 MB, checked against its signature).	Video lookups use yt-dlp (about 23 MB, checked against its signature).
+#. text in the Link grabber window
+	Video:	Video:
 #. text in playlistdlg.rs
 #. what a screen reader calls the list of a playlist's videos
 	Videos	Videos
@@ -4391,6 +4371,46 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Zambia	Zambia
+#. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
+	zDownloader³	zDownloader³
+#. text in unix.rs
+#. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
+	zDownloader³ can't open its window: this system lacks {libraries}.	zDownloader³ can't open its window: this system lacks {libraries}.
+#. text in crashui.rs
+#. crash report window heading: MDM crashed and is gone
+	zDownloader³ closed unexpectedly	zDownloader³ closed unexpectedly
+#. window title in the Options window
+	zDownloader³ Configuration	zDownloader³ Configuration
+#. text in crashui.rs
+	zDownloader³ crash report	zDownloader³ crash report
+#. text in crashui.rs; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
+#. crash report window heading: an internal error, MDM still running
+	zDownloader³ hit an internal error	zDownloader³ hit an internal error
+#. text in wake.rs
+#. why the computer isn't going to sleep, in the system's list of programs that keep it awake (Windows' power requests, Linux's inhibitors)
+	zDownloader³ is downloading	zDownloader³ is downloading
+#. text in wake.rs
+#. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
+#. {queue} = a queue name such as "Main queue" (keep the braces as they are)
+	zDownloader³ is running the queue "{queue}"	zDownloader³ is running the queue "{queue}"
+#. text in crashui.rs
+#. crash report window heading: MDM's window doesn't answer (frozen)
+	zDownloader³ stopped responding	zDownloader³ stopped responding
+#. text in crashui.rs
+	zDownloader³ stopped responding for a while	zDownloader³ stopped responding for a while
+#. text in the Options window
+#. \\n starts a new line: break lines where they fit the translation
+	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	zDownloader³ writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.
+#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
+#. {version} = a version number (keep the braces as they are)
+	zDownloader³ {version} is available (released {date}).	zDownloader³ {version} is available (released {date}).
+#. text in helpers.rs
+#. Video helpers: {version} = the version of MDM's own copy
+#. {version} = a version number (keep the braces as they are)
+	zDownloader³'s own copy, version {version}	zDownloader³'s own copy, version {version}
+#. text in unix.rs
+#. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
+	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	zDownloader³'s X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Zimbabwe	Zimbabwe
@@ -4547,6 +4567,9 @@
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
 	{n} (auto)	{n} (auto)
+#. text in dock.rs
+#. {n} = a number (keep the braces as they are)
+	{n} downloads	{n} downloads
 #. text in playlistdlg.rs
 #. in Download video for a playlist: how many videos are ticked, of how many
 #. {n} = a number (keep the braces as they are)
@@ -4831,33 +4854,6 @@ extension	MDM didn't answer	MDM didn't answer
 #. heading in the toolbar button's popup over the list of the videos, sounds and streams the current web page has loaded
 extension	Media on this page	Media on this page
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
-extension	zDownloader³	zDownloader³
-#. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
-extension	zDownloader³ didn't start in time	zDownloader³ didn't start in time
-#. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
-extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ doesn't accept this copy of the extension
-#. text in the browser extension
-#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
-extension	zDownloader³ is busy with other videos	zDownloader³ is busy with other videos
-#. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
-extension	zDownloader³ isn't installed or didn't start	zDownloader³ isn't installed or didn't start
-#. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
-extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ isn't installed, or its browser integration isn't set up
-#. text in the browser extension
-#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
-extension	zDownloader³ needs yt-dlp for this video	zDownloader³ needs yt-dlp for this video
-#. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
-extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.
-#. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
-extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.
-#. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 extension	More options	More options
 #. text in the browser extension
@@ -4887,14 +4883,14 @@ extension	Open it	Open it
 #. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep zdownloader3-cli pair as it is
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or zdownloader3-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name zDownloader³ as it is
-extension	Open zDownloader³	Open zDownloader³
-#. text in the browser extension
 #. button on the download button over a video in a feed: opens the post the video belongs to in a new tab; verb; very short
 extension	Open post	Open post
 #. text in the browser extension
 #. on the download button (amber) over a video in a feed (a social site's home page, a timeline) that can't be downloaded from there: the user should open the post the video belongs to; short
 extension	Open the post to download it	Open the post to download it
+#. text in the browser extension
+#. button in the toolbar button's popup; keep the name zDownloader³ as it is
+extension	Open zDownloader³	Open zDownloader³
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -4993,6 +4989,33 @@ extension	While the page is in full screen, its videos show no Download video bu
 #. text in the browser extension
 #. pairing failed: the code was wrong
 extension	Wrong code.	Wrong code.
+#. text in the browser extension
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name zDownloader³ as it is
+extension	zDownloader³	zDownloader³
+#. text in the browser extension
+#. status when the app was started for a download but didn't answer in time; keep the name zDownloader³ as it is
+extension	zDownloader³ didn't start in time	zDownloader³ didn't start in time
+#. text in the browser extension
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name zDownloader³ as it is
+extension	zDownloader³ doesn't accept this copy of the extension	zDownloader³ doesn't accept this copy of the extension
+#. text in the browser extension
+#. in the menu under the download button over a video: the app is already looking up other videos and can't look this one up now; keep the name zDownloader³ as it is
+extension	zDownloader³ is busy with other videos	zDownloader³ is busy with other videos
+#. text in the browser extension
+#. shown briefly on the download button when the app could not be reached; keep the name zDownloader³ as it is
+extension	zDownloader³ isn't installed or didn't start	zDownloader³ isn't installed or didn't start
+#. text in the browser extension
+#. status when the browser can't find the app's connection; keep the name zDownloader³ as it is
+extension	zDownloader³ isn't installed, or its browser integration isn't set up	zDownloader³ isn't installed, or its browser integration isn't set up
+#. text in the browser extension
+#. in the menu under the download button over a video: the app needs the yt-dlp tool (a program's name, keep it as it is) to find this video's qualities, and it isn't installed; keep the name zDownloader³ as it is
+extension	zDownloader³ needs yt-dlp for this video	zDownloader³ needs yt-dlp for this video
+#. text in the browser extension
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name zDownloader³ as it is
+extension	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	zDownloader³ then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.
+#. text in the browser extension
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name zDownloader³ as it is
+extension	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	zDownloader³ then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.
 #. key name or combination in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. translate key names as the keyboard shows them (e.g. Strg for Ctrl)
 key	Alt+Enter	Alt+Enter
@@ -5282,7 +5305,6 @@ menu	C&ustomize URL List...	C&ustomize URL List...
 #. the trailing ... means it opens a window: keep it
 menu	Check for &updates...	Check for &updates...
 #. menu command in the main window
-#. View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
 menu	Classic	Classic
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
@@ -5316,6 +5338,9 @@ menu	Direct3D didn't start here: OpenGL draws	Direct3D didn't start here: OpenGL
 menu	Direct3D draws with Windows' software renderer (WARP)	Direct3D draws with Windows' software renderer (WARP)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+menu	Download &overview	Download &overview
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #. the trailing ... means it opens a window: keep it
 menu	Download &video from a page...	Download &video from a page...
 #. menu command in the main window
@@ -5336,6 +5361,9 @@ menu	Emerald	Emerald
 #. menu command in the main window
 #. verb: unpack the downloaded archive (zip, 7z, rar) into its folder
 menu	Extract	Extract
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+menu	File properti&es	File properti&es
 #. menu command in the main window
 #. right-click → Torrent submenu: open the selected torrent's file list
 #. the trailing ... means it opens a window: keep it
@@ -5382,6 +5410,10 @@ menu	Its first frame didn't show within 10 seconds	Its first frame didn't show w
 #. View → Draw with: a greyed note under "… didn't start here"; why: MDM crashed or was closed while starting with it
 menu	Its last start ended before its first frame	Its last start ended before its first frame
 #. menu command in the main window
+#. View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
+#. View → Theme: a style theme's name (JDownloader2's look, our fork's default on Linux), a name: keep "JDownloader2" as written
+menu	JDownloader2	JDownloader2
+#. menu command in the main window
 #. View → Theme: a style theme's name (Windows XP's look), a name: keep "Luna" as written
 menu	Luna	Luna
 #. menu command in the main window
@@ -5396,9 +5428,6 @@ menu	Metal draws with a software renderer	Metal draws with a software renderer
 #. menu command in the main window
 #. View → Theme: a style theme's name (Windows 8's flat look); keep "Metro" unless your language writes it otherwise
 menu	Metro	Metro
-#. menu command in the main window
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menu	zDownloader³ &Home Page	zDownloader³ &Home Page
 #. menu command in the main window
 menu	Move/Rename (Ctrl-M)	Move/Rename (Ctrl-M)
 #. menu command in the main window
@@ -5443,6 +5472,10 @@ menu	OpenGL's first frame didn't show within 10 seconds	OpenGL's first frame did
 #. menu command in the main window
 #. View → Draw with: a greyed note; why MDM no longer draws with OpenGL: MDM crashed or was closed while starting with it
 menu	OpenGL's last start ended before its first frame	OpenGL's last start ended before its first frame
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+#. the trailing ... means it opens a window: keep it
+menu	Packagize&r...	Packagize&r...
 #. menu command in the main window
 #. what double-clicking a download does — noun: show its properties
 #. noun: opens the download's Properties window
@@ -5564,6 +5597,9 @@ menu	Vulkan didn't start here: OpenGL draws	Vulkan didn't start here: OpenGL dra
 #. menu command in the main window
 #. View → Draw with: a greyed note; Vulkan draws the windows through a software renderer instead of a graphics card
 menu	Vulkan draws with a software renderer	Vulkan draws with a software renderer
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+menu	zDownloader³ &Home Page	zDownloader³ &Home Page
 #. menu bar title in the main window (menus, toolbar, Categories pane)
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menubar	&Downloads	&Downloads

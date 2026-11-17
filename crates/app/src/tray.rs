@@ -445,11 +445,7 @@ impl Native {
             labels.push((Entry::Item(item.clone()), label));
             item
         };
-        add(
-            &menu,
-            crate::i18n::mark("Open zDownloader³"),
-            TrayCmd::Show,
-        );
+        add(&menu, crate::i18n::mark("Open zDownloader³"), TrayCmd::Show);
         menu.append(&PredefinedMenuItem::separator()).ok();
         let mark = crate::i18n::mark;
         add(&menu, mark("Add new download"), TrayCmd::AddUrl);

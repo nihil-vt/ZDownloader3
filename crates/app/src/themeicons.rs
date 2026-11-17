@@ -877,7 +877,15 @@ mod tests {
     #[test]
     fn every_built_in_icon_file_is_a_need_and_carried() {
         let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("assets/themes");
-        for name in ["metro", "adwaita", "breeze", "jdownloader", "luna", "aero", "aqua"] {
+        for name in [
+            "metro",
+            "adwaita",
+            "breeze",
+            "jdownloader",
+            "luna",
+            "aero",
+            "aqua",
+        ] {
             let carried = set(name).unwrap();
             let mut n = 0;
             for px in SIZES {
@@ -909,7 +917,15 @@ mod tests {
     /// drawing's largest scales cleanly), so no picture is stretched.
     #[test]
     fn pictures_come_in_every_size_the_loader_asks_for() {
-        for name in ["metro", "adwaita", "breeze", "jdownloader", "luna", "aero", "aqua"] {
+        for name in [
+            "metro",
+            "adwaita",
+            "breeze",
+            "jdownloader",
+            "luna",
+            "aero",
+            "aqua",
+        ] {
             let set = set(name).unwrap();
             for (need, _) in NEEDS {
                 let sizes: Vec<u32> = SIZES
