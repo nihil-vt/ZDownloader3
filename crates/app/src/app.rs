@@ -10821,7 +10821,10 @@ impl App {
                 // each of thousands of links.
                 let dest = if is_video {
                     let ext = video.as_ref().map(|(_, ext, _)| *ext).unwrap_or("mp4");
-                    mdm_engine::naming::guess(&dir, &format!("{}.{}", mdm_tools::pages::video_stem(&url), ext))
+                    mdm_engine::naming::guess(
+                        &dir,
+                        &format!("{}.{}", mdm_tools::pages::video_stem(&url), ext),
+                    )
                 } else {
                     mdm_engine::naming::guess(&dir, &name)
                 };

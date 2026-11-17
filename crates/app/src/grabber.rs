@@ -569,15 +569,8 @@ impl Grabber {
             let name = self.links[i].name.clone();
             let size = self.links[i].size;
             let package = self.packages[self.links[i].pkg].name.clone();
-            let change = crate::packagizer::apply(
-                &self.packagizer,
-                &url,
-                &name,
-                size,
-                &package,
-                *n,
-                now,
-            );
+            let change =
+                crate::packagizer::apply(&self.packagizer, &url, &name, size, &package, *n, now);
             if let Some(n) = change.name {
                 let l = &mut self.links[i];
                 l.category = category_of(l.magnet, &n);

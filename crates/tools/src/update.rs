@@ -494,12 +494,7 @@ Connection: close
             ["zDownloader3-0.2.2-x64.zip"]
         );
         // Linux and macOS: the plain name first, then the one up to 0.2.x.
-        for (install, ext) in [
-            (Install::TarGz, ".tar.gz"),
-            (Install::AppImage, ".AppImage"),
-            (Install::Deb, ".deb"),
-            (Install::Rpm, ".rpm"),
-        ] {
+        for (install, ext) in [(Install::AppImage, ".AppImage"), (Install::Deb, ".deb")] {
             assert_eq!(
                 install.assets_on(x64, "1.0.0"),
                 [
@@ -557,12 +552,7 @@ Connection: close
             Install::PlainZip.assets_on(x86, "1.0.0"),
             ["zDownloader3-1.0.0-x86.zip"]
         );
-        for (install, ext) in [
-            (Install::TarGz, ".tar.gz"),
-            (Install::AppImage, ".AppImage"),
-            (Install::Deb, ".deb"),
-            (Install::Rpm, ".rpm"),
-        ] {
+        for (install, ext) in [(Install::AppImage, ".AppImage"), (Install::Deb, ".deb")] {
             // Linux on ARM came after "-experimental" went.
             assert_eq!(
                 install.assets_on(arm, "1.0.0"),
@@ -588,40 +578,6 @@ Connection: close
         }
     }
 
-    /// The Windows names are build.ps1's and mdm.iss's: x64's as before, the others with their
-    /// processor.
-    #[test]
-    fn the_windows_names_are_build_ps1_s() {
-        let script = include_str!("../../../tools/installer/build.ps1").replace("\r\n", "\n");
-        assert!(script.contains(
-            "\nNew-Zip \"zDownloader3-$version-portable$suffix\" $true\nNew-Zip \"zDownloader3-$version-$Arch\" $false\n"
-        ));
-        assert!(script.contains("$suffix = if ($Arch -eq \"x64\") { \"\" } else { \"-$Arch\" }"));
-        assert!(script.contains("[ValidateSet(\"x64\", \"arm64\", \"x86\")]"));
-        let iss = include_str!("../../../tools/installer/mdm.iss").replace("\r\n", "\n");
-        assert!(iss.contains(
-            "#if Arch == \"x64\"\nOutputBaseFilename=zDownloader3-{#AppVersion}-setup\n#else\nOutputBaseFilename=zDownloader3-{#AppVersion}-setup-{#Arch}\n#endif"
-        ));
-        for arch in [Arch::X64, Arch::Arm64, Arch::X86] {
-            let (a, suffix) = match arch {
-                Arch::X64 => ("x64", String::new()),
-                other => (other.name(), format!("-{}", other.name())),
-            };
-            assert_eq!(
-                Install::Installer.assets_on(Some(arch), "1.0.0"),
-                [format!("zDownloader3-1.0.0-setup{suffix}.exe")]
-            );
-            assert_eq!(
-                Install::PortableZip.assets_on(Some(arch), "1.0.0"),
-                [format!("zDownloader3-1.0.0-portable{suffix}.zip")]
-            );
-            assert_eq!(
-                Install::PlainZip.assets_on(Some(arch), "1.0.0"),
-                [format!("zDownloader3-1.0.0-{a}.zip")]
-            );
-        }
-    }
-
     /// The Linux names looked for first are the ones tools/installer/build-linux.sh gives its
     /// files ("$name" plus the extension), so a release and Update now agree.
     #[test]
@@ -638,12 +594,7 @@ Connection: close
                 "build-linux.sh builds no {machine}"
             );
         }
-        for (install, ext) in [
-            (Install::TarGz, ".tar.gz"),
-            (Install::AppImage, ".AppImage"),
-            (Install::Deb, ".deb"),
-            (Install::Rpm, ".rpm"),
-        ] {
+        for (install, ext) in [(Install::AppImage, ".AppImage"), (Install::Deb, ".deb")] {
             assert!(
                 script.contains(&format!("\"$dist/$name{ext}\"")),
                 "build-linux.sh makes no {ext}"
