@@ -17,8 +17,12 @@ $out = Join-Path (Join-Path $root "target") "extension"
 $cargo = Get-Content (Join-Path $root "Cargo.toml") -Raw
 $version = [regex]::Match($cargo, '(?m)^version\s*=\s*"([^"]+)"').Groups[1].Value
 if (-not $version) { throw "no version in Cargo.toml" }
-# The stores take one to four dot-separated numbers only (no "-rc.1").
-if ($version -notmatch '^\d+(\.\d+){0,3}$') { throw "version ${version}: browsers take only numbers like 1.2.3" }
+# The stores take one to four dot-separated numbers only (no "-rc.1"). A pre-release suffix
+# (-alpha.N etc.) is taken for the app to be tagged and released as a pre-release; the browser
+# manifest carries the numeric core and nothing else (Firefox refuses "-alpha." digits).
+$store_version = ($version -split '-')[0]
+if ($store_version -notmatch '^\d+(\.\d+){0,3}$') { throw "version ${version}: browsers take only numbers like 1.2.3" }
+$version = $store_version
 foreach ($kind in "chromium", "firefox", "safari") {
   $dir = Join-Path $out $kind
   if (Test-Path $dir) { Remove-Item -LiteralPath $dir -Recurse -Force }
