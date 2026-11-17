@@ -2359,7 +2359,7 @@ const CASES = {
     const log = path.join(data, "logs", "mdm.log");
     const from = fs.existsSync(log) ? fs.statSync(log).size : 0;
     const label = "Download all links with zDownloader³";
-    const help = "https://misterdownloadmanager.com/help/browser-help.html";
+    const help = "https://nihil-vt.github.io/ZDownloader3/website/docs.html";
     // The tabs open now (the help page's, when the extension explains a failure).
     const tabs = () =>
       t.kind === "chromium"

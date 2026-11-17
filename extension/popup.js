@@ -3,7 +3,7 @@
 // site to the browser, opening the app or its Options, and the media the tab loaded (#38), each
 // to download. background.js does the work.
 const ext = globalThis.browser ?? globalThis.chrome;
-const HELP = "https://misterdownloadmanager.com/help/browser-help.html";
+const HELP = "https://nihil-vt.github.io/ZDownloader3/website/docs.html";
 // The creator's GitHub Sponsors page (the app's Help → Support MDM): a plain link, in a new tab.
 const SPONSORS = "https://github.com/sponsors/anefzaoui";
 const t = (key, ...subs) => ext.i18n.getMessage(key, subs) || key;
