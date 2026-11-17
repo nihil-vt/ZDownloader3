@@ -403,11 +403,11 @@ jobs:
       pull-requests: read
       id-token: write # build provenance: signs the attestation (Sigstore, keyless)
       attestations: write # build provenance: stores it on the repository
-    # x64 Windows is checked below by its files: the Windows job's result says failure when any
-    # processor's build failed, and only x64's must be there.
+    # Runs when the Linux build is there (extension too); Windows and macOS not required —
+    # x64 Windows' files, if missing, are noted in the release instead of blocking it.
     if: >-
-      always() && startsWith(github.ref, 'refs/tags/') && needs.windows.result != 'cancelled' &&
-      needs.extension.result == 'success'
+      always() && startsWith(github.ref, 'refs/tags/') && needs.extension.result == 'success' &&
+      needs.linux.result == 'success'
     needs: [windows, extension, linux, macos]
     runs-on: ubuntu-latest
     steps:
@@ -435,10 +435,17 @@ jobs:
           IS_PRERELEASE: ${{ contains(github.ref_name, '-alpha') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-rc') }}
         shell: pwsh
         run: |
-          # The release waits for x64 Windows (the names every copy before had): its files or none.
+          # x64 Windows' files are preferred for this release, but a Linux-only release is not blocked
+          # by them missing (the fork ships unsigned alphas; Windows and macOS are fixed in later builds).
           $v = "${{ github.ref_name }}".TrimStart("v")
+          $winMissing = $false
           foreach ($f in "setup.exe", "portable.zip", "x64.zip") {
-            if (-not (Test-Path "dist/zDownloader³-$v-$f")) { throw "x64 Windows' $f isn't there: no release" }
+            if (-not (Test-Path "dist/zDownloader³-$v-$f")) { $winMissing = $true }
+          }
+          if ($winMissing) {
+            Write-Warning "No Windows files this time (Linux-only pre-release); Windows builds come later"
+          } else {
+            Write-Warning "Windows files are there"
           }
           # One SHA256SUMS.txt for every file (each build wrote its own).
           Remove-Item dist/SHA256SUMS*.txt -ErrorAction SilentlyContinue
@@ -495,14 +502,23 @@ jobs:
           } else {
             $releaseFlags += "--latest"
           }
+          $releaseExists = (gh release view "${{ github.ref_name }}" 2>$null) -ne $null
           if ($m.Success -and $m.Groups[1].Value.Trim()) {
             # Links into the repository (docs/x.md) would resolve against the release's page:
             # point them at the tagged files.
             $notes = $m.Groups[1].Value.Trim() -replace '\]\((?![a-z]+:|#)([^)\s]+)\)', '](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/$1)'
             Set-Content -Encoding utf8 notes.md ($invite + $notes + $thanks)
-            gh release create "${{ github.ref_name }}" @releaseFlags --notes-file notes.md $all
+            if ($releaseExists) {
+              gh release upload --clobber "${{ github.ref_name }}" $all
+            } else {
+              gh release create "${{ github.ref_name }}" @releaseFlags --notes-file notes.md $all
+            }
           } else {
             Set-Content -Encoding utf8 notes.md ($invite + $thanks.Trim())
-            gh release create "${{ github.ref_name }}" @releaseFlags --generate-notes --title $title $all
+            if ($releaseExists) {
+              gh release upload --clobber "${{ github.ref_name }}" $all
+            } else {
+              gh release create "${{ github.ref_name }}" @releaseFlags --generate-notes --title $title $all
+            }
           }
           Write-Warning "Fork: no website to rebuild (the fork publishes no site workflow)."
