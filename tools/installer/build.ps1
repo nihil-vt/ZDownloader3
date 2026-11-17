@@ -1,10 +1,10 @@
 # Builds the Windows release for one processor into target/dist/ (-Arch x64, the default; arm64;
 # x86). The x64 files keep the names they had before there were others, so every copy installed
 # before finds its update (crates/tools/src/update.rs Install::assets_on):
-#   zDownloader³-<version>-setup.exe        the installer (tools/installer/mdm.iss)
-#   zDownloader³-<version>-portable.zip     the same programs with a `data` folder (portable
+#   zDownloader3-<version>-setup.exe        the installer (tools/installer/mdm.iss)
+#   zDownloader3-<version>-portable.zip     the same programs with a `data` folder (portable
 #                                                    mode: settings beside the exe, no registry)
-#   zDownloader³-<version>-x64.zip          the same programs, data in %APPDATA% as installed
+#   zDownloader3-<version>-x64.zip          the same programs, data in %APPDATA% as installed
 #   ...-setup-arm64.exe, ...-portable-arm64.zip, ...-arm64.zip   Windows on ARM (-Arch arm64)
 #   ...-setup-x86.exe, ...-portable-x86.zip, ...-x86.zip         32-bit Windows (-Arch x86)
 #   SHA256SUMS.txt
@@ -110,11 +110,11 @@ use the profile instead. Browser integration needs the installer.
   }
 }
 Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
-New-Zip "zDownloader³-$version-portable$suffix" $true
-New-Zip "zDownloader³-$version-$Arch" $false
+New-Zip "zDownloader3-$version-portable$suffix" $true
+New-Zip "zDownloader3-$version-$Arch" $false
 Remove-Item -LiteralPath (Join-Path $dist "stage") -Recurse -Force
 
-$files = Get-ChildItem $dist -File | Where-Object { $_.Name -like "zDownloader³-$version-*" }
+$files = Get-ChildItem $dist -File | Where-Object { $_.Name -like "zDownloader3-$version-*" }
 $files | ForEach-Object { "{0}  {1}" -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower(), $_.Name } |
   Set-Content -Encoding ascii (Join-Path $dist "SHA256SUMS.txt")
 $files | ForEach-Object { "{0}  {1:N1} MB" -f $_.Name, ($_.Length / 1MB) }

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Builds the macOS release into target/dist/ (experimental: built by CI, not yet tested by us):
-#   zDownloader³-<version>-macos-arm64-experimental.dmg   Apple Silicon
-#   zDownloader³-<version>-macos-x86_64-experimental.dmg  Intel
+#   zDownloader3-<version>-macos-arm64-experimental.dmg   Apple Silicon
+#   zDownloader3-<version>-macos-x86_64-experimental.dmg  Intel
 # One app per processor, each half the size of a universal one (#25), ad-hoc signed: without an
 # Apple Developer ID, macOS asks before the first start (right-click the app -> Open).
 # The app carries the Safari extension (tools/safari). Safari loads an ad-hoc signed one only with
@@ -54,7 +54,7 @@ dmgs=()
 for pair in "${targets[@]}"; do
   t="${pair%%:*}"
   arch="${pair##*:}"
-  name="zDownloader³-$version-macos-$arch-experimental"
+  name="zDownloader3-$version-macos-$arch-experimental"
   app="$stage/$arch/dmg/zDownloader³.app"
   mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
 

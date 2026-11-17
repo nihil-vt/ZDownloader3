@@ -12,9 +12,9 @@ Every version is on the [Releases](https://github.com/anefzaoui/misterdownloadma
 
 | File | What it is |
 |---|---|
-| `zDownloader³-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
-| `zDownloader³-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
-| `zDownloader³-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\zdownloader3`, like an installed copy. |
+| `zDownloader3-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
+| `zDownloader3-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
+| `zDownloader3-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\zdownloader3`, like an installed copy. |
 
 These three are for 64-bit Windows on an Intel or AMD processor (x64), the usual PC. From the
 version after 0.5.2, each comes for two more kinds of PC too, with the processor in its name:
@@ -137,7 +137,7 @@ Browser integration is set up by MDM itself at each start (the browsers installe
 
 ## Install with the setup
 
-1. Run `zDownloader³-<version>-setup.exe`.
+1. Run `zDownloader3-<version>-setup.exe`.
 2. Choose the language. Windows' display language is already selected. The setup offers every language MDM has, and MDM starts in the one you pick.
 3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\zDownloader³`. For everyone goes to `Program Files`.
 4. Pick what the setup should do:

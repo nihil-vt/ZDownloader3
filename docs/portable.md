@@ -6,7 +6,7 @@ The portable copy of MDM runs from any folder, including a USB stick, without in
 
 ## How it works
 
-`zDownloader³-<version>-portable.zip` holds the same programs as the setup, plus a folder named `data` next to `zdownloader3.exe`. When that folder is there and MDM can write to it, MDM is in portable mode:
+`zDownloader3-<version>-portable.zip` holds the same programs as the setup, plus a folder named `data` next to `zdownloader3.exe`. When that folder is there and MDM can write to it, MDM is in portable mode:
 
 - The download list, settings, helpers for video and galleries (yt-dlp, ffmpeg, gallery-dl), torrent data, your [theme files](themes.md) (`data\themes`) and the logs are kept in `data`, not in your Windows profile.
 - Passwords (Sites Logins, the proxy's, debrid accounts) stay in `data` too, instead of in Windows Credential Manager. They are sealed for your Windows account: on another computer, or another account, type them again (and sign in to a debrid account again).

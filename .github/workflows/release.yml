@@ -219,12 +219,12 @@ jobs:
           node tools/extension/check-pack.mjs
           $v = [regex]::Match((Get-Content Cargo.toml -Raw), '(?m)^version\s*=\s*"([^"]+)"').Groups[1].Value
           New-Item -ItemType Directory -Force target/dist | Out-Null
-          Copy-Item target/extension/mdm-chromium.zip "target/dist/zDownloader³-$v-extension-chromium.zip"
-          Copy-Item target/extension/mdm-firefox.xpi "target/dist/zDownloader³-$v-extension-firefox.xpi"
+          Copy-Item target/extension/mdm-chromium.zip "target/dist/zDownloader3-$v-extension-chromium.zip"
+          Copy-Item target/extension/mdm-firefox.xpi "target/dist/zDownloader3-$v-extension-firefox.xpi"
           # For the Chrome Web Store (the next step, or its dashboard by hand): kept with the
           # build, not the release.
           New-Item -ItemType Directory -Force target/store | Out-Null
-          Copy-Item target/extension/mdm-chrome-store.zip "target/store/zDownloader³-$v-chrome-web-store.zip"
+          Copy-Item target/extension/mdm-chrome-store.zip "target/store/zDownloader3-$v-chrome-web-store.zip"
 
       # The stores' tools, at the exact versions and hashes of tools/release/package-lock.json.
       - name: Store tools
@@ -426,7 +426,7 @@ jobs:
       # (Windows, Linux, macOS and the extension: everything the release ships but the checksums.)
       - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
-          subject-path: dist/zDownloader³-*
+          subject-path: dist/zDownloader3-*
 
       - name: Publish release
         env:
@@ -440,7 +440,7 @@ jobs:
           $v = "${{ github.ref_name }}".TrimStart("v")
           $winMissing = $false
           foreach ($f in "setup.exe", "portable.zip", "x64.zip") {
-            if (-not (Test-Path "dist/zDownloader³-$v-$f")) { $winMissing = $true }
+            if (-not (Test-Path "dist/zDownloader3-$v-$f")) { $winMissing = $true }
           }
           if ($winMissing) {
             Write-Warning "No Windows files this time (Linux-only pre-release); Windows builds come later"

@@ -60,8 +60,8 @@ release() { # release <name> <kind targz|file> <asset> [mkrel args]
     --kind "$kind" --program "$bin/zdownloader3" --program-name zdownloader3 "$@" |
     sed 's/^/  /' | tee -a "$work/log.txt"
 }
-TGZ=zDownloader³-9.9.9-linux-x86_64.tar.gz
-APP=zDownloader³-9.9.9-linux-x86_64.AppImage
+TGZ=zDownloader3-9.9.9-linux-x86_64.tar.gz
+APP=zDownloader3-9.9.9-linux-x86_64.AppImage
 log "making the fake releases (throwaway keys in $keys)"
 release targz-good targz $TGZ
 release targz-bad-hash targz $TGZ --sums bad

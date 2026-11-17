@@ -65,9 +65,9 @@ UninstallDisplayName={#AppName}
 OutputDir={#Root}\target\dist
 ; x64's keeps the name it had before there were others: MDM's Update now looks for it by name.
 #if Arch == "x64"
-OutputBaseFilename=zDownloader³-{#AppVersion}-setup
+OutputBaseFilename=zDownloader3-{#AppVersion}-setup
 #else
-OutputBaseFilename=zDownloader³-{#AppVersion}-setup-{#Arch}
+OutputBaseFilename=zDownloader3-{#AppVersion}-setup-{#Arch}
 #endif
 ; A 64 MB dictionary (#25): an 8 MB one (lzma2/max) only finds what repeats close by in the
 ; solid archive. A few MB smaller; building needs about 750 MB of memory, installing 64 MB.
@@ -111,7 +111,7 @@ lang_en.KeepData=Also delete your download list and settings?%n%nYour downloaded
 ; languages show Setup's own message, that this Windows isn't supported.
 #if Arch == "x86"
 [Messages]
-lang_en.WindowsVersionNotSupported=This is the setup for 32-bit Windows, and this computer runs 64-bit Windows. Download zDownloader³-{#AppVersion}-setup.exe instead (or zDownloader³-{#AppVersion}-setup-arm64.exe on a Windows on ARM PC).
+lang_en.WindowsVersionNotSupported=This is the setup for 32-bit Windows, and this computer runs 64-bit Windows. Download zDownloader3-{#AppVersion}-setup.exe instead (or zDownloader3-{#AppVersion}-setup-arm64.exe on a Windows on ARM PC).
 #endif
 
 [Tasks]

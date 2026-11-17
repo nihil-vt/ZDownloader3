@@ -2,11 +2,11 @@
 # Builds the Linux release for this machine's processor into target/dist/ (up to 0.2.4, each
 # name ended in "-experimental"), <arch> being x86_64 on a 64-bit Intel or AMD machine and arm64
 # on a 64-bit ARM one:
-#   zDownloader³-<version>-linux-<arch>.AppImage        runs on most distros
-#   zDownloader³-<version>-linux-<arch>.AppImage.zsync  its updates (AppImage tools)
-#   zDownloader³-<version>-linux-<arch>.tar.gz          the plain programs
-#   zDownloader³-<version>-linux-<arch>.deb             Debian, Ubuntu, Mint
-#   zDownloader³-<version>-linux-<arch>.rpm             Fedora, RHEL, openSUSE
+#   zDownloader3-<version>-linux-<arch>.AppImage        runs on most distros
+#   zDownloader3-<version>-linux-<arch>.AppImage.zsync  its updates (AppImage tools)
+#   zDownloader3-<version>-linux-<arch>.tar.gz          the plain programs
+#   zDownloader3-<version>-linux-<arch>.deb             Debian, Ubuntu, Mint
+#   zDownloader3-<version>-linux-<arch>.rpm             Fedora, RHEL, openSUSE
 # Update now (crates/tools/src/update.rs), the website (tools/website/build.py) and the docs
 # look for these names, and still for the "-experimental" ones of older releases.
 # Needs: cargo, pwsh (the extension), python3 with Pillow (the icon), dpkg-deb, rpmbuild, network access (appimagetool is fetched),
@@ -26,7 +26,7 @@ case "$(uname -m)" in
   aarch64) arch=arm64 deb_arch=arm64 pkg_arch=aarch64 ;;
   *) echo "no Linux release is built for $(uname -m)" >&2; exit 1 ;;
 esac
-name="zDownloader³-$version-linux-$arch"
+name="zDownloader3-$version-linux-$arch"
 programs=(zdownloader3 zdownloader3-nmhost zdownloader3-cli zdownloader3-mcp)
 
 if [ "${1:-}" != "--no-build" ]; then

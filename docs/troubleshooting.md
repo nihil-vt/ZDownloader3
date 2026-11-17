@@ -105,7 +105,7 @@ A few antivirus programs flag new installers just because they have rarely seen 
 To check that your copy is the real one:
 
 1. Download MDM only from [the website](https://misterdownloadmanager.com) or [GitHub Releases](https://github.com/anefzaoui/misterdownloadmanager/releases).
-2. Get your file's SHA-256. On Windows, run `certutil -hashfile "zDownloader³-0.5.0-setup.exe" SHA256`; on Linux, `sha256sum` and the file's name.
+2. Get your file's SHA-256. On Windows, run `certutil -hashfile "zDownloader3-0.5.0-setup.exe" SHA256`; on Linux, `sha256sum` and the file's name.
 3. Compare it with the same file's line in that release's `SHA256SUMS.txt`.
 
 If they match, it is the file we published. Every release is built on GitHub from the [public source code](https://github.com/anefzaoui/misterdownloadmanager), so anyone can read what went into it.
