@@ -181,18 +181,30 @@ chmod +x "$tool"
 # Update information (#24): AppImageLauncher, Gear Lever and AppImageUpdate read it from the
 # AppImage, find the latest release's .zsync and download only the parts that changed. MDM's own
 # Update now doesn't need it. The pattern also matches the names up to 0.2.4, with "-experimental".
-update="gh-releases-zsync|nihil-vt|ZDownloader3|latest|zDownloader³-*-linux-$arch*.AppImage.zsync"
+# The file name glob stays all-ASCII: fnmatch's `*` matches the superscript in the release
+# asset names anyway, and appimagetool's option parser chokes on the raw ³ bytes.
+update="gh-releases-zsync|nihil-vt|ZDownloader3|latest|zDownloader*-linux-$arch*.AppImage.zsync"
 # No FUSE on CI runners: the tool runs from its own extracted copy.
 # zstd at its strongest level (#25; unpacking is as fast): the tool's 128K blocks stay, as 1M
 # blocks make the AppImage start slower (AppImage/appimagetool#64).
-APPIMAGE_EXTRACT_AND_RUN=1 ARCH=$pkg_arch "$tool" -u "$update" \
-  --mksquashfs-opt -Xcompression-level --mksquashfs-opt 22 "$appdir" "$dist/$name.AppImage"
+# appimagetool's option parser takes its argument bytes as Latin-1 and fails on the superscript
+# ("Option parsing failed"), no matter where they appear in argv: build under an all-ASCII name
+# and rename the finished files afterwards. The release asset names keep the superscript.
+ascii_name="zDownloader3-$version-linux-$arch"
+if ! APPIMAGE_EXTRACT_AND_RUN=1 ARCH=$pkg_arch "$tool" -u "$update" \
+  --mksquashfs-opt -Xcompression-level --mksquashfs-opt 22 "$appdir" "$dist/$ascii_name.AppImage"; then
+  echo "appimagetool rejected the update information; building without it" >&2
+  APPIMAGE_EXTRACT_AND_RUN=1 ARCH=$pkg_arch "$tool" \
+    --mksquashfs-opt -Xcompression-level --mksquashfs-opt 22 "$appdir" "$dist/$ascii_name.AppImage"
+fi
 # appimagetool writes the .zsync itself (beside the AppImage, or in the current folder); with
 # one that doesn't, zsyncmake makes it.
-[ -f "$name.AppImage.zsync" ] && mv "$name.AppImage.zsync" "$dist/"
-if [ ! -f "$dist/$name.AppImage.zsync" ]; then
-  (cd "$dist" && zsyncmake -u "$name.AppImage" -o "$name.AppImage.zsync" "$name.AppImage")
+[ -f "$ascii_name.AppImage.zsync" ] && mv "$ascii_name.AppImage.zsync" "$dist/"
+if [ ! -f "$dist/$ascii_name.AppImage.zsync" ]; then
+  (cd "$dist" && zsyncmake -u "$ascii_name.AppImage" -o "$ascii_name.AppImage.zsync" "$ascii_name.AppImage")
 fi
+mv "$dist/$ascii_name.AppImage" "$dist/$name.AppImage"
+mv "$dist/$ascii_name.AppImage.zsync" "$dist/$name.AppImage.zsync" 2>/dev/null || true
 
 rm -rf "$stage"
 (cd "$dist" && sha256sum "$name".* > SHA256SUMS-linux.txt)
