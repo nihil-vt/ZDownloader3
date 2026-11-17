@@ -37,7 +37,7 @@ cargo install --path crates/app  # install
 ```
 
 `cargo` and a C compiler are the only requirements; `tools/installer/build-linux.sh`
-packages `.deb` / `.rpm` / AppImage (see its header for tooling).
+packages `.deb` and the AppImage (see its header for tooling).
 
 ## Documentation
 

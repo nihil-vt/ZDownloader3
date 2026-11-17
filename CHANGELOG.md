@@ -3,6 +3,14 @@
 Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 `.github/workflows/release.yml`).
 
+## [Unreleased]
+
+### Changed
+- **Linux-only builds and releases**: Windows and macOS builds (installer, portable zip, .dmg) and their release artifacts are no longer produced or published. The fork ships `zDownloader3-<version>-linux-x86_64|arm64.{deb,AppImage}` (plus the `.zsync`) and nothing else. Windows/macOS source remains in-tree for now. **docs and website describe Linux-only install**; a new alpha carries the names of the .deb and the AppImage only.
+
+### Removed
+- Windows packaging (`build.ps1`, `mdm.iss`, Inno strings) and macOS packaging (`build-macos.sh`, `tools/safari/**`) deleted. CI and the release workflow build Linux x86_64 + ARM64 only.
+
 ## [Fork 0.5.2-zd3.1] - 2026-11-16
 
 First zDownloader³ fork build. Imports upstream Mister Download Manager and re-identifies it natively Linux-first with a JDownloader2 look.

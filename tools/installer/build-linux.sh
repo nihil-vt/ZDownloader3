@@ -4,12 +4,11 @@
 # on a 64-bit ARM one:
 #   zDownloader3-<version>-linux-<arch>.AppImage        runs on most distros
 #   zDownloader3-<version>-linux-<arch>.AppImage.zsync  its updates (AppImage tools)
-#   zDownloader3-<version>-linux-<arch>.tar.gz          the plain programs
 #   zDownloader3-<version>-linux-<arch>.deb             Debian, Ubuntu, Mint
-#   zDownloader3-<version>-linux-<arch>.rpm             Fedora, RHEL, openSUSE
+#   zDownloader3-<version>-symbols-linux-<arch>.zip     its debug symbols (for crash reports)
 # Update now (crates/tools/src/update.rs), the website (tools/website/build.py) and the docs
 # look for these names, and still for the "-experimental" ones of older releases.
-# Needs: cargo, pwsh (the extension), python3 with Pillow (the icon), dpkg-deb, rpmbuild, network access (appimagetool is fetched),
+# Needs: cargo, pwsh (the extension), python3 with Pillow (the icon), dpkg-deb, network access (appimagetool is fetched),
 # and zsyncmake if the appimagetool fetched doesn't write the .zsync itself.
 # Build on the oldest Ubuntu you want to support: the programs need its glibc or newer.
 #   tools/installer/build-linux.sh [--no-build]
@@ -55,7 +54,7 @@ for p in "${programs[@]}"; do install -m 755 "$bin/$p" "$tree/usr/bin/$p"; done
 python3 "$root/tools/installer/symbols.py" "linux-$arch" "$version" "$dist" "${programs[@]/#/$bin/}"
 for p in "${programs[@]}"; do strip --strip-all "$tree/usr/bin/$p"; done
 # The oldest glibc the programs run on: the newest GLIBC_x.y symbol version they ask for. The
-# .deb and .rpm require it, so a system too old refuses the package instead of installing
+# .deb requires it, so a system too old refuses the package instead of installing
 # programs that can't start ("GLIBC_2.38 not found" on Debian 12 from a build on Ubuntu 24.04).
 glibc=$(for p in "${programs[@]}"; do objdump -T "$tree/usr/bin/$p"; done \
   | grep -o 'GLIBC_[0-9][0-9.]*' | sed 's/GLIBC_//' | sort -V | tail -1)
@@ -85,24 +84,15 @@ StartupWMClass=zdownloader3
 MimeType=x-scheme-handler/magnet;application/x-bittorrent;
 EOF
 
-# tar.gz: the programs, the extension and the licence in one folder.
-plain="$stage/$name"
-mkdir -p "$plain"
-for p in "${programs[@]}"; do cp "$tree/usr/bin/$p" "$plain/"; done
-cp -r "$tree/usr/share/zdownloader3/extension-chromium" "$plain/extension-chromium"
-cp "$tree/usr/share/zdownloader3/mdm-firefox.xpi" "$plain/"
-cp "$root/LICENSE" "$root/ATTRIBUTION.md" "$plain/"
-tar -C "$stage" -czf "$dist/$name.tar.gz" "$name"
-
-# .deb. Its dependencies, and the .rpm's: the libraries the window loads at run time. Without
+# .deb. Its dependencies: the libraries the window loads at run time. Without
 # libxkbcommon-x11 (winit's keyboard under X11, and XWayland, MDM's default in a Wayland session)
 # the window panics at start; EGL draws Wayland windows; without the CA certificates no download
 # starts, HTTP ones too ("No CA certificates were loaded from the system"). GTK pulls in the rest.
-# The browsers' host manifests for everyone (#266), in the .deb and .rpm only: each folder the
+# The browsers' host manifests for everyone (#266), in the .deb only: each folder the
 # browsers read them from (/etc/opt/chrome, /etc/chromium, /etc/opt/edge, /usr/lib/mozilla and
 # /usr/lib64/mozilla), naming /usr/bin/zdownloader3-nmhost. The package owns them, so
 # uninstalling it removes them (not conffiles: `apt remove` takes them too), and MDM writes none
-# in the home folder for a browser that reads them. The AppImage and the tar.gz register per user.
+# in the home folder for a browser that reads them. The AppImage registers per user.
 system="$stage/system"
 "$tree/usr/bin/zdownloader3-nmhost" --package-manifests "$system"
 deb="$stage/deb"
@@ -125,49 +115,6 @@ Description: Download manager
  browser, and downloads videos and torrents.
 EOF
 dpkg-deb --root-owner-group --build "$deb" "$dist/$name.deb"
-
-# .rpm, from the same tree (nothing is compiled by rpmbuild).
-# rpmbuild refuses a '-' in Version ("Illegal char '-'"): the pre-release suffix rides in
-# Release as 0.<suffix>.1 so 0.6.0-alpha.3 becomes Version: 0.6.0, Release: 0.alpha.3.1.
-rpm_version="${version%%-*}"
-case "$version" in
-  *-*) rpm_release="0.$(echo "${version#*-}" | sed 's/[^a-zA-Z0-9]/./g' | sed 's/^\.*//;s/\.*$//').1" ;;
-  *)   rpm_release="1" ;;
-esac
-rpm="$stage/rpm"
-mkdir -p "$rpm"/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-cat > "$rpm/SPECS/mdm.spec" <<EOF
-Name: zdownloader3
-Version: $rpm_version
-Release: $rpm_release
-Summary: Download manager
-License: GPL-3.0-or-later
-URL: https://nihil-vt.github.io/ZDownloader3/
-Requires: glibc >= $glibc, gtk3, mesa-libGL, mesa-libEGL, libxkbcommon, libxkbcommon-x11, ca-certificates
-AutoReqProv: no
-
-%description
-Speeds up downloads with several connections at once, resumes them, catches them from the
-browser, and downloads videos and torrents.
-
-%install
-cp -a "$tree/." %{buildroot}/
-cp -a "$system/." %{buildroot}/
-
-%files
-/usr/bin/zdownloader3
-/usr/bin/zdownloader3-nmhost
-/usr/bin/zdownloader3-cli
-/usr/bin/zdownloader3-mcp
-/usr/share/applications/zdownloader3.desktop
-/usr/share/icons/hicolor/256x256/apps/zdownloader3.png
-/usr/share/zdownloader3
-/usr/share/doc/zdownloader3
-$(cd "$system" && find . -mindepth 1 -type d | sed 's|^\.||' | grep -Ev '^/(etc|etc/opt|usr|usr/lib|usr/lib64)$' | sort | sed 's|^|%dir |')
-$(cd "$system" && find . -type f | sed 's|^\.||' | sort)
-EOF
-rpmbuild --define "_topdir $rpm" --define "_build_id_links none" -bb "$rpm/SPECS/mdm.spec"
-cp "$rpm"/RPMS/$pkg_arch/*.rpm "$dist/$name.rpm"
 
 # AppImage: the same tree as an AppDir.
 appdir="$stage/AppDir"

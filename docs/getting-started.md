@@ -2,57 +2,24 @@
 
 [← Back to docs index](README.md)
 
-MDM runs on Windows 10 and Windows 11 (x64, ARM64 and 32-bit), and on 64-bit Linux (x86-64 and
-ARM64): see [On Linux](#on-linux). Builds for macOS are new and still experimental: see
-[On a Mac](#on-a-mac).
+MDM runs on 64-bit Linux (x86-64 and ARM64), with a desktop session.
 
 ## Choose a download
 
-Every version is on the [Releases](https://github.com/anefzaoui/misterdownloadmanager/releases) page. For Windows there are three files:
+Every version is on the [Releases](https://github.com/nihil-vt/ZDownloader3/releases) page. Pick one of these:
 
 | File | What it is |
 |---|---|
-| `zDownloader3-<version>-setup.exe` | The installer. Pick this one unless you have a reason not to. It can set up browser integration and open `.torrent` files and magnet links with MDM. |
-| `zDownloader3-<version>-portable.zip` | A portable copy. The download list and settings stay in a `data` folder next to the program, and nothing is written to the registry. Browser integration needs the installer. See [Portable mode](portable.md). |
-| `zDownloader3-<version>-x64.zip` | The same programs without an installer. It keeps its data in `%APPDATA%\zdownloader3`, like an installed copy. |
+| `zDownloader3-<version>-linux-x86_64.deb` | For Ubuntu, Debian, Mint and Pop!_OS: `sudo apt install ./<file>.deb`. It brings the libraries MDM needs. |
+| `zDownloader3-<version>-linux-x86_64.AppImage` | Runs on most distributions: make it executable (`chmod +x`) and run it. It updates itself in place (**Help → Check for updates**). |
+| `zDownloader3-<version>-linux-arm64.deb` | The `.deb` for 64-bit ARM. |
+| `zDownloader3-<version>-linux-arm64.AppImage` | The AppImage for 64-bit ARM. |
 
-These three are for 64-bit Windows on an Intel or AMD processor (x64), the usual PC. From the
-version after 0.5.2, each comes for two more kinds of PC too, with the processor in its name:
-
-| Files | For |
-|---|---|
-| `...-setup-arm64.exe`, `...-portable-arm64.zip`, `...-arm64.zip` | **Windows on ARM** (PCs with a Snapdragon or another ARM processor). On Windows 11 the x64 files run there too, translated by Windows, more slowly. The ARM64 setup installed over the x64 one replaces it; your list and settings stay, as they are kept in your profile, not with the program. |
-| `...-setup-x86.exe`, `...-portable-x86.zip`, `...-x86.zip` | **32-bit Windows 10.** Not sure which you have? **Settings → System → About → System type** says it. MDM can't download ffmpeg for you there (none is built for 32-bit Windows that MDM can check): to get the best video qualities, choose an ffmpeg of your own in **Helpers...** ([Video](video.md#yt-dlp-and-ffmpeg)). |
+In the early pre-release versions, the files' names may carry an extra `-experimental` (as in
+`...-linux-x86_64-experimental.deb`); newer ones don't. On ARM, MDM doesn't download gallery-dl itself
+(its author builds none for it): install it with your system's packages or pip.
 
 **Help → Check for updates** updates each copy to the files for its own processor.
-
-### With WinGet
-
-MDM is also in [WinGet](https://learn.microsoft.com/windows/package-manager/winget/), Windows' package manager. In a terminal, the first line installs MDM and the second updates it to the latest version:
-
-```
-winget install AhmedNefzaoui.zDownloader³
-winget upgrade AhmedNefzaoui.zDownloader³
-```
-
-WinGet downloads the setup and installs MDM without the setup's questions.
-
-### On Linux
-
-MDM runs on 64-bit Linux with a desktop session. It is tested on Ubuntu 24.04, Debian 12 and
-Fedora, with GNOME, KDE Plasma, Xfce and Cinnamon, on X11 and in Wayland sessions. Pick one
-of these files (up to version 0.2.4, their names end in `-experimental`, as in
-`...-linux-x86_64-experimental.deb`). From the version after 0.5.2, each also comes for 64-bit
-ARM computers, with `arm64` in place of `x86_64` (`...-linux-arm64.deb`); they are built and
-tested on GitHub's ARM machines. On ARM, MDM doesn't download gallery-dl itself (its author
-builds none for it): install it with your system's packages or pip.
-
-| File | What it is |
-|---|---|
-| `...-linux-x86_64.deb` | For Ubuntu, Debian, Mint and Pop!_OS: `sudo apt install ./<file>.deb`. It brings the libraries MDM needs. |
-| `...-linux-x86_64.rpm` | For Fedora, openSUSE and RHEL: `sudo dnf install ./<file>.rpm`. It brings the libraries MDM needs. |
-| `...-linux-x86_64.AppImage` | Runs on most distributions: make it executable (`chmod +x`) and run it. It updates itself in place (**Help → Check for updates**). |
-| `...-linux-x86_64.tar.gz` | The plain programs, for any distribution. |
 
 ![MDM's main window on Ubuntu 24.04's GNOME desktop: the categories and a list of downloads, each with the desktop's icon for its type](images/main-linux.webp)
 *MDM on Ubuntu's GNOME desktop, with the desktop's own file icons.*
@@ -67,7 +34,7 @@ readers (Orca) don't read MDM's windows; browsers installed as a Flatpak can't r
 from Flathub may, through the desktop as the Snap does, but that isn't checked yet); and **View →
 Draw with → Vulkan** is a choice, OpenGL stays the default.
 
-In a Wayland session, MDM chooses its windows' system as it starts, the same way however it was started (its menu entry, the browser's helper, the session's autostart). Its windows run through XWayland where X11 programs look right: only X11 lets MDM open its menus and drop-down lists right under what you clicked (on Wayland they open where the compositor puts new windows, often the middle of the screen) and hide its window in the notification area. That is GNOME and KDE Plasma, which tell X11 programs the screen's scale, and any desktop whose screens aren't scaled. On a scaled screen where nothing tells X11 programs the scale (Hyprland, labwc, sway and other wlroots compositors), the compositor would scale MDM's windows up, blurry, so MDM uses Wayland's own windows there. **View → Window system** picks **X11 (XWayland)** or **Wayland** instead, from the next start, for every way MDM starts (**Automatic** goes back to MDM's choice); `MDM_WAYLAND=1` or `MDM_WAYLAND=0` decides for one start. If the system lacks a library X11 windows need (such as libxkbcommon-x11, which the .deb and .rpm bring but the AppImage and the tar.gz can't), MDM opens on Wayland instead; with no window system it can use, it names what's missing and the command that installs it.
+In a Wayland session, MDM chooses its windows' system as it starts, the same way however it was started (its menu entry, the browser's helper, the session's autostart). Its windows run through XWayland where X11 programs look right: only X11 lets MDM open its menus and drop-down lists right under what you clicked (on Wayland they open where the compositor puts new windows, often the middle of the screen) and hide its window in the notification area. That is GNOME and KDE Plasma, which tell X11 programs the screen's scale, and any desktop whose screens aren't scaled. On a scaled screen where nothing tells X11 programs the scale (Hyprland, labwc, sway and other wlroots compositors), the compositor would scale MDM's windows up, blurry, so MDM uses Wayland's own windows there. **View → Window system** picks **X11 (XWayland)** or **Wayland** instead, from the next start, for every way MDM starts (**Automatic** goes back to MDM's choice); `MDM_WAYLAND=1` or `MDM_WAYLAND=0` decides for one start. If the system lacks a library X11 windows need (such as libxkbcommon-x11, which the .deb brings but the AppImage can't), MDM opens on Wayland instead; with no window system it can use, it names what's missing and the command that installs it.
 
 The windows are the ones described in this help, with the desktop's fonts, file icons and title
 bars:
@@ -98,14 +65,14 @@ And on the other desktops it was checked on:
 
 #### Uninstall on Linux {#uninstall-linux}
 
-`sudo apt remove zdownloader3` (or `sudo dnf remove zdownloader3`) removes the
-programs, and the small files that tell your browsers where MDM's helper is: the .deb and .rpm
-install those for everyone (in `/etc` and `/usr/lib`), for Chrome, Chromium, Edge, Brave, Vivaldi,
-Helium and Firefox (the Snap too), so MDM doesn't write them in your home folder. For the AppImage
-or the tar.gz, delete the file or the folder.
+`sudo apt remove zdownloader3` removes the
+programs, and the small files that tell your browsers where MDM's helper is: the .deb
+installs those for everyone (in `/etc` and `/usr/lib`), for Chrome, Chromium, Edge, Brave, Vivaldi,
+Helium and Firefox (the Snap too), so MDM doesn't write them in your home folder. For the AppImage,
+delete the file.
 
 What MDM keeps in your home folder stays, as with any package: your list and settings
-(`~/.local/share/zdownloader3`), the AppImage's and the tar.gz's browser files, and
+(`~/.local/share/zdownloader3`), the AppImage's browser files, and
 those of the browsers that read them only there (Opera, Helium, Thorium, and Firefox's forks:
 Zen, LibreWolf, Floorp, Waterfox). A package can't remove those: it never touches
 home folders. Without MDM they lead nowhere, so the extension says it can't reach MDM. To remove
@@ -122,50 +89,9 @@ Already uninstalled? This removes the same files:
 find ~/.mozilla ~/.librewolf ~/.config -name com.zdownloader3.host.json -delete 2>/dev/null
 ```
 
-### On a Mac
-
-The macOS builds are fresh and still experimental: we haven't tried them on a Mac ourselves yet,
-so you'd be among the first. Please
-[tell us how it went](https://github.com/anefzaoui/misterdownloadmanager/issues/new/choose), good or bad.
-
-| File | What it is |
-|---|---|
-| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag zDownloader³ to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
-| `...-macos-x86_64-experimental.dmg` | The same, for a Mac with an Intel processor (About This Mac shows a *Processor*). |
-
-Browser integration is set up by MDM itself at each start (the browsers installed then are found); add the extension as in [Browser integration](browser-integration.md).
-
-## Install with the setup
-
-1. Run `zDownloader3-<version>-setup.exe`.
-2. Choose the language. Windows' display language is already selected. The setup offers every language MDM has, and MDM starts in the one you pick.
-3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\zDownloader³`. For everyone goes to `Program Files`.
-4. Pick what the setup should do:
-   - **Set up browser integration (Chrome, Edge, Brave, Firefox)**
-   - **Open .torrent files and magnet links with zDownloader³**
-   - **Start zDownloader³ when Windows starts**
-   - **Create a desktop shortcut** (off unless you tick it)
-5. Click **Install**, then **Finish** to start MDM.
-
-If MDM is already running, the setup asks it to save and close first. To update, use **Help → Check for updates → Update now**, or run the setup of the new version (or update with [WinGet](#with-winget)); your list and settings stay.
-
-Browser integration needs one more step in each browser: adding the extension. In Firefox, click **Add to Firefox** on [its page on addons.mozilla.org](https://addons.mozilla.org/firefox/addon/mister-download-manager/); in Chrome, Edge, Brave, Opera and Vivaldi, **Add to Chrome** on [its page in the Chrome Web Store](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp). [Browser integration](browser-integration.md) shows how.
-
-### Uninstall
-
-Uninstall MDM from Windows **Settings → Apps**. The uninstaller asks whether to delete your download list and settings too. Your downloaded files are never touched.
-
-## Use a zip copy
-
-1. Unzip the file to a folder you can write to (not straight into `Program Files`).
-2. Run `zdownloader3.exe`.
-
-The zips hold the same programs as the setup: the app, `zdownloader3-cli.exe` (downloads from the command line; see [Command line and automation](command-line.md)) and the `extension` folder.
-
 ## First start and the language
 
-- **Installed with the setup:** MDM starts in the language you chose in the setup.
-- **Otherwise:** MDM shows the list of languages, each with its flag and its own name. Pick yours.
+- MDM shows the list of languages at first start, each with its flag and its own name. Pick yours.
 
 You can change it at any time in **View → Language**. More in [Languages](languages.md).
 

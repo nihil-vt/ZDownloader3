@@ -5,9 +5,13 @@ requests are all welcome.
 
 ## Getting set up
 
-You need Windows 10 or 11 and Rust stable 1.98 or later (the MSVC toolchain), and CMake, LLVM
-and NASM for BoringSSL, which the engine's browser-like connection builds from source
-(`winget install Kitware.CMake LLVM.LLVM NASM.NASM`).
+You need Linux (x86-64 or ARM64) and Rust stable 1.98 or later, and CMake, LLVM and NASM for
+BoringSSL, which the engine's browser-like connection builds from source. On Ubuntu 24.04:
+
+```
+sudo apt install libgtk-3-dev libxkbcommon-dev libwayland-dev libgl1-mesa-dev \
+  libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev cmake libclang-dev nasm
+```
 
 ```
 cargo build
@@ -17,8 +21,7 @@ cargo run -p mdm-app
 To try changes without touching your own downloads, give the app a separate data folder:
 
 ```
-set ZD3_DATA_DIR=C:\some\empty\folder
-cargo run -p mdm-app
+ZD3_DATA_DIR=/some/empty/folder cargo run -p mdm-app
 ```
 
 `cargo run -p mdm-labserver -- --faults "rate=2M"` starts a local test server that serves
@@ -47,15 +50,15 @@ Keep changes focused and match the code around them. A few rules hold everywhere
   one, run `python tools/i18n/extract.py`. Data inside a sentence (a file name, an address, a
   size) goes in through `i18n::ltr` or `i18n::isolate`, so it reads right in right-to-left
   languages.
-- **Windows-only calls live in `crates/app/src/win32.rs`**, their Linux and macOS counterparts
-  in `unix.rs`; the rest of the workspace is safe, portable Rust (`unsafe_code = "deny"`).
-  On Windows, `tools\dev\check-cross.ps1` checks that it still builds for Linux and macOS.
+- **Windows/macOS calls live in `crates/app/src/win32.rs`**; the rest of the workspace is
+  safe, portable Rust (`unsafe_code = "deny"`). This fork doesn't build Windows or macOS at
+  this stage, so those modules are untested; Linux CI (`.github/workflows/ci.yml`) is the gate.
 - **Fix causes, not cases**, and keep producers and consumers of shared data (the download list,
   the browser extension's messages, the catalogs) in step.
 
 ## Translations
 
-The interface is in every language Windows 11 offers. The catalogs in [`i18n/`](i18n) were made
+The interface is in every language the catalogs carry. The catalogs in [`i18n/`](i18n) were made
 by machine translation, and each row marked `#, machine` waits for a native speaker:
 
 1. Open `i18n/<code>.tsv` (the codes are in [`i18n/languages.tsv`](i18n/languages.tsv)).

@@ -6,7 +6,7 @@ This is the fork of Mister Download Manager (GPL-3.0). These pages explain each 
 
 ## Start here
 
-- **[Getting started](getting-started.md)** — install MDM (setup, portable or zip on Windows; the packages on Linux; the .dmg on a Mac), choose a language and find your way around the main window.
+- **[Getting started](getting-started.md)** — install MDM (the `.deb` or the `.AppImage`), choose a language and find your way around the main window.
 - **[Your first download](guide-first-download.md)** — a two-minute walk-through from copied link to opened file.
 
 ## Downloading
