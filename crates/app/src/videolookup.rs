@@ -1481,8 +1481,8 @@ mod tests {
         );
         assert!(!notice.link.is_empty());
         assert!(
-            notice.url.starts_with("https://misterdownloadmanager.com/")
-                && notice.url.ends_with("/help/video.html#javascript-runtime"),
+            notice.url.starts_with("https://github.com/nihil-vt/ZDownloader3/")
+                && notice.url.ends_with("/docs/video.md#javascript-runtime"),
             "{}",
             notice.url
         );

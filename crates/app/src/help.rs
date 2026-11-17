@@ -10,10 +10,9 @@ use egui::{pos2, vec2};
 use crate::dialogs::{Outcome, window};
 use crate::winui::{self, ButtonKind, r};
 
-/// The repository: problem reports, releases, source, licences.
-pub const REPO: &str = "https://github.com/anefzaoui/misterdownloadmanager";
-/// The creator's GitHub Sponsors page: Help → Support MDM, About's last line. The website, the
-/// extension's popup and the repository's Sponsor button (.github/FUNDING.yml) point there too.
+/// The repository (the fork): problem reports, releases, source, licences.
+pub const REPO: &str = "https://github.com/nihil-vt/ZDownloader3";
+/// The creator's GitHub Sponsors page: upstream's sponsors. Do not ask forks to add to this.
 pub const SPONSORS: &str = "https://github.com/sponsors/anefzaoui";
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const COMMIT: &str = env!("MDM_COMMIT");
@@ -22,46 +21,23 @@ pub const CHECK_EVERY: i64 = 24 * 3600;
 /// The check at start waits this long (the window, the list and the downloads first).
 pub const CHECK_AFTER_START: std::time::Duration = std::time::Duration::from_secs(5);
 
-/// The official website: the home page and the user guide, docs/*.md made into pages by
-/// tools/website/build.py. GitHub (REPO) keeps what is GitHub's: issues, releases, the source.
-pub const SITE: &str = "https://misterdownloadmanager.com";
+/// The project's help pages and source live in this repository (no website yet).
+pub const SITE: &str = "https://github.com/nihil-vt/ZDownloader3";
 
-/// The website's languages besides English, its folders (`/de/help/`): tools/website/sitei18n.py's
-/// LANGS, which a test keeps this list equal to. English is at the root.
-const SITE_LANGS: &[&str] = &[
-    "es", "pt-br", "pt", "fr", "de", "ru", "ar", "zh-hans", "ja", "ko", "tr", "it", "id", "vi",
-    "hi", "fa", "pl", "uk", "nl", "th", "bn",
-];
-
-/// The website's folder for the interface language `code` (a catalog's code: `de`, `pt-br`,
-/// `es-mx`…): the language itself, else its base language (`es-mx` reads `/es/`, `fr-ca`
-/// `/fr/`), else none, English. `zh-hant` stays English: the site has Simplified Chinese only.
-fn site_lang(code: &str) -> Option<&'static str> {
-    let code = code.to_ascii_lowercase();
-    let base = code.split(['-', '_']).next().unwrap_or_default();
-    SITE_LANGS
-        .iter()
-        .find(|l| **l == code)
-        .or_else(|| SITE_LANGS.iter().find(|l| **l == base))
-        .copied()
-}
-
-/// The website's address of a user guide page in the language `lang` (an interface language
-/// code): `doc` is the page's file in docs/ with an optional section (`"video.md"`,
-/// `"README.md#tutorials"`; the guide's contents are README.md), `""` the home page. The mapping
-/// is build.py's: docs/README.md is /help/, docs/<page>.md /help/<page>.html.
-pub fn page_url(doc: &str, lang: &str) -> String {
+/// The URL of a user guide page (`doc` is the page's file in docs/, e.g. `"video.md"`; sections
+/// pass through with `"#"` in them, e.g. `"README.md#tutorials"`; `""` the fork's home page). The
+/// fork has no website; help opens the raw Markdown file on GitHub, which GitHub renders.
+pub fn page_url(doc: &str, _lang: &str) -> String {
     let (file, anchor) = match doc.split_once('#') {
         Some((file, anchor)) => (file, format!("#{anchor}")),
         None => (doc, String::new()),
     };
-    let path = match file {
-        "" => "/".to_owned(),
-        "README.md" => "/help/".to_owned(),
-        page => format!("/help/{}.html", page.strip_suffix(".md").unwrap_or(page)),
+    let path = if file.is_empty() {
+        String::new()
+    } else {
+        format!("/blob/main/docs/{file}")
     };
-    let folder = site_lang(lang).map(|l| format!("/{l}")).unwrap_or_default();
-    format!("{SITE}{folder}{path}{anchor}")
+    format!("{SITE}{path}{anchor}")
 }
 
 /// Open a page of the user guide on the website, in the interface language when the site has

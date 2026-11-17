@@ -7,8 +7,8 @@ contact_links:
     url: https://github.com/anefzaoui/misterdownloadmanager/discussions/new?category=ideas
     about: Something MDM should do, or do differently. Ideas are talked over and voted on in Discussions.
   - name: Security problem
-    url: https://misterdownloadmanager.com/security.html
+    url: https://nihil-vt.github.io/ZDownloader3/website/security.html
     about: Report it privately, not as an issue.
   - name: Help and questions
-    url: https://misterdownloadmanager.com/help/
+    url: https://nihil-vt.github.io/ZDownloader3/website/help/
     about: The user guide, tutorials and troubleshooting; the FAQ is at misterdownloadmanager.com/faq/.

@@ -2548,7 +2548,8 @@ function videoButton({ stored = {} } = {}) {
   // #852: the app's word on what the look-up lacked, shown with the qualities: its text, and a
   // link to MDM's own help page only (never another address a page could slip in).
   const { noticeOf } = make(["noticeOf"], "{ noticeOf }");
-  const help = "https://nihil-vt.github.io/ZDownloader3/website/de/help/video.html#javascript-runtime";
+  // Help now points at the fork's GitHub-backed pages (it has no website of its own yet).
+  const help = "https://github.com/nihil-vt/ZDownloader3/blob/main/docs/video.md#javascript-runtime";
   const notice = { text: "YouTube needs a JavaScript runtime", link: "How to install one", url: help };
   assert.deepEqual(noticeOf({ ...ready, notice }), notice);
   assert.deepEqual(noticeOf({ state: "failed", reason: "no-choices", notice }), notice);
