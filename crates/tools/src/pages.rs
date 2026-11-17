@@ -56,6 +56,48 @@ pub fn is_video_page(url: &Url) -> bool {
     }
 }
 
+/// Whether `url` is a page yt-dlp lists with `--flat-playlist` (a playlist, a channel's videos):
+/// the video window opens its checklist (every entry chosen, one quality for the batch), instead
+/// of one video. Only addresses whose shape says "one list of videos" are listed — a single
+/// video's own page is not one.
+pub fn is_playlist_page(url: &Url) -> bool {
+    if !matches!(url.scheme(), "http" | "https") {
+        return false;
+    }
+    let Some(host) = url.host_str() else {
+        return false;
+    };
+    let host = host.to_ascii_lowercase();
+    let host = host
+        .strip_prefix("www.")
+        .or_else(|| host.strip_prefix("m."))
+        .unwrap_or(&host);
+    let segs: Vec<&str> = url.path().split('/').filter(|s| !s.is_empty()).collect();
+    let path = url.path();
+    let query = |k: &str| url.query_pairs().any(|(key, v)| key == k && !v.is_empty());
+    match host {
+        "youtube.com" | "music.youtube.com" | "youtube-nocookie.com" => {
+            // A playlist's own page, or a page with a playlist behind it (a video in a playlist),
+            // list yt-dlp's flat list. A channel's / user's / /c/ home, or its videos, too.
+            (path == "/playlist" && query("list"))
+                || query("list")
+                || matches!(
+                    segs.as_slice(),
+                    ["channel", _, ..] | ["c", _, ..] | ["user", _, ..]
+                )
+                || segs.first().is_some_and(|h| h.starts_with('@') && h.len() > 1)
+        }
+        "youtu.be" => query("list"),
+        "vimeo.com" => matches!(
+            segs.as_slice(),
+            ["album", _, ..] | ["showcase", _, ..] | ["user", _, "videos", ..] | ["ondemand", ..]
+        ),
+        "twitch.tv" => matches!(segs.as_slice(), [_, "videos", ..] | [_, "clips", ..]),
+        "soundcloud.com" => matches!(segs.as_slice(), [_, "sets", _, ..]),
+        _ => false,
+    }
+}
+
 /// The address to give yt-dlp for a video page: Dailymotion's embedded player
 /// (`geo.dailymotion.com/player/<player>.html?video=<id>`, what a site embedding it shows) becomes
 /// the video's own page, which is the one that always lists its formats (#359). Any other address
@@ -144,6 +186,42 @@ mod tests {
 
     fn gallery(s: &str) -> bool {
         is_gallery_page(&s.parse().unwrap())
+    }
+
+    fn playlist(s: &str) -> bool {
+        is_playlist_page(&s.parse().unwrap())
+    }
+
+    #[test]
+    fn list_pages_are_recognised() {
+        assert!(playlist("https://www.youtube.com/playlist?list=PL1234567890abcdef"));
+        assert!(playlist("https://m.youtube.com/playlist?list=PL123"));
+        assert!(playlist(
+            "https://music.youtube.com/playlist?list=RDAMVM1234567890"
+        ));
+        // A video whose page carries the list: yt-dlp lists the list (Add URL hands it the
+        // window, which opens its checklist).
+        assert!(playlist("https://www.youtube.com/watch?v=Tg6byXUo8RU&list=RD_1234567"));
+        assert!(playlist("https://youtu.be/Tg6byXUo8RU?list=RD_1234567"));
+        assert!(playlist(
+            "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxxxxxxxxx/videos"
+        ));
+        assert!(playlist("https://www.youtube.com/@SteveHoffmanMusic/videos"));
+        assert!(playlist("https://www.youtube.com/c/SomeChannel/videos"));
+        assert!(playlist("https://www.youtube.com/user/SomeUser/videos"));
+        assert!(playlist("https://vimeo.com/album/123456/video/7890"));
+        assert!(playlist("https://vimeo.com/showcase/654321/video/7890"));
+        assert!(playlist("https://soundcloud.com/artist/sets/the-mix"));
+        assert!(playlist("https://www.twitch.tv/somechannel/videos"));
+        // Not a list: one video, one file, other schemes, a page with no list behind it.
+        assert!(!playlist("https://www.youtube.com/watch?v=Tg6byXUo8RU"));
+        assert!(!playlist("https://youtu.be/Tg6byXUo8RU"));
+        assert!(!playlist("https://www.youtube.com/shorts/Tg6byXUo8RU"));
+        assert!(!playlist("https://vimeo.com/123456789"));
+        assert!(!playlist("https://example.com/watch?v=Tg6byXUo8RU"));
+        assert!(!playlist("ftp://www.youtube.com/playlist?list=PL123"));
+        assert!(!playlist("https://www.youtube.com/channel/"));
+        assert!(!playlist("https://www.youtube.com/@"));
     }
 
     #[test]

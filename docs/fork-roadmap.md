@@ -24,6 +24,7 @@ Legend: ✅ done in fork · 🔄 in progress · 📋 planned · ⚠️ blocked /
 - ✅ Real engine (upstream): segmented HTTP/1.1, resume, per-host limits, speed limiter, checksums, FTP/FTPS, mirrors
 - ✅ aria2 idea set aside — engine kept native
 - ✅ End-to-end happy path verified: `http://127.0.0.1:8123/notes.pdf` → 6 MB → correct category dir, correct bytes
+- ✅ Linkgrabber handles video links: YouTube/Vimeo/… pages (yt-dlp downloads them, one quality for the whole grab), playlist/channel links routed to the video window's entry checklist
 - 📋 Multi-mirror list handling UI (JD2 shows "all mirrors" per download)
 - 📋 Reconnect (router IP change) — low demand; scoped out until a user asks (options → Reconnect analog absent)
 

@@ -194,6 +194,12 @@ pub struct Link {
     known: bool,
     /// A magnet link (#709): a torrent, added once its files are known; never looked up here.
     magnet: bool,
+    /// A video's page (YouTube, Vimeo…): yt-dlp downloads it, not the engine; its quality is
+    /// chosen in the window's footer.
+    video: bool,
+    /// A playlist's or channel's page (#69): the video window lists its entries, one checklist
+    /// for the batch, instead of queuing the page itself.
+    list: bool,
     check: Option<Check>,
     /// Its look-up found a web page (`ProbeInfo::web_page`).
     page: bool,
@@ -234,6 +240,28 @@ fn category_of(magnet: bool, name: &str) -> Category {
         Category::Torrents
     } else {
         Category::of(name)
+    }
+}
+
+/// A short, filesystem-safe stem for a video/list link (shown as its name until yt-dlp renames
+/// the file from the site's title at download time): the id in `v=` or the last path segment.
+fn video_stem(url: &Url) -> String {
+    let from_query = url
+        .query_pairs()
+        .find(|(k, v)| k == "v" && !v.is_empty())
+        .map(|(_, v)| v.into_owned());
+    let last = url
+        .path()
+        .split('/')
+        .filter(|s| !s.is_empty())
+        .next_back()
+        .unwrap_or("")
+        .to_owned();
+    let stem = mdm_engine::naming::sanitize(&from_query.filter(|s| !s.is_empty()).unwrap_or(last));
+    if stem.is_empty() {
+        "video".to_owned()
+    } else {
+        stem
     }
 }
 
@@ -332,6 +360,11 @@ pub struct Grabber {
     categories: u64,
     /// The Packagizer rules (Options → Packagizer), a snapshot; applied at add time and on demand.
     packagizer: Vec<crate::packagizer::Rule>,
+    /// Whether ffmpeg is installed (yt-dlp merges the best video and audio): the qualities
+    /// offered for video links when checked.
+    video_ffmpeg: bool,
+    /// The index into [`crate::playlistdlg::picks`] of the quality chosen for video links.
+    video_pick: usize,
 }
 
 impl Grabber {
@@ -340,6 +373,7 @@ impl Grabber {
         dirs: Vec<(String, String)>,
         hide_pages: bool,
         delete_default: bool,
+        ffmpeg: bool,
     ) -> Self {
         Grabber {
             packages: Vec::new(),
@@ -355,6 +389,8 @@ impl Grabber {
             origins: Default::default(),
             categories: crate::model::categories_changed(),
             packagizer: Vec::new(),
+            video_ffmpeg: ffmpeg,
+            video_pick: crate::playlistdlg::DEFAULT_PICK,
         }
     }
 
@@ -374,7 +410,8 @@ impl Grabber {
             self.links.iter().map(|l| address_key(&l.url)).collect();
         let mut settle = std::collections::BTreeSet::new();
         // First pass: the links themselves, and their origins.
-        let mut batch: Vec<(Imported, Url, bool, String, bool, Origin)> = Vec::new();
+        let mut batch: Vec<(Imported, Url, bool, String, bool, bool, bool, Origin)> =
+            Vec::new();
         for d in found {
             let Ok(url) = Url::parse(&d.url) else {
                 continue;
@@ -383,8 +420,16 @@ impl Grabber {
                 continue;
             }
             let magnet = url.scheme() == "magnet";
+            let video = mdm_tools::pages::is_video_page(&url);
+            let list = mdm_tools::pages::is_playlist_page(&url);
             let name = mdm_engine::naming::sanitize(&if magnet {
                 magnet_name(&url)
+            } else if video || list {
+                format!(
+                    "{}-{}",
+                    if list { "list" } else { "video" },
+                    video_stem(&url)
+                )
             } else {
                 mdm_engine::naming::file_name(None, &url)
             });
@@ -396,7 +441,7 @@ impl Grabber {
             } else {
                 Origin::of(&url, &name, d.referer.as_deref())
             };
-            batch.push((d, url, magnet, name, known, origin));
+            batch.push((d, url, magnet, name, known, video, list, origin));
         }
         // JD2 packs by folder across mirrors: same folder leaf on any host, same file class
         // (archive / media / document / image / disc image / installer), grouped per mirror
@@ -404,8 +449,8 @@ impl Grabber {
         // "Various files".
         let mut by_dir: std::collections::HashMap<(String, String), Vec<usize>> =
             std::collections::HashMap::new();
-        for (i, (_, url, _, name, known, origin)) in batch.iter().enumerate() {
-            if *known || !matches!(origin, Origin::Various) {
+        for (i, (_, url, _, name, known, video, list, origin)) in batch.iter().enumerate() {
+            if *known || *video || *list || !matches!(origin, Origin::Various) {
                 continue;
             }
             let dir = Origin::directory_of(&url);
@@ -424,7 +469,7 @@ impl Grabber {
                 continue;
             }
             for i in members {
-                batch[i].5 = Origin::Folder {
+                batch[i].7 = Origin::Folder {
                     leaf: leaf.clone(),
                     class: class.clone(),
                 };
@@ -432,7 +477,7 @@ impl Grabber {
         }
         // Second pass: the packages are made, the links pushed.
         let before = self.links.len();
-        for (d, url, magnet, name, known, origin) in batch {
+        for (d, url, magnet, name, known, video, list, origin) in batch {
             let pkg = self.package_for(origin);
             // The site's archive password, unless one is typed already.
             if let Some(pw) = d.password.as_deref().filter(|p| !p.is_empty())
@@ -444,13 +489,19 @@ impl Grabber {
                 found: d,
                 url,
                 pkg,
-                category: category_of(magnet, &name),
+                category: if video || list {
+                    Category::Video
+                } else {
+                    category_of(magnet, &name)
+                },
                 name,
                 size: None,
                 state: LinkState::Unchecked,
                 on: !known,
                 known,
                 magnet,
+                video,
+                list,
                 check: None,
                 page: false,
                 read: None,
@@ -774,11 +825,14 @@ impl Grabber {
             }
             let host = l.url.host_str().unwrap_or_default();
             // A link a web page sent (Click'n'Load) is never looked up: the page chose it, and a
-            // look-up is a request the user didn't ask for.
+            // look-up is a request the user didn't ask for. Video pages aren't looked up either
+            // (yt-dlp reads them itself): a probe would find an HTML page with no file in it.
             if l.state != LinkState::Unchecked
                 || l.known
                 || l.found.from_page
                 || l.magnet
+                || l.video
+                || l.list
                 || hosts.iter().filter(|h| **h == host).count() >= CHECKS_PER_HOST
             {
                 continue;
@@ -890,6 +944,20 @@ impl Grabber {
                 l.on = to;
             }
         }
+    }
+
+    /// The quality chosen for the video pages ticked in the window's footer: yt-dlp's `-f`,
+    /// the type its file is made with (yt-dlp may save another), and whether it saves only the
+    /// sound (Music, not Video).
+    pub(crate) fn video_choice(&self) -> (String, &'static str, bool) {
+        crate::playlistdlg::picks(self.video_ffmpeg)
+            .into_iter()
+            .nth(self.video_pick)
+            .map(|p| {
+                let sound_only = p.sound_only();
+                (p.selector, p.ext, sound_only)
+            })
+            .unwrap_or(("bv*+ba/b".into(), "mp4", false))
     }
 
     pub(crate) fn picked(&self) -> Vec<Picked> {
@@ -1021,6 +1089,38 @@ impl Grabber {
 
         self.package_box(ui, o);
 
+        // The quality every video link picked will get, chosen before any is added (yt-dlp's
+        // `-f`; the audio-only picks save to Music, the rest to Video): shown only while a
+        // video link is ticked.
+        let any_video = self
+            .links
+            .iter()
+            .filter(|l| self.shows(l))
+            .any(|l| l.on && l.video);
+        if any_video {
+            // i18n: Link grabber: label before the quality each video link gets (yt-dlp)
+            text(
+                &p,
+                o.x + 11.0,
+                o.y + BUTTONS_Y + 15.0,
+                crate::i18n::mark("Video:"),
+                LIGHT_TEXT(),
+            );
+            let items = crate::playlistdlg::picks(self.video_ffmpeg);
+            let labels: Vec<&str> = items.iter().map(|i| i.label.as_str()).collect();
+            let chosen = self.video_pick.min(labels.len().saturating_sub(1));
+            let w = winui::combo_fit_width(&p, &labels, 80.0, 150.0);
+            if let Some(i) = winui::combo_light(
+                ui,
+                r(o, 56.0, BUTTONS_Y, w, 21.0),
+                &labels,
+                chosen,
+                true,
+                "grabber-video-q",
+            ) {
+                self.video_pick = i;
+            }
+        }
         let any = ticked > 0;
         let kind = |default: bool| match (any, default) {
             (false, _) => ButtonKind::Disabled,
@@ -1243,6 +1343,12 @@ impl Grabber {
                             let state = if l.found.from_page && l.state == LinkState::Unchecked {
                                 // i18n: Link grabber, a link's status: a web page sent it (Click'n'Load), so it isn't looked up (name, size, online) before it is added
                                 crate::i18n::t("Not looked up").to_owned()
+                            } else if l.list && l.state == LinkState::Unchecked {
+                                // i18n: Link grabber, a link's status: a playlist's or channel's page (yt-dlp lists its videos when added)
+                                crate::i18n::t("Playlist (yt-dlp)").to_owned()
+                            } else if l.video && l.state == LinkState::Unchecked {
+                                // i18n: Link grabber, a link's status: a video's page (yt-dlp downloads it; the quality is chosen in the window)
+                                crate::i18n::t("Video (yt-dlp)").to_owned()
                             } else if l.magnet && l.state == LinkState::Unchecked {
                                 // i18n: Link grabber, a link's status: a magnet link (a torrent, its files looked up once it is added)
                                 crate::i18n::t("Magnet link").to_owned()
@@ -1306,6 +1412,8 @@ impl Grabber {
                             winui::text_right(clip, size_x, top + 13.0, &size, look.ink);
                             let ink = if look.selected {
                                 look.ink
+                            } else if l.video || l.list {
+                                winui::SUCCESS()
                             } else {
                                 match l.state {
                                     LinkState::Online => winui::SUCCESS(),
@@ -1666,7 +1774,7 @@ mod tests {
     }
 
     fn grabber() -> Grabber {
-        Grabber::new(PathBuf::from("D:\\dl"), Vec::new(), true, false)
+        Grabber::new(PathBuf::from("D:\\dl"), Vec::new(), true, false, false)
     }
 
     #[test]

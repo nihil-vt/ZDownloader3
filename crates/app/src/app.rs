@@ -1195,6 +1195,9 @@ pub struct App {
     /// Magnet links and .torrents handed over while Add torrent was open (#507), oldest first:
     /// each opens in Add torrent when the one before it closes.
     torrent_waiting: std::collections::VecDeque<(String, Option<crate::torrents::Remote>)>,
+    /// Playlist pages ticked in Link grabber, waiting for the video window to finish with the
+    /// one before (one window at a time); opened after it closes.
+    video_waiting: std::collections::VecDeque<(String, mdm_ipc::Command)>,
     /// Add torrent closed this frame: the next waiting one opens after a frame without it.
     torrent_closed: bool,
     torrent_settings: Option<crate::torrentdlg::TorrentSettings>,
@@ -1920,6 +1923,7 @@ impl App {
             gallery_dlg: None,
             torrent_dlg: None,
             torrent_waiting: Default::default(),
+            video_waiting: Default::default(),
             torrent_closed: false,
             torrent_settings: None,
             add_trackers: None,
@@ -9589,11 +9593,15 @@ impl App {
             let gw = 640.0f32;
             let gx = pane.min.x + ((pane.width() - gw).max(0.0)) / 2.0;
             let grabber = self.grabber.get_or_insert_with(|| {
+                let merge = mdm_tools::tools_dir()
+                    .as_deref()
+                    .is_some_and(|d| mdm_tools::ffmpeg::installed(d).is_some());
                 crate::grabber::Grabber::new(
                     self.downloads.clone(),
                     self.settings.category_dirs.clone(),
                     self.settings.grabber_hide_pages,
                     self.settings.extract_delete,
+                    merge,
                 )
             });
             grabber.set_packagizer(self.settings.packagizer_rules.clone());
@@ -9606,9 +9614,27 @@ impl App {
             match outcome {
                 Outcome::Done(start) => {
                     let picked = grabber.picked();
+                    let video = grabber.video_choice();
                     self.grabber = None;
-                    self.add_grabbed(start, picked);
+                    let playlists = self.add_grabbed(start, picked, Some(video));
                     self.tab = MainTab::Downloads;
+                    // Playlist pages open the video window one after another (its list gives
+                    // the checklist of entries and one quality for the batch): nothing of a
+                    // playlist is queued by the grab.
+                    for d in playlists {
+                        let command = ipc::Command {
+                            referer: d.referer.clone(),
+                            cookies: d.cookies.clone(),
+                            user_agent: d.user_agent.clone(),
+                            private: d.private,
+                            ..Default::default()
+                        };
+                        if self.video_dlg.is_none() {
+                            self.video_dlg = Some(self.video_dialog(Some((&d.url, command))));
+                        } else {
+                            self.video_waiting.push_back((d.url, command));
+                        }
+                    }
                 }
                 Outcome::Closed => {
                     self.grabber = None;
@@ -10685,23 +10711,56 @@ impl App {
             self.items.iter().map(|i| i.url.to_string()).collect();
         let (downloads, s) = (&self.downloads, &self.settings);
         let grabber = self.grabber.get_or_insert_with(|| {
+            let merge = mdm_tools::tools_dir()
+                .as_deref()
+                .is_some_and(|d| mdm_tools::ffmpeg::installed(d).is_some());
             crate::grabber::Grabber::new(
                 downloads.clone(),
                 s.category_dirs.clone(),
                 s.grabber_hide_pages,
                 s.extract_delete,
+                merge,
             )
         });
         grabber.set_packagizer(self.settings.packagizer_rules.clone());
         grabber.add(found, source, |u| known.contains(u.as_str()));
     }
 
+    /// A short stem for a video page's provisional file name (yt-dlp renames the file from the
+    /// site's title once it runs): the id in `v=` or the last path segment.
+    fn video_stem(url: &url::Url) -> String {
+        let from_query = url
+            .query_pairs()
+            .find(|(k, v)| k == "v" && !v.is_empty())
+            .map(|(_, v)| v.into_owned());
+        let last = url
+            .path()
+            .split('/')
+            .filter(|s| !s.is_empty())
+            .next_back()
+            .unwrap_or("")
+            .to_owned();
+        let stem = mdm_engine::naming::sanitize(&from_query.filter(|s| !s.is_empty()).unwrap_or(last));
+        if stem.is_empty() {
+            "video".to_owned()
+        } else {
+            stem
+        }
+    }
+
     /// Link grabber's ticked links: each package's to its folder, tagged with the package (its
     /// archives are extracted when all are in), into the main queue; started too on Start (else
     /// only queued, as IDM's import). A magnet link's torrent is added once its files are known
     /// (#709), with every file, in the package's folder when it has one. All of them are one
-    /// group (#766): one summary when the last is done.
-    fn add_grabbed(&mut self, start: bool, packages: Vec<crate::grabber::Picked>) {
+    /// group (#766): one summary when the last is done. Video pages (YouTube, Vimeo…) go in as
+    /// video transfers with the quality the window's footer chose (yt-dlp reads them); links to
+    /// a playlist or channel come back, to be opened in the video window one at a time.
+    fn add_grabbed(
+        &mut self,
+        start: bool,
+        packages: Vec<crate::grabber::Picked>,
+        video: Option<(String, &'static str, bool)>,
+    ) -> Vec<crate::transfer::Imported> {
         // Package numbers after those in the list.
         let last = self
             .items
@@ -10711,6 +10770,7 @@ impl App {
             .unwrap_or(0);
         let mut added = Vec::new();
         let mut magnets = Vec::new();
+        let mut playlists = Vec::new();
         for (id, pk) in (last + 1..).zip(packages) {
             let tag = crate::model::PackageTag {
                 id,
@@ -10720,6 +10780,15 @@ impl App {
                 password: pk.password.clone(),
             };
             for (d, name, size) in pk.links {
+                // A page yt-dlp flat-lists (a playlist's, a channel's, a video in a list) is
+                // not a file to probe: it goes back to open the video window's checklist.
+                let is_list = url::Url::parse(&d.url)
+                    .map(|u| mdm_tools::pages::is_playlist_page(&u))
+                    .unwrap_or(false);
+                if is_list {
+                    playlists.push(d);
+                    continue;
+                }
                 if let Some(magnet) = mdm_torrent::Source::magnet(&d.url) {
                     let dir = (!pk.folder.as_os_str().is_empty()).then(|| pk.folder.clone());
                     magnets.push((magnet, dir));
@@ -10728,7 +10797,22 @@ impl App {
                 let Ok(url) = url::Url::parse(&d.url) else {
                     continue;
                 };
-                let category = Category::of(&name);
+                let is_video = mdm_tools::pages::is_video_page(&url);
+                let video_sound_only = is_video
+                    && video
+                        .as_ref()
+                        .is_some_and(|(_, _, sound_only)| *sound_only);
+                let category = if is_video {
+                    if video_sound_only {
+                        Category::Music
+                    } else {
+                        Category::Video
+                    }
+                } else {
+                    Category::of(&name)
+                };
+                // A video's destination is made from its chosen quality (Music or Video; its
+                // package's folder wins, yt-dlp's site title takes over the name when it runs).
                 let dir = if pk.folder.as_os_str().is_empty() {
                     self.settings.category_dir(category, &self.downloads)
                 } else {
@@ -10736,7 +10820,12 @@ impl App {
                 };
                 // Numbered on as it starts if the name is taken then (#743): no disk here, for
                 // each of thousands of links.
-                let dest = mdm_engine::naming::guess(&dir, &name);
+                let dest = if is_video {
+                    let ext = video.as_ref().map(|(_, ext, _)| *ext).unwrap_or("mp4");
+                    mdm_engine::naming::guess(&dir, &format!("{}.{}", Self::video_stem(&url), ext))
+                } else {
+                    mdm_engine::naming::guess(&dir, &name)
+                };
                 let context = ipc::Command {
                     referer: d.referer,
                     cookies: d.cookies,
@@ -10759,8 +10848,16 @@ impl App {
                 if let Some(i) = self.items.last_mut().filter(|i| i.id == id) {
                     i.package = Some(tag.clone());
                     i.number_at_start = true;
-                    // A name the server didn't give (none looked up) may still change.
-                    if size.is_none() {
+                    if is_video {
+                        let (selector, ..) = video.clone().unwrap_or_else(|| ("bv*+ba/b".into(), "mp4", false));
+                        i.video = Some(model::VideoSpec {
+                            selector,
+                            subs: Default::default(),
+                            parts: Vec::new(),
+                            named: false,
+                        });
+                    } else if size.is_none() {
+                        // A name the server didn't give (none looked up) may still change.
                         i.name_from_url = true;
                     }
                 }
@@ -10796,6 +10893,7 @@ impl App {
         if start && !added.is_empty() {
             self.start_queue(0);
         }
+        playlists
     }
 
     /// Link grabber's look-ups (Options → Archives → "Check links"): the next links, each
@@ -11693,6 +11791,14 @@ impl App {
                 self.torrent_dlg = None;
                 self.torrent_closed = true;
                 ctx.request_repaint();
+            }
+        }
+        // One playlist after another, as the torrent dialogs go (#1097): when the one that was
+        // open is done (or cancelled), the next playlist picked in Link grabber opens.
+        if self.video_dlg.is_none() {
+            while let Some((url, command)) = self.video_waiting.pop_front() {
+                self.video_dlg = Some(self.video_dialog(Some((&url, command))));
+                break;
             }
         }
         if let Some(g) = &mut self.gallery_dlg {

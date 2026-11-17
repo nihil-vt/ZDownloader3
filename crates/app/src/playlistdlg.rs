@@ -37,14 +37,14 @@ pub struct PlaylistAdd {
 }
 
 /// One of the qualities offered for a whole list (its videos aren't looked up one by one).
-struct Pick {
-    label: String,
-    selector: String,
-    ext: &'static str,
+pub(crate) struct Pick {
+    pub(crate) label: String,
+    pub(crate) selector: String,
+    pub(crate) ext: &'static str,
 }
 
 impl Pick {
-    fn sound_only(&self) -> bool {
+    pub(crate) fn sound_only(&self) -> bool {
         mdm_tools::resolve::sound_only(&self.selector, self.ext)
     }
 }
@@ -52,9 +52,9 @@ impl Pick {
 /// The heights offered, as "Up to …p": each video at that height, or the best below it.
 const HEIGHTS: [u32; 6] = [2160, 1440, 1080, 720, 480, 360];
 /// The one chosen at first: Up to 1080p.
-const DEFAULT_PICK: usize = 3;
+pub(crate) const DEFAULT_PICK: usize = 3;
 
-fn picks(merge: bool) -> Vec<Pick> {
+pub(crate) fn picks(merge: bool) -> Vec<Pick> {
     let mut out = vec![Pick {
         // i18n: a quality in Download video for a whole playlist: each video's best
         label: crate::i18n::t("Best quality").to_owned(),
