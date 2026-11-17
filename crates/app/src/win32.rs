@@ -4996,7 +4996,7 @@ mod torrent_handler_tests {
     #[test]
     fn an_open_command_names_its_program() {
         let exe = r"C:\Program Files\zDownloader³\zdownloader3.exe";
-        let ours = r#""c:\program files\mister download manager\zDownloader³.exe" "%1""#;
+        let ours = r#""c:\PROGRAM FILES\zDownloader³\ZDOWNLOADER3.EXE" "%1""#;
         assert!(super::runs_program(ours, exe));
         let other = r#""C:\Program Files\qBittorrent\qbittorrent.exe" "%1""#;
         assert!(!super::runs_program(other, exe));
@@ -5592,11 +5592,11 @@ mod default_apps_tests {
     fn the_settings_page_names_the_registration() {
         assert_eq!(
             default_apps_uri(false),
-            "ms-settings:defaultapps?registeredAppUser=Mister%20Download%20Manager"
+            "ms-settings:defaultapps?registeredAppUser=zDownloader³"
         );
         assert_eq!(
             default_apps_uri(true),
-            "ms-settings:defaultapps?registeredAppMachine=Mister%20Download%20Manager"
+            "ms-settings:defaultapps?registeredAppMachine=zDownloader³"
         );
     }
 
@@ -5855,9 +5855,9 @@ mod startup_tests {
         let exe = Path::new(EXE);
         // Options before 0.5.0, and the installer's: the program alone, quoted.
         assert!(startup_outdated(&format!("\"{EXE}\""), exe));
-        // Written by hand: unquoted, in another case, with other slashes.
+        // Written by hand: unquoted, in another case.
         assert!(startup_outdated(
-            r"c:\program files\mister download manager\MISTERDOWNLOADMANAGER.EXE",
+            r"c:\PROGRAM FILES\zDownloader³\ZDOWNLOADER3.EXE",
             exe
         ));
         assert!(startup_outdated(
