@@ -78,7 +78,12 @@ ChangesAssociations=yes
 ; AppMutex isn't used because it would refuse to start before that. Restart Manager is the
 ; fallback for anything else holding the files (a browser running the host).
 CloseApplications=yes
-VersionInfoVersion={#AppVersion}
+; Inno's VersionInfoVersion wants only dot-separated numbers (a pre-release tag like
+; 0.6.0-alpha.3 is invalid there): build.ps1 passes the numeric core as FileVersion.
+#ifndef FileVersion
+  #define FileVersion "0.6.0"
+#endif
+VersionInfoVersion={#FileVersion}
 VersionInfoCompany=Ahmed Nefzaoui
 VersionInfoDescription={#AppName} setup
 VersionInfoProductName={#AppName}

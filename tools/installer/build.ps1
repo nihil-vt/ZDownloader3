@@ -56,6 +56,9 @@ if (-not $iscc) { throw "Inno Setup 6 (ISCC.exe) not found" }
 
 New-Item -ItemType Directory -Force $dist | Out-Null
 $isccArgs = @("/Qp", "/DAppVersion=$version", "/DArch=$Arch", "/DBin=$bin")
+# Inno's VersionInfoVersion takes only dot-separated numbers; the pre-release suffix rides in AppVersion.
+$fileVersion = ($version -split '-')[0]
+$isccArgs += "/DFileVersion=$fileVersion"
 if ($SignCommand) { $isccArgs += @("/DSign", "/Smdmsign=$SignCommand") }
 & $iscc @isccArgs (Join-Path $PSScriptRoot "mdm.iss")
 if ($LASTEXITCODE) { throw "ISCC failed" }
