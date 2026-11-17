@@ -3,13 +3,25 @@
 Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 `.github/workflows/release.yml`).
 
-## [Unreleased]
+## [0.6.0-alpha.4] - 2026-11-17
+
+Alpha — for testing only. Do not trust for downloads you cannot afford to lose. Bug reports welcome.
+
+### Added
+- **Linkgrabber plays video pages** (YouTube, Vimeo, Twitch, SoundCloud and the other sites yt-dlp reads): they go in as video transfers with yt-dlp, one quality for the whole grab (choose in the window's footer — Best / 2160p…360p / audio-only variants), keeping their Linkgrabber packages (folder, password, Extract when done). A playlist or channel page (anything with `list=`, or a channel/videos listing) routes to the video window, which lists the entries in a checklist and downloads them with one quality like a playlist download.
+- **CI runs on pushes to `fork`** (Linux x86_64 and ARM64: fmt, `extract.py`, `clippy -D warnings`, workspace tests) — pushes to the fork branch used to build nothing.
 
 ### Changed
-- **Linux-only builds and releases**: Windows and macOS builds (installer, portable zip, .dmg) and their release artifacts are no longer produced or published. The fork ships `zDownloader3-<version>-linux-x86_64|arm64.{deb,AppImage}` (plus the `.zsync`) and nothing else. Windows/macOS source remains in-tree for now. **docs and website describe Linux-only install**; a new alpha carries the names of the .deb and the AppImage only.
+- **Linux-only builds and releases**: Windows and macOS builds (installer, portable zip, .dmg) and their release artifacts are no longer produced or published. The fork ships `zDownloader3-<version>-linux-x86_64|arm64.{deb,AppImage}` (plus the `.zsync`) and nothing else. Windows/macOS source remains in-tree for now. **Docs and website describe Linux-only install.**
+- **Release asset filenames are all-ASCII** (`zDownloader3-…`): the superscript ³ in alpha.3's names was mangled by the uploader (GitHub stores `zDownloader.-0.6.0…`, and the checksums file listed `zDownloader?-…`), breaking the docs' file links and the `SHA256SUMS.txt` consistency. Symbols, docs, installer metadata, tests and the release workflow all agree on the ASCII names.
+- Linux-only **`.deb` and AppImage** packaging (the RPM and the plain tarball are no longer produced).
+
+### Fixed
+- **Linkgrabber did nothing with YouTube links**: video pages were probed as HTML and filtered out by "Hide web pages", or queued as useless `.html` files. They are now routed to yt-dlp as videos (see above).
+- **alpha.3 release artifacts were unusable for checksum verification** (names mangled or absent).
 
 ### Removed
-- Windows packaging (`build.ps1`, `mdm.iss`, Inno strings) and macOS packaging (`build-macos.sh`, `tools/safari/**`) deleted. CI and the release workflow build Linux x86_64 + ARM64 only.
+- Windows packaging (`build.ps1`, `mdm.iss`, Inno strings, 40+ installer language files) and macOS packaging (`build-macos.sh`, `tools/safari/**`). CI and the release workflow build Linux x86_64 + ARM64 only.
 
 ## [Fork 0.5.2-zd3.1] - 2026-11-16
 

@@ -16,6 +16,34 @@
 <p>Each release&#x27;s notes on GitHub come from its section here (<code>## [X.Y.Z]</code>, see</p>
 <p><code>.github/workflows/release.yml</code>).</p>
 
+<h3>[0.6.0-alpha.4] - 2026-11-17</h3>
+
+<p>Alpha — for testing only. Do not trust for downloads you cannot afford to lose. Bug reports welcome.</p>
+
+<h4>Added</h4>
+<ul>
+<li><strong>Linkgrabber plays video pages</strong> (YouTube, Vimeo, Twitch, SoundCloud and the other sites yt-dlp reads): they go in as video transfers with yt-dlp, one quality for the whole grab (choose in the window&#x27;s footer — Best / 2160p…360p / audio-only variants), keeping their Linkgrabber packages (folder, password, Extract when done). A playlist or channel page (anything with <code>list=</code>, or a channel/videos listing) routes to the video window, which lists the entries in a checklist and downloads them with one quality like a playlist download.</li>
+<li><strong>CI runs on pushes to <code>fork</code></strong> (Linux x86_64 and ARM64: fmt, <code>extract.py</code>, <code>clippy -D warnings</code>, workspace tests) — pushes to the fork branch used to build nothing.</li>
+</ul>
+
+<h4>Changed</h4>
+<ul>
+<li><strong>Linux-only builds and releases</strong>: Windows and macOS builds (installer, portable zip, .dmg) and their release artifacts are no longer produced or published. The fork ships <code>zDownloader3-&lt;version&gt;-linux-x86_64|arm64.{deb,AppImage}</code> (plus the <code>.zsync</code>) and nothing else. Windows/macOS source remains in-tree for now. <strong>Docs and website describe Linux-only install.</strong></li>
+<li><strong>Release asset filenames are all-ASCII</strong> (<code>zDownloader3-…</code>): the superscript ³ in alpha.3&#x27;s names was mangled by the uploader (GitHub stores <code>zDownloader.-0.6.0…</code>, and the checksums file listed <code>zDownloader?-…</code>), breaking the docs&#x27; file links and the <code>SHA256SUMS.txt</code> consistency. Symbols, docs, installer metadata, tests and the release workflow all agree on the ASCII names.</li>
+<li>Linux-only <strong><code>.deb</code> and AppImage</strong> packaging (the RPM and the plain tarball are no longer produced).</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li><strong>Linkgrabber did nothing with YouTube links</strong>: video pages were probed as HTML and filtered out by &quot;Hide web pages&quot;, or queued as useless <code>.html</code> files. They are now routed to yt-dlp as videos (see above).</li>
+<li><strong>alpha.3 release artifacts were unusable for checksum verification</strong> (names mangled or absent).</li>
+</ul>
+
+<h4>Removed</h4>
+<ul>
+<li>Windows packaging (<code>build.ps1</code>, <code>mdm.iss</code>, Inno strings, 40+ installer language files) and macOS packaging (<code>build-macos.sh</code>, <code>tools/safari/**</code>). CI and the release workflow build Linux x86_64 + ARM64 only.</li>
+</ul>
+
 <h3>[Fork 0.5.2-zd3.1] - 2026-11-16</h3>
 
 <p>First zDownloader³ fork build. Imports upstream Mister Download Manager and re-identifies it natively Linux-first with a JDownloader2 look.</p>
@@ -1114,7 +1142,7 @@
 <ul>
 <li><strong>The Linux files are named without <code>-experimental</code></strong>: the AppImage, .deb, .rpm and .tar.gz</li>
 </ul>
-<p>  are <code>zDownloader³-&lt;version&gt;-linux-x86_64.&lt;ext&gt;</code>, and the .deb&#x27;s and .rpm&#x27;s</p>
+<p>  are <code>zDownloader3-&lt;version&gt;-linux-x86_64.&lt;ext&gt;</code>, and the .deb&#x27;s and .rpm&#x27;s</p>
 <p>  descriptions no longer call them an experimental build. Update now, the AppImage tools and the</p>
 <p>  website find them by either name. The macOS .dmg files keep <code>-experimental</code>.</p>
 

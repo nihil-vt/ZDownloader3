@@ -4564,7 +4564,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-app"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "arboard",
  "base64 0.23.1",
@@ -4630,7 +4630,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-cli"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "anyhow",
  "clap",
@@ -4649,7 +4649,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-cnl"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "aes",
  "axum",
@@ -4662,7 +4662,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-crash"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "breakpad-symbols",
  "chrono",
@@ -4687,7 +4687,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-debrid"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "bytes",
  "chrono",
@@ -4707,7 +4707,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-engine"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "base64 0.23.1",
  "bytes",
@@ -4757,7 +4757,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-extract"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "flate2",
  "lzma-rust2",
@@ -4770,7 +4770,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-geo"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "lzma-rust2",
  "png 0.18.1",
@@ -4779,7 +4779,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-ipc"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "craft-atomic",
  "dirs 7.0.0",
@@ -4791,7 +4791,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-labserver"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "anyhow",
  "aws-lc-rs",
@@ -4820,7 +4820,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-mcp"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "mdm-ipc",
  "rmcp",
@@ -4834,7 +4834,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-nmhost"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "chrono",
  "mdm-ipc",
@@ -4845,7 +4845,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-remote"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "aws-lc-rs",
  "axum",
@@ -4866,7 +4866,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-tools"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "aws-lc-rs",
  "base64 0.23.1",
@@ -4893,7 +4893,7 @@ dependencies = [
 
 [[package]]
 name = "mdm-torrent"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.4"
 dependencies = [
  "anyhow",
  "flate2",
