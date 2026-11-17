@@ -83,7 +83,7 @@ for pair in "${targets[@]}"; do
 <dict>
   <key>CFBundleName</key><string>zDownloader³</string>
   <key>CFBundleDisplayName</key><string>zDownloader³</string>
-  <key>CFBundleIdentifier</key><string>io.github.anefzaoui.zdownloader3</string>
+  <key>CFBundleIdentifier</key><string>io.github.nihil-vt.zdownloader3</string>
   <key>CFBundleVersion</key><string>$version</string>
   <key>CFBundleShortVersionString</key><string>$version</string>
   <key>CFBundlePackageType</key><string>APPL</string>

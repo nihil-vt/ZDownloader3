@@ -115,11 +115,11 @@ cat > "$deb/DEBIAN/control" <<EOF
 Package: zdownloader3
 Version: $version
 Architecture: $deb_arch
-Maintainer: Mister Download Manager <https://github.com/anefzaoui/misterdownloadmanager>
+Maintainer: ZDownloader3 <https://github.com/nihil-vt/ZDownloader3>
 Depends: libc6 (>= $glibc), libgtk-3-0, libgl1, libegl1, libxkbcommon0, libxkbcommon-x11-0, ca-certificates
 Section: net
 Priority: optional
-Homepage: https://github.com/anefzaoui/misterdownloadmanager
+Homepage: https://nihil-vt.github.io/ZDownloader3/
 Description: Download manager
  Speeds up downloads with several connections at once, resumes them, catches them from the
  browser, and downloads videos and torrents.
@@ -135,7 +135,7 @@ Version: $version
 Release: 1
 Summary: Download manager
 License: GPL-3.0-or-later
-URL: https://github.com/anefzaoui/misterdownloadmanager
+URL: https://nihil-vt.github.io/ZDownloader3/
 Requires: glibc >= $glibc, gtk3, mesa-libGL, mesa-libEGL, libxkbcommon, libxkbcommon-x11, ca-certificates
 AutoReqProv: no
 
@@ -174,7 +174,7 @@ chmod +x "$tool"
 # Update information (#24): AppImageLauncher, Gear Lever and AppImageUpdate read it from the
 # AppImage, find the latest release's .zsync and download only the parts that changed. MDM's own
 # Update now doesn't need it. The pattern also matches the names up to 0.2.4, with "-experimental".
-update="gh-releases-zsync|anefzaoui|zdownloader3|latest|zDownloader³-*-linux-$arch*.AppImage.zsync"
+update="gh-releases-zsync|nihil-vt|ZDownloader3|latest|zDownloader³-*-linux-$arch*.AppImage.zsync"
 # No FUSE on CI runners: the tool runs from its own extracted copy.
 # zstd at its strongest level (#25; unpacking is as fast): the tool's 128K blocks stay, as 1M
 # blocks make the AppImage start slower (AppImage/appimagetool#64).
