@@ -2109,6 +2109,9 @@
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 	medium	medium
+#. message or event log entry in the main window
+#. noun: the menu (a toolbar button that opens it)
+	Menu	Menu
 #. text in the download list (sizes, speeds, status)
 #. the list's Status column while a video's picture and sound are joined into one file (ffmpeg); {percent} how far, e.g. "45%". One short word: the column is narrow
 	Merging {percent}	Merging {percent}
@@ -2342,6 +2345,8 @@
 	No peers yet. Few people may share this torrent, or a firewall, a VPN or the network may be blocking BitTorrent.	No peers yet. Few people may share this torrent, or a firewall, a VPN or the network may be blocking BitTorrent.
 #. text in the Options window
 	No proxy/socks	No proxy/socks
+#. text in supermenu.rs
+	No results	No results
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.
@@ -2948,6 +2953,9 @@
 #. noun: the tool that starts and stops queues on time
 #. noun: opens the Scheduler (the tool that starts queues on time)
 	Scheduler	Scheduler
+#. text in supermenu.rs
+#. the trailing ... means it is still going on: keep it
+	Search...	Search...
 #. text in langpick.rs
 	Search:	Search:
 #. text in the Batch download window
@@ -5600,21 +5608,16 @@ menu	Vulkan draws with a software renderer	Vulkan draws with a software renderer
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	zDownloader³ &Home Page	zDownloader³ &Home Page
-#. menu bar title in the main window (menus, toolbar, Categories pane)
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menubar	&Downloads	&Downloads
-#. menu bar title in the main window (menus, toolbar, Categories pane)
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menubar	&File	&File
-#. menu bar title in the main window (menus, toolbar, Categories pane)
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menubar	&Help	&Help
-#. menu bar title in the main window (menus, toolbar, Categories pane)
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menubar	&Tasks	&Tasks
-#. menu bar title in the main window (menus, toolbar, Categories pane)
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menubar	&View	&View
+#. menu bar title in the main window
+menubar	Downloads	Downloads
+#. menu bar title in the main window
+menubar	File	File
+#. menu bar title in the main window
+menubar	Help	Help
+#. menu bar title in the main window
+menubar	Tasks	Tasks
+#. menu bar title in the main window
+menubar	View	View
 #. toolbar button in the main window
 toolbar	Add Torrent	Add Torrent
 #. toolbar button in the main window

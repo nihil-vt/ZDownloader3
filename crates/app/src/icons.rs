@@ -7,6 +7,9 @@ use egui::{Image, ImageSource};
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum Icon {
     AddUrl,
+    /// A hamburger: the toolbar's File menu (everything tasks/file/downloads/view/help used
+    /// to hold, behind one button with a search box — the menu bar was removed).
+    Menu,
     /// Add Torrent (ours, M15): Lucide "magnet".
     AddTorrent,
     Resume,
@@ -48,6 +51,8 @@ impl Icon {
         match self {
             // An outlined plus, like IDM's Add URL.
             Icon::AddUrl => r#"<path d="M9.5 2.5h5v7h7v5h-7v7h-5v-7h-7v-5h7z"/>"#,
+            // Lucide "menu".
+            Icon::Menu => r#"<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>"#,
             Icon::AddTorrent => concat!(
                 r#"<path d="m6 15-4-4 6.75-6.77a7.79 7.79 0 0 1 11 11L13 22l-4-4 6.39-6.36a2.14 2.14 0 0 0-3-3L6 15"/>"#,
                 r#"<path d="m5 8 4 4"/><path d="m12 15 4 4"/>"#,
@@ -171,6 +176,7 @@ impl Icon {
         match self {
             Icon::AddUrl => ("#9ad9b0", "#7fb4c0"),
             // The Torrent pill's purple.
+            Icon::Menu => ("#6aa3e0", "#3d6db5"),
             Icon::AddTorrent => ("#b07ad9", "#7d5fd0"),
             Icon::Resume | Icon::Stop | Icon::StopAll | Icon::Delete => ("#e2e2e2", "#b4b4b4"),
             Icon::DeleteCompleted => ("#df6a9c", "#8180c0"),
@@ -198,6 +204,7 @@ impl Icon {
     fn name(self) -> &'static str {
         match self {
             Icon::AddUrl => "add-url",
+            Icon::Menu => "menu",
             Icon::AddTorrent => "add-torrent",
             Icon::Resume => "resume",
             Icon::Stop => "stop",
@@ -257,6 +264,7 @@ impl Icon {
     fn need(self) -> Option<&'static str> {
         Some(match self {
             Icon::AddUrl => "tb-add-url",
+            Icon::Menu => "tb-menu",
             Icon::AddTorrent => "tb-add-torrent",
             Icon::Resume => "tb-resume",
             Icon::Stop => "tb-stop",

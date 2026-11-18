@@ -65,6 +65,7 @@ mod secrets;
 mod selection;
 mod settings;
 mod store;
+mod supermenu;
 mod theme;
 mod themefile;
 mod themeicons;

@@ -12,8 +12,7 @@ use mdm_engine::{Destination, Download, Options, Request};
 use reqwest::header::{AUTHORIZATION, HeaderMap, HeaderValue};
 
 use crate::chrome::{
-    self, IconKey, MenuBarEvent, MenuEntry, MenuKind, PopupResult, ShellIcons, ToolbarEvent,
-    TreeEvent, TreeRow,
+    self, IconKey, MenuEntry, MenuKind, PopupResult, ShellIcons, ToolbarEvent, TreeEvent, TreeRow,
 };
 use crate::dialogs::{self, AddUrl, Complete, FileInfo, Outcome, Start};
 use crate::icons::Icon;
@@ -300,7 +299,7 @@ fn menu_answer(step: DupStep, start_now: bool) -> &'static str {
 
 /// Menu, toolbar and context-menu commands.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
-enum Cmd {
+pub(crate) enum Cmd {
     AddUrl,
     /// Help → a page of the website (`""` = home).
     HelpPage(&'static str),
@@ -897,21 +896,25 @@ impl Cmd {
     /// The key that runs this command anywhere in the main window, as the shortcuts list writes
     /// it (Help → Keyboard shortcuts); menus show it beside the item.
     fn hint(&self) -> Option<&'static str> {
-        Some(match self {
-            Cmd::AddUrl => "Ctrl+N",
-            Cmd::BatchClipboard => "Ctrl+B",
-            Cmd::Find => "Ctrl+F",
-            Cmd::FindNext => "F3",
-            Cmd::MoveRename => "Ctrl+M",
-            Cmd::Remove => "Delete",
-            Cmd::RemoveWithFiles => "Shift+Delete",
-            Cmd::Open => "Enter",
-            Cmd::SelectAll => "Ctrl+A",
-            Cmd::Properties => "Alt+Enter",
-            Cmd::InterfaceSize(100) => "Ctrl+0",
-            _ => return None,
-        })
+        hint_str(self)
     }
+}
+
+pub(crate) fn hint_str(c: &Cmd) -> Option<&'static str> {
+    Some(match c {
+        Cmd::AddUrl => "Ctrl+N",
+        Cmd::BatchClipboard => "Ctrl+B",
+        Cmd::Find => "Ctrl+F",
+        Cmd::FindNext => "F3",
+        Cmd::MoveRename => "Ctrl+M",
+        Cmd::Remove => "Delete",
+        Cmd::RemoveWithFiles => "Shift+Delete",
+        Cmd::Open => "Enter",
+        Cmd::SelectAll => "Ctrl+A",
+        Cmd::Properties => "Alt+Enter",
+        Cmd::InterfaceSize(100) => "Ctrl+0",
+        _ => return None,
+    })
 }
 
 /// The open popup menu (other than the menu bar's); notes/ui-spec/menus.md "Context menus".
@@ -1377,11 +1380,10 @@ pub struct App {
     main_hwnd: Option<isize>,
     list: list::ListState,
     icons: ShellIcons,
-    /// Open top-level menu (index into `chrome::menus()`).
-    open_menu: Option<usize>,
+    /// The toolbar's Menu flyout (open draws the searchable panel).
+    toolbar_menu_open: bool,
+    toolbar_menu: crate::supermenu::ToolbarMenu,
     /// Alt is down, and was pressed alone so far (releasing it opens the menu bar).
-    alt_down: bool,
-    alt_alone: bool,
     /// The open context / drop-down menu, and its top-left.
     popup: Option<(Popup, Pos2, u64)>,
     /// Counts menu opens: each open is a new menu window, even at the same place.
@@ -2014,9 +2016,8 @@ impl App {
             main_hwnd: None,
             list,
             icons: ShellIcons,
-            open_menu: None,
-            alt_down: false,
-            alt_alone: false,
+            toolbar_menu_open: false,
+            toolbar_menu: Default::default(),
             popup: None,
             popup_serial: 0,
             last_layout: None,
@@ -3179,33 +3180,18 @@ impl App {
             // View with its Draw with submenu (#89).
             "menu" => {
                 self.popup = None;
-                let (index, sub) = tab.split_once(':').unwrap_or((tab, ""));
-                let index = index.parse().unwrap_or(0);
-                self.open_menu = Some(index);
-                // menu:3:theme opens View → Theme (#45), menu:3:size View → Interface size (#262).
-                let wanted = match sub {
-                    "draw" => "Draw with",
-                    "theme" => "Theme",
-                    "size" => "&Interface size",
-                    _ => "",
-                };
-                let at = self
-                    .menu_entries(index)
-                    .iter()
-                    .position(|e| matches!(e, MenuEntry::Sub(name, ..) if *name == wanted));
-                if let Some(at) = at {
-                    chrome::open_sub_at(ctx, &format!("menu-{index}"), at);
-                }
+                let (_index, _sub) = tab.split_once(':').unwrap_or((tab, ""));
+                self.toolbar_menu_open = true;
             }
             // Every download selected and the right-click menu open on them (Move/Rename, #333).
             // The list's right-click menu on blank space (#926), for screenshots.
             "context" if tab == "blank" => {
-                self.open_menu = None;
+                self.toolbar_menu_open = false;
                 self.open_popup(Popup::Item(None), egui::pos2(360.0, 220.0));
             }
             "context" if tab == "all" => {
                 self.run(Cmd::SelectAll, None, ctx);
-                self.open_menu = None;
+                self.toolbar_menu_open = false;
                 if let Some(id) = self.shown_ids().first().copied() {
                     self.open_popup(Popup::Item(Some(id)), egui::pos2(360.0, 220.0));
                 }
@@ -3223,7 +3209,7 @@ impl App {
                     })
                     .or(self.items.last())
                     .map(|i| i.id);
-                self.open_menu = None;
+                self.toolbar_menu_open = false;
                 if let Some(id) = archive {
                     self.selection.set(id);
                     self.open_popup(Popup::Item(Some(id)), egui::pos2(360.0, 220.0));
@@ -9332,131 +9318,12 @@ impl App {
         let (w, h) = (full.width(), full.height());
         let mut chosen: Option<(Cmd, Option<u64>)> = None;
 
-        // The menu bar from the keyboard: F10 or Alt pressed alone opens its first menu, Alt and a
-        // menu's underlined letter that menu (Windows and Linux); on macOS, whose apps have no
-        // Alt keys, Ctrl+F2 (the system's key for the menu bar).
-        // A focused button or list (Tab, a screen reader, #328) leaves these keys to the menu bar;
-        // only a text box keeps them.
-        let typing = ctx
-            .memory(|m| m.focused())
-            .is_some_and(|id| egui::TextEdit::load_state(&ctx, id).is_some());
-        if self.open_menu.is_none() && self.popup.is_none() && !typing {
-            let labels: Vec<String> = chrome::menus(ui.painter())
-                .iter()
-                .map(|(l, ..)| chrome::menu_letter(l))
-                .collect();
-            let (alt_alone, f10, ctrl_f2, letter) = ctx.input(|i| {
-                let mut letter = None;
-                for e in &i.events {
-                    match e {
-                        egui::Event::Key {
-                            key,
-                            pressed: true,
-                            modifiers,
-                            ..
-                        } if !matches!(key, egui::Key::AltLeft | egui::Key::AltRight) => {
-                            if modifiers.alt && !modifiers.ctrl && !modifiers.command {
-                                letter = Some(key.name().to_lowercase());
-                            }
-                        }
-                        // A letter of another script (Cyrillic, Arabic...) typed with Alt.
-                        egui::Event::Text(t) if i.modifiers.alt && !i.modifiers.ctrl => {
-                            letter = Some(t.to_lowercase());
-                        }
-                        _ => {}
-                    }
-                }
-                (
-                    alt_alone_released(&i.events, &mut self.alt_down, &mut self.alt_alone),
-                    i.key_pressed(egui::Key::F10) && i.modifiers.is_none(),
-                    i.key_pressed(egui::Key::F2) && i.modifiers.ctrl,
-                    letter,
-                )
-            });
-            let mut open = None;
-            if cfg!(target_os = "macos") {
-                if ctrl_f2 {
-                    open = Some(0);
-                }
-            } else {
-                if self.alt_down {
-                    // The keyboard is in use: access letters show (light mode too).
-                    crate::chrome::show_cues(&ctx);
-                }
-                if alt_alone || f10 {
-                    open = Some(0);
-                }
-                if let Some(l) = letter {
-                    open = labels.iter().position(|m| *m == l).or(open);
-                }
-            }
-            if let Some(i) = open {
-                self.alt_alone = false;
-                self.open_menu = chrome::menubar_next(self.open_menu, MenuBarEvent::Open(i));
-                chrome::start_keyboard(&ctx, &format!("menu-{i}"));
-            }
-        } else {
-            self.alt_down = false;
-            self.alt_alone = false;
-        }
-
-        // Menu bar and its popups: which menu is open is chrome::menubar_next's to say.
-        if let Some(event) = chrome::menu_bar(ui, o, w, self.open_menu) {
-            self.open_menu = chrome::menubar_next(self.open_menu, event);
-        }
-        // A menu opened by Left or Right is drawn in the same pass as the one it replaces (a
-        // second turn): on X11 the bar's menus share one window (chrome::popup), and a pass
-        // without a menu closed it, a new window opening for the next (#277).
-        for _ in 0..2 {
-            let Some(i) = self.open_menu else { break };
-            let x = chrome::menus(ui.painter())[i].1;
-            let entries = self.menu_entries(i);
-            // Under the item's leading edge (the menu's top-right in RTL).
-            let at = pos2(winui::mx(o.x + x), o.y + chrome::MENU_H - 1.0);
-            let event = match chrome::popup(
-                &ctx,
-                MenuKind::Bar,
-                &format!("menu-{i}"),
-                at,
-                &entries,
-                &|c: &Cmd| c.hint(),
-            ) {
-                PopupResult::Open => None,
-                PopupResult::Neighbor(d) => {
-                    let n = chrome::menus(ui.painter()).len() as i32;
-                    let j = (i as i32 + d).rem_euclid(n) as usize;
-                    chrome::start_keyboard(&ctx, &format!("menu-{j}"));
-                    Some(MenuBarEvent::Open(j))
-                }
-                PopupResult::Chosen(c) => {
-                    chosen = Some((c, None));
-                    Some(MenuBarEvent::Chosen)
-                }
-                PopupResult::Dismissed => {
-                    // Shut by a press on a title: its click (on release) is `menu_bar`'s. Not
-                    // by Escape with the pointer merely resting on the bar.
-                    let press =
-                        ui.input(|x| x.pointer.press_origin().filter(|_| x.pointer.any_pressed()));
-                    let press_on_title = press
-                        .is_some_and(|at| chrome::menubar_title_at(ui.painter(), o, at).is_some());
-                    Some(MenuBarEvent::Dismissed { press_on_title })
-                }
-            };
-            let neighbor = matches!(event, Some(MenuBarEvent::Open(_)));
-            if let Some(event) = event {
-                self.open_menu = chrome::menubar_next(self.open_menu, event);
-            }
-            if !neighbor {
-                break;
-            }
-        }
-
         // The keys go round the toolbar, the Categories tree and the download list with Tab and
         // Shift+Tab (`tab_to`), while no menu is open and no text box has them (#1190: the
         // toolbar couldn't be reached at all). A press anywhere takes them from the toolbar (the
         // list and the tree take them by a click).
         let free = self.popup.is_none()
-            && self.open_menu.is_none()
+            && !self.toolbar_menu_open
             && ctx.memory(|m| m.focused().is_none());
         if ctx.input(|i| i.pointer.any_pressed()) {
             self.toolbar_keys = false;
@@ -9522,11 +9389,21 @@ impl App {
                 self.queues.first().is_some_and(|q| q.running),
                 Cmd::StopQueue(0),
             ),
+            // Everything that used to be on the menu bar, behind one button with a search box.
+            // i18n: noun: the menu (a toolbar button that opens it)
+            (Icon::Menu, crate::i18n::mark("Menu"), true, Cmd::None),
         ];
         let tb: Vec<(Icon, &str, bool)> = buttons.iter().map(|(i, l, e, _)| (*i, *l, *e)).collect();
         let tb_keys = (self.toolbar_keys && free).then_some(self.toolbar_at);
         match chrome::toolbar(ui, o, w, &tb, tb_keys) {
-            Some(ToolbarEvent::Click(k)) => chosen = Some((buttons[k].3, None)),
+            Some(ToolbarEvent::Click(k)) => {
+                if buttons[k].0 == Icon::Menu {
+                    // The last button: the menu toggles the panel instead of running a command.
+                    self.toolbar_menu_open = !self.toolbar_menu_open;
+                } else {
+                    chosen = Some((buttons[k].3, None));
+                }
+            }
             Some(ToolbarEvent::Drop(k, at)) => {
                 let kind = match buttons[k].0 {
                     Icon::AddTorrent => Popup::TorrentDrop,
@@ -9540,10 +9417,50 @@ impl App {
             }
             None => {}
         }
+        // The flyout of the toolbar's Menu button: after the toolbar, above the tab strip.
+        if self.toolbar_menu_open {
+            let groups = vec![
+                (
+                    crate::i18n::tc("menubar", "Tasks").to_string(),
+                    self.menu_entries(0),
+                ),
+                (
+                    crate::i18n::tc("menubar", "File").to_string(),
+                    self.menu_entries(1),
+                ),
+                (
+                    crate::i18n::tc("menubar", "Downloads").to_string(),
+                    self.menu_entries(2),
+                ),
+                (
+                    crate::i18n::tc("menubar", "View").to_string(),
+                    self.menu_entries(3),
+                ),
+                (
+                    crate::i18n::tc("menubar", "Help").to_string(),
+                    self.menu_entries(4),
+                ),
+            ];
+            let at = pos2(
+                o.x + w - crate::supermenu::WIDTH - 6.0,
+                o.y + chrome::pane_top() + 2.0,
+            );
+            let sections = crate::supermenu::Sections {
+                groups,
+                hint: crate::app::hint_str,
+            };
+            let (_rect, outcome) =
+                crate::supermenu::show(ui, at, &mut self.toolbar_menu, &sections);
+            match outcome {
+                crate::supermenu::Chosen::Command(c) => chosen = Some((c, None)),
+                crate::supermenu::Chosen::Closed => self.toolbar_menu_open = false,
+                crate::supermenu::Chosen::Open => {}
+            }
+        }
 
         // The JD2 tab strip: Downloads / Linkgrabber. Flat, the active one underlined in the
         // accent colour, directly under the toolbar.
-        let tabs_y = o.y + chrome::MENU_H + chrome::pane_top();
+        let tabs_y = o.y + chrome::pane_top();
         let panes_y = tabs_y + TAB_H;
         {
             let p = ui.painter().clone();
@@ -9817,7 +9734,7 @@ impl App {
                 pos2(o.x + list_left, panes_y),
                 pos2(o.x + w - 7.0, dock_top),
             );
-            self.list.menu_open = self.popup.is_some() || self.open_menu.is_some();
+            self.list.menu_open = self.popup.is_some() || self.toolbar_menu_open;
             // Another node shows from its top (its rows aren't the last one's).
             if self.list_view != self.view {
                 self.list.scroll = 0.0;
@@ -9954,7 +9871,7 @@ impl App {
                     &entries,
                     &|c: &Cmd| c.hint(),
                 ) {
-                    PopupResult::Open | PopupResult::Neighbor(_) => {}
+                    PopupResult::Open | PopupResult::Neighbor => {}
                     PopupResult::Chosen(c) => {
                         chosen = Some((c, target));
                         self.popup = None;
@@ -9966,7 +9883,7 @@ impl App {
             // Ctrl+B the links in the clipboard (#709), neither in IDM. Not Ctrl+Shift+V for that: the
             // windowing library answers the paste keys by reading the clipboard on the window's
             // thread (#418). The full list: Help → Keyboard shortcuts (`help.rs`).
-            if chosen.is_none() && self.popup.is_none() && self.open_menu.is_none() {
+            if chosen.is_none() && self.popup.is_none() && !self.toolbar_menu_open {
                 let (find, next, add, clip) = ctx.input_mut(|i| {
                     (
                         i.consume_key(egui::Modifiers::COMMAND, egui::Key::F),
@@ -9996,7 +9913,7 @@ impl App {
             // not while a text box (Find, a filter) has the keys.
             if chosen.is_none()
                 && self.popup.is_none()
-                && self.open_menu.is_none()
+                && !self.toolbar_menu_open
                 && ctx.memory(|m| m.focused().is_none())
             {
                 // On Windows egui reports Shift+Delete as Cut (Ctrl+X is Cut too, without Shift).
@@ -12228,48 +12145,6 @@ fn finished_windows(
     });
     close
 }
-
-/// Whether Alt was pressed and let go alone in `events` (one pass's, in their order): the menu
-/// bar's key, as in Windows. `down` and `alone` carry the state from pass to pass. Read from the
-/// events, not from the pass's modifiers: a screen reader (NVDA, Narrator) holds a key back and
-/// passes it on with its release, so Alt's press and release came in one pass, where Alt never
-/// showed as held, and Alt never opened the menu while one ran (#328). The Alt key's own key
-/// event (egui names AltLeft and AltRight too) isn't another key.
-fn alt_alone_released(events: &[egui::Event], down: &mut bool, alone: &mut bool) -> bool {
-    let mut released = false;
-    for e in events {
-        match e {
-            egui::Event::ModifiersChanged(m) => {
-                if m.alt && !*down {
-                    *down = true;
-                    *alone = !(m.ctrl || m.shift || m.command || m.mac_cmd);
-                } else if m.alt {
-                    // Ctrl or Shift added while Alt is held: not Alt alone.
-                    *alone &= !(m.ctrl || m.shift || m.command || m.mac_cmd);
-                } else if *down {
-                    released |= *alone;
-                    *down = false;
-                    *alone = false;
-                }
-            }
-            egui::Event::Key {
-                key: egui::Key::AltLeft | egui::Key::AltRight,
-                ..
-            } => {}
-            egui::Event::Key { pressed: true, .. }
-            | egui::Event::PointerButton { pressed: true, .. } => {
-                *alone = false;
-            }
-            egui::Event::WindowFocused(false) => {
-                *down = false;
-                *alone = false;
-            }
-            _ => {}
-        }
-    }
-    released
-}
-
 impl eframe::App for App {
     /// What comes in from outside (a second launch, the browser's native host, the automation
     /// API) is handled here, which runs at every frame: `ui` doesn't run while the main window
@@ -13973,15 +13848,12 @@ mod access_key_tests {
         ))
     }
 
-    /// Every menu MDM builds, in the states that change them: the menu bar, its menus, the
+    /// Every menu MDM builds, in the states that change them: the toolbar's Menu panel, the
     /// right-click and drop-down menus, a text box's, and their submenus.
     fn every_menu() -> Vec<Level> {
         let mut app = app();
-        let mut out = vec![Level {
-            name: "menu bar".into(),
-            context: "menubar",
-            labels: crate::chrome::bar_titles(),
-        }];
+        let section_names = ["Tasks", "File", "Downloads", "View", "Help"];
+        let mut out: Vec<Level> = Vec::new();
         let mut views = vec![
             None,
             Some(View::All),
@@ -14009,8 +13881,8 @@ mod access_key_tests {
         popups.extend(views.into_iter().map(Popup::Node));
         for categories in [false, true] {
             app.show_categories = categories;
-            for (i, title) in crate::chrome::bar_titles().into_iter().enumerate() {
-                levels(title.into(), &app.menu_entries(i), &mut out);
+            for i in 0..section_names.len() {
+                levels(section_names[i].into(), &app.menu_entries(i), &mut out);
             }
             for p in &popups {
                 levels(format!("{p:?}"), &app.popup_entries(*p).0, &mut out);
@@ -14074,103 +13946,6 @@ mod access_key_tests {
         found.sort();
         found.dedup();
         assert!(found.is_empty(), "{}", found.join(", "));
-    }
-}
-
-#[cfg(test)]
-mod alt_key_tests {
-    use super::alt_alone_released;
-    use egui::{Event, Key, Modifiers};
-
-    fn alt(on: bool) -> Event {
-        Event::ModifiersChanged(Modifiers {
-            alt: on,
-            ..Modifiers::NONE
-        })
-    }
-    fn key(k: Key, pressed: bool) -> Event {
-        Event::Key {
-            key: k,
-            physical_key: None,
-            pressed,
-            repeat: false,
-            modifiers: Modifiers::NONE,
-        }
-    }
-
-    /// #328: Alt pressed and let go alone opens the menu bar, whether the press and the release
-    /// come in passes of their own or (a screen reader passing the key on as it is let go) in
-    /// one pass; Alt with another key, or a click, doesn't.
-    #[test]
-    fn alt_alone_is_read_from_the_events_in_their_order() {
-        let (mut down, mut alone) = (false, false);
-        // Two passes, as the keyboard alone gives them.
-        assert!(!alt_alone_released(
-            &[alt(true), key(Key::AltLeft, true)],
-            &mut down,
-            &mut alone
-        ));
-        assert!(alt_alone_released(
-            &[key(Key::AltLeft, false), alt(false)],
-            &mut down,
-            &mut alone
-        ));
-        // One pass (NVDA, Narrator).
-        let one = [
-            alt(true),
-            key(Key::AltLeft, true),
-            key(Key::AltLeft, false),
-            alt(false),
-        ];
-        assert!(alt_alone_released(&one, &mut down, &mut alone));
-        // The right Alt too.
-        let right = [
-            alt(true),
-            key(Key::AltRight, true),
-            key(Key::AltRight, false),
-            alt(false),
-        ];
-        assert!(alt_alone_released(&right, &mut down, &mut alone));
-        // Alt+Tab-like: another key while Alt is held.
-        let with_key = [
-            alt(true),
-            key(Key::AltLeft, true),
-            key(Key::Tab, true),
-            alt(false),
-        ];
-        assert!(!alt_alone_released(&with_key, &mut down, &mut alone));
-        // A click while Alt is held, in two passes.
-        assert!(!alt_alone_released(&[alt(true)], &mut down, &mut alone));
-        let click = Event::PointerButton {
-            pos: egui::pos2(1.0, 1.0),
-            button: egui::PointerButton::Primary,
-            pressed: true,
-            modifiers: Modifiers::NONE,
-        };
-        assert!(!alt_alone_released(
-            &[click, alt(false)],
-            &mut down,
-            &mut alone
-        ));
-        // Ctrl+Alt (AltGr on many keyboards): not the menu's.
-        let ctrl_alt = Event::ModifiersChanged(Modifiers {
-            alt: true,
-            ctrl: true,
-            command: true,
-            ..Modifiers::NONE
-        });
-        assert!(!alt_alone_released(
-            &[ctrl_alt, alt(false)],
-            &mut down,
-            &mut alone
-        ));
-        // The window losing the focus while Alt is down (Alt+Tab away).
-        assert!(!alt_alone_released(
-            &[alt(true), Event::WindowFocused(false)],
-            &mut down,
-            &mut alone
-        ));
-        assert!(!alt_alone_released(&[alt(false)], &mut down, &mut alone));
     }
 }
 

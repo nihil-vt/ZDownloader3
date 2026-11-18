@@ -1011,7 +1011,7 @@ impl Progress {
         )];
         let id = format!("progress-tab-menu-{}", self.id);
         match crate::chrome::popup(ctx, MenuKind::Context, &id, at, &entries, &|_| None) {
-            PopupResult::Open | PopupResult::Neighbor(_) => return,
+            PopupResult::Open | PopupResult::Neighbor => return,
             PopupResult::Chosen(()) => {
                 self.show_hidden_tabs();
                 ctx.request_repaint();

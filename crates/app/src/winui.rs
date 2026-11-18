@@ -2531,7 +2531,7 @@ pub fn copy_menu(resp: &Response, text: &str) {
         &entries,
         &|_| None,
     ) {
-        PopupResult::Open | PopupResult::Neighbor(_) => {}
+        PopupResult::Open | PopupResult::Neighbor => {}
         PopupResult::Chosen(()) => {
             crate::copy_text(&ctx, text.to_owned());
             ctx.data_mut(|d| d.remove::<Pos2>(key));
@@ -2670,7 +2670,7 @@ pub fn edit_menu(resp: &Response, value: &mut String, password: bool, multiline:
         &entries,
         &|_| None,
     ) {
-        PopupResult::Open | PopupResult::Neighbor(_) => return,
+        PopupResult::Open | PopupResult::Neighbor => return,
         PopupResult::Dismissed => None,
         PopupResult::Chosen(c) => Some(c),
     };
@@ -3139,7 +3139,7 @@ pub fn drop_list(
             *open = false;
             None
         }
-        PopupResult::Open | PopupResult::Neighbor(_) => None,
+        PopupResult::Open | PopupResult::Neighbor => None,
     }
 }
 
@@ -5895,7 +5895,7 @@ pub fn combo_light(
                 open = false;
                 resp.request_focus();
             }
-            PopupResult::Open | PopupResult::Neighbor(_) => {}
+            PopupResult::Open | PopupResult::Neighbor => {}
         }
         // The keys went to the list: the dialog's default button doesn't take Enter too.
         take_key(ui, egui::Key::Enter);
@@ -5983,7 +5983,7 @@ pub fn menu_button(ui: &mut Ui, rc: Rect, label: &str, items: &[&str], id: &str)
                 open = false;
                 resp.request_focus();
             }
-            PopupResult::Open | PopupResult::Neighbor(_) => {}
+            PopupResult::Open | PopupResult::Neighbor => {}
         }
         // The keys went to the menu: the window's default button doesn't take Enter too.
         take_key(ui, egui::Key::Enter);

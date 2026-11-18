@@ -1,9 +1,8 @@
 //! The main window's chrome painted to IDM 6.42's pixels (notes/ui-spec/main-window.md,
-//! notes/ui-spec/menus.md): menu bar, popup menus, toolbar, Categories tree, shell icons.
+//! notes/ui-spec/menus.md): popup menus, toolbar, Categories tree, shell icons.
 //!
-//! Our client area also holds the menu bar (IDM's is non-client), so every main-window
-//! spec y is shifted by `MENU_H` = 20. Main-window spec "baseline" is origin + ascent (the row
-//! under the glyphs); `winui::text_font` takes the last ink row, i.e. spec baseline − 1.
+//! Main-window spec "baseline" is origin + ascent (the row under the glyphs); `winui::text_font`
+//! takes the last ink row, i.e. spec baseline − 1.
 
 use egui::{Color32, Pos2, Rect, Stroke, Ui, pos2, vec2};
 
@@ -12,7 +11,6 @@ use crate::scrollbar;
 use crate::winui::{self, text_font, text_width_font};
 
 /// Height of our menu bar band incl. its #f0f0f0 bottom line (IDM: non-client y −20…−1).
-pub const MENU_H: f32 = 20.0;
 
 const fn rgb(r: u8, g: u8, b: u8) -> Color32 {
     Color32::from_rgb(r, g, b)
@@ -21,27 +19,18 @@ use crate::theme::themed;
 // The active theme's colours (crate::palette, #45).
 themed! {
     pub WINDOW_BG => window;
-    MENUBAR_BG => menubar;
-    /// The bar's last row (light: #f2f2f2).
-    MENUBAR_BOTTOM => menubar_bottom;
-    /// The open menu's item. Light: #f9f9f9, the popup's own background (captured 2026-10-30).
-    MENUBAR_OPEN => menubar_open;
-    /// An item under the pointer, no menu open (captured 2026-10-30): dark #505050 from 1 px
-    /// below the bar's top; light #f5f5f5, 1 px inside the bar's top and bottom.
-    MENUBAR_HOT => menubar_hot;
-    MENUBAR_LINE => menubar_line;
-    POPUP_BG => menu;
+    pub POPUP_BG => menu;
     // The native menu window's frame (Windows draws menus in their own window), and every
     // in-window popup's (popup_surface).
-    POPUP_BORDER => menu_border;
-    POPUP_SEP => menu_sep;
+    pub POPUP_BORDER => menu_border;
+    pub POPUP_SEP => menu_sep;
     /// Light: #f0f0f0, rounded, captured 2026-10-30.
-    POPUP_HOVER => menu_hot;
-    POPUP_ITEM => menu_item;
-    TEXT => menu_text;
+    pub POPUP_HOVER => menu_hot;
+    pub POPUP_ITEM => menu_item;
+    pub TEXT => menu_text;
     /// Bullets and submenu arrows (light: dark cores #1a1a1a / #282828).
-    GLYPH => menu_glyph;
-    TEXT_DISABLED_MENU => menu_text_disabled;
+    pub GLYPH => menu_glyph;
+    pub TEXT_DISABLED_MENU => menu_text_disabled;
     TB_DISABLED => toolbar_text_disabled;
     /// A drop-down's arrow (dark: light on the dark band, where #282828 could not be seen).
     TB_ARROW => toolbar_arrow;
@@ -157,197 +146,6 @@ pub fn paint_image(ui: &Ui, painter: &egui::Painter, src: egui::ImageSource<'sta
     }
 }
 
-// ---- menu bar --------------------------------------------------------------------------------
-
-/// Top-level menus: label, item rect x and width, text x (measured, "Ta" kerned by the font):
-/// the standard Win32 bar (text at item.x + 7, width = text + 14; light-main.md), in both modes
-/// (user decision 2026-11-01: dark mode only changes colours, never sizes or places; IDM's dark
-/// bar was wider).
-const MENUS: [(&str, f32, f32, f32); 5] = [
-    ("&Tasks", 0.0, 42.0, 7.0),
-    ("&File", 42.0, 32.0, 49.0),
-    ("&Downloads", 74.0, 73.0, 81.0),
-    ("&View", 147.0, 39.0, 154.0),
-    ("&Help", 186.0, 39.0, 193.0),
-];
-
-/// The menu bar in the interface language: English keeps the measured rects; a translation is
-/// laid out by the same rule (Win32's: text at item.x + 7, width = text + 14) from the translated label's width: GDI's, or the
-/// width it is drawn at when wider (a script drawn in a fallback font, such as Japanese).
-pub fn menus(p: &egui::Painter) -> Vec<(&'static str, f32, f32, f32)> {
-    let table = &MENUS;
-    let translated: Vec<&'static str> = table
-        .iter()
-        .map(|(l, ..)| crate::i18n::tc("menubar", l))
-        .collect();
-    if translated
-        .iter()
-        .zip(table.iter())
-        .all(|(t, (l, ..))| t == l)
-    {
-        return table.to_vec();
-    }
-    let (pad, inset) = (14.0, 7.0);
-    let mut x = 0.0;
-    translated
-        .into_iter()
-        .map(|label| {
-            let w = menu_width(p, &plain(label).0) + pad;
-            let item = (label, x, w, x + inset);
-            x += w;
-            item
-        })
-        .collect()
-}
-
-/// Paint the menu bar; returns what happened to its titles this frame, for [`menubar_next`]: a
-/// title clicked (or opened and shut by a screen reader), or the pointer over one (which only
-/// moves to it from another open menu).
-pub fn menu_bar(ui: &mut Ui, o: Pos2, width: f32, open: Option<usize>) -> Option<MenuBarEvent> {
-    let p = ui.painter().clone();
-    fill(
-        &p,
-        o.x,
-        o.y,
-        o.x + width - 1.0,
-        o.y + MENU_H - 2.0,
-        MENUBAR_BG(),
-    );
-    // The bar's last row (light: #f2f2f2; dark: the bar's own).
-    fill(
-        &p,
-        o.x,
-        o.y + MENU_H - 2.0,
-        o.x + width - 1.0,
-        o.y + MENU_H - 2.0,
-        MENUBAR_BOTTOM(),
-    );
-    fill(
-        &p,
-        o.x,
-        o.y + MENU_H - 1.0,
-        o.x + width - 1.0,
-        o.y + MENU_H - 1.0,
-        MENUBAR_LINE(),
-    );
-    let mut hit = None;
-    // For screen readers and UI Automation (#113): a menu bar whose titles are menu items that
-    // open their menus (Click, as with the mouse).
-    let bar = ui.interact(
-        winui::rect(Rect::from_min_size(o, vec2(width, MENU_H))),
-        egui::Id::unique("menubar-node"),
-        egui::Sense::hover(),
-    );
-    winui::expose(&bar, egui::Role::MenuBar, "", true, None);
-    let titles_ui = ui.new_child(egui::UiBuilder::new().accessibility_parent(bar.id));
-    let released = ui.input(|x| x.pointer.any_released());
-    for (i, (label, x, w, tx)) in menus(&p).iter().enumerate() {
-        // From the leading edge: the first menu at the right in RTL.
-        let rc = winui::rect(Rect::from_min_size(o + vec2(*x, 0.0), vec2(*w, MENU_H)));
-        let resp = titles_ui.interact(rc, egui::Id::unique(("menubar", i)), winui::pointer_only());
-        winui::expose(&resp, egui::Role::MenuItem, &plain(label).0, true, None);
-        ui.ctx().accesskit_node_builder(resp.id, |n| {
-            n.set_has_popup(egui::accesskit::HasPopup::Menu);
-            n.set_expanded(open == Some(i));
-        });
-        if open == Some(i) {
-            p.rect_filled(rc, 0.0, MENUBAR_OPEN());
-        } else if open.is_none() && resp.hovered() {
-            let hot = Rect::from_min_max(rc.min + vec2(0.0, 1.0), rc.max - vec2(0.0, 1.0));
-            p.rect_filled(hot, 0.0, MENUBAR_HOT());
-        }
-        // The title without its "&", its access letter underlined (each language marks its
-        // own: French Tâches and Téléchargements both had T).
-        let (shown, letter) = plain(label);
-        let drawn = text_font(&p, winui::segoe(), o.x + tx, o.y + 13.0, &shown, TEXT());
-        // Dark mode always underlines mnemonics (1 px under the letter's advance); light mode
-        // follows the Windows rule: once the keyboard is in use (`cues`).
-        if cues(ui.ctx()) {
-            let (x0, x1) =
-                winui::char_span(&p, &winui::segoe(), &shown, letter.unwrap_or(0), drawn);
-            fill(&p, x0, o.y + 15.0, x1, o.y + 15.0, TEXT());
-        }
-        // A screen reader or UI Automation opens a title's menu with Expand (or Click) and
-        // shuts it with Collapse.
-        let (expand, collapse) = ui.input(|x| {
-            (
-                x.has_accesskit_action_request(resp.id, egui::accesskit::Action::Expand),
-                x.has_accesskit_action_request(resp.id, egui::accesskit::Action::Collapse),
-            )
-        });
-        if collapse && open == Some(i) {
-            hit = Some(MenuBarEvent::Title { i, released: true });
-        } else if resp.clicked() || (expand && open != Some(i)) {
-            hit = Some(MenuBarEvent::Title { i, released });
-        } else if resp.hovered() && open.is_some_and(|o| o != i) {
-            hit = Some(MenuBarEvent::Hover(i));
-        }
-        if resp.clicked() || expand || collapse {
-            // No pointer moves to bring the next frame: the menu is drawn (or shut) on it.
-            ui.ctx().request_repaint();
-        }
-    }
-    hit
-}
-
-/// The menu-bar title under `pos` (main-window coordinates), as [`menu_bar`] lays them out at
-/// `o`: the first menu at the right in RTL.
-pub fn menubar_title_at(p: &egui::Painter, o: Pos2, pos: Pos2) -> Option<usize> {
-    menus(p).iter().position(|(_, x, w, _)| {
-        winui::rect(Rect::from_min_size(o + vec2(*x, 0.0), vec2(*w, MENU_H))).contains(pos)
-    })
-}
-
-/// What happened to the menu bar this frame, for [`menubar_next`].
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MenuBarEvent {
-    /// Title `i` clicked (`released`: the click's release, or a screen reader's Collapse), or
-    /// opened by a screen reader's Expand.
-    Title { i: usize, released: bool },
-    /// The pointer over title `i`, no click: while another menu is open, that one's menu opens
-    /// instead (Windows' menu bars, and IDM's); otherwise nothing.
-    Hover(usize),
-    /// The open menu shut itself (Escape, a press outside it, the app losing the focus);
-    /// `press_on_title`: the press that shut it went down on a title of the bar.
-    Dismissed { press_on_title: bool },
-    /// An item was chosen.
-    Chosen,
-    /// Left or Right, or the keyboard (Alt, F10, an access letter), opened menu `i`.
-    Open(usize),
-}
-
-/// The menu bar's open menu after `event` (`open`: the one open before it).
-///
-/// A menu that shut itself is closed here too, unless the press that shut it went down on a
-/// title: that press's release is the title's click, which shuts the menu (its own title) or
-/// opens another one. Escape, or the app losing the focus, with the pointer resting on the bar
-/// (where the click that opened the menu left it) used to leave the menu marked open with
-/// nothing shown, so the next click on its title only "shut" it, and nothing opened.
-///
-/// The pointer alone never opens a menu: it only moves from an open one to another (#277). Once
-/// a menu closes in any way (a command chosen, Escape, a click elsewhere, another window taking
-/// the focus), the bar waits for a click.
-pub fn menubar_next(open: Option<usize>, event: MenuBarEvent) -> Option<usize> {
-    match event {
-        MenuBarEvent::Hover(i) => open.map(|_| i),
-        MenuBarEvent::Title { i, released } => {
-            if open == Some(i) && released {
-                None
-            } else {
-                Some(i)
-            }
-        }
-        MenuBarEvent::Dismissed {
-            press_on_title: true,
-        } => open,
-        MenuBarEvent::Dismissed {
-            press_on_title: false,
-        }
-        | MenuBarEvent::Chosen => None,
-        MenuBarEvent::Open(i) => Some(i),
-    }
-}
-
 // ---- popup menus ---------------------------------------------------------------------------
 
 #[derive(Clone)]
@@ -379,17 +177,7 @@ pub fn label(text: &str) -> &'static str {
 const SLOT: f32 = 22.0;
 const SEP: f32 = 9.0;
 
-/// A menu title's access letter, lower case ("&Tasks": "t"; none marked: its first letter).
-pub fn menu_letter(label: &str) -> String {
-    let (shown, at) = plain(label);
-    shown
-        .chars()
-        .nth(at.unwrap_or(0))
-        .map(|c| c.to_lowercase().to_string())
-        .unwrap_or_default()
-}
-
-fn plain(label: &str) -> (String, Option<usize>) {
+pub(crate) fn plain(label: &str) -> (String, Option<usize>) {
     let mut out = String::new();
     let mut mnemonic = None;
     let mut chars = label.chars().peekable();
@@ -415,18 +203,13 @@ pub fn access_key(label: &str) -> Option<String> {
         .map(|c| c.to_lowercase().to_string())
 }
 
-/// The menu bar's titles, in English (their translations: context "menubar").
-#[cfg(test)]
-pub fn bar_titles() -> Vec<&'static str> {
-    MENUS.iter().map(|m| m.0).collect()
-}
-
+/// A menu's result: an item was chosen, it closed, or the keyboard was used.
 pub enum PopupResult<C> {
     Open,
     Chosen(C),
     Dismissed,
-    /// Left or Right on a menu of the bar: open the menu before (-1) or after (+1) it.
-    Neighbor(i32),
+    /// Left or Right on a drop-down: open the neighbouring one.
+    Neighbor,
 }
 
 /// A key or key combination as written in the shortcuts list ("Ctrl+N", "Shift+Delete"), as
@@ -895,13 +678,13 @@ fn keyboard<C: Clone>(
                 open_sub = None;
                 hl1 = None;
             }
-            egui::Key::ArrowLeft => out = Some(PopupResult::Neighbor(-1)),
+            egui::Key::ArrowLeft => out = Some(PopupResult::Neighbor),
             egui::Key::ArrowRight => match hl.and_then(|h| level.get(h)) {
                 Some(MenuEntry::Sub(_, true, c)) if !in_sub => {
                     open_sub = hl;
                     hl1 = step(c, None, 1);
                 }
-                _ => out = Some(PopupResult::Neighbor(1)),
+                _ => out = Some(PopupResult::Neighbor),
             },
             egui::Key::Enter | egui::Key::Space => target = hl,
             other => {
@@ -1874,7 +1657,7 @@ pub fn toolbar(
     keys: Option<usize>,
 ) -> Option<ToolbarEvent> {
     let p = ui.painter().clone();
-    let top = o.y + MENU_H;
+    let top = o.y;
     let c = crate::theme::colors();
     fill(&p, o.x, top, o.x + width - 1.0, top, c.toolbar_line);
     fill(
@@ -2780,120 +2563,8 @@ fn chevron(p: &egui::Painter, ox: f32, top: f32, open: bool, bright: bool) {
 
 #[cfg(test)]
 mod tests {
-    use super::{
-        FOCUS_GRACE, FocusVerdict, MenuBarEvent, MenuEntry, MenuFocus, MenuKind, heading_into,
-        item_at, menu_viewport, menubar_next,
-    };
+    use super::{FOCUS_GRACE, FocusVerdict, MenuEntry, MenuFocus, MenuKind, heading_into, item_at};
     use egui::{Rect, pos2};
-
-    /// #277: on X11 the menu bar's menus share one window per level, so going from title to
-    /// title moves it (a compositor has no new window to fade in); elsewhere, and for every
-    /// other menu, a window of their own as before.
-    #[test]
-    fn the_bar_menus_share_one_window_on_x11() {
-        let bar = |i: usize, depth, shared| {
-            menu_viewport(MenuKind::Bar, &format!("menu-{i}"), depth, shared)
-        };
-        // Tasks, File, Downloads, View, Help: one window (and one for their submenus).
-        for i in 1..5 {
-            assert_eq!(bar(0, 0, true), bar(i, 0, true));
-            assert_eq!(bar(0, 1, true), bar(i, 1, true));
-        }
-        assert_ne!(bar(0, 0, true), bar(0, 1, true));
-        // Without sharing (Windows, macOS, native Wayland): one per menu, as before.
-        assert_ne!(bar(0, 0, false), bar(1, 0, false));
-        assert_eq!(
-            bar(2, 0, false),
-            egui::ViewportId::from_hash_of(("menu", "menu-2", 0usize))
-        );
-        // A context menu and a drop-down list keep their own window, shared or not.
-        for shared in [true, false] {
-            let ctx = menu_viewport(MenuKind::Context, "popup-1", 0, shared);
-            let list = menu_viewport(MenuKind::List, "drop-x", 0, shared);
-            assert_ne!(ctx, bar(0, 0, shared));
-            assert_ne!(list, bar(0, 0, shared));
-            assert_ne!(ctx, list);
-            assert_eq!(
-                ctx,
-                egui::ViewportId::from_hash_of(("menu", "popup-1", 0usize))
-            );
-        }
-    }
-
-    /// Runs `events` from no menu open; the open menu after each.
-    fn run(events: &[MenuBarEvent]) -> Vec<Option<usize>> {
-        let mut open = None;
-        events
-            .iter()
-            .map(|e| {
-                open = menubar_next(open, *e);
-                open
-            })
-            .collect()
-    }
-
-    #[test]
-    fn a_title_clicked_after_escape_opens_its_menu_again() {
-        // Click Tasks, Escape (the pointer still on Tasks: no press), click Tasks.
-        let steps = run(&[
-            MenuBarEvent::Title {
-                i: 0,
-                released: true,
-            },
-            MenuBarEvent::Dismissed {
-                press_on_title: false,
-            },
-            MenuBarEvent::Title {
-                i: 0,
-                released: true,
-            },
-        ]);
-        assert_eq!(steps, [Some(0), None, Some(0)]);
-    }
-
-    #[test]
-    fn clicking_the_open_menus_title_shuts_it() {
-        // The press shuts the menu's window; its release, on the same title, shuts the menu.
-        let steps = run(&[
-            MenuBarEvent::Title {
-                i: 1,
-                released: true,
-            },
-            MenuBarEvent::Dismissed {
-                press_on_title: true,
-            },
-            MenuBarEvent::Title {
-                i: 1,
-                released: true,
-            },
-            MenuBarEvent::Title {
-                i: 1,
-                released: true,
-            },
-        ]);
-        assert_eq!(steps, [Some(1), Some(1), None, Some(1)]);
-    }
-
-    #[test]
-    fn another_title_opens_its_menu_from_an_open_one() {
-        let steps = run(&[
-            MenuBarEvent::Title {
-                i: 0,
-                released: true,
-            },
-            // Hovered while Tasks is open: File opens.
-            MenuBarEvent::Hover(1),
-            // Pressed and released on Downloads.
-            MenuBarEvent::Dismissed {
-                press_on_title: true,
-            },
-            MenuBarEvent::Title {
-                i: 2,
-                released: true,
-            },
-        ]);
-        assert_eq!(steps, [Some(0), Some(1), Some(1), Some(2)]);
-    }
 
     /// The focus over a menu's passes (`(focused, time)` each), as `MenuFocus` judges it, the
     /// system saying nothing of who has it (Linux, macOS).
@@ -2966,72 +2637,6 @@ mod tests {
         // A menu opened while another app was in front (a tray menu): no focus to lose.
         let v = focus_run(&[(false, 0.0), (false, 1.0), (false, 9.0)]);
         assert!(v.iter().all(|x| *x == FocusVerdict::Here), "{v:?}");
-    }
-
-    /// #277: Help → About clicked, About closed, then the pointer over the titles: nothing opens
-    /// until a click. The bar is as inactive after a command as before the first click.
-    #[test]
-    fn after_a_command_the_pointer_alone_opens_nothing() {
-        use MenuBarEvent::{Chosen, Dismissed, Hover, Title};
-        let steps = run(&[
-            // Before any click: the pointer over the titles opens nothing.
-            Hover(0),
-            Hover(4),
-            // Help clicked; the pointer on its own title keeps it.
-            Title {
-                i: 4,
-                released: true,
-            },
-            Hover(4),
-            // About chosen: the menu closes.
-            Chosen,
-            // About opens and takes the focus, is closed, the main window has it again: no
-            // event of the bar's (its menu is closed). A stray dismissal changes nothing.
-            Dismissed {
-                press_on_title: false,
-            },
-            // The pointer over every title: still nothing.
-            Hover(0),
-            Hover(1),
-            Hover(2),
-            Hover(3),
-            Hover(4),
-            // A click opens a menu again.
-            Title {
-                i: 1,
-                released: true,
-            },
-        ]);
-        assert_eq!(
-            steps,
-            [
-                None,
-                None,
-                Some(4),
-                Some(4),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                Some(1)
-            ]
-        );
-        // The same after a command chosen from the keyboard (Alt+H, A), and after Escape or a
-        // click elsewhere.
-        for end in [
-            Chosen,
-            Dismissed {
-                press_on_title: false,
-            },
-        ] {
-            assert_eq!(
-                run(&[MenuBarEvent::Open(4), end, Hover(0), Hover(3)]),
-                [Some(4), None, None, None]
-            );
-        }
     }
 
     /// #579: Tasks with Export's submenu open to the right (menu 200 wide, Export's slot at
@@ -3319,41 +2924,6 @@ mod tests {
         assert_eq!(item_at(&entries, o, 200.0, pos2(50.0, 60.0)), Some(3));
         // The padding at the sides.
         assert_eq!(item_at(&entries, o, 200.0, pos2(3.0, 40.0)), None);
-    }
-
-    /// With a menu open, the pointer moves it from title to title, as in Windows' menu bars
-    /// (and IDM's); on its own title it stays.
-    #[test]
-    fn with_a_menu_open_the_pointer_switches_menus() {
-        use MenuBarEvent::{Hover, Title};
-        let steps = run(&[
-            Title {
-                i: 0,
-                released: true,
-            },
-            Hover(1),
-            Hover(1),
-            Hover(3),
-            Hover(0),
-        ]);
-        assert_eq!(steps, [Some(0), Some(1), Some(1), Some(3), Some(0)]);
-    }
-
-    #[test]
-    fn a_press_elsewhere_a_choice_or_the_focus_lost_closes_the_menu() {
-        for end in [
-            MenuBarEvent::Dismissed {
-                press_on_title: false,
-            },
-            MenuBarEvent::Chosen,
-        ] {
-            assert_eq!(run(&[MenuBarEvent::Open(3), end]), [Some(3), None]);
-        }
-        // Left / Right from the keyboard move to the neighbour.
-        assert_eq!(
-            run(&[MenuBarEvent::Open(0), MenuBarEvent::Open(4)]),
-            [Some(0), Some(4)]
-        );
     }
 
     /// #328: a menu opened from the keyboard is said to screen readers. Its windows never take
