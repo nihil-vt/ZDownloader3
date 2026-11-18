@@ -154,6 +154,16 @@ pub enum Filter {
     Text(String),
 }
 
+/// The list's text needle: what the toolbar's search box narrows by, and the column to look
+/// in (`column == None`: every visible column).
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct Needle {
+    /// The typed text.
+    pub text: String,
+    /// The column to look in (None: every visible column).
+    pub column: Option<usize>,
+}
+
 /// The values a column filters by, for columns that have a few (None: a text search).
 pub fn filter_values(col: usize) -> Option<&'static [&'static str]> {
     match col {
@@ -179,6 +189,21 @@ fn row_value(row: &Row, col: usize) -> &str {
 /// Does the row pass every column filter? A hidden column's filter is kept but doesn't filter
 /// (nothing on screen would say why rows are missing).
 pub fn matches(st: &ListState, row: &Row) -> bool {
+    if let Some(n) = st.needle.as_ref() {
+        let lo = n.text.to_lowercase();
+        let any = |c: usize| row.cells[c].to_lowercase().contains(&lo);
+        if match n.column {
+            None => st
+                .visible
+                .iter()
+                .zip(st.order.iter())
+                .any(|(&v, &c)| v && any(c)),
+            Some(c) => any(c),
+        } {
+        } else {
+            return false;
+        }
+    }
     st.filters.iter().enumerate().all(|(c, f)| match f {
         _ if !st.visible[c] => true,
         None => true,
@@ -224,6 +249,8 @@ pub struct ListState {
     pub scroll_to: Option<usize>,
     /// Column filters, by data slot (kept for the session).
     pub filters: Vec<Option<Filter>>,
+    /// The toolbar's text search (None when the box is empty or the thing was cleared).
+    pub needle: Option<Needle>,
     /// The open filter box: column and its top-left.
     filter_open: Option<(usize, Pos2)>,
     /// The sideways scroll when it opened (it closes when the list moves).
@@ -258,6 +285,7 @@ impl Default for ListState {
             focused: true,
             scroll_to: None,
             filters: vec![None; COLS],
+            needle: None,
             filter_open: None,
             filter_hscroll: 0.0,
             marquee: None,

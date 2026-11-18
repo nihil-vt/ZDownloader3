@@ -10,8 +10,6 @@ use crate::icons::Icon;
 use crate::scrollbar;
 use crate::winui::{self, text_font, text_width_font};
 
-/// Height of our menu bar band incl. its #f0f0f0 bottom line (IDM: non-client y −20…−1).
-
 const fn rgb(r: u8, g: u8, b: u8) -> Color32 {
     Color32::from_rgb(r, g, b)
 }

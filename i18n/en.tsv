@@ -370,7 +370,7 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Algeria	Algeria
-#. text in remote.rs
+#. message or event log entry in the main window; text in remote.rs
 #. remote control page (on a phone): tab: every download
 	All	All
 #. item in the Categories tree in the main window
@@ -1357,7 +1357,7 @@
 #. text in the Options window
 #. tooltip of "Mark downloaded files as coming from the internet" on Linux
 	File managers show where the files marked this way came from. Unticked, no download is marked.	File managers show where the files marked this way came from. Unticked, no download is marked.
-#. text in the Scheduler window
+#. message or event log entry in the main window; text in the Scheduler window
 	File Name	File Name
 #. text in the Download video window
 	File name	File name
@@ -2109,9 +2109,6 @@
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 	medium	medium
-#. message or event log entry in the main window
-#. noun: the menu (a toolbar button that opens it)
-	Menu	Menu
 #. text in the download list (sizes, speeds, status)
 #. the list's Status column while a video's picture and sound are joined into one file (ffmpeg); {percent} how far, e.g. "45%". One short word: the column is narrow
 	Merging {percent}	Merging {percent}
@@ -2345,8 +2342,6 @@
 	No peers yet. Few people may share this torrent, or a firewall, a VPN or the network may be blocking BitTorrent.	No peers yet. Few people may share this torrent, or a firewall, a VPN or the network may be blocking BitTorrent.
 #. text in the Options window
 	No proxy/socks	No proxy/socks
-#. text in supermenu.rs
-	No results	No results
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.
@@ -2953,9 +2948,9 @@
 #. noun: the tool that starts and stops queues on time
 #. noun: opens the Scheduler (the tool that starts queues on time)
 	Scheduler	Scheduler
-#. text in supermenu.rs
+#. message or event log entry in the main window
 #. the trailing ... means it is still going on: keep it
-	Search...	Search...
+	Search downloads...	Search downloads...
 #. text in langpick.rs
 	Search:	Search:
 #. text in the Batch download window
@@ -3213,6 +3208,8 @@
 #. the kind of file the Open dialog lists (sound files)
 #. tab title: sound settings
 	Sounds	Sounds
+#. message or event log entry in the main window
+	Source	Source
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 	Source code	Source code
 #. text in the Link grabber window
@@ -3306,7 +3303,7 @@
 #. text in the Options window
 #. column title: the account's state (premium, days left)
 	State	State
-#. text in the Link grabber window; group box title in the Options window; text in a download's progress window; text in the Scheduler window
+#. message or event log entry in the main window; text in the Link grabber window; group box title in the Options window; text in a download's progress window; text in the Scheduler window
 #. noun: label before the download's state
 #. column title: the download's state
 	Status	Status
@@ -5608,16 +5605,6 @@ menu	Vulkan draws with a software renderer	Vulkan draws with a software renderer
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	zDownloader³ &Home Page	zDownloader³ &Home Page
-#. menu bar title in the main window
-menubar	Downloads	Downloads
-#. menu bar title in the main window
-menubar	File	File
-#. menu bar title in the main window
-menubar	Help	Help
-#. menu bar title in the main window
-menubar	Tasks	Tasks
-#. menu bar title in the main window
-menubar	View	View
 #. toolbar button in the main window
 toolbar	Add Torrent	Add Torrent
 #. toolbar button in the main window

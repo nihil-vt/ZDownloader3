@@ -6,7 +6,7 @@ use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
 use base64::Engine as _;
-use egui::{Pos2, Ui, pos2};
+use egui::{Pos2, Rect, Ui, pos2, vec2};
 use mdm_engine::state::state_path;
 use mdm_engine::{Destination, Download, Options, Request};
 use reqwest::header::{AUTHORIZATION, HeaderMap, HeaderValue};
@@ -299,6 +299,7 @@ fn menu_answer(step: DupStep, start_now: bool) -> &'static str {
 
 /// Menu, toolbar and context-menu commands.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[allow(dead_code)]
 pub(crate) enum Cmd {
     AddUrl,
     /// Help → a page of the website (`""` = home).
@@ -1380,14 +1381,17 @@ pub struct App {
     main_hwnd: Option<isize>,
     list: list::ListState,
     icons: ShellIcons,
-    /// The toolbar's Menu flyout (open draws the searchable panel).
-    toolbar_menu_open: bool,
-    toolbar_menu: crate::supermenu::ToolbarMenu,
     /// Alt is down, and was pressed alone so far (releasing it opens the menu bar).
     /// The open context / drop-down menu, and its top-left.
     popup: Option<(Popup, Pos2, u64)>,
     /// Counts menu opens: each open is a new menu window, even at the same place.
     popup_serial: u64,
+    /// The toolbar's search box: the text narrowing the downloads list, as typed.
+    tb_search: String,
+    /// Which column the search looks in (None: every visible column; 0: file name; 3: status; 9: source).
+    tb_scope: Option<usize>,
+    /// The scope drop-down is open.
+    tb_scope_open: bool,
     /// The column layout last seen, to notice changes that need saving.
     last_layout: Option<list::Layout>,
     /// Main download queue (0), synchronization queue (1).
@@ -1859,6 +1863,9 @@ impl App {
             tree_keys: false,
             toolbar_keys: false,
             toolbar_at: 0,
+            tb_search: String::new(),
+            tb_scope: None,
+            tb_scope_open: false,
             move_rename_for: None,
             move_many_for: Vec::new(),
             list_view: view,
@@ -2016,8 +2023,6 @@ impl App {
             main_hwnd: None,
             list,
             icons: ShellIcons,
-            toolbar_menu_open: false,
-            toolbar_menu: Default::default(),
             popup: None,
             popup_serial: 0,
             last_layout: None,
@@ -2035,6 +2040,7 @@ impl App {
     }
 
     /// The one download single-download commands act on (Properties, Open…).
+    #[allow(dead_code)]
     fn selected_item(&self) -> Option<&Item> {
         self.selection
             .one()
@@ -3181,17 +3187,15 @@ impl App {
             "menu" => {
                 self.popup = None;
                 let (_index, _sub) = tab.split_once(':').unwrap_or((tab, ""));
-                self.toolbar_menu_open = true;
+                // menu flyout removed
             }
             // Every download selected and the right-click menu open on them (Move/Rename, #333).
             // The list's right-click menu on blank space (#926), for screenshots.
             "context" if tab == "blank" => {
-                self.toolbar_menu_open = false;
                 self.open_popup(Popup::Item(None), egui::pos2(360.0, 220.0));
             }
             "context" if tab == "all" => {
                 self.run(Cmd::SelectAll, None, ctx);
-                self.toolbar_menu_open = false;
                 if let Some(id) = self.shown_ids().first().copied() {
                     self.open_popup(Popup::Item(Some(id)), egui::pos2(360.0, 220.0));
                 }
@@ -3209,7 +3213,6 @@ impl App {
                     })
                     .or(self.items.last())
                     .map(|i| i.id);
-                self.toolbar_menu_open = false;
                 if let Some(id) = archive {
                     self.selection.set(id);
                     self.open_popup(Popup::Item(Some(id)), egui::pos2(360.0, 220.0));
@@ -8147,6 +8150,7 @@ impl App {
     // ---- menus -----------------------------------------------------------------------------
 
     /// IDM 6.42's menus (notes/ui-spec/menus.md); unbuilt features are greyed out.
+    #[allow(dead_code)]
     fn menu_entries(&self, index: usize) -> Vec<MenuEntry<Cmd>> {
         use MenuEntry::{Item as I, Sep, Sub};
         let sel = self.selected_item();
@@ -8393,6 +8397,7 @@ impl App {
 
     /// View → Theme (#45): the built-in themes, the theme files in the themes folder, and a way
     /// to that folder. Picked, a theme applies at once.
+    #[allow(dead_code)]
     fn theme_menu(&self) -> MenuEntry<Cmd> {
         use MenuEntry::{Item as I, Radio, Sep, Sub};
         let chosen = self.settings.theme.as_str();
@@ -8459,6 +8464,7 @@ impl App {
 
     /// View → Interface size (#262): every window larger, as a browser zooms (Ctrl + / Ctrl − /
     /// Ctrl 0 too). The size shown is the zoom drawn now, a test run's MDM_ZOOM too.
+    #[allow(dead_code)]
     fn interface_size_menu(&self) -> MenuEntry<Cmd> {
         let now = crate::scale::of_zoom(self.zoom);
         let items = crate::scale::STEPS
@@ -8492,6 +8498,7 @@ impl App {
     /// what draws now isn't the choice: the system's API failed here (and why), OpenGL can't
     /// draw MDM here (#835), a software renderer draws, or the choice waits for the next start.
     #[cfg(gpu)]
+    #[allow(dead_code)]
     fn draw_with_menu(&self) -> MenuEntry<Cmd> {
         use crate::renderer::{self, Api, Why};
         use MenuEntry::{Item as I, Radio, Sep, Sub};
@@ -8722,6 +8729,7 @@ impl App {
     /// The list's right-click menu. With several downloads selected it acts on all of them
     /// (Resume, Stop, Remove, queues); commands for one download need one.
     /// View → Arrange files, also on the list's blank space.
+    #[allow(dead_code)]
     fn arrange_menu(&self) -> MenuEntry<Cmd> {
         use MenuEntry::{Item as I, Sub};
         let off = |label| I(label, Cmd::None, false, false);
@@ -9322,9 +9330,7 @@ impl App {
         // Shift+Tab (`tab_to`), while no menu is open and no text box has them (#1190: the
         // toolbar couldn't be reached at all). A press anywhere takes them from the toolbar (the
         // list and the tree take them by a click).
-        let free = self.popup.is_none()
-            && !self.toolbar_menu_open
-            && ctx.memory(|m| m.focused().is_none());
+        let free = self.popup.is_none() && ctx.memory(|m| m.focused().is_none());
         if ctx.input(|i| i.pointer.any_pressed()) {
             self.toolbar_keys = false;
         }
@@ -9389,20 +9395,15 @@ impl App {
                 self.queues.first().is_some_and(|q| q.running),
                 Cmd::StopQueue(0),
             ),
-            // Everything that used to be on the menu bar, behind one button with a search box.
-            // i18n: noun: the menu (a toolbar button that opens it)
-            (Icon::Menu, crate::i18n::mark("Menu"), true, Cmd::None),
         ];
         let tb: Vec<(Icon, &str, bool)> = buttons.iter().map(|(i, l, e, _)| (*i, *l, *e)).collect();
+        let search_w = 214.0f32;
+        let search_w_pad = 6.0f32;
+        let toolbar_w = w - search_w - search_w_pad;
         let tb_keys = (self.toolbar_keys && free).then_some(self.toolbar_at);
-        match chrome::toolbar(ui, o, w, &tb, tb_keys) {
+        match chrome::toolbar(ui, o, toolbar_w, &tb, tb_keys) {
             Some(ToolbarEvent::Click(k)) => {
-                if buttons[k].0 == Icon::Menu {
-                    // The last button: the menu toggles the panel instead of running a command.
-                    self.toolbar_menu_open = !self.toolbar_menu_open;
-                } else {
-                    chosen = Some((buttons[k].3, None));
-                }
+                chosen = Some((buttons[k].3, None));
             }
             Some(ToolbarEvent::Drop(k, at)) => {
                 let kind = match buttons[k].0 {
@@ -9417,47 +9418,9 @@ impl App {
             }
             None => {}
         }
-        // The flyout of the toolbar's Menu button: after the toolbar, above the tab strip.
-        if self.toolbar_menu_open {
-            let groups = vec![
-                (
-                    crate::i18n::tc("menubar", "Tasks").to_string(),
-                    self.menu_entries(0),
-                ),
-                (
-                    crate::i18n::tc("menubar", "File").to_string(),
-                    self.menu_entries(1),
-                ),
-                (
-                    crate::i18n::tc("menubar", "Downloads").to_string(),
-                    self.menu_entries(2),
-                ),
-                (
-                    crate::i18n::tc("menubar", "View").to_string(),
-                    self.menu_entries(3),
-                ),
-                (
-                    crate::i18n::tc("menubar", "Help").to_string(),
-                    self.menu_entries(4),
-                ),
-            ];
-            let at = pos2(
-                o.x + w - crate::supermenu::WIDTH - 6.0,
-                o.y + chrome::pane_top() + 2.0,
-            );
-            let sections = crate::supermenu::Sections {
-                groups,
-                hint: crate::app::hint_str,
-            };
-            let (_rect, outcome) =
-                crate::supermenu::show(ui, at, &mut self.toolbar_menu, &sections);
-            match outcome {
-                crate::supermenu::Chosen::Command(c) => chosen = Some((c, None)),
-                crate::supermenu::Chosen::Closed => self.toolbar_menu_open = false,
-                crate::supermenu::Chosen::Open => {}
-            }
-        }
-
+        // The search box, at the right edge of the toolbar: a magnifying glass and a field,
+        // with a drop-down to pick the column to narrow by ("All" matches every visible cell).
+        self.tb_search_paint(ui, o, w, toolbar_w, search_w, search_w_pad);
         // The JD2 tab strip: Downloads / Linkgrabber. Flat, the active one underlined in the
         // accent colour, directly under the toolbar.
         let tabs_y = o.y + chrome::pane_top();
@@ -9734,7 +9697,7 @@ impl App {
                 pos2(o.x + list_left, panes_y),
                 pos2(o.x + w - 7.0, dock_top),
             );
-            self.list.menu_open = self.popup.is_some() || self.toolbar_menu_open;
+            self.list.menu_open = self.popup.is_some() || false;
             // Another node shows from its top (its rows aren't the last one's).
             if self.list_view != self.view {
                 self.list.scroll = 0.0;
@@ -9883,7 +9846,7 @@ impl App {
             // Ctrl+B the links in the clipboard (#709), neither in IDM. Not Ctrl+Shift+V for that: the
             // windowing library answers the paste keys by reading the clipboard on the window's
             // thread (#418). The full list: Help → Keyboard shortcuts (`help.rs`).
-            if chosen.is_none() && self.popup.is_none() && !self.toolbar_menu_open {
+            if chosen.is_none() && self.popup.is_none() {
                 let (find, next, add, clip) = ctx.input_mut(|i| {
                     (
                         i.consume_key(egui::Modifiers::COMMAND, egui::Key::F),
@@ -9911,11 +9874,7 @@ impl App {
             }
             // Delete removes the selected downloads, Shift+Delete with their files (both ask first);
             // not while a text box (Find, a filter) has the keys.
-            if chosen.is_none()
-                && self.popup.is_none()
-                && !self.toolbar_menu_open
-                && ctx.memory(|m| m.focused().is_none())
-            {
+            if chosen.is_none() && self.popup.is_none() && ctx.memory(|m| m.focused().is_none()) {
                 // On Windows egui reports Shift+Delete as Cut (Ctrl+X is Cut too, without Shift).
                 let (del, shift_del) = ctx.input(|i| {
                     (
@@ -10664,6 +10623,228 @@ impl App {
         });
         grabber.set_packagizer(self.settings.packagizer_rules.clone());
         grabber.add(found, source, |u| known.contains(u.as_str()));
+    }
+
+    /// The toolbar's right end: the search box (magnifying glass, an edit field, a drop-down to
+    /// pick the column). `pad` is the space kept between the toolbar and the box; `row_top` the
+    /// band's top (`o.y`). Text narrows the list in [`App::sync_needle`]; the drop-down opens a
+    /// small panel with the columns' names, one choice per row.
+    fn tb_search_paint(
+        &mut self,
+        ui: &mut Ui,
+        o: Pos2,
+        w: f32,
+        toolbar_end: f32,
+        search_w: f32,
+        search_w_pad: f32,
+    ) {
+        let p = ui.painter().clone();
+        let _top_w = w - toolbar_end;
+        // Search box rect: fills the right end of the toolbar band.
+        let sl = o.x + toolbar_end + search_w_pad;
+        let y0 = o.y;
+        let band_h = 68.0;
+        let rect = Rect::from_min_size(pos2(sl, y0), vec2(search_w, band_h));
+        let c = crate::theme::colors();
+        p.rect_filled(rect, 0.0, crate::chrome::WINDOW_BG());
+        // A vertical separator at the right edge of the buttons.
+        p.rect_filled(
+            Rect::from_min_size(pos2(sl - 2.0, y0), vec2(1.0, band_h)),
+            0.0,
+            c.toolbar_line,
+        );
+        p.rect_filled(
+            Rect::from_min_size(pos2(sl - 1.0, y0), vec2(1.0, band_h)),
+            0.0,
+            c.toolbar_line_light,
+        );
+        // The box itself: slightly inset, rounded, the field colour.
+        let inset = 12.0;
+        let box_rect = Rect::from_min_size(
+            pos2(sl + 5.0, y0 + inset),
+            vec2(search_w - 10.0, band_h - inset * 2.0),
+        );
+        let radius = crate::theme::metrics().flyout_radius;
+        p.rect_filled(box_rect, radius, crate::winui::FIELD());
+        p.rect_stroke(
+            box_rect,
+            radius,
+            egui::Stroke::new(1.0, crate::winui::FIELD_EDGE()),
+            egui::StrokeKind::Inside,
+        );
+        // The magnifying glass, 11 px at the left edge of the box, muted ink.
+        let icon_ink = crate::winui::MUTED();
+        let (cx, cy) = (
+            box_rect.left() + 12.0,
+            box_rect.top() + box_rect.height() / 2.0,
+        );
+        p.circle_stroke(
+            egui::pos2(cx, cy - 1.0),
+            4.5,
+            egui::Stroke::new(1.25, icon_ink),
+        );
+        p.line_segment(
+            [
+                egui::pos2(cx + 3.3, cy + 2.3),
+                egui::pos2(cx + 6.1, cy + 5.1),
+            ],
+            egui::Stroke::new(1.25, icon_ink),
+        );
+        // Scope drop-down at the right of the field: the label at the left if it fits, else a
+        // one-letter key.
+        let btn_w = 58.0;
+        let btn_rect = Rect::from_min_size(
+            pos2(box_rect.right() - btn_w, box_rect.top()),
+            vec2(btn_w, box_rect.height()),
+        );
+        // The scope button (separator + label + chevron).
+        p.rect_filled(
+            Rect::from_min_size(
+                pos2(btn_rect.left(), box_rect.top() + 4.0),
+                vec2(1.0, box_rect.height() - 8.0),
+            ),
+            0.0,
+            crate::winui::FIELD_EDGE(),
+        );
+        let enabled = true;
+        let hovered = ui.rect_contains_pointer(btn_rect);
+        let btn_bg: egui::Color32 = if hovered {
+            crate::winui::TAB_HOT()
+        } else {
+            crate::winui::FIELD()
+        };
+        let _ = enabled;
+        p.rect_filled(btn_rect.shrink(1.0), radius - 1.0, btn_bg);
+        // Chevron (down or up depending on open state).
+        let chevron_y = box_rect.top() + box_rect.height() / 2.0;
+        let chevron_x = btn_rect.right() - 8.0;
+        let (left_y, right_y) = if self.tb_scope_open {
+            (chevron_y - 2.0, chevron_y + 2.0)
+        } else {
+            (chevron_y + 2.0, chevron_y - 2.0)
+        };
+        p.line_segment(
+            [
+                egui::pos2(chevron_x - 4.0, left_y),
+                egui::pos2(chevron_x, chevron_y),
+            ],
+            egui::Stroke::new(1.25, icon_ink),
+        );
+        p.line_segment(
+            [
+                egui::pos2(chevron_x, chevron_y),
+                egui::pos2(chevron_x + 4.0, right_y),
+            ],
+            egui::Stroke::new(1.25, icon_ink),
+        );
+        // The text field.
+        let te_rect = Rect::from_min_max(
+            pos2(box_rect.left() + 25.0, box_rect.top() + 3.0),
+            pos2(btn_rect.left() - 4.0, box_rect.bottom() - 3.0),
+        );
+        let mut search = std::mem::take(&mut self.tb_search);
+        let te = egui::TextEdit::singleline(&mut search)
+            .desired_width(te_rect.width())
+            .margin(egui::Margin::symmetric(2, 0))
+            .frame(egui::Frame::NONE)
+            .font(crate::winui::tahoma())
+            .text_color(crate::winui::LIGHT_TEXT())
+            .hint_text(crate::i18n::t("Search downloads..."));
+        let resp = ui.put(te_rect, te);
+        // Focus movement: tab cycles focus, escape to the list back.
+        if !resp.has_focus() {
+            // After sync below, set focus when requested by the $|user (the resize trigger below is harmless).
+        }
+        let changed = resp.changed();
+        self.tb_search = search;
+        // The drop-down panel.
+        let chevron_resp = ui.interact(
+            btn_rect,
+            egui::Id::unique("tb-search-scope"),
+            egui::Sense::click(),
+        );
+        if chevron_resp.clicked() {
+            self.tb_scope_open = !self.tb_scope_open;
+        }
+        if self.tb_scope_open {
+            self.scope_panel(ui, pos2(btn_rect.left(), box_rect.bottom() + 2.0), btn_bg);
+        } else if resp.lost_focus() {
+            // Maybe pressing outside — close the panel.
+            if ui.input(|i| i.pointer.any_pressed())
+                && !box_rect.contains(
+                    ui.input(|i| i.pointer.interact_pos())
+                        .unwrap_or(pos2(0.0, 0.0)),
+                )
+            {
+                self.tb_scope_open = false;
+            }
+        }
+        // Sync text/scope into the list needle.
+        self.sync_needle();
+        // Doesn't participate in layout: caller drew the band itself.
+        let _ = (changed, _top_w);
+    }
+
+    /// The drop-down under the magnifier's box: the column to narrow by, as a menu.
+    fn scope_panel(&mut self, ui: &mut Ui, at: Pos2, _flash: egui::Color32) {
+        let p = ui.painter().clone();
+        let labels = [
+            (None, crate::i18n::mark("All")),
+            (Some(0), crate::i18n::mark("File Name")),
+            (Some(3), crate::i18n::mark("Status")),
+            (Some(9), crate::i18n::mark("Source")),
+        ]
+        .into_iter()
+        .collect::<Vec<_>>();
+        let row_h = 24.0;
+        let mo = Rect::from_min_size(at, vec2(110.0, row_h * labels.len() as f32 + 8.0));
+        crate::chrome::popup_surface(&p, mo);
+        for (i, (key, label)) in labels.into_iter().enumerate() {
+            let y = mo.top() + 4.0 + row_h * i as f32;
+            let rc = Rect::from_min_size(pos2(mo.left() + 4.0, y), vec2(mo.width() - 8.0, row_h));
+            let hovered = ui.rect_contains_pointer(rc);
+            let selected = self.tb_scope
+                == Some(match key {
+                    None => usize::MAX,
+                    Some(k) => k,
+                });
+            if hovered {
+                p.rect_filled(
+                    rc,
+                    crate::theme::metrics().part_radius,
+                    crate::chrome::POPUP_HOVER(),
+                );
+            }
+            crate::winui::text(
+                &p,
+                rc.left() + 24.0,
+                rc.top() + 16.0,
+                crate::i18n::t(label),
+                crate::winui::LIGHT_TEXT(),
+            );
+            if selected {
+                // A bullet: a small accent dot.
+                p.circle_filled(
+                    pos2(rc.left() + 12.0, rc.top() + row_h / 2.0),
+                    3.0,
+                    crate::theme::colors().accent,
+                );
+            }
+            let resp = ui.interact(rc, egui::Id::unique(("tb-scope", i)), egui::Sense::click());
+            if resp.clicked() {
+                self.tb_scope = key;
+                self.tb_scope_open = false;
+            }
+        }
+    }
+
+    /// The toolbar search into the list's text needle.
+    fn sync_needle(&mut self) {
+        let needle = (!self.tb_search.trim().is_empty()).then(|| crate::list::Needle {
+            text: self.tb_search.trim().to_string(),
+            column: self.tb_scope,
+        });
+        self.list.needle = needle;
     }
 
     /// Link grabber's ticked links: each package's to its folder, tagged with the package (its
@@ -13881,8 +14062,8 @@ mod access_key_tests {
         popups.extend(views.into_iter().map(Popup::Node));
         for categories in [false, true] {
             app.show_categories = categories;
-            for i in 0..section_names.len() {
-                levels(section_names[i].into(), &app.menu_entries(i), &mut out);
+            for (i, &name) in section_names.iter().enumerate() {
+                levels(name.into(), &app.menu_entries(i), &mut out);
             }
             for p in &popups {
                 levels(format!("{p:?}"), &app.popup_entries(*p).0, &mut out);

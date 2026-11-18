@@ -603,12 +603,14 @@ fn set_failed(way: Option<Way>, why: Why, record: Option<Failure>) {
 
 /// For View → Draw with's note: why the system's API doesn't draw here, if it failed.
 #[cfg(gpu)]
+#[allow(dead_code)]
 pub fn gpu_failed() -> Option<Why> {
     GPU_FAILED.lock().ok().and_then(|f| *f)
 }
 
 /// For View → Draw with's note: why OpenGL can't draw MDM here, if it can't.
 #[cfg(gpu)]
+#[allow(dead_code)]
 pub fn gl_failed() -> Option<Why> {
     GL_FAILED_WHY.lock().ok().and_then(|f| *f)
 }
@@ -1112,17 +1114,20 @@ pub fn verdict(f: &Failure, now: u64, drivers: Option<&str>) -> Verdict {
 /// For View → Draw with's note: when the system's API's failure (the card's, else its software
 /// renderer's) is tried again.
 #[cfg(gpu)]
+#[allow(dead_code)]
 pub fn gpu_again() -> Option<Again> {
     again(Way::Card).or_else(|| again(Way::Software))
 }
 
 /// For View → Draw with's note: when OpenGL's failure is tried again.
 #[cfg(gpu)]
+#[allow(dead_code)]
 pub fn gl_again() -> Option<Again> {
     again(Way::OpenGl)
 }
 
 #[cfg(gpu)]
+#[allow(dead_code)]
 fn again(way: Way) -> Option<Again> {
     let f = way.record().lock().ok()?.clone()?;
     Some(match verdict(&f, unix_now(), None) {
@@ -1670,6 +1675,7 @@ fn since_start() -> u128 {
 static ACTIVE: OnceLock<Api> = OnceLock::new();
 
 #[cfg(gpu)]
+#[allow(dead_code)]
 pub fn active() -> Option<Api> {
     ACTIVE.get().copied()
 }
