@@ -11,3 +11,7 @@ Because of the fork, this project must keep: GPL-3.0 license, upstream copyright
 Upstream carries no trademark rights for "JDownloader" either; zDownloader³ is not affiliated with Eye/appwork or jdownloader.org.
 
 Analysis documents in `docs/` (`jd2-internals.md`, written from decompiled observations; `mdm-borrow.md`) describe behavior and structure only. No GPL code from elsewhere has been copied in.
+
+## Fonts
+
+- **JetBrains Mono** — SIL Open Font License 1.1 (`crates/app/assets/fonts/OFL-JetBrainsMono.txt`): used for the interface's UI font and the Tahoma fallback on Linux; (c) The JetBrains Mono Project Authors, https://github.com/JetBrains/JetBrainsMono.

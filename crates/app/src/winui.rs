@@ -65,7 +65,17 @@ pub fn install_fonts(defs: &mut egui::FontDefinitions, font_dir: Option<&std::pa
         ("tahoma-bold", "tahomabd.ttf"),
         ("arial-bold", "arialbd.ttf"),
     ] {
-        let fonts = match font_dir.and_then(|d| crate::theme::read_font(&d.join(file))) {
+        #[cfg(not(any(windows, target_os = "macos")))]
+        let embedded: Option<Vec<u8>> = match family {
+            "tahoma" => Some(include_bytes!("../assets/fonts/JetBrainsMono-Regular.ttf").to_vec()),
+            _ => Some(include_bytes!("../assets/fonts/JetBrainsMono-Bold.ttf").to_vec()),
+        };
+        #[cfg(any(windows, target_os = "macos"))]
+        let embedded: Option<Vec<u8>> = None;
+        let fonts = match font_dir
+            .and_then(|d| crate::theme::read_font(&d.join(file)))
+            .or(embedded)
+        {
             Some(bytes) => {
                 defs.font_data.insert(
                     family.into(),
@@ -7228,7 +7238,8 @@ mod tests {
             let w = (text_width(p, label) + 16.0).ceil();
             let (x, got) = button_around(p, label, 480.0, 73.0, 400.0, 600.0);
             assert_eq!(got, w);
-            assert!((x + w / 2.0 - 516.5).abs() <= 1.0);
+            // Widening centred on the button's own centre — until it outgrows its room and clamps at the right edge.
+            assert_eq!(x, 600.0 - w);
         });
     }
 

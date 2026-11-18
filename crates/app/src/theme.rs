@@ -915,7 +915,10 @@ fn ui_font() -> Option<Vec<u8>> {
         .iter()
         .find_map(|f| read_font(&font_dir().join(f)));
     #[cfg(not(any(windows, target_os = "macos")))]
-    return fc_font("sans-serif").map(|(_, bytes)| bytes);
+    // The interface font on Linux: JetBrains Mono (bundled). Every window's layout is measured
+    // against one font's exact metrics, whatever the system has installed; upstream's fontconfig
+    // "sans-serif" wildcard meant a different interface on every distro.
+    return Some(include_bytes!("../assets/fonts/JetBrainsMono-Regular.ttf").to_vec());
 }
 
 /// The script fonts for `code` (every language's with `all`): (key, bytes), in fallback order.
