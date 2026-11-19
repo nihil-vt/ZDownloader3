@@ -2950,7 +2950,7 @@
 	Scheduler	Scheduler
 #. message or event log entry in the main window
 #. the trailing ... means it is still going on: keep it
-	Search downloads...	Search downloads...
+	Search...	Search...
 #. text in langpick.rs
 	Search:	Search:
 #. text in the Batch download window

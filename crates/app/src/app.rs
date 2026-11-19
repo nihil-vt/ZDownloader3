@@ -1392,6 +1392,10 @@ pub struct App {
     tb_scope: Option<usize>,
     /// The scope drop-down is open.
     tb_scope_open: bool,
+    /// The command palette's current pick (-1: none).
+    palette_current: i32,
+    /// A command chosen in the palette this frame.
+    palette_choice: Option<Cmd>,
     /// The column layout last seen, to notice changes that need saving.
     last_layout: Option<list::Layout>,
     /// Main download queue (0), synchronization queue (1).
@@ -1866,6 +1870,8 @@ impl App {
             tb_search: String::new(),
             tb_scope: None,
             tb_scope_open: false,
+            palette_current: -1,
+            palette_choice: None,
             move_rename_for: None,
             move_many_for: Vec::new(),
             list_view: view,
@@ -9322,7 +9328,11 @@ impl App {
         // A style theme's title bar, drawn above the layout (Windows; #45), mirrored right to
         // left as the progress window's.
         let full = self.drawn_caption(ui, full);
-        let o = full.min;
+        // The top search bar: full width, capped, centered; filter the list above the toolbar.
+        let search_top =
+            egui::Rect::from_min_size(full.min, egui::vec2(full.width(), crate::chrome::TOP_H));
+        self.top_bar_paint(ui, search_top.min, full.width());
+        let o = egui::pos2(search_top.min.x, search_top.min.y + crate::chrome::TOP_H);
         let (w, h) = (full.width(), full.height());
         let mut chosen: Option<(Cmd, Option<u64>)> = None;
 
@@ -9397,11 +9407,8 @@ impl App {
             ),
         ];
         let tb: Vec<(Icon, &str, bool)> = buttons.iter().map(|(i, l, e, _)| (*i, *l, *e)).collect();
-        let search_w = 214.0f32;
-        let search_w_pad = 6.0f32;
-        let toolbar_w = w - search_w - search_w_pad;
         let tb_keys = (self.toolbar_keys && free).then_some(self.toolbar_at);
-        match chrome::toolbar(ui, o, toolbar_w, &tb, tb_keys) {
+        match chrome::toolbar(ui, o, w, &tb, tb_keys) {
             Some(ToolbarEvent::Click(k)) => {
                 chosen = Some((buttons[k].3, None));
             }
@@ -9418,9 +9425,9 @@ impl App {
             }
             None => {}
         }
-        // The search box, at the right edge of the toolbar: a magnifying glass and a field,
-        // with a drop-down to pick the column to narrow by ("All" matches every visible cell).
-        self.tb_search_paint(ui, o, w, toolbar_w, search_w, search_w_pad);
+        if let Some(c) = self.palette_choice.take() {
+            chosen = Some((c, None));
+        }
         // The JD2 tab strip: Downloads / Linkgrabber. Flat, the active one underlined in the
         // accent colour, directly under the toolbar.
         let tabs_y = o.y + chrome::pane_top();
@@ -10625,120 +10632,261 @@ impl App {
         grabber.add(found, source, |u| known.contains(u.as_str()));
     }
 
-    /// The toolbar's right end: the search box (magnifying glass, an edit field, a drop-down to
-    /// pick the column). `pad` is the space kept between the toolbar and the box; `row_top` the
-    /// band's top (`o.y`). Text narrows the list in [`App::sync_needle`]; the drop-down opens a
-    /// small panel with the columns' names, one choice per row.
-    fn tb_search_paint(
-        &mut self,
-        ui: &mut Ui,
-        o: Pos2,
-        w: f32,
-        toolbar_end: f32,
-        search_w: f32,
-        search_w_pad: f32,
-    ) {
+    /// The top bar above the toolbar (Codium-style): a full-width strip with a centered
+    /// search field. Type to filter commands (up/down to pick, Enter to run, Esc to clear);
+    /// the list narrows too via the needle; when nothing matches, the needle stays and
+    /// Enter keeps narrowing. A scope drop-down gives the column filtering reaches into.
+    fn top_bar_paint(&mut self, ui: &mut Ui, o: Pos2, w: f32) {
         let p = ui.painter().clone();
-        let _top_w = w - toolbar_end;
-        // Left edge: the end of the buttons; the band runs on as the toolbar's does.
-        let sl = o.x + toolbar_end + search_w_pad;
-        let y0 = o.y;
-        let band_h = 68.0;
-        // The band's background runs on into the field (it's a part of the toolbar, not a dialog).
-        p.rect_filled(Rect::from_min_size(pos2(sl, y0), vec2(search_w, band_h)), 0.0, crate::chrome::WINDOW_BG());
+        let top = o.y;
+        let hgr = crate::chrome::TOP_H;
+        let bg = crate::chrome::WINDOW_BG();
+        // Full-width fill; a hairline at the bottom.
+        p.rect_filled(Rect::from_min_size(o, vec2(w, hgr)), 0.0, bg);
         let c = crate::theme::colors();
-        // A soft divider at the edge of the buttons — same hairline as the toolbar's etch.
         p.rect_filled(
-            Rect::from_min_size(pos2(sl - 1.0, y0 + 8.0), vec2(1.0, band_h - 16.0)),
+            Rect::from_min_size(pos2(o.x, top + hgr - 1.0), vec2(w, 1.0)),
             0.0,
             c.toolbar_line,
         );
-        let inset = 14.0;
-        // Flat pill: same field as the toolbar's, one body colour, no contrasting edge.
-        let box_rect = Rect::from_min_size(
-            pos2(sl + 4.0, y0 + inset),
-            vec2(search_w - 8.0, band_h - inset * 2.0),
-        );
+        // The search field: capped, centered.
+        let cap = w.min(560.0);
+        let field_w = cap - 24.0;
+        let x = o.x + (w - field_w) * 0.5;
         let radius = 10.0f32;
-        let focus = ui.rect_contains_pointer(box_rect);
+        let y = top + 8.0;
+        let fh = hgr - 16.0;
+        let field = Rect::from_min_size(pos2(x, y), vec2(field_w, fh));
+        let focus = ui.rect_contains_pointer(field);
         let edge = if focus {
             crate::theme::colors().accent
         } else {
             c.toolbar_line
         };
-        p.rect_filled(box_rect, radius, crate::winui::FIELD());
-        p.rect_stroke(box_rect, radius, egui::Stroke::new(1.0, edge), egui::StrokeKind::Inside);
+        p.rect_filled(field, radius, crate::winui::FIELD());
+        p.rect_stroke(
+            field,
+            radius,
+            egui::Stroke::new(1.0, edge),
+            egui::StrokeKind::Inside,
+        );
         let icon_ink = crate::winui::MUTED();
-        let (cx, cy) = (box_rect.left() + 11.0, box_rect.top() + box_rect.height() / 2.0);
-        p.circle_stroke(egui::pos2(cx, cy - 1.0), 3.4, egui::Stroke::new(1.15, icon_ink));
+        let cy = field.top() + field.height() / 2.0;
+        p.circle_stroke(
+            egui::pos2(field.left() + 12.0, cy - 0.75),
+            4.0,
+            egui::Stroke::new(1.2, icon_ink),
+        );
         p.line_segment(
-            [egui::pos2(cx + 2.4, cy + 1.4), egui::pos2(cx + 4.7, cy + 3.7)],
-            egui::Stroke::new(1.15, icon_ink),
+            [
+                egui::pos2(field.left() + 14.5, cy + 2.0),
+                egui::pos2(field.left() + 17.2, cy + 4.7),
+            ],
+            egui::Stroke::new(1.2, icon_ink),
         );
-        // The drop-down at the field's right edge: a tray inside the field, chevron only.
-        let btn_w = 22.0;
-        let btn_rect = Rect::from_min_size(
-            pos2(box_rect.right() - btn_w, box_rect.top()),
-            vec2(btn_w, box_rect.height()),
+        let te_rect = Rect::from_min_max(
+            pos2(field.left() + 22.0, field.top() + 2.0),
+            pos2(field.right() - 36.0, field.bottom() - 2.0),
         );
-        let hovered = ui.rect_contains_pointer(btn_rect);
+        let mut search = std::mem::take(&mut self.tb_search);
+        let te = egui::TextEdit::singleline(&mut search)
+            .desired_width(te_rect.width())
+            .margin(egui::Margin::symmetric(0, 1))
+            .frame(egui::Frame::NONE)
+            .font(crate::winui::tahoma())
+            .text_color(crate::winui::LIGHT_TEXT())
+            .hint_text(crate::i18n::t("Search..."));
+        let resp = ui.put(te_rect, te);
+        let changed = resp.changed();
+        self.tb_search = search;
+        // Scope drop-down: shown when narrowing the list, i.e. text present and no commands matched.
+        let needle_active = !self.tb_search.trim().is_empty() && self.palette_matches().is_empty();
+        if needle_active {
+            self.scope_chip(ui, field.right() - 30.0, field.top() + 4.0, fh);
+        }
+        let entries_len = self.palette_matches().len() as i32;
+        self.palette_render(ui, field, cy);
+        if changed {
+            self.palette_current = -1;
+        }
+        for ev in ui.input(|i| i.events.clone()) {
+            if let egui::Event::Key {
+                key, pressed: true, ..
+            } = ev
+            {
+                match key {
+                    egui::Key::Escape => {
+                        self.tb_search.clear();
+                        self.palette_current = -1;
+                        self.tb_scope_open = false;
+                        self.sync_needle();
+                    }
+                    egui::Key::ArrowDown => self.palette_current += 1,
+                    egui::Key::ArrowUp => self.palette_current -= 1,
+                    egui::Key::Enter => self.palette_fire(),
+                    _ => {}
+                }
+            }
+        }
+        if self.palette_current >= entries_len {
+            self.palette_current = entries_len - 1;
+        }
+        if self.palette_current < -1 {
+            self.palette_current = -1;
+        }
+        let _ = changed;
+    }
+
+    fn palette_render(&mut self, ui: &mut Ui, field: egui::Rect, _center_y: f32) {
+        let entries = self.palette_matches();
+        if entries.is_empty() {
+            return;
+        }
+        let p = ui.painter().clone();
+        let row_h = 26.0;
+        let popup = egui::Rect::from_min_size(
+            pos2(
+                field.left(),
+                field.top() - entries.len() as f32 * row_h - 8.0,
+            ),
+            vec2(field.width(), entries.len() as f32 * row_h + 12.0),
+        );
+        crate::chrome::popup_surface(&p, popup);
+        for (i, (section, idx, _label, _cmd, plain_)) in entries.into_iter().enumerate() {
+            let y = popup.top() + 6.0 + row_h * i as f32;
+            let rc = egui::Rect::from_min_size(
+                pos2(popup.left() + 4.0, y),
+                vec2(popup.width() - 8.0, row_h),
+            );
+            let selected = i as i32 == self.palette_current;
+            if selected {
+                p.rect_filled(
+                    rc,
+                    crate::theme::metrics().part_radius,
+                    crate::chrome::POPUP_HOVER(),
+                );
+            }
+            crate::winui::text(
+                &p,
+                rc.left() + 8.0,
+                rc.top() + 17.0,
+                crate::i18n::t(&plain_),
+                crate::winui::LIGHT_TEXT(),
+            );
+            let resp = ui.interact(
+                rc,
+                egui::Id::unique(("palette", section, idx)),
+                egui::Sense::click(),
+            );
+            if resp.clicked() {
+                self.palette_current = i as i32;
+                self.palette_fire();
+            }
+        }
+    }
+
+    fn palette_matches(&self) -> Vec<(usize, usize, String, crate::app::Cmd, String)> {
+        let q = crate::chrome::plain(crate::i18n::t(&self.tb_search))
+            .0
+            .trim()
+            .to_lowercase();
+        if q.is_empty() {
+            return Vec::new();
+        }
+        let mut out = Vec::new();
+        for section in 0..5usize {
+            for (i, e) in self.menu_entries(section).into_iter().enumerate() {
+                if !Self::palette_has_cmd(&e) {
+                    continue;
+                }
+                let (label, cmd) = Self::palette_entry(&e);
+                let plain = crate::chrome::plain(crate::i18n::t(label)).0;
+                if plain.to_lowercase().contains(&q) {
+                    out.push((section, i, crate::i18n::t(label).to_owned(), cmd, plain));
+                }
+            }
+        }
+        out
+    }
+
+    fn palette_has_cmd(e: &crate::chrome::MenuEntry<crate::app::Cmd>) -> bool {
+        matches!(
+            e,
+            crate::chrome::MenuEntry::Item(..) | crate::chrome::MenuEntry::Radio(..)
+        )
+    }
+
+    fn palette_entry(
+        e: &crate::chrome::MenuEntry<crate::app::Cmd>,
+    ) -> (&'static str, crate::app::Cmd) {
+        match e {
+            crate::chrome::MenuEntry::Item(l, c, _, _)
+            | crate::chrome::MenuEntry::Radio(l, c, _, _) => (l, *c),
+            crate::chrome::MenuEntry::Sub(..) | crate::chrome::MenuEntry::Sep => unreachable!(),
+        }
+    }
+
+    fn palette_fire(&mut self) {
+        if self.palette_current < 0 {
+            return;
+        }
+        let entries = self.palette_matches();
+        if let Some((_, _, _, cmd, _)) = entries.get(self.palette_current as usize) {
+            self.palette_choice = Some(*cmd);
+            self.tb_search.clear();
+            self.palette_current = -1;
+            self.sync_needle();
+        }
+    }
+
+    /// The column drop-down: shown inside the field at the right end, one row of choices.
+    fn scope_chip(&mut self, ui: &mut Ui, x: f32, y: f32, _h: f32) {
+        let p = ui.painter().clone();
+        let btn_w = 22.0f32;
+        let btn_rc = egui::Rect::from_min_size(pos2(x, y + 1.0), vec2(btn_w, 20.0));
+        let hovered = ui.rect_contains_pointer(btn_rc);
+        let ink = crate::winui::MUTED();
         let ab = if hovered {
             crate::winui::TAB_HOT()
         } else {
             crate::winui::FIELD()
         };
-        p.rect_filled(btn_rect.shrink(2.0), 6.0, ab);
-        let chevron_y = box_rect.top() + box_rect.height() / 2.0;
-        let chevron_x = btn_rect.left() + btn_rect.width() / 2.0;
+        p.rect_filled(btn_rc.shrink(1.0), 4.0, ab);
+        let chevron_y = btn_rc.top() + btn_rc.height() / 2.0;
         let (left_y, right_y) = if self.tb_scope_open {
             (chevron_y - 1.6, chevron_y + 1.6)
         } else {
             (chevron_y + 1.6, chevron_y - 1.6)
         };
         p.line_segment(
-            [egui::pos2(chevron_x - 3.6, left_y), egui::pos2(chevron_x, chevron_y)],
-            egui::Stroke::new(1.1, icon_ink),
+            [
+                egui::pos2(btn_rc.left() + 6.0, left_y),
+                egui::pos2(btn_rc.left() + 11.0, chevron_y),
+            ],
+            egui::Stroke::new(1.1, ink),
         );
         p.line_segment(
-            [egui::pos2(chevron_x, chevron_y), egui::pos2(chevron_x + 3.6, right_y)],
-            egui::Stroke::new(1.1, icon_ink),
+            [
+                egui::pos2(btn_rc.left() + 11.0, chevron_y),
+                egui::pos2(btn_rc.left() + 16.0, right_y),
+            ],
+            egui::Stroke::new(1.1, ink),
         );
-        let te_rect = Rect::from_min_max(
-            pos2(box_rect.left() + 23.0, box_rect.top() + 3.0),
-            pos2(btn_rect.left() - 2.0, box_rect.bottom() - 3.0),
-        );
-        let mut search = std::mem::take(&mut self.tb_search);
-        let te = egui::TextEdit::singleline(&mut search)
-            .desired_width(te_rect.width())
-            .margin(egui::Margin::symmetric(2, 0))
-            .frame(egui::Frame::NONE)
-            .font(crate::winui::tahoma())
-            .text_color(crate::winui::LIGHT_TEXT())
-            .hint_text(crate::i18n::t("Search downloads..."));
-        let resp = ui.put(te_rect, te);
-        let changed = resp.changed();
-        self.tb_search = search;
-        let chevron_resp = ui.interact(
-            btn_rect,
+        let resp = ui.interact(
+            btn_rc,
             egui::Id::unique("tb-search-scope"),
             egui::Sense::click(),
         );
-        if chevron_resp.clicked() {
+        if resp.clicked() {
             self.tb_scope_open = !self.tb_scope_open;
         }
         if self.tb_scope_open {
-            self.scope_panel(ui, pos2(btn_rect.left(), box_rect.bottom() + 2.0), crate::chrome::POPUP_BG());
-        } else if resp.lost_focus() {
-            if ui.input(|i| i.pointer.any_pressed())
-                && !box_rect.contains(
-                    ui.input(|i| i.pointer.interact_pos()).unwrap_or(pos2(0.0, 0.0)),
-                )
-            {
-                self.tb_scope_open = false;
-            }
+            self.scope_panel(
+                ui,
+                pos2(btn_rc.left(), btn_rc.bottom() + 2.0),
+                crate::chrome::POPUP_BG(),
+            );
         }
-        self.sync_needle();
-        let _ = (changed, _top_w);
     }
 
     /// The drop-down under the magnifier's box: the column to narrow by, as a menu.

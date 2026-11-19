@@ -1634,10 +1634,12 @@ pub enum ToolbarEvent {
     Keys(usize),
 }
 
-/// Paint the etch (y 20, 21) and the toolbar band (y 22–91).
-/// Client y where the panes (Categories, list) start: below the toolbar band, in both modes.
+// The top search bar's height (above the toolbar).
+pub const TOP_H: f32 = 38.0;
+
+/// Client y where the panes (Categories, list) start: below the top bar and the toolbar band.
 pub fn pane_top() -> f32 {
-    70.0
+    TOP_H + 70.0
 }
 
 /// The main toolbar: `buttons` (icon, English label, enabled), and `keys`, the button that has
