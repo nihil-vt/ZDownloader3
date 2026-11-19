@@ -10714,6 +10714,8 @@ impl App {
             pos2(field.right() - 36.0, field.bottom() - 2.0),
         );
         let mut search = std::mem::take(&mut self.tb_search);
+        // Palette open = field has text (the palette narrows the list while text is present).
+        let palette_open = !search.trim().is_empty();
         let te = egui::TextEdit::singleline(&mut search)
             .desired_width(te_rect.width())
             .margin(egui::Margin::symmetric(0, 1))
@@ -10724,8 +10726,9 @@ impl App {
         let resp = ui.put(te_rect, te);
         let changed = resp.changed();
         self.tb_search = search;
-        if !resp.has_focus() {
-            // The first click into the box takes the focus; after that, typing stays in it.
+        // Focus only on click or while the palette is open — no every-frame grab, so the
+        // Super key doesn't latch during workspace switches (Wayland xkb sticky-modifier).
+        if resp.clicked() || palette_open {
             ui.memory_mut(|m| m.request_focus(resp.id));
         }
         // Scope drop-down: shown when narrowing the list, i.e. text present and no commands matched.

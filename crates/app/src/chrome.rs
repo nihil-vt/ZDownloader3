@@ -1636,11 +1636,15 @@ pub enum ToolbarEvent {
 
 // The top search bar's height (above the toolbar).
 pub const TOP_H: f32 = 38.0;
+/// The toolbar's band height, including its top border line: 2 px line + 36 px band.
+pub const TOOLBAR_H: f32 = 2.0 + 36.0;
+/// Padding around the toolbar band: 8 px above and below the icons.
+pub const TOOLBAR_PAD: f32 = 8.0;
 
 /// Client y where the panes (Categories, list) start: just below the toolbar band, given that
 /// `paint()` shifts the origin past the top search bar.
 pub fn pane_top() -> f32 {
-    38.0
+    TOOLBAR_H + 2.0 * TOOLBAR_PAD
 }
 
 /// The main toolbar: `buttons` (icon, English label, enabled), and `keys`, the button that has
@@ -1674,7 +1678,7 @@ pub fn toolbar(
     // Icons above labels on two lines, squeezed: the band is half the old one's height and the
     // panes start sooner — more room for content, less room for air.
     let (font, base_w, band_h) = (winui::tahoma(), 66.0f32, 36.0);
-    let band = Rect::from_min_size(pos2(o.x, top + 2.0), vec2(width, band_h));
+    let band = Rect::from_min_size(pos2(o.x, top + 2.0 + TOOLBAR_PAD), vec2(width, band_h));
     p.rect_filled(band, 0.0, WINDOW_BG());
     let mut x = o.x;
     let mut event = None;
