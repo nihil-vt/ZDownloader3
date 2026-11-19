@@ -10752,15 +10752,19 @@ impl App {
         }
         let p = ui.painter().clone();
         let row_h = 26.0;
+        // Below the field, capped to the room under it minus a margin, with an "N more" row.
+        let room_below = ui.available_height() - field.bottom() - 8.0;
+        let fits = (room_below / row_h).floor() as usize;
+        let cap = 12usize;
+        let shown = entries.len().min(cap).min(fits.max(3));
+        let clipped = entries.len() - shown;
+        let popup_h = shown as f32 * row_h + if clipped > 0 { row_h } else { 0.0 } + 12.0;
         let popup = egui::Rect::from_min_size(
-            pos2(
-                field.left(),
-                field.top() - entries.len() as f32 * row_h - 8.0,
-            ),
-            vec2(field.width(), entries.len() as f32 * row_h + 12.0),
+            pos2(field.left(), field.bottom() + 4.0),
+            vec2(field.width(), popup_h),
         );
         crate::chrome::popup_surface(&p, popup);
-        for (i, (section, idx, _label, _cmd, plain_)) in entries.into_iter().enumerate() {
+        for (i, entry) in entries.into_iter().take(shown).enumerate() {
             let y = popup.top() + 6.0 + row_h * i as f32;
             let rc = egui::Rect::from_min_size(
                 pos2(popup.left() + 4.0, y),
@@ -10778,22 +10782,64 @@ impl App {
                 &p,
                 rc.left() + 8.0,
                 rc.top() + 17.0,
-                crate::i18n::t(&plain_),
+                &entry.2,
                 crate::winui::LIGHT_TEXT(),
             );
-            let resp = ui.interact(
-                rc,
-                egui::Id::unique(("palette", section, idx)),
-                egui::Sense::click(),
-            );
+            let resp = ui.interact(rc, egui::Id::unique(("palette", i)), egui::Sense::click());
             if resp.clicked() {
                 self.palette_current = i as i32;
                 self.palette_fire();
             }
         }
+        if clipped > 0 {
+            let more = crate::i18n::fmt(
+                crate::i18n::t("…and {n: more}"),
+                &[("n", &crate::i18n::integer(clipped as u64))],
+            );
+            crate::winui::text(
+                &p,
+                popup.left() + 10.0,
+                popup.bottom() - 8.0,
+                &more,
+                crate::winui::MUTED(),
+            );
+        }
     }
 
-    fn palette_matches(&self) -> Vec<(usize, usize, String, crate::app::Cmd, String)> {
+    fn palette_matches(&self) -> Vec<(String, crate::app::Cmd, String)> {
+        /// One selectable command: (breadcrumb-joined label, the command to fire).
+        type Entry = (String, crate::app::Cmd);
+
+        /// Recursively collected fireable commands in this section.
+        fn collect(
+            e: &crate::chrome::MenuEntry<crate::app::Cmd>,
+            prefix: String,
+            out: &mut Vec<Entry>,
+        ) {
+            use crate::chrome::MenuEntry::{Item, Radio, Sep, Sub};
+            match e {
+                Item(label, cmd, _, _) | Radio(label, cmd, _, _) => {
+                    let label = if prefix.is_empty() {
+                        crate::i18n::t(label).to_owned()
+                    } else {
+                        format!("{prefix} {}", crate::i18n::t(label))
+                    };
+                    out.push((label, *cmd));
+                }
+                Sub(label, _, children) => {
+                    let sub_prefix = if prefix.is_empty() {
+                        crate::i18n::t(label).to_owned()
+                    } else {
+                        format!("{prefix} {}", crate::i18n::t(label))
+                    };
+                    for c in children {
+                        collect(c, sub_prefix.clone(), out);
+                    }
+                }
+                Sep => {}
+            }
+        }
+
         let q = crate::chrome::plain(crate::i18n::t(&self.tb_search))
             .0
             .trim()
@@ -10801,37 +10847,47 @@ impl App {
         if q.is_empty() {
             return Vec::new();
         }
-        let mut out = Vec::new();
+        let mut flat = Vec::new();
         for section in 0..5usize {
-            for (i, e) in self.menu_entries(section).into_iter().enumerate() {
-                if !Self::palette_has_cmd(&e) {
-                    continue;
-                }
-                let (label, cmd) = Self::palette_entry(&e);
-                let plain = crate::chrome::plain(crate::i18n::t(label)).0;
-                if plain.to_lowercase().contains(&q) {
-                    out.push((section, i, crate::i18n::t(label).to_owned(), cmd, plain));
-                }
+            for e in self.menu_entries(section) {
+                collect(&e, String::new(), &mut flat);
             }
         }
-        out
-    }
-
-    fn palette_has_cmd(e: &crate::chrome::MenuEntry<crate::app::Cmd>) -> bool {
-        matches!(
-            e,
-            crate::chrome::MenuEntry::Item(..) | crate::chrome::MenuEntry::Radio(..)
-        )
-    }
-
-    fn palette_entry(
-        e: &crate::chrome::MenuEntry<crate::app::Cmd>,
-    ) -> (&'static str, crate::app::Cmd) {
-        match e {
-            crate::chrome::MenuEntry::Item(l, c, _, _)
-            | crate::chrome::MenuEntry::Radio(l, c, _, _) => (l, *c),
-            crate::chrome::MenuEntry::Sub(..) | crate::chrome::MenuEntry::Sep => unreachable!(),
-        }
+        // Score and order: prefix wins over substring wins over subsequence.
+        let mut scored: Vec<(usize, Entry)> = flat
+            .into_iter()
+            .filter_map(|(label, cmd)| {
+                let lower = crate::chrome::plain(&label).0.to_lowercase();
+                // Match against the joined label and against the last word alone.
+                let score = if lower.starts_with(&q) {
+                    3
+                } else if lower.contains(&q) {
+                    2
+                } else {
+                    // Subsequence fallback ("tda" matches "Toolbar → Add URL").
+                    let mut it = lower.chars();
+                    let mut ok = true;
+                    for c in q.chars() {
+                        if !it.any(|x| x == c) {
+                            ok = false;
+                            break;
+                        }
+                    }
+                    if ok { 1 } else { 0 }
+                };
+                (score > 0).then_some((score, (label, cmd)))
+            })
+            .collect();
+        // Prefix matches first, subsequence last; tie-break by label.
+        scored.sort_by(|a, b| b.0.cmp(&a.0).then_with(|| a.1.0.cmp(&b.1.0)));
+        scored
+            .into_iter()
+            .map(|(_, e)| e)
+            .map(|(label, cmd)| {
+                let plain = crate::chrome::plain(&label).0;
+                (label, cmd, plain)
+            })
+            .collect::<Vec<_>>()
     }
 
     fn palette_fire(&mut self) {
@@ -10839,7 +10895,7 @@ impl App {
             return;
         }
         let entries = self.palette_matches();
-        if let Some((_, _, _, cmd, _)) = entries.get(self.palette_current as usize) {
+        if let Some((_, cmd, _)) = entries.get(self.palette_current as usize) {
             self.palette_choice = Some(*cmd);
             self.tb_search.clear();
             self.palette_current = -1;

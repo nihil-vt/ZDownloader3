@@ -4677,6 +4677,8 @@
 #. an error: {what} = a helper program (yt-dlp, ffmpeg), {error} = why
 #. {error} = an error message (keep the braces as they are)
 	{what} could not be installed: {error}	{what} could not be installed: {error}
+#. message or event log entry in the main window
+	…and {n: more}	…and {n: more}
 #. column title in the download list in the download list
 #. past participle: when the download was added
 column	Added	Added
@@ -5185,6 +5187,10 @@ menu	&RSS feeds...	&RSS feeds...
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	&Scheduler and queues	&Scheduler and queues
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+#. the trailing ... means it opens a window: keep it
+menu	&Scheduler...	&Scheduler...
 #. menu command in a download's progress window
 #. right-click menu of a download window's tab row: bring back the tabs taken off with "Hide tab"
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
@@ -5193,6 +5199,9 @@ menu	&Show hidden tabs	&Show hidden tabs
 #. View → Text: letters drawn smooth, as Windows' modern apps draw them, anti-aliased at any size
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	&Smooth	&Smooth
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+menu	&Start Queue	&Start Queue
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	&Stop All	&Stop All
@@ -5525,6 +5534,9 @@ menu	S&cheduler	S&cheduler
 menu	S&ettings...	S&ettings...
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+menu	S&top Queue	S&top Queue
+#. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	S&top queue	S&top queue
 #. menu command in the main window
 #. command: opens this queue's schedule (when it starts and stops)
@@ -5621,17 +5633,13 @@ toolbar	Options	Options
 #. verb: continue the selected downloads
 toolbar	Resume	Resume
 #. toolbar button in the main window
-#. noun: the tool that starts and stops queues on time
+#. noun: the tool that starts and stops queues on time (split button: opens Options → Scheduler)
 toolbar	Scheduler	Scheduler
-#. toolbar button in the main window
-toolbar	Start Queue	Start Queue
 #. toolbar button in the main window
 #. verb: stop the selected downloads
 toolbar	Stop	Stop
 #. toolbar button in the main window
 toolbar	Stop All	Stop All
-#. toolbar button in the main window
-toolbar	Stop Queue	Stop Queue
 #. unit after a number in the download list (sizes, speeds, status)
 #. {n} = a number (keep the braces as they are)
 unit	{n} GB	{n} GB

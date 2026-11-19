@@ -1637,10 +1637,10 @@ pub enum ToolbarEvent {
 // The top search bar's height (above the toolbar).
 pub const TOP_H: f32 = 38.0;
 
-/// Client y where the panes (Categories, list) start: below the top bar and the toolbar band.
+/// Client y where the panes (Categories, list) start: just below the toolbar band, given that
+/// `paint()` shifts the origin past the top search bar.
 pub fn pane_top() -> f32 {
-    // The etch (2), the band (36), the panes start at 38+38=76.
-    TOP_H + 38.0
+    38.0
 }
 
 /// The main toolbar: `buttons` (icon, English label, enabled), and `keys`, the button that has
