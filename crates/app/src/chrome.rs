@@ -1639,7 +1639,8 @@ pub const TOP_H: f32 = 38.0;
 
 /// Client y where the panes (Categories, list) start: below the top bar and the toolbar band.
 pub fn pane_top() -> f32 {
-    TOP_H + 70.0
+    // The etch (2), the band (36), the panes start at 38+38=76.
+    TOP_H + 38.0
 }
 
 /// The main toolbar: `buttons` (icon, English label, enabled), and `keys`, the button that has
@@ -1670,13 +1671,14 @@ pub fn toolbar(
     );
     // Both modes (light-main.md; dark changes only colours): Tahoma labels, 66 px buttons, a
     // 68 px band.
-    let (font, base_w, band_h) = (winui::tahoma(), 66.0f32, 68.0);
+    // Icons above labels on two lines, squeezed: the band is half the old one's height and the
+    // panes start sooner — more room for content, less room for air.
+    let (font, base_w, band_h) = (winui::tahoma(), 66.0f32, 36.0);
     let band = Rect::from_min_size(pos2(o.x, top + 2.0), vec2(width, band_h));
     p.rect_filled(band, 0.0, WINDOW_BG());
     let mut x = o.x;
     let mut event = None;
-    let is_dropdown =
-        |icon: &Icon| matches!(icon, Icon::StartQueue | Icon::StopQueue | Icon::AddTorrent);
+    let is_dropdown = |icon: &Icon| matches!(icon, Icon::Scheduler | Icon::AddTorrent);
     // A toolbar wider than the window (long translations): the longest labels give way first,
     // cut with "..." and whole on hover, so every button stays on screen.
     let natural: Vec<(f32, f32)> = buttons
@@ -1745,7 +1747,7 @@ pub fn toolbar(
                 n.add_action(Action::Expand);
             });
             if ui.input(|inp| inp.has_accesskit_action_request(resp.id, Action::Expand)) {
-                event = Some(ToolbarEvent::Drop(i, pos2(winui::mx(x), o.y + 85.0)));
+                event = Some(ToolbarEvent::Drop(i, pos2(winui::mx(x), o.y + 40.0)));
             }
         }
         if winui::focus_target(ui.ctx(), resp.id) {
@@ -1760,7 +1762,7 @@ pub fn toolbar(
             // band. Beyond IDM (which lights only the button part, user
             // request 2026-10-29): a drop-down is a split button — the part under the pointer is
             // lit (pressed while the mouse is down), the other part faintly, a 1 px divider between.
-            let h = 65.0;
+            let h = 33.0;
             let (hot_c, faint_c, down_c, edge_c, border_c) = (
                 c.toolbar_hot,
                 c.toolbar_hot_faint,
@@ -1806,21 +1808,18 @@ pub fn toolbar(
             }
         }
         let cx = x + bw / 2.0;
-        let icon_rect = Rect::from_min_size(
-            pos2(cx - 16.0, top + 9.5 + 20.0 - 20.0 + 0.0),
-            vec2(32.0, 32.0),
-        )
-        .translate(vec2(0.0, 0.0));
-        let icon_rect = Rect::from_center_size(pos2(cx, top + 25.5), icon_rect.size());
+        // 20 × 20 icons, centred; the label sits under them.
+        let icon_rect = Rect::from_min_size(pos2(cx - 10.0, top + 1.0), vec2(20.0, 20.0));
+        let icon_rect = Rect::from_center_size(pos2(cx, top + 11.0), icon_rect.size());
         // Placed, not mirrored: an icon keeps its look.
         icon.image(*enabled).paint_at(ui, winui::rect(icon_rect));
-        // Label: x = btn.x + floor((w − ext)/2), +1 for drop-downs, last ink row 58. Every label
+        // Label: x = btn.x + floor((w − ext)/2), +1 for drop-downs, last ink row is the band's bottom cell. Every label
         // on one line (IDM draws the drop-downs' 1 px lower: in one row it read as a mistake).
         let mut lx = x + ((bw - ext) / 2.0).floor();
         if dropdown {
             lx += 1.0;
         }
-        let ly = top + 58.0;
+        let ly = top + 32.0;
         text_font(
             &p,
             font.clone(),
@@ -1831,13 +1830,13 @@ pub fn toolbar(
         );
         if dropdown {
             let ax = x + bw + 4.0;
-            let ay = top + 31.0;
+            let ay = top + 18.0;
             // The split's divider at rest (user choice 2026-10-29, "B"): a classic etched
             // toolbar separator — a shadow line and a highlight beside it — 24 px tall, centred
             // on the arrow; the hover draws the full divider instead.
             if !(*enabled && resp.hovered()) {
                 let (shadow, light) = (c.toolbar_split_shadow, c.toolbar_split_light);
-                let (y0, y1) = (ay - 10.0, ay + 13.0);
+                let (y0, y1) = (ay - 8.0, ay + 7.0);
                 winui::fill_l(&p, x + bw - 1.0, y0, x + bw - 1.0, y1, shadow);
                 winui::fill_l(&p, x + bw, y0, x + bw, y1, light);
             }
@@ -1863,7 +1862,7 @@ pub fn toolbar(
             // The drop-down menu's top-left is the button's left edge at client y 85; in RTL its
             // top-right at the button's right edge.
             event = Some(if on_arrow {
-                ToolbarEvent::Drop(i, pos2(winui::mx(x), o.y + 85.0))
+                ToolbarEvent::Drop(i, pos2(winui::mx(x), o.y + 40.0))
             } else {
                 ToolbarEvent::Click(i)
             });
@@ -1883,7 +1882,7 @@ pub fn toolbar(
     {
         let enabled = buttons.get(k).is_some_and(|b| b.2);
         let dropdown = buttons.get(k).is_some_and(|b| is_dropdown(&b.0));
-        let at = pos2(winui::mx(lefts.get(k).copied().unwrap_or(o.x)), o.y + 85.0);
+        let at = pos2(winui::mx(lefts.get(k).copied().unwrap_or(o.x)), o.y + 40.0);
         event = ui.input_mut(|i| toolbar_keys(i, k, buttons.len(), enabled, dropdown, at));
     }
     event
@@ -3111,11 +3110,11 @@ mod tests {
         use egui::{Key, Modifiers};
         let ctx = a11y_ctx();
         // Labels from variables: the catalog's extractor takes literal ones as texts to translate.
-        let (add, resume, queue) = ("Add URL", "Resume", "Start Queue");
+        let (add, resume, queue) = ("Add URL", "Resume", "Scheduler");
         let buttons = [
             (Icon::AddUrl, add, true),
             (Icon::Resume, resume, false),
-            (Icon::StartQueue, queue, true),
+            (Icon::Scheduler, queue, true),
         ];
         let pass = |keys: Option<usize>, events: Vec<egui::Event>| {
             let mut ev = None;
@@ -3165,7 +3164,7 @@ mod tests {
             [
                 ("Add URL".to_owned(), true, false),
                 ("Resume".to_owned(), true, true),
-                ("Start Queue".to_owned(), true, false),
+                ("Scheduler".to_owned(), true, false),
             ]
         );
         // Without the keys, the window says nothing of the toolbar.

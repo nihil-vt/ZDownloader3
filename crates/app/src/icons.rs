@@ -16,8 +16,6 @@ pub enum Icon {
     DeleteCompleted,
     Options,
     Scheduler,
-    StartQueue,
-    StopQueue,
     /// Download complete's drag handle: drag the file out (IDM's hand-and-arrows grip). Windows
     /// only, as the handle is (dialogs.rs).
     #[cfg_attr(not(windows), allow(dead_code))]
@@ -82,16 +80,6 @@ impl Icon {
             Icon::Scheduler => concat!(
                 r#"<circle cx="12" cy="13" r="8"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/>"#,
                 r#"<path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/><path d="m9 13 2 2 4-4"/>"#,
-            ),
-            Icon::StartQueue => concat!(
-                r#"<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>"#,
-                r#"<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>"#,
-                r#"<path d="M15 11v7"/><path d="m12 15.5 3 3 3-3"/>"#,
-            ),
-            Icon::StopQueue => concat!(
-                r#"<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>"#,
-                r#"<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>"#,
-                r#"<rect width="6" height="6" x="12" y="12" rx="1"/>"#,
             ),
             // Lucide "move": four arrows.
             Icon::DragOut => concat!(
@@ -177,8 +165,6 @@ impl Icon {
             Icon::DeleteCompleted => ("#df6a9c", "#8180c0"),
             Icon::Options => ("#7883c2", "#9b84d0"),
             Icon::Scheduler => ("#a986d2", "#c0957a"),
-            Icon::StartQueue => ("#93b6f2", "#90c6b6"),
-            Icon::StopQueue => ("#a2c2f2", "#c4688f"),
             // Ours: IDM's grip has orange arrows.
             Icon::DragOut => ("#f5a623", "#d9661c"),
             Icon::PageGeneral | Icon::PageConnection => ("#3d8ee6", "#2bb3a3"),
@@ -207,8 +193,6 @@ impl Icon {
             Icon::DeleteCompleted => "delete-completed",
             Icon::Options => "options",
             Icon::Scheduler => "scheduler",
-            Icon::StartQueue => "start-queue",
-            Icon::StopQueue => "stop-queue",
             Icon::DragOut => "drag-out",
             Icon::PageGeneral => "page-general",
             Icon::PageFileTypes => "page-file-types",
@@ -266,8 +250,6 @@ impl Icon {
             Icon::DeleteCompleted => "tb-delete-completed",
             Icon::Options => "tb-options",
             Icon::Scheduler => "tb-scheduler",
-            Icon::StartQueue => "tb-start-queue",
-            Icon::StopQueue => "tb-stop-queue",
             _ => return None,
         })
     }

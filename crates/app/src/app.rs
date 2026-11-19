@@ -322,6 +322,8 @@ pub(crate) enum Cmd {
     /// Start / stop a queue (index into `App::queues`).
     StartQueue(usize),
     StopQueue(usize),
+
+    /// Start / stop a queue (index into `App::queues`).
     /// Queue right-click → Edit queue (its files) / Schedule; Delete; Create new queue.
     /// Tasks → Show drop target (shown / hidden); the drop target's Show main window.
     ToggleDropTarget,
@@ -925,10 +927,10 @@ enum Popup {
     Columns,
     /// List right-click on a row, or on blank space (None).
     Item(Option<u64>),
-    /// The Start Queue (true) / Stop Queue drop-down arrows.
-    QueueDrop(bool),
     /// The Add Torrent button's drop-down arrow.
     TorrentDrop,
+    /// The Scheduler button's drop-down arrow: opens the dialog, or starts/stops the main queue.
+    SchedulerDrop,
     /// Right-click on the drop target.
     DropTarget,
     /// Categories right-click: the node's view (None: the "Queues" root).
@@ -8797,7 +8799,25 @@ impl App {
             }
             Popup::Item(None) => (self.blank_entries(), None),
             Popup::Item(id) => (self.item_entries(id), id),
-            Popup::QueueDrop(start) => (self.queue_drop(start), None),
+            Popup::SchedulerDrop => (
+                vec![
+                    MenuEntry::Item("&Scheduler...", Cmd::Scheduler, true, false),
+                    MenuEntry::Sep,
+                    MenuEntry::Item(
+                        "&Start Queue",
+                        Cmd::StartQueue(0),
+                        self.queues.first().is_some_and(|q| !q.running),
+                        false,
+                    ),
+                    MenuEntry::Item(
+                        "S&top Queue",
+                        Cmd::StopQueue(0),
+                        self.queues.first().is_some_and(|q| q.running),
+                        false,
+                    ),
+                ],
+                None,
+            ),
             Popup::TorrentDrop => (
                 vec![
                     MenuEntry::Item("Open &torrent file...", Cmd::OpenTorrentFile, true, false),
@@ -9390,21 +9410,8 @@ impl App {
             ),
             // i18n: plural noun: opens the Options window (settings)
             (Icon::Options, "Options", true, Cmd::Options),
-            // i18n: noun: the tool that starts and stops queues on time
+            // i18n: noun: the tool that starts and stops queues on time (split button: opens Options → Scheduler)
             (Icon::Scheduler, "Scheduler", true, Cmd::Scheduler),
-            (
-                Icon::StartQueue,
-                "Start Queue",
-                // The button acts on the main queue (the others: its arrow, the menus).
-                self.queues.first().is_some_and(|q| !q.running),
-                Cmd::StartQueue(0),
-            ),
-            (
-                Icon::StopQueue,
-                "Stop Queue",
-                self.queues.first().is_some_and(|q| q.running),
-                Cmd::StopQueue(0),
-            ),
         ];
         let tb: Vec<(Icon, &str, bool)> = buttons.iter().map(|(i, l, e, _)| (*i, *l, *e)).collect();
         let tb_keys = (self.toolbar_keys && free).then_some(self.toolbar_at);
@@ -9415,7 +9422,8 @@ impl App {
             Some(ToolbarEvent::Drop(k, at)) => {
                 let kind = match buttons[k].0 {
                     Icon::AddTorrent => Popup::TorrentDrop,
-                    icon => Popup::QueueDrop(matches!(icon, Icon::StartQueue)),
+                    Icon::Scheduler => Popup::SchedulerDrop,
+                    _ => Popup::TorrentDrop,
                 };
                 self.open_popup_asked(kind, at, &ctx);
             }
@@ -14156,8 +14164,6 @@ mod access_key_tests {
         }
         let mut popups = vec![
             Popup::Columns,
-            Popup::QueueDrop(true),
-            Popup::QueueDrop(false),
             Popup::TorrentDrop,
             Popup::DropTarget,
             Popup::Item(None),
