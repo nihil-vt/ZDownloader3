@@ -1062,6 +1062,16 @@ enum Branch {
     Queues,
 }
 
+/// One row of the command palette: a command, or a group whose options fly out on hover.
+struct PaletteRow {
+    /// Text drawn on the row.
+    label: String,
+    /// A direct command: its index in `palette_matches()`.
+    entry: Option<usize>,
+    /// A group: (option text, entry index), in match order.
+    options: Vec<(String, usize)>,
+}
+
 pub struct App {
     rt: tokio::runtime::Handle,
     items: Vec<Item>,
@@ -1398,6 +1408,10 @@ pub struct App {
     palette_current: i32,
     /// A command chosen in the palette this frame.
     palette_choice: Option<Cmd>,
+    /// The palette group whose flyout is open (its label), if any.
+    palette_hover: Option<String>,
+    /// The flyout's current pick (-1: none).
+    palette_hover_option: i32,
     /// The column layout last seen, to notice changes that need saving.
     last_layout: Option<list::Layout>,
     /// Main download queue (0), synchronization queue (1).
@@ -1874,6 +1888,8 @@ impl App {
             tb_scope_open: false,
             palette_current: -1,
             palette_choice: None,
+            palette_hover: None,
+            palette_hover_option: -1,
             move_rename_for: None,
             move_many_for: Vec::new(),
             list_view: view,
@@ -10716,10 +10732,11 @@ impl App {
         if needle_active {
             self.scope_chip(ui, field.right() - 30.0, field.top() + 4.0, fh);
         }
-        let entries_len = self.palette_matches().len() as i32;
         self.palette_render(ui, field, cy);
         if changed {
             self.palette_current = -1;
+            self.palette_hover = None;
+            self.palette_hover_option = -1;
         }
         for ev in ui.input(|i| i.events.clone()) {
             if let egui::Event::Key {
@@ -10728,47 +10745,89 @@ impl App {
             {
                 match key {
                     egui::Key::Escape => {
-                        self.tb_search.clear();
-                        self.palette_current = -1;
-                        self.tb_scope_open = false;
-                        self.sync_needle();
+                        if self.palette_hover.is_some() {
+                            self.palette_hover = None;
+                            self.palette_hover_option = -1;
+                        } else {
+                            self.tb_search.clear();
+                            self.palette_current = -1;
+                            self.tb_scope_open = false;
+                            self.sync_needle();
+                        }
                     }
-                    egui::Key::ArrowDown => self.palette_current += 1,
-                    egui::Key::ArrowUp => self.palette_current -= 1,
+                    egui::Key::ArrowDown | egui::Key::ArrowUp => {
+                        let delta = if key == egui::Key::ArrowDown { 1 } else { -1 };
+                        if self.palette_hover.is_some() {
+                            let len = self.palette_hover_len();
+                            if len > 0 {
+                                self.palette_hover_option =
+                                    (self.palette_hover_option + delta).clamp(0, len as i32 - 1);
+                            }
+                        } else {
+                            self.palette_current += delta;
+                        }
+                    }
                     egui::Key::Enter => self.palette_fire(),
                     _ => {}
                 }
             }
         }
-        if self.palette_current >= entries_len {
-            self.palette_current = entries_len - 1;
+    }
+
+    fn palette_render(&mut self, ui: &mut Ui, field: egui::Rect, _center_y: f32) {
+        let rows = self.palette_rows();
+        if rows.is_empty() {
+            return;
+        }
+        if self.palette_current >= rows.len() as i32 {
+            self.palette_current = rows.len() as i32 - 1;
         }
         if self.palette_current < -1 {
             self.palette_current = -1;
         }
-        let _ = changed;
-    }
-
-    fn palette_render(&mut self, ui: &mut Ui, field: egui::Rect, _center_y: f32) {
-        let entries = self.palette_matches();
-        if entries.is_empty() {
-            return;
-        }
         let ctx = ui.ctx().clone();
         let row_h = 26.0;
-        // Anchor under the field; cap height to the room left in the window; newest-pick style.
         let screen = ctx.content_rect();
         let room = (screen.bottom() - field.bottom() - 8.0).max(row_h * 4.0);
         let max_rows = ((room - 12.0) / row_h).floor() as usize;
-        let mut shown = entries.len().min(12).min(max_rows.max(1));
+        let mut shown = rows.len().min(12).min(max_rows.max(1));
         // Keep one row of room for the "…and N more…" footer when the list is clipped.
-        if entries.len() > shown {
+        if rows.len() > shown {
             shown = shown.min(max_rows.saturating_sub(1)).max(1);
         }
-        let clipped = entries.len() - shown;
+        let clipped = rows.len() - shown;
         let popup_h = 12.0 + shown as f32 * row_h + if clipped > 0 { row_h } else { 0.0 };
         let width = field.width();
         let pos = pos2(field.left(), field.bottom() + 4.0);
+        let popup_rect = Rect::from_min_size(pos, vec2(width, popup_h));
+
+        // The flyout sits beside the hovered group, flipped left when it would leave the window.
+        let fly_w = 300.0f32;
+        let fly_opts: Vec<(String, usize)> = self
+            .palette_hover
+            .as_ref()
+            .and_then(|g| rows.iter().find(|r| r.entry.is_none() && &r.label == g))
+            .map(|r| r.options.clone())
+            .unwrap_or_default();
+        let fly_shown = fly_opts.len().min(12).min(max_rows.max(1));
+        let fly_clipped = fly_opts.len() - fly_shown;
+        let fly_h = 12.0 + fly_shown as f32 * row_h + if fly_clipped > 0 { row_h } else { 0.0 };
+        let mut fly_pos = pos2(popup_rect.right() + 4.0, popup_rect.top());
+        if fly_pos.x + fly_w > screen.right() {
+            fly_pos = pos2(popup_rect.left() - 4.0 - fly_w, popup_rect.top());
+        }
+        let fly_rect = Rect::from_min_size(fly_pos, vec2(fly_w, fly_h));
+
+        // Close the flyout when the pointer leaves both the popup and the flyout.
+        if let Some(pt) = ui.input(|i| i.pointer.hover_pos()) {
+            let inside =
+                popup_rect.contains(pt) || (self.palette_hover.is_some() && fly_rect.contains(pt));
+            if !inside {
+                self.palette_hover = None;
+                self.palette_hover_option = -1;
+            }
+        }
+
         // Foreground overlay under the search bar; not clipped by any parent ui's rect.
         egui::Area::new(egui::Id::unique("tb_palette"))
             .order(egui::Order::Foreground)
@@ -10777,13 +10836,15 @@ impl App {
                 let (rect, _) = ui.allocate_exact_size(vec2(width, popup_h), egui::Sense::hover());
                 let p = ui.painter().clone();
                 crate::chrome::popup_surface(&p, rect);
-                for (i, entry) in entries.iter().take(shown).enumerate() {
+                for (i, row) in rows.iter().take(shown).enumerate() {
                     let y = rect.top() + 6.0 + row_h * i as f32;
                     let rc = Rect::from_min_size(
                         pos2(rect.left() + 4.0, y),
                         vec2(rect.width() - 8.0, row_h),
                     );
-                    if i as i32 == self.palette_current {
+                    let hovered = ui.rect_contains_pointer(rc);
+                    let selected = i as i32 == self.palette_current;
+                    if selected || (hovered && row.entry.is_none()) {
                         p.rect_filled(
                             rc,
                             crate::theme::metrics().part_radius,
@@ -10794,9 +10855,37 @@ impl App {
                         &p,
                         rc.left() + 8.0,
                         rc.top() + 17.0,
-                        &entry.2,
+                        &row.label,
                         crate::winui::LIGHT_TEXT(),
                     );
+                    if row.entry.is_none() {
+                        // Group row: count and a chevron, right-aligned.
+                        let count = row.options.len().to_string();
+                        let cw = crate::winui::text_width(&p, &count);
+                        crate::winui::text(
+                            &p,
+                            rc.right() - 22.0 - cw,
+                            rc.top() + 17.0,
+                            &count,
+                            crate::winui::MUTED(),
+                        );
+                        let cy = rc.top() + rc.height() / 2.0;
+                        let (a, b) = (cy - 2.2, cy + 2.2);
+                        p.line_segment(
+                            [pos2(rc.right() - 14.0, a), pos2(rc.right() - 9.5, cy)],
+                            egui::Stroke::new(1.2, crate::winui::MUTED()),
+                        );
+                        p.line_segment(
+                            [pos2(rc.right() - 9.5, cy), pos2(rc.right() - 14.0, b)],
+                            egui::Stroke::new(1.2, crate::winui::MUTED()),
+                        );
+                        if hovered {
+                            self.palette_hover = Some(row.label.clone());
+                            if self.palette_hover_option >= row.options.len() as i32 {
+                                self.palette_hover_option = -1;
+                            }
+                        }
+                    }
                     let resp = ui.interact(
                         rc,
                         egui::Id::unique(("tb_palette_row", i)),
@@ -10804,7 +10893,13 @@ impl App {
                     );
                     if resp.clicked() {
                         self.palette_current = i as i32;
-                        self.palette_fire();
+                        match row.entry {
+                            Some(idx) => self.palette_fire_idx(idx),
+                            None => {
+                                self.palette_hover = Some(row.label.clone());
+                                self.palette_hover_option = 0;
+                            }
+                        }
                     }
                 }
                 if clipped > 0 {
@@ -10821,6 +10916,125 @@ impl App {
                     );
                 }
             });
+
+        // The flyout: the hovered group's options, beside the popup.
+        if let Some(group) = self.palette_hover.clone() {
+            let opts = match rows.iter().find(|r| r.entry.is_none() && r.label == group) {
+                Some(r) => r.options.clone(),
+                None => return,
+            };
+            egui::Area::new(egui::Id::unique("tb_palette_fly"))
+                .order(egui::Order::Foreground)
+                .fixed_pos(fly_pos)
+                .show(&ctx, |ui| {
+                    let (rect, _) = ui.allocate_exact_size(fly_rect.size(), egui::Sense::hover());
+                    let p = ui.painter().clone();
+                    crate::chrome::popup_surface(&p, rect);
+                    for (j, (text, idx)) in opts.iter().take(fly_shown).enumerate() {
+                        let y = rect.top() + 6.0 + row_h * j as f32;
+                        let rc = Rect::from_min_size(
+                            pos2(rect.left() + 4.0, y),
+                            vec2(rect.width() - 8.0, row_h),
+                        );
+                        let hovered = ui.rect_contains_pointer(rc);
+                        if j as i32 == self.palette_hover_option || hovered {
+                            p.rect_filled(
+                                rc,
+                                crate::theme::metrics().part_radius,
+                                crate::chrome::POPUP_HOVER(),
+                            );
+                        }
+                        crate::winui::text(
+                            &p,
+                            rc.left() + 8.0,
+                            rc.top() + 17.0,
+                            text,
+                            crate::winui::LIGHT_TEXT(),
+                        );
+                        if hovered {
+                            self.palette_hover_option = j as i32;
+                        }
+                        let resp = ui.interact(
+                            rc,
+                            egui::Id::unique(("tb_palette_fly_row", j)),
+                            egui::Sense::click(),
+                        );
+                        if resp.clicked() {
+                            self.palette_hover = None;
+                            self.palette_hover_option = -1;
+                            self.palette_fire_idx(*idx);
+                        }
+                    }
+                    if fly_clipped > 0 {
+                        let more = crate::i18n::fmt(
+                            crate::i18n::t("…and {n} more…"),
+                            &[("n", &crate::i18n::integer(fly_clipped as u64))],
+                        );
+                        crate::winui::text(
+                            &p,
+                            rect.left() + 10.0,
+                            rect.bottom() - 8.0,
+                            &more,
+                            crate::winui::MUTED(),
+                        );
+                    }
+                });
+        }
+    }
+
+    /// Matches folded into rows: groups (prefix before the last ": ") and direct commands.
+    fn palette_rows(&self) -> Vec<PaletteRow> {
+        let entries = self.palette_matches();
+        let mut rows: Vec<PaletteRow> = Vec::new();
+        for (i, e) in entries.iter().enumerate() {
+            let full = crate::chrome::plain(&e.0).0;
+            if let Some(at) = full.rfind(": ") {
+                let group = full[..at].to_string();
+                let option = full[at + 2..].to_string();
+                if let Some(r) = rows
+                    .iter_mut()
+                    .find(|r| r.entry.is_none() && r.label == group)
+                {
+                    r.options.push((option, i));
+                } else {
+                    rows.push(PaletteRow {
+                        label: group,
+                        entry: None,
+                        options: vec![(option, i)],
+                    });
+                }
+            } else {
+                rows.push(PaletteRow {
+                    label: full,
+                    entry: Some(i),
+                    options: Vec::new(),
+                });
+            }
+        }
+        rows
+    }
+
+    /// How many options the open flyout has.
+    fn palette_hover_len(&self) -> usize {
+        let rows = self.palette_rows();
+        self.palette_hover
+            .as_ref()
+            .and_then(|g| rows.iter().find(|r| r.entry.is_none() && &r.label == g))
+            .map(|r| r.options.len())
+            .unwrap_or(0)
+    }
+
+    /// Fire the command at `idx` in `palette_matches()`.
+    fn palette_fire_idx(&mut self, idx: usize) {
+        let entries = self.palette_matches();
+        if let Some((_, cmd, _)) = entries.get(idx) {
+            self.palette_choice = Some(*cmd);
+            self.tb_search.clear();
+            self.palette_current = -1;
+            self.palette_hover = None;
+            self.palette_hover_option = -1;
+            self.sync_needle();
+        }
     }
 
     fn palette_matches(&self) -> Vec<(String, crate::app::Cmd, String)> {
@@ -10911,12 +11125,16 @@ impl App {
         if self.palette_current < 0 {
             return;
         }
-        let entries = self.palette_matches();
-        if let Some((_, cmd, _)) = entries.get(self.palette_current as usize) {
-            self.palette_choice = Some(*cmd);
-            self.tb_search.clear();
-            self.palette_current = -1;
-            self.sync_needle();
+        let rows = self.palette_rows();
+        if let Some(r) = rows.get(self.palette_current as usize) {
+            match r.entry {
+                Some(idx) => self.palette_fire_idx(idx),
+                None => {
+                    // A group row opens its flyout instead of firing.
+                    self.palette_hover = Some(r.label.clone());
+                    self.palette_hover_option = 0;
+                }
+            }
         }
     }
 
