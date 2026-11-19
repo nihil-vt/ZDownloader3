@@ -89,3 +89,13 @@ open it yourself. Security problems: see [SECURITY.md](SECURITY.md).
 
 Pull requests are accepted under the project's licence, the
 [GNU GPL, version 3 or later](LICENSE).
+
+### UI iteration (watch.sh)
+
+Save any `.rs`/`.svg`/`.tsv`/`.json`/`.png`/`.toml` under `crates/` or `i18n/`/`tools/` → automatic rebuild and relaunch. No extra tooling needed; uses 1-second mtime polling.
+
+```sh
+tools/dev/watch.sh
+```
+
+Uses `ZD3_WATCH_DIR` (default `/tmp/zd3-watch-data`) as scratch data folder — your real downloads untouched.
