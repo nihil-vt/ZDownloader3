@@ -10640,107 +10640,72 @@ impl App {
     ) {
         let p = ui.painter().clone();
         let _top_w = w - toolbar_end;
-        // Search box rect: fills the right end of the toolbar band.
+        // Left edge: the end of the buttons; the band runs on as the toolbar's does.
         let sl = o.x + toolbar_end + search_w_pad;
         let y0 = o.y;
         let band_h = 68.0;
-        let rect = Rect::from_min_size(pos2(sl, y0), vec2(search_w, band_h));
+        // The band's background runs on into the field (it's a part of the toolbar, not a dialog).
+        p.rect_filled(Rect::from_min_size(pos2(sl, y0), vec2(search_w, band_h)), 0.0, crate::chrome::WINDOW_BG());
         let c = crate::theme::colors();
-        p.rect_filled(rect, 0.0, crate::chrome::WINDOW_BG());
-        // A vertical separator at the right edge of the buttons.
+        // A soft divider at the edge of the buttons — same hairline as the toolbar's etch.
         p.rect_filled(
-            Rect::from_min_size(pos2(sl - 2.0, y0), vec2(1.0, band_h)),
+            Rect::from_min_size(pos2(sl - 1.0, y0 + 8.0), vec2(1.0, band_h - 16.0)),
             0.0,
             c.toolbar_line,
         );
-        p.rect_filled(
-            Rect::from_min_size(pos2(sl - 1.0, y0), vec2(1.0, band_h)),
-            0.0,
-            c.toolbar_line_light,
-        );
-        // The box itself: slightly inset, rounded, the field colour.
-        let inset = 12.0;
+        let inset = 14.0;
+        // Flat pill: same field as the toolbar's, one body colour, no contrasting edge.
         let box_rect = Rect::from_min_size(
-            pos2(sl + 5.0, y0 + inset),
-            vec2(search_w - 10.0, band_h - inset * 2.0),
+            pos2(sl + 4.0, y0 + inset),
+            vec2(search_w - 8.0, band_h - inset * 2.0),
         );
-        let radius = crate::theme::metrics().flyout_radius;
+        let radius = 10.0f32;
+        let focus = ui.rect_contains_pointer(box_rect);
+        let edge = if focus {
+            crate::theme::colors().accent
+        } else {
+            c.toolbar_line
+        };
         p.rect_filled(box_rect, radius, crate::winui::FIELD());
-        p.rect_stroke(
-            box_rect,
-            radius,
-            egui::Stroke::new(1.0, crate::winui::FIELD_EDGE()),
-            egui::StrokeKind::Inside,
-        );
-        // The magnifying glass, 11 px at the left edge of the box, muted ink.
+        p.rect_stroke(box_rect, radius, egui::Stroke::new(1.0, edge), egui::StrokeKind::Inside);
         let icon_ink = crate::winui::MUTED();
-        let (cx, cy) = (
-            box_rect.left() + 12.0,
-            box_rect.top() + box_rect.height() / 2.0,
-        );
-        p.circle_stroke(
-            egui::pos2(cx, cy - 1.0),
-            4.5,
-            egui::Stroke::new(1.25, icon_ink),
-        );
+        let (cx, cy) = (box_rect.left() + 11.0, box_rect.top() + box_rect.height() / 2.0);
+        p.circle_stroke(egui::pos2(cx, cy - 1.0), 3.4, egui::Stroke::new(1.15, icon_ink));
         p.line_segment(
-            [
-                egui::pos2(cx + 3.3, cy + 2.3),
-                egui::pos2(cx + 6.1, cy + 5.1),
-            ],
-            egui::Stroke::new(1.25, icon_ink),
+            [egui::pos2(cx + 2.4, cy + 1.4), egui::pos2(cx + 4.7, cy + 3.7)],
+            egui::Stroke::new(1.15, icon_ink),
         );
-        // Scope drop-down at the right of the field: the label at the left if it fits, else a
-        // one-letter key.
-        let btn_w = 58.0;
+        // The drop-down at the field's right edge: a tray inside the field, chevron only.
+        let btn_w = 22.0;
         let btn_rect = Rect::from_min_size(
             pos2(box_rect.right() - btn_w, box_rect.top()),
             vec2(btn_w, box_rect.height()),
         );
-        // The scope button (separator + label + chevron).
-        p.rect_filled(
-            Rect::from_min_size(
-                pos2(btn_rect.left(), box_rect.top() + 4.0),
-                vec2(1.0, box_rect.height() - 8.0),
-            ),
-            0.0,
-            crate::winui::FIELD_EDGE(),
-        );
-        let enabled = true;
         let hovered = ui.rect_contains_pointer(btn_rect);
-        let btn_bg: egui::Color32 = if hovered {
+        let ab = if hovered {
             crate::winui::TAB_HOT()
         } else {
             crate::winui::FIELD()
         };
-        let _ = enabled;
-        p.rect_filled(btn_rect.shrink(1.0), radius - 1.0, btn_bg);
-        // Chevron (down or up depending on open state).
+        p.rect_filled(btn_rect.shrink(2.0), 6.0, ab);
         let chevron_y = box_rect.top() + box_rect.height() / 2.0;
-        let chevron_x = btn_rect.right() - 8.0;
+        let chevron_x = btn_rect.left() + btn_rect.width() / 2.0;
         let (left_y, right_y) = if self.tb_scope_open {
-            (chevron_y - 2.0, chevron_y + 2.0)
+            (chevron_y - 1.6, chevron_y + 1.6)
         } else {
-            (chevron_y + 2.0, chevron_y - 2.0)
+            (chevron_y + 1.6, chevron_y - 1.6)
         };
         p.line_segment(
-            [
-                egui::pos2(chevron_x - 4.0, left_y),
-                egui::pos2(chevron_x, chevron_y),
-            ],
-            egui::Stroke::new(1.25, icon_ink),
+            [egui::pos2(chevron_x - 3.6, left_y), egui::pos2(chevron_x, chevron_y)],
+            egui::Stroke::new(1.1, icon_ink),
         );
         p.line_segment(
-            [
-                egui::pos2(chevron_x, chevron_y),
-                egui::pos2(chevron_x + 4.0, right_y),
-            ],
-            egui::Stroke::new(1.25, icon_ink),
+            [egui::pos2(chevron_x, chevron_y), egui::pos2(chevron_x + 3.6, right_y)],
+            egui::Stroke::new(1.1, icon_ink),
         );
-        // The text field.
         let te_rect = Rect::from_min_max(
-            pos2(box_rect.left() + 25.0, box_rect.top() + 3.0),
-            pos2(btn_rect.left() - 4.0, box_rect.bottom() - 3.0),
+            pos2(box_rect.left() + 23.0, box_rect.top() + 3.0),
+            pos2(btn_rect.left() - 2.0, box_rect.bottom() - 3.0),
         );
         let mut search = std::mem::take(&mut self.tb_search);
         let te = egui::TextEdit::singleline(&mut search)
@@ -10751,13 +10716,8 @@ impl App {
             .text_color(crate::winui::LIGHT_TEXT())
             .hint_text(crate::i18n::t("Search downloads..."));
         let resp = ui.put(te_rect, te);
-        // Focus movement: tab cycles focus, escape to the list back.
-        if !resp.has_focus() {
-            // After sync below, set focus when requested by the $|user (the resize trigger below is harmless).
-        }
         let changed = resp.changed();
         self.tb_search = search;
-        // The drop-down panel.
         let chevron_resp = ui.interact(
             btn_rect,
             egui::Id::unique("tb-search-scope"),
@@ -10767,21 +10727,17 @@ impl App {
             self.tb_scope_open = !self.tb_scope_open;
         }
         if self.tb_scope_open {
-            self.scope_panel(ui, pos2(btn_rect.left(), box_rect.bottom() + 2.0), btn_bg);
+            self.scope_panel(ui, pos2(btn_rect.left(), box_rect.bottom() + 2.0), crate::chrome::POPUP_BG());
         } else if resp.lost_focus() {
-            // Maybe pressing outside — close the panel.
             if ui.input(|i| i.pointer.any_pressed())
                 && !box_rect.contains(
-                    ui.input(|i| i.pointer.interact_pos())
-                        .unwrap_or(pos2(0.0, 0.0)),
+                    ui.input(|i| i.pointer.interact_pos()).unwrap_or(pos2(0.0, 0.0)),
                 )
             {
                 self.tb_scope_open = false;
             }
         }
-        // Sync text/scope into the list needle.
         self.sync_needle();
-        // Doesn't participate in layout: caller drew the band itself.
         let _ = (changed, _top_w);
     }
 
