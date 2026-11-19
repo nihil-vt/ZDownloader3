@@ -10839,7 +10839,7 @@ impl App {
                     let label = if prefix.is_empty() {
                         crate::i18n::t(label).to_owned()
                     } else {
-                        format!("{prefix} {}", crate::i18n::t(label))
+                        format!("{prefix}: {}", crate::i18n::t(label))
                     };
                     out.push((label, *cmd));
                 }
@@ -10847,7 +10847,7 @@ impl App {
                     let sub_prefix = if prefix.is_empty() {
                         crate::i18n::t(label).to_owned()
                     } else {
-                        format!("{prefix} {}", crate::i18n::t(label))
+                        format!("{prefix}: {}", crate::i18n::t(label))
                     };
                     for c in children {
                         collect(c, sub_prefix.clone(), out);
