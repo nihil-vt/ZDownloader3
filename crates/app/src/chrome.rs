@@ -1678,9 +1678,13 @@ pub fn toolbar(
     // Icons above labels on two lines, squeezed: the band is half the old one's height and the
     // panes start sooner — more room for content, less room for air.
     let (font, base_w, band_h) = (winui::tahoma(), 66.0f32, 36.0);
-    let band = Rect::from_min_size(pos2(o.x, top + 2.0 + TOOLBAR_PAD), vec2(width, band_h));
+    // 8 px padding: band starts 8 in on the left and there's an 8 px gap above it.
+    let band = Rect::from_min_size(
+        pos2(o.x + TOOLBAR_PAD, top + 2.0 + TOOLBAR_PAD),
+        vec2(width - TOOLBAR_PAD, band_h),
+    );
     p.rect_filled(band, 0.0, WINDOW_BG());
-    let mut x = o.x;
+    let mut x = band.left();
     let mut event = None;
     let is_dropdown = |icon: &Icon| matches!(icon, Icon::Scheduler | Icon::AddTorrent);
     // A toolbar wider than the window (long translations): the longest labels give way first,
@@ -1692,7 +1696,7 @@ pub fn toolbar(
             (ext, if is_dropdown(icon) { 15.0 } else { 0.0 })
         })
         .collect();
-    let cap = label_cap(&natural, base_w, width);
+    let cap = label_cap(&natural, base_w, band.width());
     // For screen readers (#1190: the buttons weren't there at all): a toolbar, named as View's
     // menu item names it, its buttons inside it.
     let bar = ui.interact(
