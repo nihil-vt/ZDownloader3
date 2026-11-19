@@ -10707,6 +10707,10 @@ impl App {
         let resp = ui.put(te_rect, te);
         let changed = resp.changed();
         self.tb_search = search;
+        if !resp.has_focus() {
+            // The first click into the box takes the focus; after that, typing stays in it.
+            ui.memory_mut(|m| m.request_focus(resp.id));
+        }
         // Scope drop-down: shown when narrowing the list, i.e. text present and no commands matched.
         let needle_active = !self.tb_search.trim().is_empty() && self.palette_matches().is_empty();
         if needle_active {
@@ -10750,60 +10754,73 @@ impl App {
         if entries.is_empty() {
             return;
         }
-        let p = ui.painter().clone();
+        let ctx = ui.ctx().clone();
         let row_h = 26.0;
-        // Below the field, capped to the room under it minus a margin, with an "N more" row.
-        let room_below = ui.available_height() - field.bottom() - 8.0;
-        let fits = (room_below / row_h).floor() as usize;
-        let cap = 12usize;
-        let shown = entries.len().min(cap).min(fits.max(3));
+        // Anchor under the field; cap height to the room left in the window; newest-pick style.
+        let screen = ctx.content_rect();
+        let room = (screen.bottom() - field.bottom() - 8.0).max(row_h * 4.0);
+        let max_rows = ((room - 12.0) / row_h).floor() as usize;
+        let mut shown = entries.len().min(12).min(max_rows.max(1));
+        // Keep one row of room for the "…and N more…" footer when the list is clipped.
+        if entries.len() > shown {
+            shown = shown.min(max_rows.saturating_sub(1)).max(1);
+        }
         let clipped = entries.len() - shown;
-        let popup_h = shown as f32 * row_h + if clipped > 0 { row_h } else { 0.0 } + 12.0;
-        let popup = egui::Rect::from_min_size(
-            pos2(field.left(), field.bottom() + 4.0),
-            vec2(field.width(), popup_h),
-        );
-        crate::chrome::popup_surface(&p, popup);
-        for (i, entry) in entries.into_iter().take(shown).enumerate() {
-            let y = popup.top() + 6.0 + row_h * i as f32;
-            let rc = egui::Rect::from_min_size(
-                pos2(popup.left() + 4.0, y),
-                vec2(popup.width() - 8.0, row_h),
-            );
-            let selected = i as i32 == self.palette_current;
-            if selected {
-                p.rect_filled(
-                    rc,
-                    crate::theme::metrics().part_radius,
-                    crate::chrome::POPUP_HOVER(),
-                );
-            }
-            crate::winui::text(
-                &p,
-                rc.left() + 8.0,
-                rc.top() + 17.0,
-                &entry.2,
-                crate::winui::LIGHT_TEXT(),
-            );
-            let resp = ui.interact(rc, egui::Id::unique(("palette", i)), egui::Sense::click());
-            if resp.clicked() {
-                self.palette_current = i as i32;
-                self.palette_fire();
-            }
-        }
-        if clipped > 0 {
-            let more = crate::i18n::fmt(
-                crate::i18n::t("…and {n: more}"),
-                &[("n", &crate::i18n::integer(clipped as u64))],
-            );
-            crate::winui::text(
-                &p,
-                popup.left() + 10.0,
-                popup.bottom() - 8.0,
-                &more,
-                crate::winui::MUTED(),
-            );
-        }
+        let popup_h = 12.0 + shown as f32 * row_h + if clipped > 0 { row_h } else { 0.0 };
+        let width = field.width();
+        let pos = pos2(field.left(), field.bottom() + 4.0);
+        // Foreground overlay under the search bar; not clipped by any parent ui's rect.
+        egui::Area::new(egui::Id::unique("tb_palette"))
+            .order(egui::Order::Foreground)
+            .fixed_pos(pos)
+            .show(&ctx, |ui| {
+                let (rect, _) = ui.allocate_exact_size(vec2(width, popup_h), egui::Sense::hover());
+                let p = ui.painter().clone();
+                crate::chrome::popup_surface(&p, rect);
+                for (i, entry) in entries.iter().take(shown).enumerate() {
+                    let y = rect.top() + 6.0 + row_h * i as f32;
+                    let rc = Rect::from_min_size(
+                        pos2(rect.left() + 4.0, y),
+                        vec2(rect.width() - 8.0, row_h),
+                    );
+                    if i as i32 == self.palette_current {
+                        p.rect_filled(
+                            rc,
+                            crate::theme::metrics().part_radius,
+                            crate::chrome::POPUP_HOVER(),
+                        );
+                    }
+                    crate::winui::text(
+                        &p,
+                        rc.left() + 8.0,
+                        rc.top() + 17.0,
+                        &entry.2,
+                        crate::winui::LIGHT_TEXT(),
+                    );
+                    let resp = ui.interact(
+                        rc,
+                        egui::Id::unique(("tb_palette_row", i)),
+                        egui::Sense::click(),
+                    );
+                    if resp.clicked() {
+                        self.palette_current = i as i32;
+                        self.palette_fire();
+                    }
+                }
+                if clipped > 0 {
+                    let more = crate::i18n::fmt(
+                        crate::i18n::t("…and {n} more…"),
+                        &[("n", &crate::i18n::integer(clipped as u64))],
+                    );
+                    crate::winui::text(
+                        &p,
+                        rect.left() + 10.0,
+                        rect.bottom() - 8.0,
+                        &more,
+                        crate::winui::MUTED(),
+                    );
+                }
+            });
     }
 
     fn palette_matches(&self) -> Vec<(String, crate::app::Cmd, String)> {

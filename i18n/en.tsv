@@ -4678,7 +4678,8 @@
 #. {error} = an error message (keep the braces as they are)
 	{what} could not be installed: {error}	{what} could not be installed: {error}
 #. message or event log entry in the main window
-	…and {n: more}	…and {n: more}
+#. {n} = a number (keep the braces as they are)
+	…and {n} more…	…and {n} more…
 #. column title in the download list in the download list
 #. past participle: when the download was added
 column	Added	Added
