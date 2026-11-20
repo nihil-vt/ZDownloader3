@@ -1816,9 +1816,9 @@ pub fn toolbar(
             }
         }
         let cx = x + bw / 2.0;
-        // 20 × 20 icons, centred; the label sits under them.
-        let icon_rect = Rect::from_min_size(pos2(cx - 10.0, top + 1.0), vec2(20.0, 20.0));
-        let icon_rect = Rect::from_center_size(pos2(cx, top + 11.0), icon_rect.size());
+        // 20 × 20 icons, centered in the band; the label sits under them.
+        let icon_rect =
+            Rect::from_center_size(pos2(cx, band.top() + band_h / 2.0), vec2(20.0, 20.0));
         // Placed, not mirrored: an icon keeps its look.
         icon.image(*enabled).paint_at(ui, winui::rect(icon_rect));
         // Label: x = btn.x + floor((w − ext)/2), +1 for drop-downs, last ink row is the band's bottom cell. Every label
@@ -1827,7 +1827,7 @@ pub fn toolbar(
         if dropdown {
             lx += 1.0;
         }
-        let ly = top + 32.0;
+        let ly = icon_rect.bottom() + 11.0;
         text_font(
             &p,
             font.clone(),
