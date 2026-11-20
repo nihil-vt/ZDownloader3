@@ -5,8 +5,19 @@ Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 
 ## [Unreleased]
 
+### Added
+- **Command palette (search bar is primary command discovery)**: full-width VSCodium-style search bar above the toolbar; type a command (e.g. `theme`, `sort`) and matches show as `category: option` rows (`Theme: Adwaita`) under the field in a capped foreground Area — never off-screen, never in the categories space. Two-pane Shape B: groups + counts left, commands/options right; Up/Down/Left/Right/Enter/Esc navigate; breadcrumb command search (`View → Theme`, `Arrange files`) with fuzzy/prefix/subsequence scoring; `…and {n} more…` footer; Esc clears.
+- **Palette focus fix for Wayland/Hyprland**: no every-frame focus steal on the search field — focus on click or while search text is present (`palette_open`), reducing the Super key latch stuck after `Super+1..9` workspace switches.
+
 ### Changed
-- **Toolbar**: buttons now fit their icon and label — band 36 → 48 px, icon + label centred as one unit in each button, hover highlight and focus ring cover the whole button, and pressing shifts the assets one pixel down-right with the click. Tabs and panes track the taller toolbar automatically.
+- **Menu bar removed**: every command now lives behind a single toolbar **Menu** button + the search bar; `alt`+letter / `F10` mnemonics gone.
+- **Search narrows the list**: persistent search box filters the downloads list in place; dropdown picks the column (All / File / Status / Source).
+- **Toolbar halved**: 8 px left padding, band right edge flush, buttons start at `band.left()`; `label_cap` uses band width. Icons + label centred as one unit in each button (band 36 → 48 px); hover highlight and focus ring cover the whole button; pressing shifts the assets one pixel down-right with the click. One **Scheduler** split button with chevron (`Scheduler…`, `Start Queue`, `Stop Queue`).
+- **Interface font on Linux**: bundled JetBrains Mono (OFL), matching the fork's look; Tahoma fallback resolves to the bundled Mono.
+- **Artifact names**: ASCII `zDownloader3-*` only (no superscript `³`); release name dance dropped.
+
+### Fixed
+- **Super key latched/stuck** after moving a window between workspaces with `Super+1..9` on Wayland/Hyprland — mitigation via palette/top-bar focus handling.
 
 ## [0.6.0-alpha.4] - 2026-11-17
 
