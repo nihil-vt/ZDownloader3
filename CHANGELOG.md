@@ -3,6 +3,11 @@
 Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 `.github/workflows/release.yml`).
 
+## [Unreleased]
+
+### Changed
+- **Toolbar**: buttons now fit their icon and label — band 36 → 48 px, icon + label centred as one unit in each button, hover highlight and focus ring cover the whole button, and pressing shifts the assets one pixel down-right with the click. Tabs and panes track the taller toolbar automatically.
+
 ## [0.6.0-alpha.4] - 2026-11-17
 
 Alpha — for testing only. Do not trust for downloads you cannot afford to lose. Bug reports welcome.
