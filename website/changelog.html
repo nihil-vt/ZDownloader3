@@ -6,15 +6,45 @@
 <link rel="shortcut icon" href="assets/icon.svg">
 <title>Changelog — zDownloader³</title>
 <link rel="stylesheet" href="style.css">
+<script>(function(){var key='theme',root=document.documentElement,stored=localStorage.getItem(key);var dark=stored?stored==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(dark)root.dataset.theme='dark';document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('theme-toggle');if(!btn)return;btn.textContent=dark?'☀️ light':'🌙 dark';btn.addEventListener('click',function(){var isDark=root.dataset.theme==='dark';if(isDark){root.removeAttribute('data-theme');localStorage.setItem(key,'light');btn.textContent='🌙 dark';}else{root.dataset.theme='dark';localStorage.setItem(key,'dark');btn.textContent='☀️ light';}});});})();</script>
 </head>
 <body>
 <main>
-<h1 class="product">Changelog</h1>
-<p class="audible">The fork's ledger.</p>
+<header class="site-head">
+  <h1 class="product">Changelog</h1>
+  <button id="theme-toggle" class="theme-toggle" aria-label="toggle dark mode">🌙 dark</button>
+  <p class="tagline">The fork's ledger.</p>
+</header>
+
+<hr class="chunk">
+
+<div class="section">
 <h2>Changelog</h2>
 
 <p>Each release&#x27;s notes on GitHub come from its section here (<code>## [X.Y.Z]</code>, see</p>
 <p><code>.github/workflows/release.yml</code>).</p>
+
+<h3>[Unreleased]</h3>
+
+<h4>Added</h4>
+<ul>
+<li><strong>Command palette (search bar is primary command discovery)</strong>: full-width VSCodium-style search bar above the toolbar; type a command (e.g. <code>theme</code>, <code>sort</code>) and matches show as <code>category: option</code> rows (<code>Theme: Adwaita</code>) under the field in a capped foreground Area — never off-screen, never in the categories space. Two-pane Shape B: groups + counts left, commands/options right; Up/Down/Left/Right/Enter/Esc navigate; breadcrumb command search (<code>View → Theme</code>, <code>Arrange files</code>) with fuzzy/prefix/subsequence scoring; <code>…and {n} more…</code> footer; Esc clears.</li>
+<li><strong>Palette focus fix for Wayland/Hyprland</strong>: no every-frame focus steal on the search field — focus on click or while search text is present (<code>palette_open</code>), reducing the Super key latch stuck after <code>Super+1..9</code> workspace switches.</li>
+</ul>
+
+<h4>Changed</h4>
+<ul>
+<li><strong>Menu bar removed</strong>: every command now lives behind a single toolbar <strong>Menu</strong> button + the search bar; <code>alt</code>+letter / <code>F10</code> mnemonics gone.</li>
+<li><strong>Search narrows the list</strong>: persistent search box filters the downloads list in place; dropdown picks the column (All / File / Status / Source).</li>
+<li><strong>Toolbar halved</strong>: 8 px left padding, band right edge flush, buttons start at <code>band.left()</code>; <code>label_cap</code> uses band width. Icons + label centred as one unit in each button (band 36 → 48 px); hover highlight and focus ring cover the whole button; pressing shifts the assets one pixel down-right with the click. One <strong>Scheduler</strong> split button with chevron (<code>Scheduler…</code>, <code>Start Queue</code>, <code>Stop Queue</code>).</li>
+<li><strong>Interface font on Linux</strong>: bundled JetBrains Mono (OFL), matching the fork&#x27;s look; Tahoma fallback resolves to the bundled Mono.</li>
+<li><strong>Artifact names</strong>: ASCII <code>zDownloader3-*</code> only (no superscript <code>³</code>); release name dance dropped.</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li><strong>Super key latched/stuck</strong> after moving a window between workspaces with <code>Super+1..9</code> on Wayland/Hyprland — mitigation via palette/top-bar focus handling.</li>
+</ul>
 
 <h3>[0.6.0-alpha.4] - 2026-11-17</h3>
 
@@ -2423,7 +2453,8 @@
 <li><strong>Help</strong> opens the <a href="docs/README.md">user guide and tutorials</a>.</li>
 </ul>
 
-<p class="footer"><a href="index.html">← Home</a> · <a href="why.html">Why</a> · <a href="docs.html">Docs</a> · <a href="roadmap.html">Roadmap</a> · <a href="changelog.html">Changelog</a></p>
+</div>
+<footer class="footer"><a href="index.html">← home</a> · <a href="why.html">why this fork</a> · <a href="docs.html">docs</a> · <a href="roadmap.html">roadmap</a> · <a href="changelog.html">changelog</a></footer>
 </main>
 </body>
 </html>
