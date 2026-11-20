@@ -1827,7 +1827,7 @@ pub fn toolbar(
         if dropdown {
             lx += 1.0;
         }
-        let ly = icon_rect.bottom() + 11.0;
+        let ly = band.bottom() + 5.0;
         text_font(
             &p,
             font.clone(),
