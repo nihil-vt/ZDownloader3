@@ -1637,7 +1637,7 @@ pub enum ToolbarEvent {
 // The top search bar's height (above the toolbar).
 pub const TOP_H: f32 = 38.0;
 /// The toolbar's band height, including its top border line: 2 px line + 36 px band.
-pub const TOOLBAR_H: f32 = 2.0 + 36.0;
+pub const TOOLBAR_H: f32 = 2.0 + 48.0;
 /// Padding around the toolbar band: 8 px above and below the icons.
 pub const TOOLBAR_PAD: f32 = 8.0;
 
@@ -1674,10 +1674,10 @@ pub fn toolbar(
         c.toolbar_line_light,
     );
     // Both modes (light-main.md; dark changes only colours): Tahoma labels, 66 px buttons, a
-    // 68 px band.
-    // Icons above labels on two lines, squeezed: the band is half the old one's height and the
-    // panes start sooner — more room for content, less room for air.
-    let (font, base_w, band_h) = (winui::tahoma(), 66.0f32, 36.0);
+    // 50 px band.
+    // The band is the button's full height so hover / focus / press cover it all; icon and label
+    // are centred as one unit inside it (user request: buttons big enough to fit both).
+    let (font, base_w, band_h) = (winui::tahoma(), 66.0f32, 48.0);
     // 8 px padding: band starts 8 in on the left and there's an 8 px gap above it.
     let band = Rect::from_min_size(
         pos2(o.x + TOOLBAR_PAD, top + 2.0 + TOOLBAR_PAD),
@@ -1755,22 +1755,24 @@ pub fn toolbar(
                 n.add_action(Action::Expand);
             });
             if ui.input(|inp| inp.has_accesskit_action_request(resp.id, Action::Expand)) {
-                event = Some(ToolbarEvent::Drop(i, pos2(winui::mx(x), o.y + 40.0)));
+                event = Some(ToolbarEvent::Drop(i, pos2(winui::mx(x), band.bottom())));
             }
         }
         if winui::focus_target(ui.ctx(), resp.id) {
             event = Some(ToolbarEvent::Keys(i));
         }
         let past_button = |q: Pos2| winui::mx(q.x) >= x + bw;
+        // Pressed anywhere on this button (main or arrow part of a split button): the assets
+        // move with the click.
+        let down = resp.is_pointer_button_down_on();
+        let offset = if down { pos2(1.0, 1.0) } else { pos2(0.0, 0.0) };
         if *enabled && resp.hovered() {
-            // Hover (IDM 6.42, captured 2026-10-30): the button's own width, from the band's top,
+            // Hover (IDM 6.42, captured 2026-10-30): the button's own width, full band height,
             // square. Dark: a flat #33414d. Light: Windows' hot button, #e5f3ff with a 1 px
-            // #cce8ff border. As much room under the label as above the icon (user request
-            // 2026-11-01: IDM's 61 px left the label on the bottom edge): 65 tall, inside the
-            // band. Beyond IDM (which lights only the button part, user
+            // #cce8ff border. Beyond IDM (which lights only the button part, user
             // request 2026-10-29): a drop-down is a split button — the part under the pointer is
             // lit (pressed while the mouse is down), the other part faintly, a 1 px divider between.
-            let h = 33.0;
+            let h = band_h;
             let (hot_c, faint_c, down_c, edge_c, border_c) = (
                 c.toolbar_hot,
                 c.toolbar_hot_faint,
@@ -1779,7 +1781,6 @@ pub fn toolbar(
                 c.toolbar_hot_border,
             );
             let on_arrow = dropdown && resp.hover_pos().is_some_and(past_button);
-            let down = resp.is_pointer_button_down_on();
             let main = winui::rect(Rect::from_min_size(pos2(x, band.top()), vec2(bw, h)));
             // The arrow part starts on the button's last column: their borders share one line.
             let arrow = winui::rect(Rect::from_min_size(
@@ -1816,20 +1817,26 @@ pub fn toolbar(
             }
         }
         let cx = x + bw / 2.0;
-        // 20 × 20 icons, centered in the band; the label sits under them.
-        // The icon sits 2 px above the band's top edge; the label under it inside the band —
-        // the icon+label unit is centered in the band.
-        let icon_rect =
-            Rect::from_center_size(pos2(cx, band.top() + band_h / 2.0 - 6.0), vec2(20.0, 20.0));
+        // Icon above label, centred as one unit inside the button (band_h tall): icon 20 × 20,
+        // GAP to the label's ink top, TEXT_H label ink height, unit vertically centred.
+        const ICON: f32 = 20.0;
+        const GAP: f32 = 6.0; // icon bottom → label ink top
+        const TEXT_H: f32 = 8.0; // label ink height (baseline is the last ink row)
+        let group_h = ICON + GAP + TEXT_H;
+        let group_top = band.top() + ((band_h - group_h) / 2.0).floor();
+        let icon_rect = Rect::from_min_size(
+            pos2(cx - ICON / 2.0 + offset.x, group_top + offset.y),
+            vec2(ICON, ICON),
+        );
         // Placed, not mirrored: an icon keeps its look.
         icon.image(*enabled).paint_at(ui, winui::rect(icon_rect));
-        // Label: x = btn.x + floor((w − ext)/2), +1 for drop-downs, last ink row is the band's bottom cell. Every label
-        // on one line (IDM draws the drop-downs' 1 px lower: in one row it read as a mistake).
-        let mut lx = x + ((bw - ext) / 2.0).floor();
+        // Label: x = btn.x + floor((w − ext)/2), +1 for drop-downs, pressed offset applied.
+        // Baseline sits at the group's bottom cell, i.e. the label ink runs just under the icon.
+        let mut lx = x + ((bw - ext) / 2.0).floor() + offset.x;
         if dropdown {
             lx += 1.0;
         }
-        let ly = band.bottom() - 2.0;
+        let ly = group_top + ICON + GAP + TEXT_H + offset.y;
         text_font(
             &p,
             font.clone(),
@@ -1839,16 +1846,31 @@ pub fn toolbar(
             if *enabled { TEXT() } else { TB_DISABLED() },
         );
         if dropdown {
-            let ax = x + bw + 4.0;
-            let ay = top + 18.0;
+            let ax = x + bw + 4.0 + offset.x;
+            // Arrow centred vertically in the button (4 px tall rows).
+            let ay = band.top() + ((band_h - 4.0) / 2.0).floor() + offset.y;
             // The split's divider at rest (user choice 2026-10-29, "B"): a classic etched
             // toolbar separator — a shadow line and a highlight beside it — 24 px tall, centred
             // on the arrow; the hover draws the full divider instead.
             if !(*enabled && resp.hovered()) {
                 let (shadow, light) = (c.toolbar_split_shadow, c.toolbar_split_light);
                 let (y0, y1) = (ay - 8.0, ay + 7.0);
-                winui::fill_l(&p, x + bw - 1.0, y0, x + bw - 1.0, y1, shadow);
-                winui::fill_l(&p, x + bw, y0, x + bw, y1, light);
+                winui::fill_l(
+                    &p,
+                    x + bw - 1.0 + offset.x,
+                    y0 + offset.y,
+                    x + bw - 1.0 + offset.x,
+                    y1 + offset.y,
+                    shadow,
+                );
+                winui::fill_l(
+                    &p,
+                    x + bw + offset.x,
+                    y0 + offset.y,
+                    x + bw + offset.x,
+                    y1 + offset.y,
+                    light,
+                );
             }
             for (row, half) in [3.0f32, 2.0, 1.0, 0.0].iter().enumerate() {
                 winui::fill_l(
@@ -1869,10 +1891,10 @@ pub fn toolbar(
         // The arrow is a button of its own (a split button): its menu lists every queue, so it
         // works while the main one's button is greyed.
         if resp.clicked() && (*enabled || on_arrow) {
-            // The drop-down menu's top-left is the button's left edge at client y 85; in RTL its
-            // top-right at the button's right edge.
+            // The drop-down menu's top-left is the button's left edge just below the band; in RTL
+            // its top-right at the button's right edge.
             event = Some(if on_arrow {
-                ToolbarEvent::Drop(i, pos2(winui::mx(x), o.y + 40.0))
+                ToolbarEvent::Drop(i, pos2(winui::mx(x), band.bottom()))
             } else {
                 ToolbarEvent::Click(i)
             });
@@ -1882,7 +1904,7 @@ pub fn toolbar(
         // use (winui::focus_ring).
         if keys == Some(i) {
             winui::keys_with(ui.ctx(), resp.id);
-            let square = Rect::from_min_size(pos2(x, band.top()), vec2(total, 65.0));
+            let square = Rect::from_min_size(pos2(x, band.top()), vec2(total, band_h));
             winui::focus_ring(&p, winui::rect(square.shrink(3.0)));
         }
         x += total;
@@ -1892,7 +1914,10 @@ pub fn toolbar(
     {
         let enabled = buttons.get(k).is_some_and(|b| b.2);
         let dropdown = buttons.get(k).is_some_and(|b| is_dropdown(&b.0));
-        let at = pos2(winui::mx(lefts.get(k).copied().unwrap_or(o.x)), o.y + 40.0);
+        let at = pos2(
+            winui::mx(lefts.get(k).copied().unwrap_or(o.x)),
+            o.y + 2.0 + TOOLBAR_PAD + band_h,
+        );
         event = ui.input_mut(|i| toolbar_keys(i, k, buttons.len(), enabled, dropdown, at));
     }
     event
